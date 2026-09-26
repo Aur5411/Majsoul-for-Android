@@ -1372,63 +1372,13 @@
 
     invoke-virtual {v2, v4, v10}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    const/16 v4, 0xef
 
-    const/16 v10, 0xed
+    # === 更新按钮已彻底移除 ===
+    # 原「检查/更新」按钮（字段 g）在此创建并注册 C3 点击监听。
+    # 该按钮点击后进入 C3 case 0 / case 4，构建复杂更新对话框，
+    # 实测会闪退。现在改为后台静默自动更新，不再需要此控件。
+    # 字段 g 保持 null，h() 内部的 if-eqz 守卫会让按钮相关代码全部跳过。
 
-    const/16 v12, 0xeb
-
-    invoke-static {v12, v4, v10}, Landroid/graphics/Color;->rgb(III)I
-
-    move-result v4
-
-    const-string v10, "检查"
-
-    invoke-static {v0, v10, v4, v8}, Lq/Q4;->d(Landroid/content/Context;Ljava/lang/String;II)Landroid/widget/TextView;
-
-    move-result-object v4
-
-    iput-object v4, v0, Lcom/qiuhui/mahjong/MainActivity;->g:Landroid/widget/TextView;
-
-    invoke-virtual {v4, v7}, Landroid/widget/TextView;->setTextSize(F)V
-
-    iget-object v4, v0, Lcom/qiuhui/mahjong/MainActivity;->g:Landroid/widget/TextView;
-
-    const/high16 v10, 0x41400000  # 12.0f
-
-    invoke-static {v0, v10}, Lq/Q4;->b(Landroid/content/Context;F)I
-
-    move-result v12
-
-    const/high16 v14, 0x40e00000  # 7.0f
-
-    invoke-static {v0, v14}, Lq/Q4;->b(Landroid/content/Context;F)I
-
-    move-result v15
-
-    invoke-static {v0, v10}, Lq/Q4;->b(Landroid/content/Context;F)I
-
-    move-result v7
-
-    invoke-static {v0, v14}, Lq/Q4;->b(Landroid/content/Context;F)I
-
-    move-result v10
-
-    invoke-virtual {v4, v12, v15, v7, v10}, Landroid/widget/TextView;->setPadding(IIII)V
-
-    iget-object v4, v0, Lcom/qiuhui/mahjong/MainActivity;->g:Landroid/widget/TextView;
-
-    new-instance v7, Lq/C3;
-
-    const/4 v10, 0x0
-
-    invoke-direct {v7, v0, v10}, Lq/C3;-><init>(Lcom/qiuhui/mahjong/MainActivity;I)V
-
-    invoke-virtual {v4, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v4, v0, Lcom/qiuhui/mahjong/MainActivity;->g:Landroid/widget/TextView;
-
-    invoke-virtual {v2, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
 

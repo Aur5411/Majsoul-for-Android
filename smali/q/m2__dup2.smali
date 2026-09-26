@@ -620,18 +620,53 @@
     goto :goto_228
 
     :pswitch_215  #0x1
-    # === 自动更新版：发现新版本。m=不在更新中（否则点击会被 C3 直接拦掉）===
-    iput-boolean v4, v0, Lcom/qiuhui/mahjong/MainActivity;->m:Z
+    # === 后台静默自动更新：发现新版本，立即自动开始更新 ===
+    # m = 1（更新进行中，防止重复触发）；l = 0（不再等待用户点按钮）
+    iput-boolean v3, v0, Lcom/qiuhui/mahjong/MainActivity;->m:Z
 
-    iput-boolean v3, v0, Lcom/qiuhui/mahjong/MainActivity;->l:Z
+    iput-boolean v4, v0, Lcom/qiuhui/mahjong/MainActivity;->l:Z
 
-    # === 保留「更新」按钮，可点击触发更新 ===
-    const-string v2, "更新"
+    # 状态栏只显示进度文字，按钮文字传空串（按钮控件已删除）
+    const-string v2, "发现新版本 自动更新中"
 
-    invoke-virtual {v0, v9, v2, v3, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V
+    const-string v5, ""
+
+    invoke-virtual {v0, v2, v5, v4, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V
 
     invoke-static {}, Lq/DGH;->install()V
 
+    # --- 自动启动更新线程（等价于原「确定更新」按钮的效果，但无需用户确认）---
+    sget-object v2, Lq/C4;->c:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    invoke-virtual {v2, v4, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_auto_skip
+
+    iget-object v2, v0, Lcom/qiuhui/mahjong/MainActivity;->p:Lq/A3;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    new-instance v6, Ljava/lang/Thread;
+
+    new-instance v7, Lq/m2;
+
+    const/4 v8, 0x5
+
+    invoke-direct {v7, v2, v5, v8}, Lq/m2;-><init>(Ljava/lang/Object;Ljava/lang/Object;I)V
+
+    const-string v2, "qiuhui-majsouldata-auto"
+
+    invoke-direct {v6, v7, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
+
+    invoke-virtual {v6, v3}, Ljava/lang/Thread;->setDaemon(Z)V
+
+    invoke-virtual {v6}, Ljava/lang/Thread;->start()V
+
+    :cond_auto_skip
     goto :goto_228
 
     :pswitch_21f  #0x0
