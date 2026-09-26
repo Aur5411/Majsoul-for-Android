@@ -541,9 +541,10 @@
     goto :goto_228
 
     :cond_1d5
+    # === 自动更新版：更新失败，保留「重试」按钮可点 ===
     const-string v2, "重试"
 
-    invoke-virtual {v0, v9, v2, v4, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V
+    invoke-virtual {v0, v9, v2, v3, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V
 
     goto :goto_228
 
@@ -558,7 +559,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v2, v8, v4, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V
+    invoke-virtual {v0, v2, v8, v3, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V
 
     invoke-virtual {v0, v5, v3}, Lcom/qiuhui/mahjong/MainActivity;->i(Lq/A4;Z)V
 
@@ -611,30 +612,12 @@
 
     iput-boolean v3, v0, Lcom/qiuhui/mahjong/MainActivity;->l:Z
 
+    # === 自动更新版：保留「更新」按钮，可点击触发更新 ===
     const-string v2, "更新"
 
-    invoke-virtual {v0, v9, v2, v4, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V
+    invoke-virtual {v0, v9, v2, v3, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V
 
-    # === 自动更新：不显示按钮，直接起线程执行 case 5 ===
     invoke-static {}, Lq/DGH;->install()V
-
-    iget-object v10, v0, Lcom/qiuhui/mahjong/MainActivity;->p:Lq/A3;
-
-    new-instance v11, Ljava/lang/Thread;
-
-    new-instance v12, Lq/m2;
-
-    const/4 v13, 0x5
-
-    invoke-direct {v12, v10, v0, v13}, Lq/m2;-><init>(Ljava/lang/Object;Ljava/lang/Object;I)V
-
-    const-string v13, "qiuhui-majsouldata-auto"
-
-    invoke-direct {v11, v12, v13}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
-
-    invoke-virtual {v11, v3}, Ljava/lang/Thread;->setDaemon(Z)V
-
-    invoke-virtual {v11}, Ljava/lang/Thread;->start()V
 
     goto :goto_228
 
@@ -643,6 +626,7 @@
 
     iput-boolean v4, v0, Lcom/qiuhui/mahjong/MainActivity;->l:Z
 
+    # === 检查中：按钮禁用 ===
     const-string v2, "检查中"
 
     invoke-virtual {v0, v9, v2, v4, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V

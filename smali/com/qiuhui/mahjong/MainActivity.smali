@@ -516,6 +516,25 @@
 
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    # === 不更新版：按钮文字为空串时彻底隐藏按钮（GONE，不占位）===
+    iget-object p1, p0, Lcom/qiuhui/mahjong/MainActivity;->g:Landroid/widget/TextView;
+
+    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_hvis
+
+    const/16 v0, 0x8
+
+    goto :goto_hvis
+
+    :cond_hvis
+    const/4 v0, 0x0
+
+    :goto_hvis
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+
     iget-object p1, p0, Lcom/qiuhui/mahjong/MainActivity;->g:Landroid/widget/TextView;
 
     invoke-virtual {p1, p3}, Landroid/widget/TextView;->setEnabled(Z)V
