@@ -395,6 +395,9 @@
 
     invoke-static {v0, v5}, Lq/C4;->f(Lq/A3;Lq/A4;)V
 
+    # === 更新已成功安装：停止重试、清零退避 ===
+    invoke-static {}, Lq/DGRetry;->ok()V
+
     goto/16 :goto_6d
 
     :cond_159
@@ -436,6 +439,9 @@
 
     invoke-static {v0, v4}, Lq/C4;->f(Lq/A3;Lq/A4;)V
 
+    # === 网络失败：安排自动重试（下载阶段）===
+    invoke-static {v2, v0}, Lq/DGRetry;->schedule(Landroid/content/Context;Lq/A3;)V
+
     goto/16 :goto_6d
 
     :catch_17b
@@ -453,6 +459,9 @@
 
     invoke-static {v0, v3}, Lq/C4;->f(Lq/A3;Lq/A4;)V
 
+    # === 网络失败：安排自动重试（连接阶段）===
+    invoke-static {v2, v0}, Lq/DGRetry;->schedule(Landroid/content/Context;Lq/A3;)V
+
     goto/16 :goto_6d
 
     :catch_18d
@@ -469,6 +478,9 @@
     invoke-direct {v4, v5, v2, v9, v3}, Lq/A4;-><init>(ILjava/lang/String;ILjava/lang/String;)V
 
     invoke-static {v0, v4}, Lq/C4;->f(Lq/A3;Lq/A4;)V
+
+    # === 高延迟/对局中：安排自动重试（超时阶段）===
+    invoke-static {v2, v0}, Lq/DGRetry;->schedule(Landroid/content/Context;Lq/A3;)V
     :try_end_19d
     .catchall {:try_start_169 .. :try_end_19d} :catchall_74
 

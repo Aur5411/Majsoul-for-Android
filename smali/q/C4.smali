@@ -437,7 +437,24 @@
     move-result-wide v0
 
     :try_start_8
-    const-string v2, "https://gh-proxy.com/https://api.github.com/repos/Avenshy/MajsoulData/releases/latest"
+    # === 多线路：查询 URL 前缀取自线路池，失败后由重试器切换线路 ===
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {}, Lq/DGLines;->current()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "https://api.github.com/repos/Avenshy/MajsoulData/releases/latest"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-static {v2}, Lq/C4;->g(Ljava/lang/String;)Ljava/net/HttpURLConnection;
 
@@ -1033,12 +1050,14 @@
     if-eqz p0, :cond_67
 
     :cond_61
-    # === 网络修复：原始 URL 已通过白名单校验，此处为下载 URL 追加 gh-proxy 代理前缀 ===
+    # === 多线路：原始 URL 已通过白名单校验，此处按当前线路拼前缀 ===
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p2, "https://gh-proxy.com/"
+    invoke-static {}, Lq/DGLines;->current()Ljava/lang/String;
+
+    move-result-object p2
 
     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

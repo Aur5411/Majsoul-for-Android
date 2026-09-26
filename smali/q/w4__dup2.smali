@@ -90,6 +90,9 @@
 
     invoke-direct {v5, v7, v1, v2, v8}, Lq/A4;-><init>(ILjava/lang/String;ILjava/lang/String;)V
 
+    # === 已达最新：停止重试，清零退避 ===
+    invoke-static {}, Lq/DGRetry;->ok()V
+
     goto/16 :goto_b4
 
     :catchall_35
@@ -177,6 +180,9 @@
 
     invoke-direct {v5, v7, v6, v2, v8}, Lq/A4;-><init>(ILjava/lang/String;ILjava/lang/String;)V
 
+    # === 已是最新（版本一致，无需下载）：停止重试 ===
+    invoke-static {}, Lq/DGRetry;->ok()V
+
     goto :goto_b4
 
     :cond_86
@@ -248,6 +254,11 @@
 
     invoke-direct {v5, v3, v0, v2, v1}, Lq/A4;-><init>(ILjava/lang/String;ILjava/lang/String;)V
 
+    # === 检查失败：安排自动重试 ===
+    iget-object v1, p0, Lq/w4;->b:Landroid/content/Context;
+
+    invoke-static {v1}, Lq/DGRetry;->scheduleCtx(Landroid/content/Context;)V
+
     goto :goto_b4
 
     :catch_c6
@@ -260,6 +271,11 @@
     const-string v1, "⚠当前网络无法连接更新服务器，您可以一段时间后重试，或者建议您“科学上网”后重试。"
 
     invoke-direct {v5, v3, v0, v2, v1}, Lq/A4;-><init>(ILjava/lang/String;ILjava/lang/String;)V
+
+    # === 网络不通：安排自动重试（会切换线路）===
+    iget-object v1, p0, Lq/w4;->b:Landroid/content/Context;
+
+    invoke-static {v1}, Lq/DGRetry;->scheduleCtx(Landroid/content/Context;)V
 
     goto :goto_b4
 
@@ -275,6 +291,11 @@
     invoke-direct {v5, v3, v0, v2, v1}, Lq/A4;-><init>(ILjava/lang/String;ILjava/lang/String;)V
     :try_end_dd
     .catchall {:try_start_ba .. :try_end_dd} :catchall_35
+
+    # === 高延迟：安排自动重试 ===
+    iget-object v1, p0, Lq/w4;->b:Landroid/content/Context;
+
+    invoke-static {v1}, Lq/DGRetry;->scheduleCtx(Landroid/content/Context;)V
 
     goto :goto_b4
 
