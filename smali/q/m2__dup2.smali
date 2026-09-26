@@ -608,11 +608,12 @@
     goto :goto_228
 
     :pswitch_215  #0x1
-    iput-boolean v3, v0, Lcom/qiuhui/mahjong/MainActivity;->m:Z
+    # === 自动更新版：发现新版本。m=不在更新中（否则点击会被 C3 直接拦掉）===
+    iput-boolean v4, v0, Lcom/qiuhui/mahjong/MainActivity;->m:Z
 
     iput-boolean v3, v0, Lcom/qiuhui/mahjong/MainActivity;->l:Z
 
-    # === 自动更新版：保留「更新」按钮，可点击触发更新 ===
+    # === 保留「更新」按钮，可点击触发更新 ===
     const-string v2, "更新"
 
     invoke-virtual {v0, v9, v2, v3, v4}, Lcom/qiuhui/mahjong/MainActivity;->h(Ljava/lang/String;Ljava/lang/String;ZZ)V
