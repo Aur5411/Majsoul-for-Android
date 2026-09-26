@@ -184,6 +184,13 @@
 .method public static b(Landroid/content/Context;Lq/A3;)V
     .registers 8
 
+    # === 阶段埋点：进入更新检查入口 ===
+    invoke-static {}, Lq/DGH;->install()V
+
+    const-string v6, "[阶段] C4.b 更新入口"
+
+    invoke-static {v6}, Lq/DG;->w(Ljava/lang/String;)V
+
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p0

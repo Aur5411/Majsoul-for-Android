@@ -244,6 +244,11 @@
 
     :catch_ba
     :try_start_ba
+    # === 阶段埋点：普通异常分支 ===
+    const-string v11, "[阶段] w4.catch_ba 检查异常"
+
+    invoke-static {v11}, Lq/DG;->w(Ljava/lang/String;)V
+
     invoke-static {v0}, Lq/C4;->e(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
@@ -262,6 +267,11 @@
     goto :goto_b4
 
     :catch_c6
+    # === 阶段埋点：网络不通分支 ===
+    const-string v11, "[阶段] w4.catch_c6 网络不通"
+
+    invoke-static {v11}, Lq/DG;->w(Ljava/lang/String;)V
+
     invoke-static {v0}, Lq/C4;->e(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
@@ -280,6 +290,11 @@
     goto :goto_b4
 
     :catch_d2
+    # === 阶段埋点：高延迟分支 ===
+    const-string v11, "[阶段] w4.catch_d2 高延迟"
+
+    invoke-static {v11}, Lq/DG;->w(Ljava/lang/String;)V
+
     invoke-static {v0}, Lq/C4;->e(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0

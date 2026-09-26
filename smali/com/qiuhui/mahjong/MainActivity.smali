@@ -728,6 +728,15 @@
 
     move-object/from16 v0, p0
 
+    # === 崩溃兜底前移到最开头：保证启动阶段任何异常都能落盘 ===
+    # 说明：DGH.install() 幂等（内部有 installed 标志守卫），重复调用无副作用。
+    invoke-static {}, Lq/DGH;->install()V
+
+    # === 阶段埋点：确认兜底已装上、onCreate 已进入 ===
+    const-string v1, "[阶段] MainActivity.onCreate 进入"
+
+    invoke-static {v1}, Lq/DG;->w(Ljava/lang/String;)V
+
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     invoke-static/range {p0 .. p0}, Lq/k3;->n(Landroid/app/Activity;)V
