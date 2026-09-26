@@ -1794,9 +1794,9 @@
 
     if-eqz v1, :cond_skin_done
 
-    const-string v1, "① 已安排皮肤检查"
+    const-string v1, "[阶段] 冷启动已安排皮肤检查"
 
-    invoke-static {v1}, Lq/DG;->toast(Ljava/lang/String;)V
+    invoke-static {v1}, Lq/DG;->w(Ljava/lang/String;)V
 
     iget-object v1, v0, Lcom/qiuhui/mahjong/MainActivity;->a:Landroid/widget/LinearLayout;
 

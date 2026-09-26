@@ -41,7 +41,29 @@
 
 # virtual methods
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    .locals 3
+    .locals 4
+
+    # === 关键修复：区分主线程 / 后台线程 ===
+    # 后台线程（如皮肤更新线程）抛未捕获异常时，原逻辑会弹窗 + sleep + 交还默认 handler，
+    # 而默认 handler 会直接杀死整个进程 —— 表现为「App 闪退」。
+    # 正确做法：后台线程崩溃只记日志并吞掉，进程继续存活（这与未安装兜底时的行为一致）。
+    # 主线程崩溃才走完整的「弹窗 + 交还默认 handler」流程（此时进程本来就保不住了）。
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
+
+    move-result-object v3
+
+    const/4 v0, 0x1
+
+    if-ne v3, p1, :cond_is_main
+
+    const/4 v0, 0x0
+
+    :cond_is_main
+    move v3, v0
 
     .line 21
     :try_start_0
@@ -92,6 +114,40 @@
 
     :goto_1
     nop
+
+    # === 后台线程崩溃：日志已记录，到此为止，不弹窗、不杀进程 ===
+    if-eqz v3, :cond_bg_done
+
+    # 若是皮肤更新线程（qiuhui-majsouldata-check / -auto），安排一次重试，
+    # 让「一直重试直到成功」在异常场景下同样成立。
+    if-nez p1, :cond_bg_end
+
+    invoke-virtual {p1}, Ljava/lang/Thread;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-nez v0, :cond_bg_end
+
+    const-string v1, "qiuhui-majsouldata"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_bg_end
+
+    invoke-static {}, Lq/DG;->ctx()Landroid/content/Context;
+
+    move-result-object v0
+
+    if-nez v0, :cond_bg_end
+
+    invoke-static {v0}, Lq/DGRetry;->scheduleCtx(Landroid/content/Context;)V
+
+    :cond_bg_end
+    return-void
+
+    :cond_bg_done
 
     .line 25
     :try_start_1

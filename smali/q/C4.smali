@@ -191,10 +191,6 @@
 
     invoke-static {v6}, Lq/DG;->w(Ljava/lang/String;)V
 
-    const-string v6, "② 检查线程启动"
-
-    invoke-static {v6}, Lq/DG;->toast(Ljava/lang/String;)V
-
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p0

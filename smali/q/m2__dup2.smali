@@ -621,9 +621,9 @@
 
     :pswitch_215  #0x1
     # === 阶段埋点：状态码 2（发现全皮肤更新）已到达 UI 层 ===
-    const-string v2, "③ 发现更新→自动下载"
+    const-string v2, "[阶段] m2 发现新版 -> 自动下载"
 
-    invoke-static {v2}, Lq/DG;->toast(Ljava/lang/String;)V
+    invoke-static {v2}, Lq/DG;->w(Ljava/lang/String;)V
 
     # === 后台静默自动更新：发现新版本，立即自动开始更新 ===
     # m = 1（更新进行中，防止重复触发）；l = 0（不再等待用户点按钮）
