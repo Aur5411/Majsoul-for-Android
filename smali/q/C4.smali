@@ -251,6 +251,8 @@
     goto :goto_2f
 
     :cond_3f
+    invoke-static {}, Lq/DGH;->install()V
+
     new-instance p1, Ljava/lang/Thread;
 
     new-instance v0, Lq/w4;
@@ -435,7 +437,7 @@
     move-result-wide v0
 
     :try_start_8
-    const-string v2, "https://api.github.com/repos/Avenshy/MajsoulData/releases/latest"
+    const-string v2, "https://gh-proxy.com/https://api.github.com/repos/Avenshy/MajsoulData/releases/latest"
 
     invoke-static {v2}, Lq/C4;->g(Ljava/lang/String;)Ljava/net/HttpURLConnection;
 
@@ -1031,6 +1033,21 @@
     if-eqz p0, :cond_67
 
     :cond_61
+    # === 网络修复：原始 URL 已通过白名单校验，此处为下载 URL 追加 gh-proxy 代理前缀 ===
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p2, "https://gh-proxy.com/"
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
     new-instance p0, Lq/y4;
 
     invoke-direct {p0, p1, v1, v0, v2}, Lq/y4;-><init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
