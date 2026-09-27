@@ -1503,7 +1503,7 @@
 
     const-string v3, "liqi/liqi.desc"
 
-    const-string v4, "f3578baf6361ecd5a4d1a6b7390bb9a65578194db73fe80193ae312a9d9b9a2e"
+    const-string v4, "ba18b4d1a42dbbe4429feb90ce1977eb96cdfd037debe00837c3e16be697d7c9"
 
     invoke-static {p0, v3, v4}, Lq/k;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
 
@@ -1513,7 +1513,7 @@
 
     const-string v3, "majsoulmax/max_data.yaml"
 
-    const-string v4, "93d3a07223fbd45d1b534f968885baf4791cd57b3888561b91dd073cc5cea8f4"
+    const-string v4, "f81bc08d824a3e887290411d6af20f0a8609f3baa2f980bfed6f47910b21e41d"
 
     invoke-static {p0, v3, v4}, Lq/k;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
 
