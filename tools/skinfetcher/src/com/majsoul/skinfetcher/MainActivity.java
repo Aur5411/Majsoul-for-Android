@@ -37,6 +37,13 @@ public class MainActivity extends Activity {
     };
     private static final String[] FILES = {"liqi.desc", "max_data.yaml"};
 
+    // 期望的完整 SHA-256（必须 64 位十六进制，小写）。填 null 或留空 = 只报告不校验。
+    // 当前上游 Avenshy/MajsoulData 实测值（2026-09-28）：
+    private static final String EXPECTED_SHA256_LIQI_DESC =
+            "ba18b4d1a42dbbe4429feb90ce1977eb96cdfd037debe00837c3e16be697d7c9";
+    private static final String EXPECTED_SHA256_MAX_DATA =
+            "f81bc08d824a3e887290411d6af20f0a8609f3baa2f980bfed6f47910b21e41d";
+
     @Override
     protected void onCreate(Bundle b) {
         super.onCreate(b);
@@ -112,8 +119,35 @@ public class MainActivity extends Activity {
                         logAdd("[!!] " + f + " 全部线路均失败");
                         continue;
                     }
-                    logAdd("     sha256 = " + sha256(data).substring(0, 32));
+                    String sum = sha256(data);
+                    logAdd("     sha256(64) = " + sum);
+                    logAdd("     sha256(32) = " + sum.substring(0, 32)
+                            + "  <- 只认 32 位的工具比对这行");
+                    String expect = expectOf(f);
+                    if (expect == null || expect.isEmpty()) {
+                        logAdd("     [--] 未配置期望值，仅报告");
+                    } else {
+                        // 兼容两种期望值长度：
+                        //   64 位 = 完整摘要；32 位 = 上游常见的「前 32 位」截断写法
+                        // 本机实际摘要恒为 64 位，填 32 位时自动比对前 32 位。
+                        String actual = sum;
+                        if (expect.length() == 32 && sum.length() == 64) {
+                            actual = sum.substring(0, 32);
+                            logAdd("     (期望 32 位，比对摘要前 32 位)");
+                        }
+                        if (expect.length() != 32 && expect.length() != 64) {
+                            logAdd("     [!!] 期望值长度 " + expect.length()
+                                    + " 非法（应为 32 或 64）");
+                        } else if (expect.equalsIgnoreCase(actual)) {
+                            logAdd("     [OK] 校验通过");
+                        } else {
+                            logAdd("     [!!] 校验失败");
+                            logAdd("          期望 " + expect);
+                            logAdd("          实际 " + actual);
+                        }
+                    }
                     save(f, data);
+                    saveDigest(f, sum);
                 }
                 logAdd("");
                 logAdd("=== 完成 ===");
@@ -201,6 +235,52 @@ public class MainActivity extends Activity {
             logAdd("     副本 -> " + f.getAbsolutePath());
         } catch (Throwable t) {
             logAdd("     私有目录写入失败: " + t);
+        }
+    }
+
+    /** 按文件名取期望的完整 SHA-256；未配置返回 null。 */
+    private static String expectOf(String fileName) {
+        if ("liqi.desc".equals(fileName)) {
+            return EXPECTED_SHA256_LIQI_DESC;
+        }
+        if ("max_data.yaml".equals(fileName)) {
+            return EXPECTED_SHA256_MAX_DATA;
+        }
+        return null;
+    }
+
+    /** 在同目录落一份 <name>.sha256，内容为 "完整64位摘要  文件名"。 */
+    private void saveDigest(String name, String sum) {
+        try {
+            // 恒为完整 64 位，不做任何截断
+            String content = sum + "  " + name + "\n";
+            logAdd("     摘要(" + sum.length() + " 位) " + sum);
+            logAdd("     前32位 " + sum.substring(0, 32)
+                    + "  <- 只认 32 位的校验工具用这行比对");
+            if (Build.VERSION.SDK_INT >= 29) {
+                ContentValues cv = new ContentValues();
+                cv.put(MediaStore.Downloads.DISPLAY_NAME, name + ".sha256");
+                cv.put(MediaStore.Downloads.MIME_TYPE, "text/plain");
+                cv.put(MediaStore.Downloads.RELATIVE_PATH, "Download/MajsoulSkin");
+                Uri uri = getContentResolver().insert(
+                        MediaStore.Downloads.EXTERNAL_CONTENT_URI, cv);
+                OutputStream os = getContentResolver().openOutputStream(uri);
+                os.write(content.getBytes("UTF-8"));
+                os.close();
+                logAdd("     摘要 -> 下载/MajsoulSkin/" + name + ".sha256");
+            } else {
+                File dir = new File(
+                        Environment.getExternalStoragePublicDirectory(
+                                Environment.DIRECTORY_DOWNLOADS), "MajsoulSkin");
+                dir.mkdirs();
+                File f = new File(dir, name + ".sha256");
+                FileOutputStream fos = new FileOutputStream(f);
+                fos.write(content.getBytes("UTF-8"));
+                fos.close();
+                logAdd("     摘要 -> " + f.getAbsolutePath());
+            }
+        } catch (Throwable t) {
+            logAdd("     摘要写入失败: " + t);
         }
     }
 
