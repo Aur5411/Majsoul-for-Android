@@ -189,3 +189,82 @@ Android/data/com.majsoul/files/dg.log
 - 两个包**包名相同，只能装一个**；切换版本请先卸载再安装。
 - 若此前装过其它签名的版本，需先卸载。
 - 建议在手机应用市场里**关闭 Majsoul 的自动更新**，避免被替换回原版。
+
+
+---
+
+## v1.2：修掉「一直提示发现全皮肤更新」（仅自动更新版）
+
+不更新版本次未改动。
+
+### 根因
+
+`smali/q/w4__dup2.smali` 的 `run()` 是判定「有没有更新」的地方，分两步比较：
+
+1. 本地版本 `C4.e(ctx)` vs 远端 `tag` —— 相同即判「已是最新」
+2. 本地数据哈希 vs 远端数据哈希 —— 不同才判「有更新」
+
+v1.1 误把这两条分支指令当成写反的并翻转，同时把兜底版本号改成与上游一致的
+`0.16.283-4.0.47`、兜底哈希也改成正确值，于是两步全部命中「相同」，
+被翻转的指令稳定送进「有更新」分支 —— 每次启动必弹「发现全皮肤更新 」。
+与网络、代理、下载都无关。
+
+### 修法
+
+两条分支保持原版语义（`if-nez v11, :cond_71` / `if-eqz v11, :cond_86`），
+并在版本比较之前新增一道硬保险：
+
+```smali
+const-string v12, "0.16.283-4.0.47"
+invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+move-result v12
+if-nez v12, :cond_71        # 远端 tag 等于包内已内置版本 -> 直接判「已是最新」
+```
+
+`C4.e` 因此保持为 `null`，`C4.a()` 只会发「已是最新」；
+即使本机残留旧的 `full_skin_release_v5.dat` 也不会再提示。
+同时 `run()` 的 `.registers` 由 13 加到 14 以容纳 `v12`。
+
+### 同步改动
+
+| 文件 | 改动 |
+|---|---|
+| `smali/q/k__dup2.smali` | 资产完整性校验表 → 0.16.283 的真实 SHA-256 |
+| `smali/q/C4.smali` | 兜底版本号 `0.16.269-4.0.46` → `0.16.283-4.0.47`；连接超时 5s→15s、读取超时 8s→30s、高延迟熔断 4s→60s |
+| `assets/liqi/liqi.desc` | 升级到 0.16.283（312,922 B） |
+| `assets/majsoulmax/max_data.yaml` | 升级到 0.16.283（24,451 B） |
+
+---
+
+## 皮肤数据拉取器（`tools/skinfetcher/`）
+
+17 KB 独立小工具，包名 `com.majsoul.skinfetcher`，与游戏共存，不改动游戏本体。
+
+从 `Avenshy/MajsoulData` 拉最新版的 `liqi.desc` 与 `max_data.yaml`，
+用于备份原始文件、核对 SHA-256、或自己解包替换。
+
+- 界面只有一个按钮，点击即拉取
+- 内置 4 条线路依次尝试：`gh-proxy.com` → `ghfast.top` → `ghproxy.net` → 直连
+- 显示每个文件的字节数与 SHA-256 前 32 位
+- 保存位置：`下载/MajsoulSkin/`（Android 10+ 走 MediaStore）与应用私有目录各一份
+
+构建：`bash tools/skinfetcher/build.sh`（无需 Android Studio）
+
+### 自己解包替换皮肤数据（针对不更新版）
+
+替换 APK 内的 `assets/liqi/liqi.desc` 与 `assets/majsoulmax/max_data.yaml` 是可行的，
+但**必须同时修改 dex 里 `q/k` 的硬编码 SHA-256 校验表**，否则校验返回 -1、
+走 `ASSET_INTEGRITY` 判定为遭篡改（上一版就是栽在这里）：
+
+| 资产 | 当前值（0.16.283） |
+|---|---|
+| `assets/liqi/liqi.desc` | `ba18b4d1a42dbbe4429feb90ce1977eb96cdfd037debe00837c3e16be697d7c9` |
+| `assets/majsoulmax/max_data.yaml` | `f81bc08d824a3e887290411d6af20f0a8609f3baa2f980bfed6f47910b21e41d` |
+| `assets/web/cat-hud.js` | `b2a62254f3ed75a19cf0a78107db8ac5165550f033f0d709c4b1b6ad326f924a` |
+
+注意事项：
+
+- `assets/web/cat-hud.js` 不要动，它的哈希也在同一张表里
+- `assets/models/*.qhm`（两个 Mortal 模型，各 90 MB+）必须保持 **STORED（不压缩）**
+- 重签名后证书与本仓库不同，**必须先卸载原 `com.majsoul` 再安装**
+- 不更新版不联网，不需要改 dex 里的版本号常量，只改两个哈希即可
