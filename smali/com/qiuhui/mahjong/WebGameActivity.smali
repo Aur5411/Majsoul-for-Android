@@ -3805,7 +3805,16 @@
 
     invoke-virtual {v3, v4}, Landroid/webkit/WebSettings;->setSaveFormData(Z)V
 
-    invoke-virtual {v3, v5}, Landroid/webkit/WebSettings;->setOffscreenPreRaster(Z)V
+    invoke-virtual {v3, v4}, Landroid/webkit/WebSettings;->setOffscreenPreRaster(Z)V
+
+    # >>> 提速补丁：关闭安全浏览联网校验（国内网络下每次导航都要等它，是大头延迟）
+    invoke-virtual {v3, v5}, Landroid/webkit/WebSettings;->setSafeBrowsingEnabled(Z)V
+
+    invoke-virtual {v3, v5}, Landroid/webkit/WebSettings;->setNeedInitialFocus(Z)V
+
+    invoke-virtual {v3, v5}, Landroid/webkit/WebSettings;->setEnableSmoothTransition(Z)V
+
+    invoke-virtual {v3, v5}, Landroid/webkit/WebSettings;->setSupportMultipleWindows(Z)V
 
     iget-object v3, p0, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
 
