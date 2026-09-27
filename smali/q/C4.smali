@@ -576,7 +576,7 @@
 
     if-eqz v0, :cond_75
 
-    const-wide/16 v0, 0xfa0
+    const-wide/16 v0, 0xea60
 
     cmp-long v0, v7, v0
 
@@ -882,7 +882,7 @@
 
     if-nez p0, :cond_9
 
-    const-string p0, "0.16.269-4.0.46"
+    const-string p0, "0.16.283-4.0.47"
 
     goto :goto_d
 
@@ -925,11 +925,11 @@
 
     check-cast p0, Ljava/net/HttpURLConnection;
 
-    const/16 v0, 0x1388
+    const/16 v0, 0x3a98
 
     invoke-virtual {p0, v0}, Ljava/net/URLConnection;->setConnectTimeout(I)V
 
-    const/16 v0, 0x1f40
+    const/16 v0, 0x7530
 
     invoke-virtual {p0, v0}, Ljava/net/URLConnection;->setReadTimeout(I)V
 
