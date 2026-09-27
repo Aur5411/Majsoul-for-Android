@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final run()V
-    .registers 13
+    .registers 14
 
     iget v0, p0, Lq/w4;->a:I
 
@@ -113,6 +113,15 @@
 
     check-cast v11, Ljava/lang/String;
 
+
+    # 保险：远端 tag 与包内已内置版本一致 -> 直接判「已是最新」，不提示更新、不下载
+    const-string v12, "0.16.283-4.0.47"
+
+    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_71
     invoke-virtual {v6, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
@@ -142,7 +151,7 @@
     goto :goto_61
 
     :cond_5f
-    const-string v11, "93d3a07223fbd45d1b534f968885baf4791cd57b3888561b91dd073cc5cea8f4"
+    const-string v11, "f81bc08d824a3e887290411d6af20f0a8609f3baa2f980bfed6f47910b21e41d"
 
     :goto_61
     iget-object v6, v5, Lq/J1;->b:Ljava/lang/Object;
