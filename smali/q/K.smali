@@ -1,61 +1,92 @@
-.class public final Lq/K;
-.super Lq/d;
+.class public final synthetic Lq/K;
+.super Ljava/lang/Object;
 .source "SourceFile"
+
+# interfaces
+.implements Ljava/util/concurrent/ThreadFactory;
+
+
+# instance fields
+.field public final synthetic a:I
+
+
+# direct methods
+.method public synthetic constructor <init>(I)V
+    .locals 0
+
+    iput p1, p0, Lq/K;->a:I
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
 
 
 # virtual methods
-.method public final a(Lq/E;Lq/d2;)Ljava/lang/Object;
-    .registers 5
+.method public final newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
+    .locals 3
 
-    sget-object v0, Lq/M;->i:Lq/M;
+    iget v0, p0, Lq/K;->a:I
 
-    invoke-virtual {v0}, Lq/M;->G()Lq/L;
+    packed-switch v0, :pswitch_data_0
 
-    move-result-object v0
+    new-instance v0, Ljava/lang/Thread;
 
-    :try_start_6
-    invoke-virtual {v0, p1, p2}, Lq/L;->P(Lq/E;Lq/d2;)Lq/L;
-    :try_end_9
-    .catch Lq/U2; {:try_start_6 .. :try_end_9} :catch_25
-    .catch Lq/R4; {:try_start_6 .. :try_end_9} :catch_1c
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_9} :catch_e
+    new-instance v1, Lq/L2;
 
-    invoke-virtual {v0}, Lq/L;->O()Lq/M;
+    const/4 v2, 0x1
+
+    invoke-direct {v1, p1, v2}, Lq/L2;-><init>(Ljava/lang/Runnable;I)V
+
+    const-string p1, "qiuhui-liqi-decoder"
+
+    invoke-direct {v0, v1, p1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
+
+    const/4 p1, 0x1
+
+    invoke-virtual {v0, p1}, Ljava/lang/Thread;->setDaemon(Z)V
+
+    return-object v0
+
+    :pswitch_0
+    new-instance v0, Ljava/lang/Thread;
+
+    new-instance v1, Lq/L2;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, p1, v2}, Lq/L2;-><init>(Ljava/lang/Runnable;I)V
+
+    const-string p1, "qiuhui-mortal-inference"
+
+    invoke-direct {v0, v1, p1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
+
+    const/4 p1, 0x1
+
+    invoke-virtual {v0, p1}, Ljava/lang/Thread;->setDaemon(Z)V
+
+    return-object v0
+
+    :pswitch_1
+    invoke-static {p1}, Lcom/qiuhui/mahjong/custom/DiagnosticLog;->a(Ljava/lang/Runnable;)Ljava/lang/Thread;
 
     move-result-object p1
 
     return-object p1
 
-    :catch_e
-    move-exception p1
-
-    new-instance p2, Lq/U2;
-
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p2, v1, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    invoke-virtual {v0}, Lq/L;->O()Lq/M;
-
-    throw p2
-
-    :catch_1c
-    move-exception p1
-
-    invoke-virtual {p1}, Lq/R4;->a()Lq/U2;
+    :pswitch_2
+    invoke-static {p1}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->i(Ljava/lang/Runnable;)Ljava/lang/Thread;
 
     move-result-object p1
 
-    invoke-virtual {v0}, Lq/L;->O()Lq/M;
+    return-object p1
 
-    throw p1
+    nop
 
-    :catch_25
-    move-exception p1
-
-    invoke-virtual {v0}, Lq/L;->O()Lq/M;
-
-    throw p1
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

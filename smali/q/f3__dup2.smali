@@ -1,99 +1,133 @@
-.class public final synthetic Lq/f3;
-.super Ljava/lang/Object;
+.class public final Lq/f3;
+.super Lq/e3;
 .source "SourceFile"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic a:Landroid/content/Context;
+.field public final f:Ljava/lang/reflect/Method;
 
-.field public final synthetic b:Ljava/lang/String;
-
-.field public final synthetic c:Ljava/lang/String;
-
-.field public final synthetic d:Ljava/lang/String;
-
-.field public final synthetic e:Z
-
-.field public final synthetic f:Lq/g3;
+.field public final g:Ljava/lang/reflect/Method;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLq/g3;)V
-    .registers 7
+.method public constructor <init>(Lq/r2;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V
+    .locals 1
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {p0 .. p5}, Lq/e3;-><init>(Lq/r2;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V
 
-    iput-object p1, p0, Lq/f3;->a:Landroid/content/Context;
+    iget-object p1, p0, Lq/e3;->a:Ljava/lang/Class;
 
-    iput-object p2, p0, Lq/f3;->b:Ljava/lang/String;
+    const/4 p3, 0x0
 
-    iput-object p3, p0, Lq/f3;->c:Ljava/lang/String;
+    new-array p5, p3, [Ljava/lang/Class;
 
-    iput-object p4, p0, Lq/f3;->d:Ljava/lang/String;
+    const-string v0, "newBuilder"
 
-    iput-boolean p5, p0, Lq/f3;->e:Z
+    invoke-static {p1, v0, p5}, Lq/i3;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    iput-object p6, p0, Lq/f3;->f:Lq/g3;
+    move-result-object p1
+
+    iput-object p1, p0, Lq/f3;->f:Ljava/lang/reflect/Method;
+
+    const-string p1, "get"
+
+    const-string p5, "Builder"
+
+    invoke-static {p1, p2, p5}, Lq/i2;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    new-array p2, p3, [Ljava/lang/Class;
+
+    invoke-static {p4, p1, p2}, Lq/i3;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lq/f3;->g:Ljava/lang/reflect/Method;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .registers 6
+.method public final e(Lq/R2;)Lq/a;
+    .locals 2
 
-    iget-object v0, p0, Lq/f3;->a:Landroid/content/Context;
+    const/4 v0, 0x0
 
-    iget-object v1, p0, Lq/f3;->b:Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    iget-object v2, p0, Lq/f3;->c:Ljava/lang/String;
+    iget-object v1, p0, Lq/f3;->g:Ljava/lang/reflect/Method;
 
-    iget-object v3, p0, Lq/f3;->d:Ljava/lang/String;
+    invoke-static {p1, v1, v0}, Lq/i3;->u(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-boolean v4, p0, Lq/f3;->e:Z
+    move-result-object p1
 
-    :try_start_a
-    invoke-static {v0, v1, v2, v3, v4}, Lq/i3;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lq/h3;
+    check-cast p1, Lq/a;
+
+    return-object p1
+.end method
+
+.method public final f()Lq/a;
+    .locals 3
+
+    const/4 v0, 0x0
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    iget-object v1, p0, Lq/f3;->f:Ljava/lang/reflect/Method;
+
+    const/4 v2, 0x0
+
+    invoke-static {v2, v1, v0}, Lq/i3;->u(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_e
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_e} :catch_f
 
-    goto :goto_19
+    check-cast v0, Lq/a;
 
-    :catch_f
-    new-instance v0, Lq/h3;
+    return-object v0
+.end method
 
-    const-string v1, "NETWORK_ERROR"
+.method public final h(Lq/R2;Ljava/lang/Object;)V
+    .locals 3
 
-    const-string v2, "无法连接授权服务，请检查网络后重试"
+    iget-object v0, p0, Lq/e3;->a:Ljava/lang/Class;
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, p2}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
-    invoke-direct {v0, v3, v1, v2}, Lq/h3;-><init>(ZLjava/lang/String;Ljava/lang/String;)V
+    move-result v0
 
-    :goto_19
-    new-instance v1, Landroid/os/Handler;
+    if-eqz v0, :cond_0
 
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+    goto :goto_0
 
-    move-result-object v2
+    :cond_0
+    const/4 v0, 0x0
 
-    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-instance v2, Lq/m2;
+    iget-object v1, p0, Lq/f3;->f:Ljava/lang/reflect/Method;
 
-    iget-object v3, p0, Lq/f3;->f:Lq/g3;
+    const/4 v2, 0x0
 
-    const/4 v4, 0x1
+    invoke-static {v2, v1, v0}, Lq/i3;->u(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v2, v3, v0, v4}, Lq/m2;-><init>(Ljava/lang/Object;Ljava/lang/Object;I)V
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    check-cast v0, Lq/a;
+
+    check-cast p2, Lq/c;
+
+    invoke-virtual {v0, p2}, Lq/a;->w(Lq/c;)Lq/a;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Lq/a;->p()Lq/c;
+
+    move-result-object p2
+
+    :goto_0
+    invoke-super {p0, p1, p2}, Lq/e3;->h(Lq/R2;Ljava/lang/Object;)V
 
     return-void
 .end method

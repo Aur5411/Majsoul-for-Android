@@ -3,7 +3,7 @@
 .source "SourceFile"
 
 # interfaces
-.implements Lq/P2;
+.implements Lq/l3;
 
 
 # static fields
@@ -22,37 +22,35 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 6
+    .locals 5
 
     new-instance v0, Lq/V0;
 
-    const-string v1, "SPEED"
+    const-string v1, "REPEATED_FIELD_ENCODING_UNKNOWN"
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x1
-
-    invoke-direct {v0, v1, v2, v3}, Lq/V0;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v2, v2}, Lq/V0;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lq/V0;->b:Lq/V0;
 
     new-instance v1, Lq/V0;
 
-    const-string v2, "CODE_SIZE"
+    const-string v2, "PACKED"
 
-    const/4 v4, 0x2
+    const/4 v3, 0x1
 
-    invoke-direct {v1, v2, v3, v4}, Lq/V0;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v1, v2, v3, v3}, Lq/V0;-><init>(Ljava/lang/String;II)V
 
     sput-object v1, Lq/V0;->c:Lq/V0;
 
     new-instance v2, Lq/V0;
 
-    const-string v3, "LITE_RUNTIME"
+    const-string v3, "EXPANDED"
 
-    const/4 v5, 0x3
+    const/4 v4, 0x2
 
-    invoke-direct {v2, v3, v4, v5}, Lq/V0;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v2, v3, v4, v4}, Lq/V0;-><init>(Ljava/lang/String;II)V
 
     sput-object v2, Lq/V0;->d:Lq/V0;
 
@@ -68,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
@@ -78,7 +76,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lq/V0;
-    .registers 2
+    .locals 1
 
     const-class v0, Lq/V0;
 
@@ -92,7 +90,7 @@
 .end method
 
 .method public static values()[Lq/V0;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lq/V0;->e:[Lq/V0;
 
@@ -108,7 +106,7 @@
 
 # virtual methods
 .method public final a()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lq/V0;->a:I
 

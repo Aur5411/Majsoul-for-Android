@@ -2,26 +2,41 @@
 .super Ljava/lang/Object;
 .source "SourceFile"
 
+# interfaces
+.implements Ljava/util/function/ToDoubleFunction;
+
 
 # instance fields
-.field public final synthetic a:I
-
-.field public final synthetic b:Lq/A3;
-
-.field public final synthetic c:Lq/A2;
+.field public final synthetic a:[F
 
 
 # direct methods
-.method public synthetic constructor <init>(Lq/A3;Lq/A2;I)V
-    .registers 4
-
-    iput p3, p0, Lq/x4;->a:I
-
-    iput-object p1, p0, Lq/x4;->b:Lq/A3;
-
-    iput-object p2, p0, Lq/x4;->c:Lq/A2;
+.method public synthetic constructor <init>([F)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    iput-object p1, p0, Lq/x4;->a:[F
+
     return-void
+.end method
+
+
+# virtual methods
+.method public final applyAsDouble(Ljava/lang/Object;)D
+    .locals 2
+
+    check-cast p1, Ljava/lang/Integer;
+
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    iget-object v0, p0, Lq/x4;->a:[F
+
+    aget p1, v0, p1
+
+    float-to-double v0, p1
+
+    return-wide v0
 .end method

@@ -1,111 +1,118 @@
-.class public final enum Lq/n;
-.super Ljava/lang/Enum;
+.class public abstract Lq/n;
+.super Ljava/lang/Object;
 .source "SourceFile"
+
+# interfaces
+.implements Lq/i0;
 
 
 # static fields
-.field public static final enum d:Lq/n;
-
-.field public static final enum e:Lq/n;
-
-.field public static final synthetic f:[Lq/n;
+.field public static final c:Ljava/util/HashSet;
 
 
 # instance fields
 .field public final a:Ljava/lang/String;
 
-.field public final b:I
-
-.field public final c:I
+.field public final b:Ljava/lang/String;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 13
+    .locals 1
 
-    new-instance v6, Lq/n;
+    new-instance v0, Ljava/util/HashSet;
 
-    const/16 v4, 0x307
+    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    const/16 v5, 0x2c
-
-    const-string v1, "THREE_PLAYER"
-
-    const/4 v2, 0x0
-
-    const-string v3, "三麻"
-
-    move-object v0, v6
-
-    invoke-direct/range {v0 .. v5}, Lq/n;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
-
-    sput-object v6, Lq/n;->d:Lq/n;
-
-    new-instance v0, Lq/n;
-
-    const/16 v11, 0x3f4
-
-    const/16 v12, 0x2e
-
-    const-string v8, "FOUR_PLAYER"
-
-    const/4 v9, 0x1
-
-    const-string v10, "四麻"
-
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lq/n;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
-
-    sput-object v0, Lq/n;->e:Lq/n;
-
-    filled-new-array {v6, v0}, [Lq/n;
-
-    move-result-object v0
-
-    sput-object v0, Lq/n;->f:[Lq/n;
+    sput-object v0, Lq/n;->c:Ljava/util/HashSet;
 
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;ILjava/lang/String;II)V
-    .registers 6
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p3, p0, Lq/n;->a:Ljava/lang/String;
+    iput-object p1, p0, Lq/n;->a:Ljava/lang/String;
 
-    iput p4, p0, Lq/n;->b:I
+    iput-object p2, p0, Lq/n;->b:Ljava/lang/String;
 
-    iput p5, p0, Lq/n;->c:I
+    sget-object p1, Lq/n;->c:Ljava/util/HashSet;
+
+    invoke-virtual {p1, p0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public static valueOf(Ljava/lang/String;)Lq/n;
-    .registers 2
 
-    const-class v0, Lq/n;
-
-    invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
-
-    move-result-object p0
-
-    check-cast p0, Lq/n;
-
-    return-object p0
+# virtual methods
+.method public abstract a()Z
 .end method
 
-.method public static values()[Lq/n;
-    .registers 1
+.method public b()Z
+    .locals 4
 
-    sget-object v0, Lq/n;->f:[Lq/n;
+    sget-object v0, Lq/l;->a:Ljava/util/HashSet;
 
-    invoke-virtual {v0}, [Lq/n;->clone()Ljava/lang/Object;
+    iget-object v1, p0, Lq/n;->b:Ljava/lang/String;
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    check-cast v0, [Lq/n;
+    move-result v2
 
-    return-object v0
+    if-nez v2, :cond_2
+
+    sget-object v2, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    const-string v3, "eng"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string v3, "userdebug"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ":dev"
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
 .end method

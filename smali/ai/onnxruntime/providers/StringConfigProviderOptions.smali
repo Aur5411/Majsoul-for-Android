@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lai/onnxruntime/OrtProviderOptions;-><init>(J)V
 
@@ -32,7 +32,7 @@
 .end method
 
 .method public static synthetic a(Ljava/util/Map$Entry;)Ljava/lang/String;
-    .registers 1
+    .locals 0
 
     invoke-static {p0}, Lai/onnxruntime/providers/StringConfigProviderOptions;->lambda$getOptionsString$0(Ljava/util/Map$Entry;)Ljava/lang/String;
 
@@ -42,7 +42,7 @@
 .end method
 
 .method private static synthetic lambda$getOptionsString$0(Ljava/util/Map$Entry;)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
 
     invoke-virtual {p0}, Lai/onnxruntime/OrtProviderOptions;->checkClosed()V
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public applyToNative()V
-    .registers 9
+    .locals 8
 
     .line 1
     iget-object v0, p0, Lai/onnxruntime/providers/StringConfigProviderOptions;->options:Ljava/util/Map;
@@ -107,7 +107,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4c
+    if-nez v0, :cond_1
 
     .line 2
     iget-object v0, p0, Lai/onnxruntime/providers/StringConfigProviderOptions;->options:Ljava/util/Map;
@@ -140,12 +140,12 @@
 
     const/4 v1, 0x0
 
-    :goto_23
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_42
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -173,10 +173,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_23
+    goto :goto_0
 
     .line 7
-    :cond_42
+    :cond_0
     invoke-static {}, Lai/onnxruntime/OrtProviderOptions;->getApiHandle()J
 
     move-result-wide v2
@@ -187,7 +187,7 @@
 
     invoke-virtual/range {v1 .. v7}, Lai/onnxruntime/providers/StringConfigProviderOptions;->applyToNative(JJ[Ljava/lang/String;[Ljava/lang/String;)V
 
-    :cond_4c
+    :cond_1
     return-void
 .end method
 
@@ -195,7 +195,7 @@
 .end method
 
 .method public getOptionsString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     iget-object v0, p0, Lai/onnxruntime/providers/StringConfigProviderOptions;->options:Ljava/util/Map;
 
@@ -233,7 +233,7 @@
 .end method
 
 .method public parseOptionsString(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
 
     const-string v0, ";"
 
@@ -247,8 +247,8 @@
 
     move v2, v1
 
-    :goto_9
-    if-ge v2, v0, :cond_47
+    :goto_0
+    if-ge v2, v0, :cond_2
 
     aget-object v3, p1, v2
 
@@ -258,7 +258,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_44
+    if-eqz v5, :cond_1
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
@@ -268,7 +268,7 @@
 
     const/4 v6, 0x2
 
-    if-ne v5, v6, :cond_36
+    if-ne v5, v6, :cond_0
 
     aget-object v5, v4, v1
 
@@ -276,7 +276,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_36
+    if-nez v5, :cond_0
 
     const/4 v5, 0x1
 
@@ -286,7 +286,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_36
+    if-nez v6, :cond_0
 
     aget-object v3, v4, v1
 
@@ -294,16 +294,16 @@
 
     invoke-virtual {p0, v3, v4}, Lai/onnxruntime/providers/StringConfigProviderOptions;->add(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_44
+    goto :goto_1
 
-    :cond_36
+    :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Failed to parse option from string \'"
 
     const-string v1, "\'"
 
-    invoke-static {v0, v3, v1}, Lq/I1;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v3, v1}, Lq/i2;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -311,18 +311,18 @@
 
     throw p1
 
-    :cond_44
-    :goto_44
+    :cond_1
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_47
+    :cond_2
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 

@@ -25,16 +25,16 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     :try_start_0
     invoke-static {}, Lai/onnxruntime/OnnxRuntime;->init()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_4
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_4
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/RuntimeException;
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -70,15 +70,15 @@
 .end method
 
 .method private checkClosed()V
-    .registers 3
+    .locals 2
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession$RunOptions;->closed:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     return-void
 
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to use a closed RunOptions"
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public addRunConfigEntry(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 10
+    .locals 7
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$RunOptions;->checkClosed()V
@@ -140,12 +140,12 @@
 .end method
 
 .method public close()V
-    .registers 5
+    .locals 4
 
     .line 1
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession$RunOptions;->closed:Z
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 2
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -162,7 +162,7 @@
     return-void
 
     .line 4
-    :cond_f
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to close an already closed RunOptions"
@@ -173,7 +173,7 @@
 .end method
 
 .method public getLogLevel()Lai/onnxruntime/OrtLoggingLevel;
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$RunOptions;->checkClosed()V
@@ -195,7 +195,7 @@
 .end method
 
 .method public getLogVerbosityLevel()I
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$RunOptions;->checkClosed()V
@@ -213,7 +213,7 @@
 .end method
 
 .method public getNativeHandle()J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lai/onnxruntime/OrtSession$RunOptions;->nativeHandle:J
 
@@ -221,7 +221,7 @@
 .end method
 
 .method public getRunTag()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$RunOptions;->checkClosed()V
@@ -239,7 +239,7 @@
 .end method
 
 .method public setLogLevel(Lai/onnxruntime/OrtLoggingLevel;)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$RunOptions;->checkClosed()V
@@ -261,7 +261,7 @@
 .end method
 
 .method public setLogVerbosityLevel(I)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$RunOptions;->checkClosed()V
@@ -281,7 +281,7 @@
 .end method
 
 .method public setRunTag(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$RunOptions;->checkClosed()V
@@ -301,7 +301,7 @@
 .end method
 
 .method public setTerminate(Z)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$RunOptions;->checkClosed()V

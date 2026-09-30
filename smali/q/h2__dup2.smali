@@ -1,103 +1,63 @@
-.class public abstract synthetic Lq/h2;
-.super Ljava/lang/Object;
+.class public final Lq/h2;
+.super Lq/t2;
 .source "SourceFile"
 
 
+# instance fields
+.field public final a:Ljava/lang/String;
+
+.field public final b:Ljava/lang/String;
+
+.field public final c:Lq/s2;
+
+
 # direct methods
-.method public static bridge synthetic a()I
-    .registers 1
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lq/s2;)V
+    .locals 0
 
-    invoke-static {}, Landroid/view/WindowInsets$Type;->ime()I
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-result v0
+    iput-object p3, p0, Lq/h2;->c:Lq/s2;
 
-    return v0
-.end method
+    iput-object p2, p0, Lq/h2;->b:Ljava/lang/String;
 
-.method public static bridge synthetic b(Landroid/app/Activity;)Landroid/view/Display;
-    .registers 1
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getDisplay()Landroid/view/Display;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static bridge synthetic c(Landroid/content/Context;)Landroid/view/Display;
-    .registers 1
-
-    invoke-virtual {p0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static bridge synthetic d(Landroid/view/View;)Landroid/view/WindowInsetsController;
-    .registers 1
-
-    invoke-virtual {p0}, Landroid/view/View;->getWindowInsetsController()Landroid/view/WindowInsetsController;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static bridge synthetic e(Landroid/view/Window;)V
-    .registers 2
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/view/Window;->setPreferMinimalPostProcessing(Z)V
+    iput-object p1, p0, Lq/h2;->a:Ljava/lang/String;
 
     return-void
 .end method
 
-.method public static bridge synthetic f(Landroid/view/WindowInsetsController;)V
-    .registers 2
 
-    const/4 v0, 0x2
+# virtual methods
+.method public final b()Lq/s2;
+    .locals 1
 
-    invoke-interface {p0, v0}, Landroid/view/WindowInsetsController;->setSystemBarsBehavior(I)V
+    iget-object v0, p0, Lq/h2;->c:Lq/s2;
 
-    return-void
+    return-object v0
 .end method
 
-.method public static bridge synthetic g(Landroid/view/WindowInsetsController;I)V
-    .registers 2
+.method public final c()Ljava/lang/String;
+    .locals 1
 
-    invoke-interface {p0, p1}, Landroid/view/WindowInsetsController;->hide(I)V
+    iget-object v0, p0, Lq/h2;->b:Ljava/lang/String;
 
-    return-void
+    return-object v0
 .end method
 
-.method public static bridge synthetic h(Landroid/view/WindowInsets;I)Z
-    .registers 2
+.method public final d()Ljava/lang/String;
+    .locals 1
 
-    invoke-virtual {p0, p1}, Landroid/view/WindowInsets;->isVisible(I)Z
+    iget-object v0, p0, Lq/h2;->a:Ljava/lang/String;
 
-    move-result p0
-
-    return p0
+    return-object v0
 .end method
 
-.method public static bridge synthetic i()I
-    .registers 1
+.method public final e()Lq/c;
+    .locals 1
 
-    invoke-static {}, Landroid/view/WindowInsets$Type;->systemBars()I
+    iget-object v0, p0, Lq/h2;->c:Lq/s2;
 
-    move-result v0
+    iget-object v0, v0, Lq/s2;->a:Lq/p1;
 
-    return v0
-.end method
-
-.method public static bridge synthetic j(Landroid/view/Window;)V
-    .registers 2
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/view/Window;->setDecorFitsSystemWindows(Z)V
-
-    return-void
+    return-object v0
 .end method

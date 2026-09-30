@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(JJ)V
-    .registers 5
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     :try_start_0
     iget-wide v0, p0, Lai/onnxruntime/OrtEnvironment$OrtEnvCloser;->apiHandle:J
@@ -47,12 +47,12 @@
     iget-wide v2, p0, Lai/onnxruntime/OrtEnvironment$OrtEnvCloser;->nativeHandle:J
 
     invoke-static {v0, v1, v2, v3}, Lai/onnxruntime/OrtEnvironment;->access$100(JJ)V
-    :try_end_7
-    .catch Lai/onnxruntime/OrtException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Lai/onnxruntime/OrtException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1c
+    goto :goto_0
 
-    :catch_8
+    :catch_0
     move-exception v0
 
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
@@ -71,6 +71,6 @@
 
     invoke-virtual {v1, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    :goto_1c
+    :goto_0
     return-void
 .end method

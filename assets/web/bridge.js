@@ -604,21 +604,24 @@
   function refreshAdaptiveResolution() {
     if (!fullscreenAdaptEnabled) return false;
     var aspect = viewportAspect();
-    var baseAspect = configuredRenderWidth / configuredRenderHeight;
-    var width;
-    var height;
-    if (aspect >= baseAspect) {
-      width = configuredRenderWidth;
+    // 720P/1080P/2K/4K describe the vertical resolution. The previous wide-
+    // screen adaptation kept the 16:9 width instead, turning 1080P into only
+    // 864 vertical pixels on a 20:9 phone. Preserve the selected vertical tier
+    // and derive the horizontal buffer from the device aspect so the setting
+    // and the actual WebGL drawing buffer agree without changing layout scale.
+    var height = configuredRenderHeight;
+    var width = Math.round(height * aspect);
+    // 5120 covers 2160p on the common 20:9/21:9 range. The explicit high-
+    // quality confirmation remains the guard for memory and thermal cost.
+    if (width > 5120) {
+      width = 5120;
       height = Math.round(width / aspect);
-    } else {
-      height = configuredRenderHeight;
-      width = Math.round(height * aspect);
     }
-    // Preserve each device's actual landscape ratio. The lower bounds cover
-    // square-ish foldables through ultra-wide phones without forcing a
-    // handset-specific 16:9/20:9 drawing buffer.
-    width = Math.max(1280, Math.min(4096, width));
-    height = Math.max(640, Math.min(2304, height));
+    if (width < 1280) {
+      width = 1280;
+      height = Math.round(width / aspect);
+    }
+    height = Math.max(720, Math.min(2304, height));
     if ((width & 1) !== 0) width += 1;
     if ((height & 1) !== 0) height += 1;
     if (highQualityWidth === width && highQualityHeight === height) {

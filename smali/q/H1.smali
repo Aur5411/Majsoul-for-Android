@@ -1,63 +1,61 @@
 .class public final Lq/H1;
-.super Lq/T1;
+.super Lq/d;
 .source "SourceFile"
 
 
-# instance fields
-.field public final a:Ljava/lang/String;
-
-.field public final b:Ljava/lang/String;
-
-.field public final c:Lq/S1;
-
-
-# direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lq/S1;)V
-    .registers 4
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p3, p0, Lq/H1;->c:Lq/S1;
-
-    iput-object p2, p0, Lq/H1;->b:Ljava/lang/String;
-
-    iput-object p1, p0, Lq/H1;->a:Ljava/lang/String;
-
-    return-void
-.end method
-
-
 # virtual methods
-.method public final b()Lq/S1;
-    .registers 2
+.method public final a(Lq/f0;Lq/F2;)Ljava/lang/Object;
+    .locals 2
 
-    iget-object v0, p0, Lq/H1;->c:Lq/S1;
+    sget-object v0, Lq/J1;->h:Lq/J1;
 
-    return-object v0
-.end method
+    invoke-virtual {v0}, Lq/J1;->G()Lq/I1;
 
-.method public final c()Ljava/lang/String;
-    .registers 2
+    move-result-object v0
 
-    iget-object v0, p0, Lq/H1;->b:Ljava/lang/String;
+    :try_start_0
+    invoke-virtual {v0, p1, p2}, Lq/I1;->R(Lq/f0;Lq/F2;)V
+    :try_end_0
+    .catch Lq/q3; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Lq/R5; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
-.end method
+    invoke-virtual {v0}, Lq/I1;->P()Lq/J1;
 
-.method public final d()Ljava/lang/String;
-    .registers 2
+    move-result-object p1
 
-    iget-object v0, p0, Lq/H1;->a:Ljava/lang/String;
+    return-object p1
 
-    return-object v0
-.end method
+    :catch_0
+    move-exception p1
 
-.method public final e()Lq/c;
-    .registers 2
+    new-instance p2, Lq/q3;
 
-    iget-object v0, p0, Lq/H1;->c:Lq/S1;
+    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    iget-object v0, v0, Lq/S1;->a:Lq/P0;
+    move-result-object v1
 
-    return-object v0
+    invoke-direct {p2, v1, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    invoke-virtual {v0}, Lq/I1;->P()Lq/J1;
+
+    throw p2
+
+    :catch_1
+    move-exception p1
+
+    invoke-virtual {p1}, Lq/R5;->a()Lq/q3;
+
+    move-result-object p1
+
+    invoke-virtual {v0}, Lq/I1;->P()Lq/J1;
+
+    throw p1
+
+    :catch_2
+    move-exception p1
+
+    invoke-virtual {v0}, Lq/I1;->P()Lq/J1;
+
+    throw p1
 .end method

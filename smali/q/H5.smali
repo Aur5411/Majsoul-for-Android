@@ -1,76 +1,215 @@
-.class public final synthetic Lq/H5;
+.class public final Lq/H5;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/Iterator;
 
 
 # instance fields
-.field public final synthetic a:Lcom/qiuhui/mahjong/WebGameActivity;
+.field public a:I
 
-.field public final synthetic b:J
+.field public b:Z
 
-.field public final synthetic c:F
+.field public c:Ljava/util/Iterator;
 
-.field public final synthetic d:F
+.field public final synthetic d:Lq/D5;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/WebGameActivity;JFF)V
-    .registers 6
+.method public constructor <init>(Lq/D5;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lq/H5;->a:Lcom/qiuhui/mahjong/WebGameActivity;
+    iput-object p1, p0, Lq/H5;->d:Lq/D5;
 
-    iput-wide p2, p0, Lq/H5;->b:J
+    const/4 p1, -0x1
 
-    iput p4, p0, Lq/H5;->c:F
-
-    iput p5, p0, Lq/H5;->d:F
+    iput p1, p0, Lq/H5;->a:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .registers 11
+.method public final a()Ljava/util/Iterator;
+    .locals 1
 
-    iget-object v0, p0, Lq/H5;->a:Lcom/qiuhui/mahjong/WebGameActivity;
+    iget-object v0, p0, Lq/H5;->c:Ljava/util/Iterator;
 
-    iget-object v1, v0, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
+    if-nez v0, :cond_0
 
-    if-nez v1, :cond_7
+    iget-object v0, p0, Lq/H5;->d:Lq/D5;
 
-    goto :goto_1f
+    iget-object v0, v0, Lq/D5;->c:Ljava/util/Map;
 
-    :cond_7
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-wide v4
+    move-result-object v0
 
-    const/4 v6, 0x1
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    const/4 v9, 0x0
+    move-result-object v0
 
-    iget-wide v2, p0, Lq/H5;->b:J
+    iput-object v0, p0, Lq/H5;->c:Ljava/util/Iterator;
 
-    iget v7, p0, Lq/H5;->c:F
+    :cond_0
+    iget-object v0, p0, Lq/H5;->c:Ljava/util/Iterator;
 
-    iget v8, p0, Lq/H5;->d:F
+    return-object v0
+.end method
 
-    invoke-static/range {v2 .. v9}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
+.method public final hasNext()Z
+    .locals 4
 
-    move-result-object v1
+    iget v0, p0, Lq/H5;->a:I
 
-    iget-object v0, v0, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+    add-int/2addr v0, v1
 
-    invoke-virtual {v1}, Landroid/view/MotionEvent;->recycle()V
+    iget-object v2, p0, Lq/H5;->d:Lq/D5;
 
-    :goto_1f
+    iget-object v3, v2, Lq/D5;->b:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-lt v0, v3, :cond_1
+
+    iget-object v0, v2, Lq/D5;->c:Ljava/util/Map;
+
+    invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lq/H5;->a()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :cond_1
+    :goto_0
+    return v1
+.end method
+
+.method public final next()Ljava/lang/Object;
+    .locals 3
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lq/H5;->b:Z
+
+    iget v1, p0, Lq/H5;->a:I
+
+    add-int/2addr v1, v0
+
+    iput v1, p0, Lq/H5;->a:I
+
+    iget-object v0, p0, Lq/H5;->d:Lq/D5;
+
+    iget-object v2, v0, Lq/D5;->b:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_0
+
+    iget-object v0, v0, Lq/D5;->b:Ljava/util/List;
+
+    iget v1, p0, Lq/H5;->a:I
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Lq/H5;->a()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    :goto_0
+    return-object v0
+.end method
+
+.method public final remove()V
+    .locals 3
+
+    iget-boolean v0, p0, Lq/H5;->b:Z
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lq/H5;->b:Z
+
+    sget v0, Lq/D5;->g:I
+
+    iget-object v0, p0, Lq/H5;->d:Lq/D5;
+
+    invoke-virtual {v0}, Lq/D5;->b()V
+
+    iget v1, p0, Lq/H5;->a:I
+
+    iget-object v2, v0, Lq/D5;->b:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_0
+
+    iget v1, p0, Lq/H5;->a:I
+
+    add-int/lit8 v2, v1, -0x1
+
+    iput v2, p0, Lq/H5;->a:I
+
+    invoke-virtual {v0, v1}, Lq/D5;->h(I)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Lq/H5;->a()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
+
+    :goto_0
     return-void
+
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "remove() was called before next()"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method

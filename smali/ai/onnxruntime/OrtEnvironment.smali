@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     const-class v0, Lai/onnxruntime/OrtEnvironment;
 
@@ -49,14 +49,14 @@
 
     sput-object v0, Lai/onnxruntime/OrtEnvironment;->logger:Ljava/util/logging/Logger;
 
-    :try_start_c
+    :try_start_0
     invoke-static {}, Lai/onnxruntime/OnnxRuntime;->init()V
-    :try_end_f
-    .catch Ljava/io/IOException; {:try_start_c .. :try_end_f} :catch_10
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_10
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/RuntimeException;
@@ -69,7 +69,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 1
     sget-object v0, Lai/onnxruntime/OrtLoggingLevel;->ORT_LOGGING_LEVEL_WARNING:Lai/onnxruntime/OrtLoggingLevel;
@@ -82,7 +82,7 @@
 .end method
 
 .method private constructor <init>(Lai/onnxruntime/OrtLoggingLevel;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
 
     .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -137,7 +137,7 @@
 .end method
 
 .method private constructor <init>(Lai/onnxruntime/OrtLoggingLevel;Ljava/lang/String;Lai/onnxruntime/OrtEnvironment$ThreadingOptions;)V
-    .registers 10
+    .locals 6
 
     .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -200,7 +200,7 @@
 .end method
 
 .method public static synthetic access$100(JJ)V
-    .registers 4
+    .locals 0
 
     invoke-static {p0, p1, p2, p3}, Lai/onnxruntime/OrtEnvironment;->close(JJ)V
 
@@ -217,7 +217,7 @@
 .end method
 
 .method public static getAvailableProviders()Ljava/util/EnumSet;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -240,17 +240,17 @@
 .end method
 
 .method public static declared-synchronized getEnvironment()Lai/onnxruntime/OrtEnvironment;
-    .registers 3
+    .locals 3
 
     const-class v0, Lai/onnxruntime/OrtEnvironment;
 
     monitor-enter v0
 
     .line 1
-    :try_start_3
+    :try_start_0
     sget-object v1, Lai/onnxruntime/OrtEnvironment;->INSTANCE:Lai/onnxruntime/OrtEnvironment;
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 2
     sget-object v1, Lai/onnxruntime/OrtLoggingLevel;->ORT_LOGGING_LEVEL_WARNING:Lai/onnxruntime/OrtLoggingLevel;
@@ -260,40 +260,40 @@
     invoke-static {v1, v2}, Lai/onnxruntime/OrtEnvironment;->getEnvironment(Lai/onnxruntime/OrtLoggingLevel;Ljava/lang/String;)Lai/onnxruntime/OrtEnvironment;
 
     move-result-object v1
-    :try_end_f
-    .catchall {:try_start_3 .. :try_end_f} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v0
 
     return-object v1
 
-    :catchall_11
+    :catchall_0
     move-exception v1
 
-    goto :goto_17
+    goto :goto_0
 
     .line 3
-    :cond_13
-    :try_start_13
+    :cond_0
+    :try_start_1
     sget-object v1, Lai/onnxruntime/OrtEnvironment;->INSTANCE:Lai/onnxruntime/OrtEnvironment;
-    :try_end_15
-    .catchall {:try_start_13 .. :try_end_15} :catchall_11
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit v0
 
     return-object v1
 
-    :goto_17
-    :try_start_17
+    :goto_0
+    :try_start_2
     monitor-exit v0
-    :try_end_18
-    .catchall {:try_start_17 .. :try_end_18} :catchall_11
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 .end method
 
 .method public static getEnvironment(Lai/onnxruntime/OrtLoggingLevel;)Lai/onnxruntime/OrtEnvironment;
-    .registers 2
+    .locals 1
 
     .line 5
     const-string v0, "ort-java"
@@ -306,22 +306,22 @@
 .end method
 
 .method public static declared-synchronized getEnvironment(Lai/onnxruntime/OrtLoggingLevel;Ljava/lang/String;)Lai/onnxruntime/OrtEnvironment;
-    .registers 4
+    .locals 2
 
     const-class v0, Lai/onnxruntime/OrtEnvironment;
 
     monitor-enter v0
 
     .line 6
-    :try_start_3
+    :try_start_0
     sget-object v1, Lai/onnxruntime/OrtEnvironment;->INSTANCE:Lai/onnxruntime/OrtEnvironment;
-    :try_end_5
-    .catchall {:try_start_3 .. :try_end_5} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v1, :cond_1e
+    if-nez v1, :cond_0
 
     .line 7
-    :try_start_7
+    :try_start_1
     new-instance v1, Lai/onnxruntime/OrtEnvironment;
 
     invoke-direct {v1, p0, p1}, Lai/onnxruntime/OrtEnvironment;-><init>(Lai/onnxruntime/OrtLoggingLevel;Ljava/lang/String;)V
@@ -333,22 +333,22 @@
 
     .line 9
     sput-object p1, Lai/onnxruntime/OrtEnvironment;->curLoggingName:Ljava/lang/String;
-    :try_end_12
-    .catch Lai/onnxruntime/OrtException; {:try_start_7 .. :try_end_12} :catch_15
-    .catchall {:try_start_7 .. :try_end_12} :catchall_13
+    :try_end_1
+    .catch Lai/onnxruntime/OrtException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_39
+    goto :goto_0
 
-    :catchall_13
+    :catchall_0
     move-exception p0
 
-    goto :goto_3d
+    goto :goto_1
 
-    :catch_15
+    :catch_0
     move-exception p0
 
     .line 10
-    :try_start_16
+    :try_start_2
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string v1, "Failed to create OrtEnvironment"
@@ -358,7 +358,7 @@
     throw p1
 
     .line 11
-    :cond_1e
+    :cond_0
     invoke-virtual {p0}, Lai/onnxruntime/OrtLoggingLevel;->getValue()I
 
     move-result p0
@@ -369,7 +369,7 @@
 
     move-result v1
 
-    if-ne p0, v1, :cond_32
+    if-ne p0, v1, :cond_1
 
     sget-object p0, Lai/onnxruntime/OrtEnvironment;->curLoggingName:Ljava/lang/String;
 
@@ -377,10 +377,10 @@
 
     move-result p0
 
-    if-nez p0, :cond_39
+    if-nez p0, :cond_2
 
     .line 12
-    :cond_32
+    :cond_1
     sget-object p0, Lai/onnxruntime/OrtEnvironment;->logger:Ljava/util/logging/Logger;
 
     const-string p1, "Tried to change OrtEnvironment\'s logging level or name while a reference exists."
@@ -388,42 +388,42 @@
     invoke-virtual {p0, p1}, Ljava/util/logging/Logger;->warning(Ljava/lang/String;)V
 
     .line 13
-    :cond_39
-    :goto_39
+    :cond_2
+    :goto_0
     sget-object p0, Lai/onnxruntime/OrtEnvironment;->INSTANCE:Lai/onnxruntime/OrtEnvironment;
-    :try_end_3b
-    .catchall {:try_start_16 .. :try_end_3b} :catchall_13
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit v0
 
     return-object p0
 
-    :goto_3d
-    :try_start_3d
+    :goto_1
+    :try_start_3
     monitor-exit v0
-    :try_end_3e
-    .catchall {:try_start_3d .. :try_end_3e} :catchall_13
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw p0
 .end method
 
 .method public static declared-synchronized getEnvironment(Lai/onnxruntime/OrtLoggingLevel;Ljava/lang/String;Lai/onnxruntime/OrtEnvironment$ThreadingOptions;)Lai/onnxruntime/OrtEnvironment;
-    .registers 5
+    .locals 2
 
     const-class v0, Lai/onnxruntime/OrtEnvironment;
 
     monitor-enter v0
 
     .line 14
-    :try_start_3
+    :try_start_0
     sget-object v1, Lai/onnxruntime/OrtEnvironment;->INSTANCE:Lai/onnxruntime/OrtEnvironment;
-    :try_end_5
-    .catchall {:try_start_3 .. :try_end_5} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v1, :cond_21
+    if-nez v1, :cond_0
 
     .line 15
-    :try_start_7
+    :try_start_1
     new-instance v1, Lai/onnxruntime/OrtEnvironment;
 
     invoke-direct {v1, p0, p1, p2}, Lai/onnxruntime/OrtEnvironment;-><init>(Lai/onnxruntime/OrtLoggingLevel;Ljava/lang/String;Lai/onnxruntime/OrtEnvironment$ThreadingOptions;)V
@@ -435,30 +435,30 @@
 
     .line 17
     sput-object p1, Lai/onnxruntime/OrtEnvironment;->curLoggingName:Ljava/lang/String;
-    :try_end_12
-    .catch Lai/onnxruntime/OrtException; {:try_start_7 .. :try_end_12} :catch_18
-    .catchall {:try_start_7 .. :try_end_12} :catchall_16
+    :try_end_1
+    .catch Lai/onnxruntime/OrtException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 18
-    :try_start_12
+    :try_start_2
     sget-object p0, Lai/onnxruntime/OrtEnvironment;->INSTANCE:Lai/onnxruntime/OrtEnvironment;
-    :try_end_14
-    .catchall {:try_start_12 .. :try_end_14} :catchall_16
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit v0
 
     return-object p0
 
-    :catchall_16
+    :catchall_0
     move-exception p0
 
-    goto :goto_29
+    goto :goto_0
 
-    :catch_18
+    :catch_0
     move-exception p0
 
     .line 19
-    :try_start_19
+    :try_start_3
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string p2, "Failed to create OrtEnvironment"
@@ -468,7 +468,7 @@
     throw p1
 
     .line 20
-    :cond_21
+    :cond_0
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Tried to specify the thread pool when creating an OrtEnvironment, but one already exists."
@@ -477,16 +477,16 @@
 
     throw p0
 
-    :goto_29
+    :goto_0
     monitor-exit v0
-    :try_end_2a
-    .catchall {:try_start_19 .. :try_end_2a} :catchall_16
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw p0
 .end method
 
 .method public static getEnvironment(Ljava/lang/String;)Lai/onnxruntime/OrtEnvironment;
-    .registers 2
+    .locals 1
 
     .line 4
     sget-object v0, Lai/onnxruntime/OrtLoggingLevel;->ORT_LOGGING_LEVEL_WARNING:Lai/onnxruntime/OrtLoggingLevel;
@@ -504,14 +504,14 @@
 
 # virtual methods
 .method public close()V
-    .registers 1
+    .locals 0
 
     .line 1
     return-void
 .end method
 
 .method public createSession(Ljava/lang/String;)Lai/onnxruntime/OrtSession;
-    .registers 3
+    .locals 1
 
     .line 1
     new-instance v0, Lai/onnxruntime/OrtSession$SessionOptions;
@@ -526,7 +526,7 @@
 .end method
 
 .method public createSession(Ljava/lang/String;Lai/onnxruntime/OrtAllocator;Lai/onnxruntime/OrtSession$SessionOptions;)Lai/onnxruntime/OrtSession;
-    .registers 5
+    .locals 1
 
     .line 3
     const-string v0, "model path must not be null"
@@ -542,7 +542,7 @@
 .end method
 
 .method public createSession(Ljava/lang/String;Lai/onnxruntime/OrtSession$SessionOptions;)Lai/onnxruntime/OrtSession;
-    .registers 4
+    .locals 1
 
     .line 2
     iget-object v0, p0, Lai/onnxruntime/OrtEnvironment;->defaultAllocator:Lai/onnxruntime/OrtAllocator;
@@ -555,7 +555,7 @@
 .end method
 
 .method public createSession([B)Lai/onnxruntime/OrtSession;
-    .registers 3
+    .locals 1
 
     .line 6
     new-instance v0, Lai/onnxruntime/OrtSession$SessionOptions;
@@ -570,7 +570,7 @@
 .end method
 
 .method public createSession([BLai/onnxruntime/OrtAllocator;Lai/onnxruntime/OrtSession$SessionOptions;)Lai/onnxruntime/OrtSession;
-    .registers 5
+    .locals 1
 
     .line 7
     const-string v0, "model array must not be null"
@@ -586,7 +586,7 @@
 .end method
 
 .method public createSession([BLai/onnxruntime/OrtSession$SessionOptions;)Lai/onnxruntime/OrtSession;
-    .registers 4
+    .locals 1
 
     .line 5
     iget-object v0, p0, Lai/onnxruntime/OrtEnvironment;->defaultAllocator:Lai/onnxruntime/OrtAllocator;
@@ -599,7 +599,7 @@
 .end method
 
 .method public createTrainingSession(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lai/onnxruntime/OrtTrainingSession;
-    .registers 11
+    .locals 6
 
     .line 1
     new-instance v5, Lai/onnxruntime/OrtSession$SessionOptions;
@@ -624,12 +624,12 @@
 .end method
 
 .method public createTrainingSession(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lai/onnxruntime/OrtAllocator;Lai/onnxruntime/OrtSession$SessionOptions;)Lai/onnxruntime/OrtTrainingSession;
-    .registers 16
+    .locals 9
 
     .line 3
     sget-boolean v0, Lai/onnxruntime/OnnxRuntime;->trainingEnabled:Z
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 4
     const-string v0, "train path must not be null"
@@ -663,7 +663,7 @@
     return-object p1
 
     .line 7
-    :cond_1a
+    :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string p2, "Training is not enabled in this build of ONNX Runtime."
@@ -674,7 +674,7 @@
 .end method
 
 .method public createTrainingSession(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lai/onnxruntime/OrtSession$SessionOptions;)Lai/onnxruntime/OrtTrainingSession;
-    .registers 13
+    .locals 7
 
     .line 2
     iget-object v5, p0, Lai/onnxruntime/OrtEnvironment;->defaultAllocator:Lai/onnxruntime/OrtAllocator;
@@ -699,7 +699,7 @@
 .end method
 
 .method public getNativeHandle()J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lai/onnxruntime/OrtEnvironment;->nativeHandle:J
 
@@ -707,7 +707,7 @@
 .end method
 
 .method public getVersion()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     invoke-static {}, Lai/onnxruntime/OnnxRuntime;->version()Ljava/lang/String;
 
@@ -717,7 +717,7 @@
 .end method
 
 .method public isTrainingEnabled()Z
-    .registers 2
+    .locals 1
 
     sget-boolean v0, Lai/onnxruntime/OnnxRuntime;->trainingEnabled:Z
 
@@ -725,7 +725,7 @@
 .end method
 
 .method public setTelemetry(Z)V
-    .registers 6
+    .locals 4
 
     .line 1
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -738,7 +738,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 

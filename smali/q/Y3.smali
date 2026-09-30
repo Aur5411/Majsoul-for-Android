@@ -1,52 +1,25 @@
-.class public final synthetic Lq/Y3;
+.class public abstract synthetic Lq/Y3;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
-# interfaces
-.implements Ljava/util/function/Function;
-
-
-# instance fields
-.field public final synthetic a:I
-
 
 # direct methods
-.method public synthetic constructor <init>(I)V
-    .registers 2
+.method public static bridge synthetic a(Ljava/io/ByteArrayOutputStream;Ljava/nio/charset/Charset;)Ljava/lang/String;
+    .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-virtual {p0, p1}, Ljava/io/ByteArrayOutputStream;->toString(Ljava/nio/charset/Charset;)Ljava/lang/String;
 
-    iput p1, p0, Lq/Y3;->a:I
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method
 
+.method public static bridge synthetic b(Ljava/io/FileInputStream;)[B
+    .locals 0
 
-# virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    invoke-virtual {p0}, Ljava/io/FileInputStream;->readAllBytes()[B
 
-    check-cast p1, Lq/n;
+    move-result-object p0
 
-    iget p1, p0, Lq/Y3;->a:I
-
-    mul-int/lit8 p1, p1, 0x4
-
-    invoke-static {p1}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
-
-    move-result-object p1
-
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
-
-    move-result-object p1
-
-    return-object p1
+    return-object p0
 .end method

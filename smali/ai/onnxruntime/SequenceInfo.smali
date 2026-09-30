@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(ILai/onnxruntime/MapInfo;)V
-    .registers 3
+    .locals 0
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>(ILai/onnxruntime/OnnxJavaType;)V
-    .registers 3
+    .locals 0
 
     .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>(ILai/onnxruntime/OnnxJavaType;Lai/onnxruntime/OnnxJavaType;)V
-    .registers 4
+    .locals 0
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public isSequenceOfMaps()Z
-    .registers 2
+    .locals 1
 
     iget-boolean v0, p0, Lai/onnxruntime/SequenceInfo;->sequenceOfMaps:Z
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -152,18 +152,18 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_f
+    if-ne v1, v2, :cond_0
 
     const-string v1, "UNKNOWN"
 
-    goto :goto_13
+    goto :goto_0
 
-    :cond_f
+    :cond_0
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -176,7 +176,7 @@
 
     const-string v3, ",type="
 
-    if-eqz v1, :cond_3e
+    if-eqz v1, :cond_1
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -202,7 +202,7 @@
 
     return-object v0
 
-    :cond_3e
+    :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

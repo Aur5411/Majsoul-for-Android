@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     new-instance v0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 
@@ -114,8 +114,8 @@
 
     array-length v1, v0
 
-    :goto_42
-    if-ge v2, v1, :cond_4f
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     aget-object v3, v0, v2
 
@@ -127,14 +127,14 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_42
+    goto :goto_0
 
-    :cond_4f
+    :cond_0
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -149,28 +149,28 @@
 .end method
 
 .method public static mapFromInt(I)Lai/onnxruntime/OnnxMap$OnnxMapValueType;
-    .registers 3
+    .locals 2
 
-    if-lez p0, :cond_a
+    if-lez p0, :cond_0
 
     sget-object v0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;->values:[Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 
     array-length v1, v0
 
-    if-ge p0, v1, :cond_a
+    if-ge p0, v1, :cond_0
 
     aget-object p0, v0, p0
 
     return-object p0
 
-    :cond_a
+    :cond_0
     sget-object p0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;->INVALID:Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 
     return-object p0
 .end method
 
 .method public static mapFromOnnxJavaType(Lai/onnxruntime/OnnxJavaType;)Lai/onnxruntime/OnnxMap$OnnxMapValueType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxMap$1;->$SwitchMap$ai$onnxruntime$OnnxJavaType:[I
 
@@ -182,47 +182,47 @@
 
     const/4 v0, 0x1
 
-    if-eq p0, v0, :cond_20
+    if-eq p0, v0, :cond_3
 
     const/4 v0, 0x2
 
-    if-eq p0, v0, :cond_1d
+    if-eq p0, v0, :cond_2
 
     const/4 v0, 0x3
 
-    if-eq p0, v0, :cond_1a
+    if-eq p0, v0, :cond_1
 
     const/4 v0, 0x4
 
-    if-eq p0, v0, :cond_17
+    if-eq p0, v0, :cond_0
 
     sget-object p0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;->INVALID:Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 
     return-object p0
 
-    :cond_17
+    :cond_0
     sget-object p0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;->STRING:Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 
     return-object p0
 
-    :cond_1a
+    :cond_1
     sget-object p0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;->LONG:Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 
     return-object p0
 
-    :cond_1d
+    :cond_2
     sget-object p0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;->DOUBLE:Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 
     return-object p0
 
-    :cond_20
+    :cond_3
     sget-object p0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;->FLOAT:Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 
     return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lai/onnxruntime/OnnxMap$OnnxMapValueType;
-    .registers 2
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public static values()[Lai/onnxruntime/OnnxMap$OnnxMapValueType;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxMap$OnnxMapValueType;->$VALUES:[Lai/onnxruntime/OnnxMap$OnnxMapValueType;
 

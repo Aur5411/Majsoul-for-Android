@@ -25,16 +25,16 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     :try_start_0
     invoke-static {}, Lai/onnxruntime/OnnxRuntime;->init()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_4
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_4
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/RuntimeException;
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public static synthetic access$000(Lai/onnxruntime/OrtEnvironment$ThreadingOptions;)J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lai/onnxruntime/OrtEnvironment$ThreadingOptions;->nativeHandle:J
 
@@ -75,15 +75,15 @@
 .end method
 
 .method private checkClosed()V
-    .registers 3
+    .locals 2
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtEnvironment$ThreadingOptions;->closed:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     return-void
 
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to use a closed ThreadingOptions"
@@ -114,11 +114,11 @@
 
 # virtual methods
 .method public close()V
-    .registers 5
+    .locals 4
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtEnvironment$ThreadingOptions;->closed:Z
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
@@ -132,7 +132,7 @@
 
     return-void
 
-    :cond_f
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to close a closed ThreadingOptions."
@@ -143,7 +143,7 @@
 .end method
 
 .method public setGlobalDenormalAsZero()V
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtEnvironment$ThreadingOptions;->checkClosed()V
@@ -159,12 +159,12 @@
 .end method
 
 .method public setGlobalInterOpNumThreads(I)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtEnvironment$ThreadingOptions;->checkClosed()V
 
-    if-ltz p1, :cond_f
+    if-ltz p1, :cond_0
 
     .line 2
     sget-wide v1, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -180,7 +180,7 @@
     return-void
 
     .line 3
-    :cond_f
+    :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Number of threads must be non-negative."
@@ -191,12 +191,12 @@
 .end method
 
 .method public setGlobalIntraOpNumThreads(I)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtEnvironment$ThreadingOptions;->checkClosed()V
 
-    if-ltz p1, :cond_f
+    if-ltz p1, :cond_0
 
     .line 2
     sget-wide v1, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -212,7 +212,7 @@
     return-void
 
     .line 3
-    :cond_f
+    :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Number of threads must be non-negative."
@@ -223,7 +223,7 @@
 .end method
 
 .method public setGlobalSpinControl(Z)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtEnvironment$ThreadingOptions;->checkClosed()V

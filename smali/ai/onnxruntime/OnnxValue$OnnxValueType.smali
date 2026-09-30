@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 9
+    .locals 9
 
     new-instance v0, Lai/onnxruntime/OnnxValue$OnnxValueType;
 
@@ -128,7 +128,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -143,7 +143,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lai/onnxruntime/OnnxValue$OnnxValueType;
-    .registers 2
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OnnxValue$OnnxValueType;
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public static values()[Lai/onnxruntime/OnnxValue$OnnxValueType;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxValue$OnnxValueType;->$VALUES:[Lai/onnxruntime/OnnxValue$OnnxValueType;
 

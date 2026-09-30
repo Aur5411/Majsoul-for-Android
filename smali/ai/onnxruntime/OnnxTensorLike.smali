@@ -18,16 +18,16 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     :try_start_0
     invoke-static {}, Lai/onnxruntime/OnnxRuntime;->init()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_4
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_4
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/RuntimeException;
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(JJLai/onnxruntime/TensorInfo;)V
-    .registers 6
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -60,15 +60,15 @@
 
 # virtual methods
 .method public checkClosed()V
-    .registers 3
+    .locals 2
 
     iget-boolean v0, p0, Lai/onnxruntime/OnnxTensorLike;->closed:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     return-void
 
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to use a closed OnnxValue"
@@ -79,7 +79,7 @@
 .end method
 
 .method public getInfo()Lai/onnxruntime/TensorInfo;
-    .registers 2
+    .locals 1
 
     .line 2
     iget-object v0, p0, Lai/onnxruntime/OnnxTensorLike;->info:Lai/onnxruntime/TensorInfo;
@@ -88,7 +88,7 @@
 .end method
 
 .method public bridge synthetic getInfo()Lai/onnxruntime/ValueInfo;
-    .registers 2
+    .locals 1
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxTensorLike;->getInfo()Lai/onnxruntime/TensorInfo;
@@ -99,7 +99,7 @@
 .end method
 
 .method public getNativeHandle()J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lai/onnxruntime/OnnxTensorLike;->nativeHandle:J
 
@@ -107,26 +107,26 @@
 .end method
 
 .method public declared-synchronized isClosed()Z
-    .registers 2
+    .locals 1
 
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Lai/onnxruntime/OnnxTensorLike;->closed:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
-    :try_start_6
+    :try_start_1
     monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_6 .. :try_end_7} :catchall_5
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method

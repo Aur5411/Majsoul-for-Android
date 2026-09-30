@@ -1,20 +1,18 @@
-.class public final synthetic Lq/n4;
+.class public interface abstract Lq/n4;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
 # interfaces
-.implements Ljava/util/function/ToDoubleFunction;
+.implements Lq/p4;
+.implements Ljava/lang/Cloneable;
 
 
 # virtual methods
-.method public final applyAsDouble(Ljava/lang/Object;)D
-    .registers 4
+.method public abstract b()Lq/o4;
+.end method
 
-    check-cast p1, Lq/p4;
+.method public abstract d(Lq/f0;Lq/F2;)Lq/n4;
+.end method
 
-    iget p1, p1, Lq/p4;->e:F
-
-    float-to-double v0, p1
-
-    return-wide v0
+.method public abstract f()Lq/o4;
 .end method

@@ -3,83 +3,86 @@
 .source "SourceFile"
 
 # interfaces
-.implements Lq/o;
-.implements Lq/M2;
+.implements Lq/u;
 
 
 # static fields
-.field public static volatile G:Z
+.field public static volatile I:Z
 
 
 # instance fields
 .field public A:I
 
-.field public B:Z
+.field public B:I
 
-.field public C:Z
+.field public C:I
 
-.field public D:Z
+.field public D:Lq/r;
 
-.field public E:I
+.field public E:Z
 
-.field public F:I
+.field public F:Z
+
+.field public G:Z
+
+.field public H:Lq/r;
 
 .field public final a:Landroid/os/Handler;
 
-.field public final b:Lq/d4;
+.field public final b:Lq/A4;
 
-.field public final c:Lq/d4;
+.field public final c:Lq/A4;
 
-.field public final d:Lq/d4;
+.field public final d:Lq/A4;
 
-.field public final e:Lq/d4;
+.field public final e:Lq/A4;
 
-.field public final f:Lq/d4;
+.field public final f:Lq/A4;
 
-.field public final g:Lq/d4;
+.field public final g:Lq/A4;
 
-.field public h:Landroid/view/WindowManager;
+.field public final h:Lq/A4;
 
-.field public i:Landroid/view/WindowManager$LayoutParams;
+.field public i:Landroid/view/WindowManager;
 
-.field public j:Landroid/widget/FrameLayout;
+.field public j:Landroid/view/WindowManager$LayoutParams;
 
-.field public k:Landroid/widget/LinearLayout;
+.field public k:Landroid/widget/FrameLayout;
 
-.field public l:Landroid/widget/TextView;
+.field public l:Landroid/widget/LinearLayout;
 
 .field public m:Landroid/widget/TextView;
 
-.field public final n:[Landroid/widget/TextView;
+.field public n:Landroid/widget/TextView;
 
-.field public final o:Ljava/util/ArrayList;
+.field public final o:[Landroid/widget/TextView;
 
-.field public p:Lq/r2;
+.field public final p:Ljava/util/ArrayList;
 
-.field public q:Lq/z3;
+.field public q:Lq/X3;
 
-.field public r:Lq/y3;
+.field public r:Lq/e5;
 
 .field public s:Landroid/content/SharedPreferences;
 
-.field public t:Lq/j4;
+.field public t:Lq/B4;
 
 .field public u:Landroid/content/SharedPreferences;
 
-.field public v:Lq/j4;
+.field public v:Lq/B4;
 
-.field public w:Z
+.field public w:Landroid/content/SharedPreferences;
 
-.field public x:Z
+.field public x:Lq/B4;
 
-.field public y:I
+.field public y:Z
 
-.field public z:I
+.field public z:Z
 
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
@@ -93,115 +96,209 @@
 
     iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    new-instance v0, Lq/d4;
+    new-instance v0, Lq/A4;
 
-    const/4 v1, 0x2
+    const/4 v1, 0x5
 
-    invoke-direct {v0, p0, v1}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v0, p0, v1}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->b:Lq/d4;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->b:Lq/A4;
 
-    new-instance v0, Lq/d4;
-
-    const/4 v1, 0x6
-
-    invoke-direct {v0, p0, v1}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
-
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/d4;
-
-    new-instance v0, Lq/d4;
-
-    const/4 v1, 0x7
-
-    invoke-direct {v0, p0, v1}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
-
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->d:Lq/d4;
-
-    new-instance v0, Lq/d4;
+    new-instance v0, Lq/A4;
 
     const/16 v1, 0x8
 
-    invoke-direct {v0, p0, v1}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v0, p0, v1}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->e:Lq/d4;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/A4;
 
-    new-instance v0, Lq/d4;
+    new-instance v0, Lq/A4;
 
     const/16 v1, 0x9
 
-    invoke-direct {v0, p0, v1}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v0, p0, v1}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->f:Lq/d4;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->d:Lq/A4;
 
-    new-instance v0, Lq/d4;
+    new-instance v0, Lq/A4;
 
     const/16 v1, 0xa
 
-    invoke-direct {v0, p0, v1}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v0, p0, v1}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->g:Lq/d4;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->e:Lq/A4;
+
+    new-instance v0, Lq/A4;
+
+    const/16 v1, 0xb
+
+    invoke-direct {v0, p0, v1}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->f:Lq/A4;
+
+    new-instance v0, Lq/A4;
+
+    const/16 v1, 0xc
+
+    invoke-direct {v0, p0, v1}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->g:Lq/A4;
+
+    new-instance v0, Lq/A4;
+
+    const/16 v1, 0xd
+
+    invoke-direct {v0, p0, v1}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Lq/A4;
 
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->n:[Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->o:[Landroid/widget/TextView;
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->o:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->p:Ljava/util/ArrayList;
 
-    sget v0, Lq/r;->c:I
+    sget-object v0, Lq/x;->c:Lq/r;
 
-    iput v0, p0, Lcom/qiuhui/mahjong/OverlayService;->E:I
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->D:Lq/r;
 
-    sget v0, Lq/r;->c:I
+    sget-object v0, Lq/x;->c:Lq/r;
 
-    iput v0, p0, Lcom/qiuhui/mahjong/OverlayService;->F:I
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->H:Lq/r;
 
     return-void
 .end method
 
-.method public static j()Z
-    .registers 1
+.method public static i()Z
+    .locals 1
 
-    sget-boolean v0, Lcom/qiuhui/mahjong/MainActivity;->r:Z
+    sget-boolean v0, Lcom/qiuhui/mahjong/MainActivity;->v:Z
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_1
 
-    sget-boolean v0, Lcom/qiuhui/mahjong/WebGameActivity;->C:Z
+    sget-boolean v0, Lcom/qiuhui/mahjong/WebGameActivity;->B0:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
-    goto :goto_b
+    goto :goto_0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_1
 
-    :cond_b
-    :goto_b
+    :cond_1
+    :goto_0
     const/4 v0, 0x1
 
-    :goto_c
+    :goto_1
     return v0
 .end method
 
 
 # virtual methods
 .method public final a()V
-    .registers 4
+    .locals 6
+
+    sget-object v0, Lq/x;->c:Lq/r;
+
+    sget-object v1, Lq/r;->e:Lq/r;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v4, p0, Lcom/qiuhui/mahjong/OverlayService;->H:Lq/r;
+
+    if-eq v4, v1, :cond_0
+
+    move v4, v3
+
+    goto :goto_0
+
+    :cond_0
+    move v4, v2
+
+    :goto_0
+    if-eq v0, v1, :cond_1
+
+    iget-object v5, p0, Lcom/qiuhui/mahjong/OverlayService;->H:Lq/r;
+
+    if-ne v5, v1, :cond_1
+
+    move v2, v3
+
+    :cond_1
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->H:Lq/r;
+
+    if-eqz v4, :cond_2
+
+    invoke-static {}, Lcom/qiuhui/mahjong/OverlayService;->i()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    new-instance v1, Lq/d4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->b:Lq/A4;
 
-    const/4 v2, 0x5
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    invoke-direct {v1, p0, v2}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/A4;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/A4;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    goto :goto_1
+
+    :cond_2
+    if-eqz v2, :cond_3
+
+    invoke-static {}, Lcom/qiuhui/mahjong/OverlayService;->i()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->e:Lq/A4;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    :cond_3
+    :goto_1
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->g:Lq/A4;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Lq/A4;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Lq/A4;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -209,306 +306,199 @@
 .end method
 
 .method public final b()V
-    .registers 7
-
-    sget v0, Lq/r;->c:I
-
-    const/4 v1, 0x4
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    if-ne v0, v1, :cond_d
-
-    iget v4, p0, Lcom/qiuhui/mahjong/OverlayService;->F:I
-
-    if-eq v4, v1, :cond_d
-
-    move v4, v3
-
-    goto :goto_e
-
-    :cond_d
-    move v4, v2
-
-    :goto_e
-    if-eq v0, v1, :cond_15
-
-    iget v5, p0, Lcom/qiuhui/mahjong/OverlayService;->F:I
-
-    if-ne v5, v1, :cond_15
-
-    move v2, v3
-
-    :cond_15
-    iput v0, p0, Lcom/qiuhui/mahjong/OverlayService;->F:I
-
-    if-eqz v4, :cond_35
-
-    invoke-static {}, Lcom/qiuhui/mahjong/OverlayService;->j()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_35
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->b:Lq/d4;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/d4;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/d4;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    goto :goto_40
-
-    :cond_35
-    if-eqz v2, :cond_40
-
-    invoke-static {}, Lcom/qiuhui/mahjong/OverlayService;->j()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_40
-
-    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->m()V
-
-    :cond_40
-    :goto_40
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->f:Lq/d4;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->g:Lq/d4;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->g:Lq/d4;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public final c()V
-    .registers 10
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_e3
+    .locals 9
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
 
-    if-nez v0, :cond_a
+    if-eqz v0, :cond_10
 
-    goto/16 :goto_e3
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->n:Landroid/widget/TextView;
 
-    :cond_a
-    sget-object v0, Lq/r;->i:Ljava/util/List;
+    if-nez v0, :cond_0
+
+    goto/16 :goto_8
+
+    :cond_0
+    sget-object v0, Lq/x;->i:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
 
-    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
 
     const/16 v3, 0x8
 
     const/4 v4, 0x0
 
-    if-nez v1, :cond_19
+    if-nez v1, :cond_1
 
     move v5, v3
 
-    goto :goto_1a
+    goto :goto_0
 
-    :cond_19
+    :cond_1
     move v5, v4
 
-    :goto_1a
+    :goto_0
     invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
-    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
 
     const-string v5, ""
 
-    if-nez v1, :cond_25
+    if-nez v1, :cond_2
 
     move-object v6, v5
 
-    goto :goto_59
+    goto :goto_1
 
-    :cond_25
-    sget v6, Lq/r;->c:I
+    :cond_2
+    sget-object v6, Lq/x;->c:Lq/r;
 
-    invoke-static {v6}, Lq/I1;->f(I)I
+    invoke-virtual {v6}, Ljava/lang/Enum;->ordinal()I
 
     move-result v6
 
-    if-eqz v6, :cond_57
+    if-eqz v6, :cond_8
 
     const/4 v7, 0x1
 
-    if-eq v6, v7, :cond_54
+    if-eq v6, v7, :cond_7
 
     const/4 v7, 0x2
 
-    if-eq v6, v7, :cond_51
+    if-eq v6, v7, :cond_6
 
     const/4 v7, 0x3
 
-    if-ne v6, v7, :cond_4b
+    if-ne v6, v7, :cond_5
 
-    sget-boolean v6, Lq/r;->h:Z
+    sget-boolean v6, Lq/x;->h:Z
 
-    if-eqz v6, :cond_3d
+    if-eqz v6, :cond_3
 
-    const-string v6, "分析中"
+    const-string v6, "\u5206\u6790\u4e2d"
 
-    goto :goto_59
+    goto :goto_1
 
-    :cond_3d
-    sget-object v6, Lq/r;->f:Ljava/lang/String;
+    :cond_3
+    sget-object v6, Lq/x;->f:Ljava/lang/String;
 
     invoke-virtual {v6}, Ljava/lang/String;->isEmpty()Z
 
     move-result v6
 
-    if-eqz v6, :cond_48
+    if-eqz v6, :cond_4
 
-    const-string v6, "对局中"
+    const-string v6, "\u5bf9\u5c40\u4e2d"
 
-    goto :goto_59
+    goto :goto_1
 
-    :cond_48
-    sget-object v6, Lq/r;->f:Ljava/lang/String;
+    :cond_4
+    sget-object v6, Lq/x;->f:Ljava/lang/String;
 
-    goto :goto_59
+    goto :goto_1
 
-    :cond_4b
+    :cond_5
     new-instance v0, Ljava/lang/IncompatibleClassChangeError;
 
     invoke-direct {v0}, Ljava/lang/IncompatibleClassChangeError;-><init>()V
 
     throw v0
 
-    :cond_51
-    const-string v6, "等待对局"
+    :cond_6
+    const-string v6, "\u7b49\u5f85\u5bf9\u5c40"
 
-    goto :goto_59
+    goto :goto_1
 
-    :cond_54
-    const-string v6, "等待登录"
+    :cond_7
+    const-string v6, "\u7b49\u5f85\u767b\u5f55"
 
-    goto :goto_59
+    goto :goto_1
 
-    :cond_57
-    const-string v6, "就绪"
+    :cond_8
+    const-string v6, "\u5c31\u7eea"
 
-    :goto_59
+    :goto_1
     invoke-virtual {v2, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const/4 v2, 0x4
+    if-nez v1, :cond_9
 
-    const/4 v6, 0x0
+    const/4 v1, 0x0
 
-    if-nez v1, :cond_61
+    goto :goto_2
 
-    goto :goto_79
+    :cond_9
+    sget-boolean v1, Lq/x;->h:Z
 
-    :cond_61
-    sget v1, Lq/r;->c:I
+    if-eqz v1, :cond_a
 
-    if-eq v1, v2, :cond_66
-
-    goto :goto_79
-
-    :cond_66
-    sget-boolean v1, Lq/r;->h:Z
-
-    if-eqz v1, :cond_75
-
-    sget-object v1, Lq/r;->f:Ljava/lang/String;
+    sget-object v1, Lq/x;->f:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_75
+    if-nez v1, :cond_a
 
-    sget-object v6, Lq/r;->f:Ljava/lang/String;
+    sget-object v1, Lq/x;->f:Ljava/lang/String;
 
-    goto :goto_79
+    goto :goto_2
 
-    :cond_75
-    sget-object v1, Lq/r;->b:Lq/n;
+    :cond_a
+    move-object v1, v5
 
-    iget-object v6, v1, Lq/n;->a:Ljava/lang/String;
+    :goto_2
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->n:Landroid/widget/TextView;
 
-    :goto_79
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
+    if-nez v1, :cond_b
 
-    if-nez v6, :cond_7f
+    move v6, v3
 
-    move v7, v3
+    goto :goto_3
 
-    goto :goto_80
+    :cond_b
+    move v6, v4
 
-    :cond_7f
-    move v7, v4
+    :goto_3
+    invoke-virtual {v2, v6}, Landroid/view/View;->setVisibility(I)V
 
-    :goto_80
-    invoke-virtual {v1, v7}, Landroid/view/View;->setVisibility(I)V
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->n:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
+    if-nez v1, :cond_c
 
-    if-nez v6, :cond_88
+    move-object v1, v5
 
-    move-object v6, v5
+    :cond_c
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_88
-    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->n:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
+    sget-object v2, Lq/x;->c:Lq/r;
 
-    sget v6, Lq/r;->c:I
+    sget-object v6, Lq/r;->e:Lq/r;
 
-    if-ne v6, v2, :cond_94
+    if-ne v2, v6, :cond_d
 
-    sget v2, Lq/Q4;->b:I
+    sget v2, Lq/Q5;->b:I
 
-    goto :goto_96
+    goto :goto_4
 
-    :cond_94
-    sget v2, Lq/Q4;->d:I
+    :cond_d
+    sget v2, Lq/Q5;->d:I
 
-    :goto_96
+    :goto_4
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
     move v1, v4
 
-    :goto_9a
-    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->n:[Landroid/widget/TextView;
+    :goto_5
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->o:[Landroid/widget/TextView;
 
     array-length v6, v2
 
-    if-ge v1, v6, :cond_e3
+    if-ge v1, v6, :cond_10
 
     aget-object v2, v2, v1
 
@@ -516,22 +506,22 @@
 
     move-result v6
 
-    if-lt v1, v6, :cond_ae
+    if-lt v1, v6, :cond_e
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_e0
+    goto :goto_7
 
-    :cond_ae
+    :cond_e
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
-    check-cast v6, Lq/p4;
+    check-cast v6, Lq/W4;
 
-    const/high16 v7, 0x3f800000  # 1.0f
+    const/high16 v7, 0x3f800000    # 1.0f
 
     invoke-virtual {v2, v7}, Landroid/view/View;->setAlpha(F)V
 
@@ -539,27 +529,27 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v1}, Lq/p4;->i(I)Ljava/lang/String;
+    invoke-virtual {v6, v1}, Lq/W4;->j(I)Ljava/lang/String;
 
     move-result-object v8
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v8, p0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    iget-boolean v8, p0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
-    if-eqz v8, :cond_cc
+    if-eqz v8, :cond_f
 
     const-string v8, "\n"
 
-    goto :goto_ce
+    goto :goto_6
 
-    :cond_cc
+    :cond_f
     const-string v8, " "
 
-    :goto_ce
+    :goto_6
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v6, Lq/p4;->b:Ljava/lang/String;
+    iget-object v6, v6, Lq/W4;->b:Ljava/lang/String;
 
     invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -571,30 +561,30 @@
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
-    :goto_e0
+    :goto_7
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9a
+    goto :goto_5
 
-    :cond_e3
-    :goto_e3
+    :cond_10
+    :goto_8
     return-void
 .end method
 
-.method public final d(ZZ)V
-    .registers 11
+.method public final c(ZZ)V
+    .locals 8
 
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_c5
+    if-eqz v0, :cond_6
 
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
-    goto/16 :goto_c5
+    goto/16 :goto_2
 
-    :cond_a
+    :cond_0
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->x:I
 
     iget v0, v0, Landroid/view/WindowManager$LayoutParams;->y:I
@@ -619,41 +609,41 @@
 
     iget v3, v3, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    iget-object v4, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iget-object v4, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
     iget v4, v4, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    if-lez v4, :cond_29
+    if-lez v4, :cond_1
 
-    goto :goto_39
+    goto :goto_1
 
-    :cond_29
-    iget-boolean v4, p0, Lcom/qiuhui/mahjong/OverlayService;->w:Z
+    :cond_1
+    iget-boolean v4, p0, Lcom/qiuhui/mahjong/OverlayService;->y:Z
 
-    if-eqz v4, :cond_30
+    if-eqz v4, :cond_2
 
-    const/high16 v4, 0x43780000  # 248.0f
+    const/high16 v4, 0x43780000    # 248.0f
 
-    goto :goto_35
+    goto :goto_0
 
-    :cond_30
-    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->f()I
+    :cond_2
+    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->e()I
 
     move-result v4
 
     int-to-float v4, v4
 
-    :goto_35
-    invoke-static {p0, v4}, Lq/Q4;->b(Landroid/content/Context;F)I
+    :goto_0
+    invoke-static {p0, v4}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v4
 
-    :goto_39
+    :goto_1
     invoke-static {v4, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v5
 
-    const/high16 v6, 0x40000000  # 2.0f
+    const/high16 v6, 0x40000000    # 2.0f
 
     invoke-static {v5, v6}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
@@ -665,17 +655,17 @@
 
     move-result v6
 
-    iget-object v7, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v7, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
     invoke-virtual {v7, v5, v6}, Landroid/view/View;->measure(II)V
 
-    iget-object v5, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v5, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
     invoke-virtual {v5}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v5
 
-    iget v6, p0, Lcom/qiuhui/mahjong/OverlayService;->y:I
+    iget v6, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
 
     sub-int/2addr v2, v4
 
@@ -693,9 +683,9 @@
 
     move-result v2
 
-    iput v2, p0, Lcom/qiuhui/mahjong/OverlayService;->y:I
+    iput v2, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
 
-    iget v2, p0, Lcom/qiuhui/mahjong/OverlayService;->z:I
+    iget v2, p0, Lcom/qiuhui/mahjong/OverlayService;->B:I
 
     sub-int/2addr v3, v5
 
@@ -711,59 +701,59 @@
 
     move-result v2
 
-    iput v2, p0, Lcom/qiuhui/mahjong/OverlayService;->z:I
+    iput v2, p0, Lcom/qiuhui/mahjong/OverlayService;->B:I
 
-    iget-object v3, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iget-object v3, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
-    iget v5, p0, Lcom/qiuhui/mahjong/OverlayService;->y:I
+    iget v5, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
 
     iput v5, v3, Landroid/view/WindowManager$LayoutParams;->x:I
 
     iput v2, v3, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Landroid/view/WindowManager;
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager;
 
-    if-eqz v2, :cond_9e
+    if-eqz v2, :cond_4
 
-    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
     invoke-virtual {v2}, Landroid/view/View;->isAttachedToWindow()Z
 
     move-result v2
 
-    if-eqz v2, :cond_9e
+    if-eqz v2, :cond_4
 
-    if-nez p2, :cond_95
+    if-nez p2, :cond_3
 
-    iget p2, p0, Lcom/qiuhui/mahjong/OverlayService;->y:I
+    iget p2, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
 
-    if-ne v1, p2, :cond_95
+    if-ne v1, p2, :cond_3
 
-    iget p2, p0, Lcom/qiuhui/mahjong/OverlayService;->z:I
+    iget p2, p0, Lcom/qiuhui/mahjong/OverlayService;->B:I
 
-    if-eq v0, p2, :cond_9e
+    if-eq v0, p2, :cond_4
 
-    :cond_95
-    iget-object p2, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Landroid/view/WindowManager;
+    :cond_3
+    iget-object p2, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager;
 
-    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    iget-object v3, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iget-object v3, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
     invoke-interface {p2, v2, v3}, Landroid/view/ViewManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_9e
-    if-eqz p1, :cond_c5
+    :cond_4
+    if-eqz p1, :cond_6
 
-    iget p1, p0, Lcom/qiuhui/mahjong/OverlayService;->y:I
+    iget p1, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
 
-    if-ne v1, p1, :cond_a8
+    if-ne v1, p1, :cond_5
 
-    iget p1, p0, Lcom/qiuhui/mahjong/OverlayService;->z:I
+    iget p1, p0, Lcom/qiuhui/mahjong/OverlayService;->B:I
 
-    if-eq v0, p1, :cond_c5
+    if-eq v0, p1, :cond_6
 
-    :cond_a8
+    :cond_5
     const-string p1, "overlay"
 
     invoke-virtual {p0, p1, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
@@ -776,7 +766,7 @@
 
     const-string p2, "x"
 
-    iget v0, p0, Lcom/qiuhui/mahjong/OverlayService;->y:I
+    iget v0, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
 
     invoke-interface {p1, p2, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
@@ -784,7 +774,7 @@
 
     const-string p2, "y"
 
-    iget v0, p0, Lcom/qiuhui/mahjong/OverlayService;->z:I
+    iget v0, p0, Lcom/qiuhui/mahjong/OverlayService;->B:I
 
     invoke-interface {p1, p2, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
@@ -792,15 +782,15 @@
 
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_c5
-    :goto_c5
+    :cond_6
+    :goto_2
     return-void
 .end method
 
-.method public final e()I
-    .registers 6
+.method public final d()I
+    .locals 5
 
-    sget-object v0, Lq/r;->i:Ljava/util/List;
+    sget-object v0, Lq/x;->i:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -812,114 +802,114 @@
 
     move-result v0
 
-    iget-boolean v2, p0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    iget-boolean v2, p0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
     const/16 v3, 0x2c
 
     const/4 v4, 0x2
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_2
 
-    if-eq v0, v4, :cond_1a
+    if-eq v0, v4, :cond_1
 
-    if-eq v0, v1, :cond_17
+    if-eq v0, v1, :cond_0
 
-    goto :goto_1c
+    goto :goto_0
 
-    :cond_17
+    :cond_0
     const/16 v3, 0x6c
 
-    goto :goto_1c
+    goto :goto_0
 
-    :cond_1a
+    :cond_1
     const/16 v3, 0x48
 
-    :goto_1c
+    :goto_0
     return v3
 
-    :cond_1d
-    if-eq v0, v4, :cond_25
+    :cond_2
+    if-eq v0, v4, :cond_4
 
-    if-eq v0, v1, :cond_22
+    if-eq v0, v1, :cond_3
 
-    goto :goto_27
+    goto :goto_1
 
-    :cond_22
+    :cond_3
     const/16 v3, 0x42
 
-    goto :goto_27
+    goto :goto_1
 
-    :cond_25
+    :cond_4
     const/16 v3, 0x34
 
-    :goto_27
+    :goto_1
     return v3
 .end method
 
-.method public final f()I
-    .registers 2
+.method public final e()I
+    .locals 1
 
-    iget-boolean v0, p0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    iget-boolean v0, p0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     const/16 v0, 0x44
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_7
+    :cond_0
     const/16 v0, 0x6c
 
-    :goto_9
+    :goto_0
     return v0
 .end method
 
-.method public final g(I)V
-    .registers 4
+.method public final f(I)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
 
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
     iget v0, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     const/4 v1, 0x0
 
-    if-eq p1, v0, :cond_e
+    if-eq p1, v0, :cond_0
 
     const/4 p1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
-    :cond_e
+    :cond_0
     move p1, v1
 
-    :goto_f
-    invoke-virtual {p0, v1, p1}, Lcom/qiuhui/mahjong/OverlayService;->d(ZZ)V
+    :goto_0
+    invoke-virtual {p0, v1, p1}, Lcom/qiuhui/mahjong/OverlayService;->c(ZZ)V
 
-    iget-object p1, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object p1, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    new-instance v0, Lq/d4;
+    new-instance v0, Lq/A4;
 
-    const/4 v1, 0x4
+    const/4 v1, 0x7
 
-    invoke-direct {v0, p0, v1}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v0, p0, v1}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
     invoke-virtual {p1, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public final h(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
-    .registers 6
+.method public final g(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
+    .locals 2
 
-    const/high16 v0, 0x41a00000  # 20.0f
+    const/high16 v0, 0x41a00000    # 20.0f
 
     const/4 v1, 0x1
 
-    invoke-static {p0, p1, v0, p2, v1}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    invoke-static {p0, p1, v0, p2, v1}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
     move-result-object p1
 
@@ -932,108 +922,96 @@
     return-object p1
 .end method
 
-.method public final i()V
-    .registers 3
+.method public final h()V
+    .locals 2
 
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Landroid/view/WindowManager;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
-    :try_start_8
+    :try_start_0
     invoke-interface {v1, v0}, Landroid/view/WindowManager;->removeViewImmediate(Landroid/view/View;)V
-    :try_end_b
-    .catch Ljava/lang/RuntimeException; {:try_start_8 .. :try_end_b} :catch_b
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :catch_b
-    :cond_b
+    :catch_0
+    :cond_0
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
-
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
     iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->o:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->n:Landroid/widget/TextView;
+
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->p:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/qiuhui/mahjong/OverlayService;->w:Z
+    iput-boolean v0, p0, Lcom/qiuhui/mahjong/OverlayService;->y:Z
 
     return-void
 .end method
 
-.method public final k()V
-    .registers 18
+.method public final j()V
+    .locals 17
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v1, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_0
 
     return-void
 
-    :cond_7
-    iget-object v1, v0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    :cond_0
+    iget-object v1, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_1
 
     move v1, v2
 
-    goto :goto_10
+    goto :goto_0
 
-    :cond_e
+    :cond_1
     iget v1, v1, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    :goto_10
-    iget-boolean v3, v0, Lcom/qiuhui/mahjong/OverlayService;->w:Z
+    :goto_0
+    iget-boolean v3, v0, Lcom/qiuhui/mahjong/OverlayService;->y:Z
 
-    if-nez v3, :cond_55
+    if-nez v3, :cond_2
 
-    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
-    if-eqz v3, :cond_55
+    if-eqz v3, :cond_2
 
     invoke-virtual {v3}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v3
 
-    iget-object v4, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v4, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    if-ne v3, v4, :cond_55
+    if-ne v3, v4, :cond_2
 
-    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->c()V
+    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->b()V
 
-    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
     invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v2
-
-    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->f()I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    invoke-static {v0, v3}, Lq/Q4;->b(Landroid/content/Context;F)I
-
-    move-result v3
-
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->e()I
 
@@ -1041,66 +1019,78 @@
 
     int-to-float v3, v3
 
-    invoke-static {v0, v3}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v3}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v3
 
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v3, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
-
-    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->f()I
+    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->d()I
 
     move-result v3
 
     int-to-float v3, v3
 
-    invoke-static {v0, v3}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v3}, Lq/Q5;->b(Landroid/content/Context;F)I
+
+    move-result v3
+
+    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v3, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->e()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    invoke-static {v0, v3}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v3
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    invoke-virtual {v0, v1}, Lcom/qiuhui/mahjong/OverlayService;->g(I)V
+    invoke-virtual {v0, v1}, Lcom/qiuhui/mahjong/OverlayService;->f(I)V
 
     return-void
 
-    :cond_55
-    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    :cond_2
+    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
     invoke-virtual {v3}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->o:Ljava/util/ArrayList;
+    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->p:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
 
-    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
     invoke-virtual {v3, v2, v2, v2, v2}, Landroid/view/View;->setPadding(IIII)V
 
-    iget-boolean v3, v0, Lcom/qiuhui/mahjong/OverlayService;->w:Z
+    iget-boolean v3, v0, Lcom/qiuhui/mahjong/OverlayService;->y:Z
 
     const/4 v4, 0x1
 
-    const/high16 v12, 0x3f800000  # 1.0f
+    const/high16 v12, 0x3f800000    # 1.0f
 
     const/16 v13, 0x10
 
     const/4 v14, 0x0
 
-    const/high16 v15, 0x41200000  # 10.0f
+    const/high16 v15, 0x41200000    # 10.0f
 
     const/4 v6, -0x2
 
     const/4 v5, -0x1
 
-    if-eqz v3, :cond_32f
+    if-eqz v3, :cond_14
 
-    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v3, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
     new-instance v7, Landroid/widget/LinearLayout;
 
@@ -1108,31 +1098,31 @@
 
     invoke-virtual {v7, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    invoke-static {v0, v15}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v15}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v8
 
-    const/high16 v9, 0x41000000  # 8.0f
+    const/high16 v9, 0x41000000    # 8.0f
 
-    invoke-static {v0, v9}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v9}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v9
 
-    invoke-static {v0, v15}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v15}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v15
 
-    const/high16 v10, 0x41100000  # 9.0f
+    const/high16 v10, 0x41100000    # 9.0f
 
-    invoke-static {v0, v10}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v10}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v11
 
     invoke-virtual {v7, v8, v9, v15, v11}, Landroid/view/View;->setPadding(IIII)V
 
-    const/high16 v8, 0x41a80000  # 21.0f
+    const/high16 v8, 0x41a80000    # 21.0f
 
-    invoke-static {v5, v8, v0}, Lq/Q4;->a(IFLandroid/content/Context;)Landroid/graphics/drawable/GradientDrawable;
+    invoke-static {v5, v8, v0}, Lq/Q5;->a(IFLandroid/content/Context;)Landroid/graphics/drawable/GradientDrawable;
 
     move-result-object v8
 
@@ -1154,25 +1144,25 @@
 
     invoke-virtual {v9, v2, v2, v2, v2}, Landroid/view/View;->setPadding(IIII)V
 
-    sget v11, Lq/Q4;->a:I
+    sget v11, Lq/Q5;->a:I
 
-    const-string v14, "切牌推荐"
+    const-string v14, "\u5207\u724c\u63a8\u8350"
 
-    const/high16 v15, 0x41800000  # 16.0f
+    const/high16 v15, 0x41800000    # 16.0f
 
-    invoke-static {v0, v14, v15, v11, v4}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    invoke-static {v0, v14, v15, v11, v4}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
     move-result-object v14
 
     invoke-virtual {v9, v14}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    sget-object v14, Lq/r;->b:Lq/n;
+    sget-object v14, Lq/x;->b:Lq/t;
 
-    iget-object v14, v14, Lq/n;->a:Ljava/lang/String;
+    iget-object v14, v14, Lq/t;->a:Ljava/lang/String;
 
-    sget v15, Lq/Q4;->d:I
+    sget v15, Lq/Q5;->d:I
 
-    invoke-static {v0, v14, v10, v15, v2}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    invoke-static {v0, v14, v10, v15, v2}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
     move-result-object v14
 
@@ -1184,66 +1174,66 @@
 
     invoke-virtual {v8, v9, v14}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-boolean v9, v0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    iget-boolean v9, v0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
-    if-eqz v9, :cond_db
+    if-eqz v9, :cond_3
 
-    const-string v14, "横"
+    const-string v14, "\u6a2a"
 
-    goto :goto_dd
+    goto :goto_1
 
-    :cond_db
-    const-string v14, "竖"
+    :cond_3
+    const-string v14, "\u7ad6"
 
-    :goto_dd
-    if-eqz v9, :cond_e4
+    :goto_1
+    if-eqz v9, :cond_4
 
-    const-string v16, "横向显示"
+    const-string v16, "\u6a2a\u5411\u663e\u793a"
 
-    :goto_e1
+    :goto_2
     move-object/from16 v5, v16
 
-    goto :goto_e7
+    goto :goto_3
 
-    :cond_e4
-    const-string v16, "竖向显示"
+    :cond_4
+    const-string v16, "\u7ad6\u5411\u663e\u793a"
 
-    goto :goto_e1
+    goto :goto_2
 
-    :goto_e7
-    if-eqz v9, :cond_ec
+    :goto_3
+    if-eqz v9, :cond_5
 
-    sget v9, Lq/Q4;->b:I
+    sget v9, Lq/Q5;->b:I
 
-    goto :goto_ed
+    goto :goto_4
 
-    :cond_ec
+    :cond_5
     move v9, v15
 
-    :goto_ed
-    invoke-virtual {v0, v14, v9, v5}, Lcom/qiuhui/mahjong/OverlayService;->h(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
+    :goto_4
+    invoke-virtual {v0, v14, v9, v5}, Lcom/qiuhui/mahjong/OverlayService;->g(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
 
     move-result-object v5
 
-    new-instance v9, Lq/g4;
+    new-instance v9, Lq/F4;
 
     const/4 v14, 0x1
 
-    invoke-direct {v9, v0, v14}, Lq/g4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v9, v0, v14}, Lq/F4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
     invoke-virtual {v5, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 v14, 0x41d80000  # 27.0f
+    const/high16 v14, 0x41d80000    # 27.0f
 
-    invoke-static {v0, v14}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v14}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v10
 
-    const/high16 v6, 0x41f00000  # 30.0f
+    const/high16 v6, 0x41f00000    # 30.0f
 
-    invoke-static {v0, v6}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v6}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v12
 
@@ -1251,29 +1241,29 @@
 
     invoke-virtual {v8, v5, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    const-string v5, "≡"
+    const-string v5, "\u2261"
 
-    const-string v9, "拖动"
+    const-string v9, "\u62d6\u52a8"
 
-    invoke-virtual {v0, v5, v15, v9}, Lcom/qiuhui/mahjong/OverlayService;->h(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
+    invoke-virtual {v0, v5, v15, v9}, Lcom/qiuhui/mahjong/OverlayService;->g(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
 
     move-result-object v5
 
-    new-instance v9, Lq/k4;
+    new-instance v9, Lq/I4;
 
     const/4 v10, 0x0
 
-    invoke-direct {v9, v0, v10}, Lq/k4;-><init>(Lcom/qiuhui/mahjong/OverlayService;Lq/l2;)V
+    invoke-direct {v9, v0, v10}, Lq/I4;-><init>(Lcom/qiuhui/mahjong/OverlayService;Lq/f;)V
 
     invoke-virtual {v5, v9}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-static {v0, v14}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v14}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v10
 
-    invoke-static {v0, v6}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v6}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v12
 
@@ -1281,29 +1271,29 @@
 
     invoke-virtual {v8, v5, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    const-string v5, "−"
+    const-string v5, "\u2212"
 
-    const-string v9, "收起"
+    const-string v9, "\u6536\u8d77"
 
-    invoke-virtual {v0, v5, v15, v9}, Lcom/qiuhui/mahjong/OverlayService;->h(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
+    invoke-virtual {v0, v5, v15, v9}, Lcom/qiuhui/mahjong/OverlayService;->g(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
 
     move-result-object v5
 
-    new-instance v9, Lq/g4;
+    new-instance v9, Lq/F4;
 
     const/4 v10, 0x2
 
-    invoke-direct {v9, v0, v10}, Lq/g4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v9, v0, v10}, Lq/F4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
     invoke-virtual {v5, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-static {v0, v14}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v14}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v10
 
-    invoke-static {v0, v6}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v6}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v12
 
@@ -1311,37 +1301,37 @@
 
     invoke-virtual {v8, v5, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    sget v5, Lq/Q4;->e:I
+    sget v5, Lq/Q5;->e:I
 
-    const-string v9, "×"
+    const-string v9, "\u00d7"
 
-    const-string v10, "关闭"
+    const-string v10, "\u5173\u95ed"
 
-    invoke-virtual {v0, v9, v5, v10}, Lcom/qiuhui/mahjong/OverlayService;->h(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
+    invoke-virtual {v0, v9, v5, v10}, Lcom/qiuhui/mahjong/OverlayService;->g(Ljava/lang/String;ILjava/lang/String;)Landroid/widget/TextView;
 
     move-result-object v5
 
-    new-instance v9, Lq/g4;
+    new-instance v9, Lq/F4;
 
     const/4 v10, 0x3
 
-    invoke-direct {v9, v0, v10}, Lq/g4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v9, v0, v10}, Lq/F4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
     invoke-virtual {v5, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    new-instance v9, Lq/h4;
+    new-instance v9, Lq/G4;
 
-    invoke-direct {v9, v0}, Lq/h4;-><init>(Lcom/qiuhui/mahjong/OverlayService;)V
+    invoke-direct {v9, v0}, Lq/G4;-><init>(Lcom/qiuhui/mahjong/OverlayService;)V
 
     invoke-virtual {v5, v9}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-static {v0, v14}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v14}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v10
 
-    invoke-static {v0, v6}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v6}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v6
 
@@ -1351,31 +1341,39 @@
 
     invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
+    invoke-static/range {p0 .. p0}, Lq/p;->h(Landroid/content/Context;)Lq/G2;
+
+    move-result-object v5
+
+    iget-boolean v5, v5, Lq/G2;->a:Z
+
+    const/high16 v6, 0x41500000    # 13.0f
+
+    if-eqz v5, :cond_6
+
     new-instance v5, Landroid/widget/LinearLayout;
 
     invoke-direct {v5, v0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v5, v13}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    const/high16 v6, 0x40a00000  # 5.0f
+    const/high16 v8, 0x40a00000    # 5.0f
 
-    invoke-static {v0, v6}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v8}, Lq/Q5;->b(Landroid/content/Context;F)I
 
-    move-result v6
+    move-result v8
 
-    invoke-virtual {v5, v2, v6, v2, v2}, Landroid/view/View;->setPadding(IIII)V
+    invoke-virtual {v5, v2, v8, v2, v2}, Landroid/view/View;->setPadding(IIII)V
 
-    const-string v6, "自动打牌"
+    const-string v8, "\u81ea\u52a8\u6253\u724c"
 
-    const/high16 v8, 0x41500000  # 13.0f
-
-    invoke-static {v0, v6, v8, v11, v4}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    invoke-static {v0, v8, v6, v11, v4}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
     move-result-object v9
 
     new-instance v10, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 v12, 0x3f800000  # 1.0f
+    const/high16 v12, 0x3f800000    # 1.0f
 
     const/4 v14, -0x2
 
@@ -1387,181 +1385,205 @@
 
     invoke-direct {v9, v0}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v9, v6}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v9, v8}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const-string v6, "automation"
+    const-string v8, "automation"
 
-    invoke-virtual {v0, v6, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v0, v8, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string v10, "enabled"
 
-    invoke-interface {v6, v10, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v8, v10, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v6
+    move-result v8
 
-    invoke-virtual {v9, v6}, Landroid/widget/Switch;->setChecked(Z)V
+    invoke-virtual {v9, v8}, Landroid/widget/Switch;->setChecked(Z)V
 
-    new-instance v6, Lq/i4;
+    new-instance v8, Lq/H4;
 
     const/4 v10, 0x0
 
-    invoke-direct {v6, v0, v10}, Lq/i4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v8, v0, v10}, Lq/H4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
-    invoke-virtual {v9, v6}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v9, v8}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     invoke-virtual {v5, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     invoke-virtual {v7, v5}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
+    :cond_6
     new-instance v5, Landroid/widget/LinearLayout;
 
     invoke-direct {v5, v0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v5, v13}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    const/high16 v6, 0x40000000  # 2.0f
+    const/high16 v8, 0x40000000    # 2.0f
 
-    invoke-static {v0, v6}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v8}, Lq/Q5;->b(Landroid/content/Context;F)I
 
-    move-result v6
+    move-result v8
 
-    invoke-virtual {v5, v2, v6, v2, v2}, Landroid/view/View;->setPadding(IIII)V
+    invoke-virtual {v5, v2, v8, v2, v2}, Landroid/view/View;->setPadding(IIII)V
 
-    const-string v6, "小猫推荐"
+    const-string v8, "\u5c0f\u732b\u63a8\u8350"
 
-    invoke-static {v0, v6, v8, v11, v4}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    invoke-static {v0, v8, v6, v11, v4}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
-    move-result-object v8
+    move-result-object v6
 
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 v10, 0x3f800000  # 1.0f
+    const/high16 v10, 0x3f800000    # 1.0f
 
     const/4 v11, -0x2
 
     invoke-direct {v9, v2, v11, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v5, v8, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v5, v6, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    new-instance v8, Landroid/widget/Switch;
+    new-instance v6, Landroid/widget/Switch;
 
-    invoke-direct {v8, v0}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v6, v0}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v8, v6}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v6, v8}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const-string v6, "overlay"
+    const-string v8, "overlay"
 
-    invoke-virtual {v0, v6, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v0, v8, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v6
+    move-result-object v8
 
     const-string v9, "cat_recommendation_enabled"
 
-    invoke-interface {v6, v9, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v8, v9, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v6
+    move-result v8
 
-    invoke-virtual {v8, v6}, Landroid/widget/Switch;->setChecked(Z)V
+    invoke-virtual {v6, v8}, Landroid/widget/Switch;->setChecked(Z)V
 
-    new-instance v6, Lq/i4;
+    new-instance v8, Lq/H4;
 
     const/4 v9, 0x1
 
-    invoke-direct {v6, v0, v9}, Lq/i4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v8, v0, v9}, Lq/H4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
-    invoke-virtual {v8, v6}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v6, v8}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    invoke-virtual {v5, v8}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     invoke-virtual {v7, v5}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    sget-object v5, Lq/r;->i:Ljava/util/List;
+    invoke-static/range {p0 .. p0}, Lq/p;->h(Landroid/content/Context;)Lq/G2;
+
+    move-result-object v5
+
+    iget-boolean v5, v5, Lq/G2;->b:Z
+
+    if-eqz v5, :cond_7
+
+    const-class v5, Landroid/content/Context;
+
+    const-class v6, Landroid/widget/LinearLayout;
+
+    filled-new-array {v5, v6}, [Ljava/lang/Class;
+
+    move-result-object v5
+
+    filled-new-array {v0, v7}, [Ljava/lang/Object;
+
+    move-result-object v6
+
+    const-string v8, "addOverlayControls"
+
+    invoke-static {v8, v5, v6}, Lq/O;->l(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)V
+
+    :cond_7
+    sget-object v5, Lq/x;->i:Ljava/util/List;
 
     invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
 
     move-result v6
 
-    if-eqz v6, :cond_27f
+    if-eqz v6, :cond_f
 
-    sget v5, Lq/r;->c:I
+    sget-object v5, Lq/x;->c:Lq/r;
 
-    const/4 v6, 0x4
+    sget-object v6, Lq/r;->e:Lq/r;
 
-    if-ne v5, v6, :cond_232
+    if-ne v5, v6, :cond_a
 
-    sget-boolean v5, Lq/r;->h:Z
+    sget-boolean v5, Lq/x;->h:Z
 
-    if-eqz v5, :cond_224
+    if-eqz v5, :cond_8
 
-    const-string v5, "分析中"
+    const-string v5, "\u5206\u6790\u4e2d"
 
-    goto :goto_238
+    goto :goto_5
 
-    :cond_224
-    sget-object v5, Lq/r;->f:Ljava/lang/String;
+    :cond_8
+    sget-object v5, Lq/x;->f:Ljava/lang/String;
 
     invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
 
     move-result v5
 
-    if-eqz v5, :cond_22f
+    if-eqz v5, :cond_9
 
-    const-string v5, "对局中"
+    const-string v5, "\u5bf9\u5c40\u4e2d"
 
-    goto :goto_238
+    goto :goto_5
 
-    :cond_22f
-    sget-object v5, Lq/r;->f:Ljava/lang/String;
+    :cond_9
+    sget-object v5, Lq/x;->f:Ljava/lang/String;
 
-    goto :goto_238
+    goto :goto_5
 
-    :cond_232
-    sget v5, Lq/r;->c:I
+    :cond_a
+    sget-object v5, Lq/x;->c:Lq/r;
 
-    invoke-static {v5}, Lq/I1;->c(I)Ljava/lang/String;
+    iget-object v5, v5, Lq/r;->a:Ljava/lang/String;
 
-    move-result-object v5
+    :goto_5
+    sget-object v6, Lq/x;->c:Lq/r;
 
-    :goto_238
-    sget v6, Lq/r;->c:I
-
-    invoke-static {v6}, Lq/I1;->f(I)I
+    invoke-virtual {v6}, Ljava/lang/Enum;->ordinal()I
 
     move-result v6
 
-    if-eqz v6, :cond_25f
+    if-eqz v6, :cond_e
 
-    if-eq v6, v4, :cond_254
+    if-eq v6, v4, :cond_d
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    if-eq v6, v8, :cond_24f
+    if-eq v6, v9, :cond_c
 
     const/4 v8, 0x3
 
-    if-ne v6, v8, :cond_249
+    if-ne v6, v8, :cond_b
 
-    goto :goto_24f
+    goto :goto_6
 
-    :cond_249
+    :cond_b
     new-instance v1, Ljava/lang/IncompatibleClassChangeError;
 
     invoke-direct {v1}, Ljava/lang/IncompatibleClassChangeError;-><init>()V
 
     throw v1
 
-    :cond_24f
-    :goto_24f
-    sget v6, Lq/Q4;->b:I
+    :cond_c
+    :goto_6
+    sget v6, Lq/Q5;->b:I
 
-    :goto_251
-    const/high16 v8, 0x41600000  # 14.0f
+    :goto_7
+    const/high16 v8, 0x41600000    # 14.0f
 
-    goto :goto_262
+    goto :goto_8
 
-    :cond_254
+    :cond_d
     const/16 v6, 0xb2
 
     const/16 v8, 0x4c
@@ -1572,15 +1594,15 @@
 
     move-result v6
 
-    goto :goto_251
+    goto :goto_7
 
-    :cond_25f
-    sget v6, Lq/Q4;->c:I
+    :cond_e
+    sget v6, Lq/Q5;->c:I
 
-    goto :goto_251
+    goto :goto_7
 
-    :goto_262
-    invoke-static {v0, v5, v8, v6, v4}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    :goto_8
+    invoke-static {v0, v5, v8, v6, v4}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
     move-result-object v4
 
@@ -1588,15 +1610,15 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setGravity(I)V
 
-    const/high16 v5, 0x41400000  # 12.0f
+    const/high16 v5, 0x41400000    # 12.0f
 
-    invoke-static {v0, v5}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v5}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v5
 
-    const/high16 v6, 0x41100000  # 9.0f
+    const/high16 v6, 0x41100000    # 9.0f
 
-    invoke-static {v0, v6}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v6}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v6
 
@@ -1604,25 +1626,25 @@
 
     invoke-virtual {v7, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    goto/16 :goto_319
+    goto/16 :goto_e
 
-    :cond_27f
-    const/high16 v6, 0x41100000  # 9.0f
+    :cond_f
+    const/high16 v6, 0x41100000    # 9.0f
 
     move v8, v2
 
-    :goto_282
+    :goto_9
     invoke-interface {v5}, Ljava/util/List;->size()I
 
     move-result v9
 
-    if-ge v8, v9, :cond_319
+    if-ge v8, v9, :cond_13
 
     invoke-interface {v5, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v9
 
-    check-cast v9, Lq/p4;
+    check-cast v9, Lq/W4;
 
     new-instance v10, Landroid/widget/LinearLayout;
 
@@ -1630,54 +1652,54 @@
 
     invoke-virtual {v10, v13}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    if-nez v8, :cond_29a
+    if-nez v8, :cond_10
 
     move v11, v6
 
-    goto :goto_29c
+    goto :goto_a
 
-    :cond_29a
-    const/high16 v11, 0x40800000  # 4.0f
+    :cond_10
+    const/high16 v11, 0x40800000    # 4.0f
 
-    :goto_29c
-    invoke-static {v0, v11}, Lq/Q4;->b(Landroid/content/Context;F)I
+    :goto_a
+    invoke-static {v0, v11}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v11
 
     invoke-virtual {v10, v2, v11, v2, v2}, Landroid/view/View;->setPadding(IIII)V
 
-    invoke-virtual {v9, v8}, Lq/p4;->i(I)Ljava/lang/String;
+    invoke-virtual {v9, v8}, Lq/W4;->j(I)Ljava/lang/String;
 
     move-result-object v11
 
-    if-nez v8, :cond_2ae
+    if-nez v8, :cond_11
 
-    sget v12, Lq/Q4;->b:I
+    sget v12, Lq/Q5;->b:I
 
-    :goto_2ab
-    const/high16 v14, 0x41300000  # 11.0f
+    :goto_b
+    const/high16 v14, 0x41300000    # 11.0f
 
-    goto :goto_2b1
+    goto :goto_c
 
-    :cond_2ae
-    sget v12, Lq/Q4;->d:I
+    :cond_11
+    sget v12, Lq/Q5;->d:I
 
-    goto :goto_2ab
+    goto :goto_b
 
-    :goto_2b1
-    invoke-static {v0, v11, v14, v12, v4}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    :goto_c
+    invoke-static {v0, v11, v14, v12, v4}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
     move-result-object v11
 
-    iget-object v12, v0, Lcom/qiuhui/mahjong/OverlayService;->o:Ljava/util/ArrayList;
+    iget-object v12, v0, Lcom/qiuhui/mahjong/OverlayService;->p:Ljava/util/ArrayList;
 
     invoke-virtual {v12, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance v12, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 v14, 0x42340000  # 45.0f
+    const/high16 v14, 0x42340000    # 45.0f
 
-    invoke-static {v0, v14}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v14}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v14
 
@@ -1687,31 +1709,31 @@
 
     invoke-virtual {v10, v11, v12}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v11, v9, Lq/p4;->b:Ljava/lang/String;
+    iget-object v11, v9, Lq/W4;->b:Ljava/lang/String;
 
-    if-nez v8, :cond_2d0
+    if-nez v8, :cond_12
 
-    const/high16 v12, 0x41b00000  # 22.0f
+    const/high16 v12, 0x41b00000    # 22.0f
 
-    goto :goto_2d2
+    goto :goto_d
 
-    :cond_2d0
-    const/high16 v12, 0x41880000  # 17.0f
+    :cond_12
+    const/high16 v12, 0x41880000    # 17.0f
 
-    :goto_2d2
-    sget v14, Lq/Q4;->a:I
+    :goto_d
+    sget v14, Lq/Q5;->a:I
 
-    invoke-static {v0, v11, v12, v14, v4}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    invoke-static {v0, v11, v12, v14, v4}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
     move-result-object v11
 
-    iget-object v12, v0, Lcom/qiuhui/mahjong/OverlayService;->o:Ljava/util/ArrayList;
+    iget-object v12, v0, Lcom/qiuhui/mahjong/OverlayService;->p:Ljava/util/ArrayList;
 
     invoke-virtual {v12, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance v12, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 v14, 0x3f800000  # 1.0f
+    const/high16 v14, 0x3f800000    # 1.0f
 
     const/4 v15, -0x2
 
@@ -1723,9 +1745,9 @@
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget v9, v9, Lq/p4;->e:F
+    iget v9, v9, Lq/W4;->e:F
 
-    const/high16 v12, 0x42c80000  # 100.0f
+    const/high16 v12, 0x42c80000    # 100.0f
 
     mul-float/2addr v9, v12
 
@@ -1743,15 +1765,15 @@
 
     move-result-object v9
 
-    sget v11, Lq/Q4;->d:I
+    sget v11, Lq/Q5;->d:I
 
-    const/high16 v12, 0x41300000  # 11.0f
+    const/high16 v12, 0x41300000    # 11.0f
 
-    invoke-static {v0, v9, v12, v11, v4}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    invoke-static {v0, v9, v12, v11, v4}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
     move-result-object v9
 
-    iget-object v11, v0, Lcom/qiuhui/mahjong/OverlayService;->o:Ljava/util/ArrayList;
+    iget-object v11, v0, Lcom/qiuhui/mahjong/OverlayService;->p:Ljava/util/ArrayList;
 
     invoke-virtual {v11, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1761,10 +1783,10 @@
 
     add-int/lit8 v8, v8, 0x1
 
-    goto/16 :goto_282
+    goto/16 :goto_9
 
-    :cond_319
-    :goto_319
+    :cond_13
+    :goto_e
     new-instance v2, Landroid/widget/FrameLayout$LayoutParams;
 
     const/4 v4, -0x2
@@ -1775,95 +1797,95 @@
 
     invoke-virtual {v3, v7, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
-    const/high16 v3, 0x43780000  # 248.0f
+    const/high16 v3, 0x43780000    # 248.0f
 
-    invoke-static {v0, v3}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v3}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v3
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    goto/16 :goto_459
+    goto/16 :goto_15
 
-    :cond_32f
-    const/high16 v5, 0x41400000  # 12.0f
+    :cond_14
+    const/high16 v5, 0x41400000    # 12.0f
 
-    const/high16 v6, 0x40a00000  # 5.0f
+    const/high16 v8, 0x40a00000    # 5.0f
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    const/high16 v12, 0x41300000  # 11.0f
+    const/high16 v12, 0x41300000    # 11.0f
 
-    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->e()I
+    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->d()I
 
     move-result v3
 
-    iget-object v7, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v6, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    new-instance v9, Landroid/widget/LinearLayout;
+    new-instance v7, Landroid/widget/LinearLayout;
 
-    invoke-direct {v9, v0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v7, v0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    iput-object v9, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    iput-object v7, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v9, v13}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {v7, v13}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    iget-object v9, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    iget-object v7, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
-    iget-boolean v10, v0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    iget-boolean v10, v0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
-    if-eqz v10, :cond_34f
+    if-eqz v10, :cond_15
 
-    const/high16 v10, 0x40800000  # 4.0f
+    const/high16 v10, 0x40800000    # 4.0f
 
-    goto :goto_350
+    goto :goto_f
 
-    :cond_34f
-    move v10, v6
+    :cond_15
+    move v10, v8
 
-    :goto_350
-    invoke-static {v0, v10}, Lq/Q4;->b(Landroid/content/Context;F)I
+    :goto_f
+    invoke-static {v0, v10}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v10
 
-    const/high16 v11, 0x40800000  # 4.0f
+    const/high16 v11, 0x40800000    # 4.0f
 
-    invoke-static {v0, v11}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v11}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v13
 
-    iget-boolean v5, v0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    iget-boolean v5, v0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
-    if-eqz v5, :cond_35f
+    if-eqz v5, :cond_16
 
-    move v6, v11
+    move v8, v11
 
-    :cond_35f
-    invoke-static {v0, v6}, Lq/Q4;->b(Landroid/content/Context;F)I
+    :cond_16
+    invoke-static {v0, v8}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v5
 
-    invoke-static {v0, v11}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v11}, Lq/Q5;->b(Landroid/content/Context;F)I
 
-    move-result v6
+    move-result v8
 
-    invoke-virtual {v9, v10, v13, v5, v6}, Landroid/view/View;->setPadding(IIII)V
+    invoke-virtual {v7, v10, v13, v5, v8}, Landroid/view/View;->setPadding(IIII)V
 
-    iget-object v5, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    iget-object v5, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
-    const/high16 v6, 0x41a00000  # 20.0f
+    const/high16 v7, 0x41a00000    # 20.0f
 
-    const/4 v9, -0x1
+    const/4 v8, -0x1
 
-    invoke-static {v9, v6, v0}, Lq/Q4;->a(IFLandroid/content/Context;)Landroid/graphics/drawable/GradientDrawable;
+    invoke-static {v8, v7, v0}, Lq/Q5;->a(IFLandroid/content/Context;)Landroid/graphics/drawable/GradientDrawable;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v5, v7}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v5, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    iget-object v5, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
     invoke-virtual {v5, v14}, Landroid/view/View;->setElevation(F)V
 
@@ -1873,84 +1895,84 @@
 
     invoke-virtual {v5, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    const/16 v6, 0x11
+    const/16 v7, 0x11
 
-    invoke-virtual {v5, v6}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {v5, v7}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    const/high16 v9, 0x3f800000  # 1.0f
+    const/high16 v8, 0x3f800000    # 1.0f
 
-    invoke-static {v0, v9}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v8}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v10
 
-    invoke-static {v0, v9}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v8}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v13
 
     invoke-virtual {v5, v10, v2, v13, v2}, Landroid/view/View;->setPadding(IIII)V
 
-    sget v9, Lq/Q4;->a:I
+    sget v8, Lq/Q5;->a:I
 
     const-string v10, ""
 
-    const/high16 v13, 0x41600000  # 14.0f
+    const/high16 v13, 0x41600000    # 14.0f
 
-    invoke-static {v0, v10, v13, v9, v4}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    invoke-static {v0, v10, v13, v8, v4}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
-    move-result-object v9
+    move-result-object v8
 
-    iput-object v9, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/TextView;
+    iput-object v8, v0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
 
-    invoke-virtual {v9, v6}, Landroid/widget/TextView;->setGravity(I)V
+    invoke-virtual {v8, v7}, Landroid/widget/TextView;->setGravity(I)V
 
-    iget-object v9, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/TextView;
+    iget-object v8, v0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
 
-    invoke-virtual {v5, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v5, v8}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    sget v9, Lq/Q4;->d:I
+    sget v8, Lq/Q5;->d:I
 
-    invoke-static {v0, v10, v15, v9, v2}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    invoke-static {v0, v10, v15, v8, v2}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
-    move-result-object v9
+    move-result-object v8
 
-    iput-object v9, v0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
+    iput-object v8, v0, Lcom/qiuhui/mahjong/OverlayService;->n:Landroid/widget/TextView;
 
-    invoke-virtual {v9, v6}, Landroid/widget/TextView;->setGravity(I)V
+    invoke-virtual {v8, v7}, Landroid/widget/TextView;->setGravity(I)V
 
-    iget-object v6, v0, Lcom/qiuhui/mahjong/OverlayService;->m:Landroid/widget/TextView;
+    iget-object v7, v0, Lcom/qiuhui/mahjong/OverlayService;->n:Landroid/widget/TextView;
 
-    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v5, v7}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    move v6, v2
+    move v7, v2
 
-    :goto_3ba
-    iget-object v9, v0, Lcom/qiuhui/mahjong/OverlayService;->n:[Landroid/widget/TextView;
+    :goto_10
+    iget-object v8, v0, Lcom/qiuhui/mahjong/OverlayService;->o:[Landroid/widget/TextView;
 
-    array-length v13, v9
+    array-length v13, v8
 
-    if-ge v6, v13, :cond_406
+    if-ge v7, v13, :cond_1c
 
-    if-nez v6, :cond_3c4
+    if-nez v7, :cond_17
 
-    const/high16 v14, 0x41400000  # 12.0f
+    const/high16 v14, 0x41400000    # 12.0f
 
-    goto :goto_3c5
+    goto :goto_11
 
-    :cond_3c4
+    :cond_17
     move v14, v12
 
-    :goto_3c5
-    if-nez v6, :cond_3ca
+    :goto_11
+    if-nez v7, :cond_18
 
-    sget v13, Lq/Q4;->b:I
+    sget v13, Lq/Q5;->b:I
 
-    goto :goto_3cc
+    goto :goto_12
 
-    :cond_3ca
-    sget v13, Lq/Q4;->a:I
+    :cond_18
+    sget v13, Lq/Q5;->a:I
 
-    :goto_3cc
-    invoke-static {v0, v10, v14, v13, v4}, Lq/Q4;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    :goto_12
+    invoke-static {v0, v10, v14, v13, v4}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
 
     move-result-object v13
 
@@ -1958,163 +1980,163 @@
 
     invoke-virtual {v13, v14}, Landroid/widget/TextView;->setGravity(I)V
 
-    iget-boolean v15, v0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    iget-boolean v15, v0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
     xor-int/2addr v15, v4
 
     invoke-virtual {v13, v15}, Landroid/widget/TextView;->setSingleLine(Z)V
 
-    iget-boolean v15, v0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    iget-boolean v15, v0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
-    if-eqz v15, :cond_3e1
+    if-eqz v15, :cond_19
 
-    move v15, v8
+    move v15, v9
 
-    goto :goto_3e2
+    goto :goto_13
 
-    :cond_3e1
+    :cond_19
     move v15, v4
 
-    :goto_3e2
+    :goto_13
     invoke-virtual {v13, v15}, Landroid/widget/TextView;->setMaxLines(I)V
 
     new-instance v15, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v4, -0x2
 
-    const/4 v8, -0x1
+    const/4 v9, -0x1
 
-    invoke-direct {v15, v8, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v15, v9, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    if-lez v6, :cond_3fc
+    if-lez v7, :cond_1b
 
-    iget-boolean v4, v0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    iget-boolean v4, v0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
-    if-eqz v4, :cond_3f4
+    if-eqz v4, :cond_1a
 
     move v4, v11
 
-    goto :goto_3f6
+    goto :goto_14
 
-    :cond_3f4
-    const/high16 v4, 0x40400000  # 3.0f
+    :cond_1a
+    const/high16 v4, 0x40400000    # 3.0f
 
-    :goto_3f6
-    invoke-static {v0, v4}, Lq/Q4;->b(Landroid/content/Context;F)I
+    :goto_14
+    invoke-static {v0, v4}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v4
 
     iput v4, v15, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
-    :cond_3fc
-    aput-object v13, v9, v6
+    :cond_1b
+    aput-object v13, v8, v7
 
     invoke-virtual {v5, v13, v15}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     const/4 v4, 0x1
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    goto :goto_3ba
+    goto :goto_10
 
-    :cond_406
-    iget-object v4, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    :cond_1c
+    iget-object v4, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
-    new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
+    new-instance v7, Landroid/widget/LinearLayout$LayoutParams;
 
-    const/high16 v8, 0x3f800000  # 1.0f
+    const/high16 v8, 0x3f800000    # 1.0f
 
     const/4 v9, -0x2
 
-    invoke-direct {v6, v2, v9, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+    invoke-direct {v7, v2, v9, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    invoke-virtual {v4, v5, v6}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v4, v5, v7}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
-    new-instance v4, Lq/g4;
+    new-instance v4, Lq/F4;
 
     const/4 v5, 0x0
 
-    invoke-direct {v4, v0, v5}, Lq/g4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v4, v0, v5}, Lq/F4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
-    new-instance v4, Lq/k4;
+    new-instance v4, Lq/I4;
 
     invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v5, Lq/l2;
+    new-instance v5, Lq/f;
 
-    const/4 v6, 0x3
+    const/4 v7, 0x6
 
-    invoke-direct {v5, v6, v2}, Lq/l2;-><init>(ILjava/lang/Object;)V
+    invoke-direct {v5, v7, v2}, Lq/f;-><init>(ILjava/lang/Object;)V
 
-    invoke-direct {v4, v0, v5}, Lq/k4;-><init>(Lcom/qiuhui/mahjong/OverlayService;Lq/l2;)V
+    invoke-direct {v4, v0, v5}, Lq/I4;-><init>(Lcom/qiuhui/mahjong/OverlayService;Lq/f;)V
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->c()V
+    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->b()V
 
-    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/LinearLayout;
+    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->l:Landroid/widget/LinearLayout;
 
     new-instance v4, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->f()I
+    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->e()I
 
     move-result v5
 
     int-to-float v5, v5
 
-    invoke-static {v0, v5}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v5}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v5
 
     int-to-float v3, v3
 
-    invoke-static {v0, v3}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v3}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v3
 
     invoke-direct {v4, v5, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v7, v2, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v6, v2, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iget-object v2, v0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->f()I
+    invoke-virtual/range {p0 .. p0}, Lcom/qiuhui/mahjong/OverlayService;->e()I
 
     move-result v3
 
     int-to-float v3, v3
 
-    invoke-static {v0, v3}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v3}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v3
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    :goto_459
-    invoke-virtual {v0, v1}, Lcom/qiuhui/mahjong/OverlayService;->g(I)V
+    :goto_15
+    invoke-virtual {v0, v1}, Lcom/qiuhui/mahjong/OverlayService;->f(I)V
 
     return-void
 .end method
 
-.method public final l()V
-    .registers 7
+.method public final k()V
+    .locals 6
 
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     return-void
 
-    :cond_5
-    invoke-static {}, Lq/r;->a()J
+    :cond_0
+    invoke-static {}, Lq/x;->a()J
 
     move-result-wide v0
 
@@ -2122,11 +2144,11 @@
 
     cmp-long v2, v0, v2
 
-    if-lez v2, :cond_1d
+    if-lez v2, :cond_1
 
     iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    iget-object v3, p0, Lcom/qiuhui/mahjong/OverlayService;->f:Lq/d4;
+    iget-object v3, p0, Lcom/qiuhui/mahjong/OverlayService;->g:Lq/A4;
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
@@ -2138,191 +2160,265 @@
 
     return-void
 
-    :cond_1d
-    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->k()V
+    :cond_1
+    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->j()V
+
+    return-void
+.end method
+
+.method public final l()V
+    .locals 8
+
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->d:Lq/A4;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    invoke-static {p0}, Lq/p;->k(Landroid/content/Context;)J
+
+    move-result-wide v2
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v6, v2, v4
+
+    if-gtz v6, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v6
+
+    sub-long/2addr v2, v6
+
+    invoke-static {v4, v5, v2, v3}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method
 
 .method public final m()V
-    .registers 5
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->d:Lq/d4;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    invoke-static {}, Lcom/qiuhui/mahjong/OverlayService;->j()Z
-
-    move-result v0
-
-    if-nez v0, :cond_15
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->d:Lq/d4;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-
-    :cond_15
-    sget v0, Lq/r;->c:I
-
-    const/4 v1, 0x4
-
-    if-ne v0, v1, :cond_1e
-
-    const-wide/32 v0, 0x493e0
-
-    goto :goto_21
-
-    :cond_1e
-    const-wide/32 v0, 0x927c0
-
-    :goto_21
-    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
-
-    iget-object v3, p0, Lcom/qiuhui/mahjong/OverlayService;->d:Lq/d4;
-
-    invoke-virtual {v2, v3, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    return-void
-.end method
-
-.method public final n()Z
-    .registers 4
-
-    invoke-static {p0}, Landroid/provider/Settings;->canDrawOverlays(Landroid/content/Context;)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_16
-
-    const-string v0, "overlay"
-
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    const-string v2, "overlay_enabled"
-
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_16
-
-    const/4 v1, 0x1
-
-    :cond_16
-    return v1
-.end method
-
-.method public final o()V
-    .registers 8
+    .locals 9
 
     const-string v0, "window"
 
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/WindowManager;
+
+    iput-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager;
+
+    new-instance v1, Landroid/widget/FrameLayout;
+
+    invoke-direct {v1, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
+
+    new-instance v1, Landroid/view/WindowManager$LayoutParams;
+
+    const/high16 v2, 0x42d80000    # 108.0f
+
+    invoke-static {p0, v2}, Lq/Q5;->b(Landroid/content/Context;F)I
+
+    move-result v3
+
+    sget v8, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/4 v4, -0x2
+
+    const/16 v5, 0x7f6
+
+    const/16 v6, 0x8
+
+    const/4 v7, -0x3
+
+    move-object v2, v1
+
+    invoke-direct/range {v2 .. v7}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
+
+    iput-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
+
+    const v2, 0x800033
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->gravity:I
+
+    iget v2, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->x:I
+
+    iget v2, p0, Lcom/qiuhui/mahjong/OverlayService;->B:I
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->y:I
+
+    const/16 v2, 0x1e
+
+    const/high16 v3, 0x42f00000    # 120.0f
+
+    if-lt v8, v2, :cond_0
+
+    :try_start_0
+    invoke-static {p0}, Lq/J2;->c(Lcom/qiuhui/mahjong/OverlayService;)Landroid/view/Display;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_0
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/WindowManager;
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Landroid/view/WindowManager;
+    if-nez v0, :cond_1
 
-    new-instance v0, Landroid/widget/FrameLayout;
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+    goto :goto_0
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    :cond_1
+    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    new-instance v0, Landroid/view/WindowManager$LayoutParams;
+    move-result-object v0
 
-    const/high16 v1, 0x42d80000  # 108.0f
+    :goto_0
+    if-eqz v0, :cond_2
 
-    invoke-static {p0, v1}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-static {v0, v3}, Lq/L3;->e(Landroid/view/Display;F)I
 
     move-result v2
 
-    const/4 v3, -0x2
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->preferredDisplayModeId:I
 
-    const/16 v4, 0x7f6
+    invoke-static {v0, v2, v3}, Lq/L3;->t(Landroid/view/Display;IF)F
 
-    const/16 v5, 0x8
+    move-result v0
 
-    const/4 v6, -0x3
+    iput v0, v1, Landroid/view/WindowManager$LayoutParams;->preferredRefreshRate:F
 
-    move-object v1, v0
+    goto :goto_1
 
-    invoke-direct/range {v1 .. v6}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
+    :cond_2
+    iput v3, v1, Landroid/view/WindowManager$LayoutParams;->preferredRefreshRate:F
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    :catch_0
+    :goto_1
+    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->j()V
 
-    const v1, 0x800033
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager;
 
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    iget v1, p0, Lcom/qiuhui/mahjong/OverlayService;->y:I
-
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    iget v1, p0, Lcom/qiuhui/mahjong/OverlayService;->z:I
-
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->y:I
-
-    invoke-static {p0, v0}, Lq/y;->f(Landroid/content/Context;Landroid/view/WindowManager$LayoutParams;)V
-
-    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->k()V
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Landroid/view/WindowManager;
-
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
-
-    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/view/WindowManager$LayoutParams;
 
     invoke-interface {v0, v1, v2}, Landroid/view/ViewManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_4
 
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x23
 
-    if-ge v1, v2, :cond_4c
+    if-ge v1, v2, :cond_3
 
-    goto :goto_4f
+    goto :goto_2
 
-    :cond_4c
-    :try_start_4c
-    invoke-static {v0}, Lq/i2;->a(Landroid/view/View;)V
-    :try_end_4f
-    .catch Ljava/lang/RuntimeException; {:try_start_4c .. :try_end_4f} :catch_4f
+    :cond_3
+    :try_start_1
+    invoke-static {v0, v3}, Lq/K2;->a(Landroid/view/View;F)V
+    :try_end_1
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :catch_4f
-    :cond_4f
-    :goto_4f
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    :catch_1
+    :cond_4
+    :goto_2
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    new-instance v1, Lq/d4;
+    new-instance v1, Lq/A4;
 
-    const/4 v2, 0x3
+    const/4 v2, 0x6
 
-    invoke-direct {v1, p0, v2}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {v1, p0, v2}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
+.method public final n(Z)V
+    .locals 3
+
+    invoke-static {}, Lcom/qiuhui/mahjong/OverlayService;->i()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-static {p0}, Lq/p;->u(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const-class p1, Lq/L3;
+
+    monitor-enter p1
+
+    monitor-exit p1
+
+    invoke-static {}, Lq/f6;->d()V
+
+    invoke-static {p0}, Lq/p;->c(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Landroid/app/Service;->stopSelf()V
+
+    return-void
+
+    :cond_1
+    new-instance v1, Lq/C4;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, p0, v2}, Lq/C4;-><init>(Landroid/content/ContextWrapper;I)V
+
+    if-eqz p1, :cond_2
+
+    const/4 p1, 0x1
+
+    invoke-static {p0, v0, p1, v1}, Lq/N3;->b(Landroid/content/Context;Ljava/lang/String;ZLq/C4;)V
+
+    goto :goto_0
+
+    :cond_2
+    const/4 p1, 0x0
+
+    invoke-static {p0, v0, p1, v1}, Lq/N3;->b(Landroid/content/Context;Ljava/lang/String;ZLq/C4;)V
+
+    :goto_0
+    return-void
+.end method
+
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 2
+    .locals 0
 
     const/4 p1, 0x0
 
@@ -2330,49 +2426,62 @@
 .end method
 
 .method public final onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 4
+    .locals 2
 
     invoke-super {p0, p1}, Landroid/app/Service;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
     iget p1, p1, Landroid/content/res/Configuration;->orientation:I
 
-    iget v0, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
+    iget v0, p0, Lcom/qiuhui/mahjong/OverlayService;->C:I
 
-    if-ne p1, v0, :cond_a
+    if-ne p1, v0, :cond_0
 
     return-void
 
-    :cond_a
-    iput p1, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
+    :cond_0
+    iput p1, p0, Lcom/qiuhui/mahjong/OverlayService;->C:I
 
+    iget-object p1, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
+
+    if-eqz p1, :cond_1
+
+    new-instance v0, Lq/A4;
+
+    const/4 v1, 0x3
+
+    invoke-direct {v0, p0, v1}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+
+    :cond_1
     return-void
 .end method
 
 .method public final onCreate()V
-    .registers 7
+    .locals 6
 
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
-    invoke-static {p0}, Lq/k3;->i(Landroid/content/Context;)Z
+    invoke-static {p0}, Lq/f6;->l(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
-    invoke-static {}, Lq/j3;->j()Z
+    const-class v0, Lq/L3;
 
-    move-result v0
+    monitor-enter v0
 
-    if-nez v0, :cond_13
+    monitor-exit v0
 
     invoke-virtual {p0}, Landroid/app/Service;->stopSelf()V
 
     return-void
 
-    :cond_13
+    :cond_0
     const/4 v0, 0x1
 
-    sput-boolean v0, Lcom/qiuhui/mahjong/OverlayService;->G:Z
+    sput-boolean v0, Lcom/qiuhui/mahjong/OverlayService;->I:Z
 
     new-instance v1, Landroid/app/NotificationChannel;
 
@@ -2422,7 +2531,7 @@
 
     move-result-object v1
 
-    sget v3, Lq/Q4;->b:I
+    sget v3, Lq/Q5;->b:I
 
     invoke-virtual {v1, v3}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
@@ -2436,7 +2545,7 @@
 
     move-result-object v1
 
-    const-string v2, "悬浮窗已开启"
+    const-string v2, "\u60ac\u6d6e\u7a97\u5df2\u5f00\u542f"
 
     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
@@ -2444,352 +2553,320 @@
 
     invoke-virtual {v1, v0}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+    invoke-virtual {v0}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/16 v2, 0x7f5
+    const/16 v1, 0x7f5
 
-    invoke-virtual {p0, v2, v1}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
+    invoke-virtual {p0, v1, v0}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
 
-    sget-object v1, Lq/r;->a:Ljava/util/concurrent/CopyOnWriteArrayList;
+    sget-object v0, Lq/x;->a:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    invoke-virtual {v1, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;->addIfAbsent(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;->addIfAbsent(Ljava/lang/Object;)Z
 
-    const-string v1, "overlay"
+    const-string v0, "overlay"
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/high16 v4, 0x41900000  # 18.0f
+    const/high16 v3, 0x41900000    # 18.0f
 
-    invoke-static {p0, v4}, Lq/Q4;->b(Landroid/content/Context;F)I
-
-    move-result v4
-
-    const-string v5, "x"
-
-    invoke-interface {v3, v5, v4}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-static {p0, v3}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v3
 
-    iput v3, p0, Lcom/qiuhui/mahjong/OverlayService;->y:I
+    const-string v4, "x"
 
-    invoke-virtual {p0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-interface {v2, v4, v3}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result-object v3
+    move-result v2
 
-    const/high16 v4, 0x43020000  # 130.0f
+    iput v2, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
 
-    invoke-static {p0, v4}, Lq/Q4;->b(Landroid/content/Context;F)I
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result v4
+    move-result-object v2
 
-    const-string v5, "y"
+    const/high16 v3, 0x43020000    # 130.0f
 
-    invoke-interface {v3, v5, v4}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/qiuhui/mahjong/OverlayService;->z:I
-
-    invoke-virtual {p0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v3
-
-    const-string v4, "vertical_compact"
-
-    invoke-interface {v3, v4, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {p0, v3}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v3
 
-    iput-boolean v3, p0, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    const-string v4, "y"
+
+    invoke-interface {v2, v4, v3}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/qiuhui/mahjong/OverlayService;->B:I
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v2
+
+    const-string v3, "vertical_compact"
+
+    invoke-interface {v2, v3, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/qiuhui/mahjong/OverlayService;->z:Z
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget v3, v3, Landroid/content/res/Configuration;->orientation:I
+    iget v2, v2, Landroid/content/res/Configuration;->orientation:I
 
-    iput v3, p0, Lcom/qiuhui/mahjong/OverlayService;->A:I
+    iput v2, p0, Lcom/qiuhui/mahjong/OverlayService;->C:I
 
-    const-string v3, "automation"
+    const-string v2, "automation"
 
-    invoke-virtual {p0, v3, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v2, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v3
+    move-result-object v2
 
-    iput-object v3, p0, Lcom/qiuhui/mahjong/OverlayService;->s:Landroid/content/SharedPreferences;
+    iput-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->s:Landroid/content/SharedPreferences;
 
-    new-instance v4, Lq/j4;
+    new-instance v3, Lq/B4;
 
-    const/4 v5, 0x0
+    const/4 v4, 0x1
 
-    invoke-direct {v4, p0, v5}, Lq/j4;-><init>(Landroid/content/ContextWrapper;I)V
+    invoke-direct {v3, p0, v4}, Lq/B4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
-    iput-object v4, p0, Lcom/qiuhui/mahjong/OverlayService;->t:Lq/j4;
+    iput-object v3, p0, Lcom/qiuhui/mahjong/OverlayService;->t:Lq/B4;
 
-    invoke-interface {v3, v4}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
+    invoke-interface {v2, v3}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    invoke-virtual {p0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->u:Landroid/content/SharedPreferences;
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->u:Landroid/content/SharedPreferences;
 
-    new-instance v2, Lq/j4;
-
-    const/4 v3, 0x1
-
-    invoke-direct {v2, p0, v3}, Lq/j4;-><init>(Landroid/content/ContextWrapper;I)V
-
-    iput-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->v:Lq/j4;
-
-    invoke-interface {v1, v2}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
-
-    new-instance v1, Lq/r2;
-
-    invoke-direct {v1, p0}, Lq/r2;-><init>(Lcom/qiuhui/mahjong/OverlayService;)V
-
-    iput-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->p:Lq/r2;
-
-    new-instance v2, Lq/z3;
-
-    new-instance v3, Lq/s2;
-
-    const/4 v4, 0x2
-
-    invoke-direct {v3, v4, v1}, Lq/s2;-><init>(ILjava/lang/Object;)V
-
-    invoke-direct {v2, v3}, Lq/z3;-><init>(Lq/s2;)V
-
-    iput-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->q:Lq/z3;
-
-    iget-boolean v1, v2, Lq/z3;->c:Z
-
-    if-eqz v1, :cond_ea
-
-    goto :goto_f7
-
-    :cond_ea
-    iput-boolean v0, v2, Lq/z3;->c:Z
-
-    iget-object v0, v2, Lq/z3;->b:Ljava/util/concurrent/ExecutorService;
-
-    new-instance v1, Lq/l2;
+    new-instance v2, Lq/B4;
 
     const/4 v3, 0x2
 
-    invoke-direct {v1, v3, v2}, Lq/l2;-><init>(ILjava/lang/Object;)V
+    invoke-direct {v2, p0, v3}, Lq/B4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    iput-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->v:Lq/B4;
 
-    :goto_f7
-    :try_start_f7
-    new-instance v0, Lq/y3;
+    invoke-interface {v0, v2}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->p:Lq/r2;
+    const-string v0, "model_selection"
 
-    invoke-direct {v0, p0, v1}, Lq/y3;-><init>(Lcom/qiuhui/mahjong/OverlayService;Lq/r2;)V
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->r:Lq/y3;
+    move-result-object v0
 
-    invoke-static {v0}, Lq/p5;->a(Lq/y3;)V
-    :try_end_103
-    .catch Ljava/lang/Exception; {:try_start_f7 .. :try_end_103} :catch_104
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->w:Landroid/content/SharedPreferences;
 
-    goto :goto_107
+    new-instance v2, Lq/B4;
 
-    :catch_104
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->r:Lq/y3;
+    invoke-direct {v2, p0, v3}, Lq/B4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
-    :goto_107
-    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->n()Z
+    iput-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->x:Lq/B4;
+
+    invoke-interface {v0, v2}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
+
+    new-instance v0, Lq/e5;
+
+    new-instance v2, Lq/A4;
+
+    const/4 v3, 0x1
+
+    invoke-direct {v2, p0, v3}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+
+    new-instance v3, Lq/A4;
+
+    const/4 v4, 0x2
+
+    invoke-direct {v3, p0, v4}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+
+    invoke-direct {v0, p0, v2, v3}, Lq/e5;-><init>(Lcom/qiuhui/mahjong/OverlayService;Lq/A4;Lq/A4;)V
+
+    iput-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->r:Lq/e5;
+
+    invoke-virtual {v0}, Lq/e5;->g()V
+
+    invoke-static {p0}, Landroid/provider/Settings;->canDrawOverlays(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_110
+    if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->o()V
+    const-string v0, "overlay"
 
-    :cond_110
-    invoke-static {}, Lcom/qiuhui/mahjong/OverlayService;->j()Z
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v0
+
+    const-string v2, "overlay_enabled"
+
+    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/qiuhui/mahjong/OverlayService;->B:Z
+    if-eqz v0, :cond_1
 
-    if-eqz v0, :cond_11f
+    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->m()V
+
+    :cond_1
+    invoke-static {}, Lcom/qiuhui/mahjong/OverlayService;->i()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/qiuhui/mahjong/OverlayService;->E:Z
+
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/d4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/A4;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    :cond_11f
+    :cond_2
+    invoke-virtual {p0}, Lcom/qiuhui/mahjong/OverlayService;->l()V
+
     return-void
 .end method
 
 .method public final onDestroy()V
-    .registers 5
+    .locals 3
 
     const/4 v0, 0x0
 
-    sput-boolean v0, Lcom/qiuhui/mahjong/OverlayService;->G:Z
+    sput-boolean v0, Lcom/qiuhui/mahjong/OverlayService;->I:Z
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->b:Lq/d4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->b:Lq/A4;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/d4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->c:Lq/A4;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->d:Lq/d4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->d:Lq/A4;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->e:Lq/d4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->e:Lq/A4;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->f:Lq/d4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->f:Lq/A4;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->g:Lq/d4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->g:Lq/A4;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    sget-object v0, Lq/r;->a:Ljava/util/concurrent/CopyOnWriteArrayList;
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Lq/A4;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    sget-object v0, Lq/x;->a:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     invoke-virtual {v0, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
 
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->s:Landroid/content/SharedPreferences;
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->t:Lq/j4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->t:Lq/B4;
 
-    if-eqz v1, :cond_3d
+    if-eqz v1, :cond_0
 
     invoke-interface {v0, v1}, Landroid/content/SharedPreferences;->unregisterOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    :cond_3d
+    :cond_0
     iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->u:Landroid/content/SharedPreferences;
 
-    if-eqz v0, :cond_48
+    if-eqz v0, :cond_1
 
-    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->v:Lq/j4;
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->v:Lq/B4;
 
-    if-eqz v1, :cond_48
+    if-eqz v1, :cond_1
 
     invoke-interface {v0, v1}, Landroid/content/SharedPreferences;->unregisterOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    :cond_48
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    :cond_1
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->w:Landroid/content/SharedPreferences;
+
+    if-eqz v0, :cond_2
+
+    iget-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->x:Lq/B4;
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {v0, v1}, Landroid/content/SharedPreferences;->unregisterOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_56
+    if-eqz v0, :cond_3
 
-    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->h:Landroid/view/WindowManager;
+    iget-object v2, p0, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager;
 
-    if-eqz v2, :cond_56
+    if-eqz v2, :cond_3
 
     invoke-interface {v2, v0}, Landroid/view/ViewManager;->removeView(Landroid/view/View;)V
 
-    iput-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iput-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->k:Landroid/widget/FrameLayout;
 
-    :cond_56
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->q:Lq/z3;
+    :cond_3
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->q:Lq/X3;
 
-    if-eqz v0, :cond_5d
+    if-eqz v0, :cond_4
 
-    invoke-virtual {v0}, Lq/z3;->close()V
+    invoke-virtual {v0}, Lq/X3;->close()V
 
-    :cond_5d
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->r:Lq/y3;
+    :cond_4
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->r:Lq/e5;
 
-    if-eqz v0, :cond_78
+    if-eqz v0, :cond_5
 
-    sget-object v2, Lq/p5;->b:Ljava/lang/Object;
+    invoke-static {v0}, Lq/p6;->a(Lq/n6;)V
 
-    monitor-enter v2
+    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->r:Lq/e5;
 
-    :try_start_64
-    sget-object v3, Lq/p5;->a:Lq/y3;
+    invoke-virtual {v0}, Lq/e5;->close()V
 
-    if-ne v3, v0, :cond_6d
+    iput-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->r:Lq/e5;
 
-    sput-object v1, Lq/p5;->a:Lq/y3;
-
-    goto :goto_6d
-
-    :catchall_6b
-    move-exception v0
-
-    goto :goto_76
-
-    :cond_6d
-    :goto_6d
-    monitor-exit v2
-    :try_end_6e
-    .catchall {:try_start_64 .. :try_end_6e} :catchall_6b
-
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->r:Lq/y3;
-
-    invoke-virtual {v0}, Lq/y3;->close()V
-
-    iput-object v1, p0, Lcom/qiuhui/mahjong/OverlayService;->r:Lq/y3;
-
-    goto :goto_78
-
-    :goto_76
-    :try_start_76
-    monitor-exit v2
-    :try_end_77
-    .catchall {:try_start_76 .. :try_end_77} :catchall_6b
-
-    throw v0
-
-    :cond_78
-    :goto_78
-    iget-object v0, p0, Lcom/qiuhui/mahjong/OverlayService;->p:Lq/r2;
-
-    if-eqz v0, :cond_7f
-
-    :try_start_7c
-    invoke-virtual {v0}, Lq/r2;->close()V
-    :try_end_7f
-    .catch Ljava/lang/Exception; {:try_start_7c .. :try_end_7f} :catch_7f
-
-    :catch_7f
-    :cond_7f
+    :cond_5
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/app/Service;->stopForeground(I)V
@@ -2802,32 +2879,32 @@
 
     check-cast v0, Landroid/app/NotificationManager;
 
-    if-eqz v0, :cond_92
+    if-eqz v0, :cond_6
 
     const/16 v1, 0x7f5
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
-    :cond_92
+    :cond_6
     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
     return-void
 .end method
 
 .method public final onStartCommand(Landroid/content/Intent;II)I
-    .registers 6
+    .locals 2
 
-    invoke-static {p0}, Lq/k3;->i(Landroid/content/Context;)Z
-
-    move-result p2
-
-    if-nez p2, :cond_11
-
-    invoke-static {}, Lq/j3;->j()Z
+    invoke-static {p0}, Lq/f6;->l(Landroid/content/Context;)Z
 
     move-result p2
 
-    if-nez p2, :cond_11
+    if-nez p2, :cond_0
+
+    const-class p1, Lq/L3;
+
+    monitor-enter p1
+
+    monitor-exit p1
 
     invoke-virtual {p0}, Landroid/app/Service;->stopSelf()V
 
@@ -2835,18 +2912,18 @@
 
     return p1
 
-    :cond_11
+    :cond_0
     iget-object p2, p0, Lcom/qiuhui/mahjong/OverlayService;->a:Landroid/os/Handler;
 
-    new-instance p3, Lq/d4;
+    new-instance p3, Lq/A4;
 
     const/4 v0, 0x0
 
-    invoke-direct {p3, p0, v0}, Lq/d4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    invoke-direct {p3, p0, v0}, Lq/A4;-><init>(Lcom/qiuhui/mahjong/OverlayService;I)V
 
     invoke-virtual {p2, p3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    if-eqz p1, :cond_34
+    if-eqz p1, :cond_1
 
     const-string p3, "com.qiuhui.mahjong.action.APP_VISIBILITY_CHANGED"
 
@@ -2858,9 +2935,9 @@
 
     move-result p1
 
-    if-eqz p1, :cond_34
+    if-eqz p1, :cond_1
 
-    iget-object p1, p0, Lcom/qiuhui/mahjong/OverlayService;->e:Lq/d4;
+    iget-object p1, p0, Lcom/qiuhui/mahjong/OverlayService;->f:Lq/A4;
 
     invoke-virtual {p2, p1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
@@ -2868,14 +2945,8 @@
 
     invoke-virtual {p2, p1, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_34
+    :cond_1
     const/4 p1, 0x1
 
     return p1
-.end method
-
-.method public final p(Z)V
-    .registers 2
-
-    return-void
 .end method

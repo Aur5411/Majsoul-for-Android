@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     const-class v0, Lai/onnxruntime/OnnxSequence;
 
@@ -36,14 +36,14 @@
 
     sput-object v0, Lai/onnxruntime/OnnxSequence;->logger:Ljava/util/logging/Logger;
 
-    :try_start_c
+    :try_start_0
     invoke-static {}, Lai/onnxruntime/OnnxRuntime;->init()V
-    :try_end_f
-    .catch Ljava/io/IOException; {:try_start_c .. :try_end_f} :catch_10
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_10
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/RuntimeException;
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(JJLai/onnxruntime/SequenceInfo;)V
-    .registers 6
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -85,15 +85,15 @@
 
 # virtual methods
 .method public checkClosed()V
-    .registers 3
+    .locals 2
 
     iget-boolean v0, p0, Lai/onnxruntime/OnnxSequence;->closed:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     return-void
 
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to use a closed OnnxValue"
@@ -104,15 +104,15 @@
 .end method
 
 .method public declared-synchronized close()V
-    .registers 5
+    .locals 4
 
     monitor-enter p0
 
     .line 1
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Lai/onnxruntime/OnnxSequence;->closed:Z
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 2
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -126,40 +126,40 @@
     .line 3
     iput-boolean v0, p0, Lai/onnxruntime/OnnxSequence;->closed:Z
 
-    goto :goto_19
+    goto :goto_0
 
-    :catchall_10
+    :catchall_0
     move-exception v0
 
-    goto :goto_1b
+    goto :goto_1
 
     .line 4
-    :cond_12
+    :cond_0
     sget-object v0, Lai/onnxruntime/OnnxSequence;->logger:Ljava/util/logging/Logger;
 
     const-string v1, "Closing an already closed sequence."
 
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->warning(Ljava/lang/String;)V
-    :try_end_19
-    .catchall {:try_start_1 .. :try_end_19} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 5
-    :goto_19
+    :goto_0
     monitor-exit p0
 
     return-void
 
-    :goto_1b
-    :try_start_1b
+    :goto_1
+    :try_start_1
     monitor-exit p0
-    :try_end_1c
-    .catchall {:try_start_1b .. :try_end_1c} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public getInfo()Lai/onnxruntime/SequenceInfo;
-    .registers 2
+    .locals 1
 
     .line 2
     iget-object v0, p0, Lai/onnxruntime/OnnxSequence;->info:Lai/onnxruntime/SequenceInfo;
@@ -168,7 +168,7 @@
 .end method
 
 .method public bridge synthetic getInfo()Lai/onnxruntime/ValueInfo;
-    .registers 2
+    .locals 1
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxSequence;->getInfo()Lai/onnxruntime/SequenceInfo;
@@ -179,7 +179,7 @@
 .end method
 
 .method public getType()Lai/onnxruntime/OnnxValue$OnnxValueType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxValue$OnnxValueType;->ONNX_TYPE_SEQUENCE:Lai/onnxruntime/OnnxValue$OnnxValueType;
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public bridge synthetic getValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxSequence;->getValue()Ljava/util/List;
@@ -198,7 +198,7 @@
 .end method
 
 .method public getValue()Ljava/util/List;
-    .registers 10
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -217,7 +217,7 @@
 
     iget-boolean v1, v0, Lai/onnxruntime/SequenceInfo;->sequenceOfMaps:Z
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_0
 
     .line 4
     sget-wide v3, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -244,7 +244,7 @@
     return-object v0
 
     .line 6
-    :cond_1d
+    :cond_0
     sget-object v1, Lai/onnxruntime/OnnxSequence$1;->$SwitchMap$ai$onnxruntime$OnnxJavaType:[I
 
     iget-object v0, v0, Lai/onnxruntime/SequenceInfo;->sequenceType:Lai/onnxruntime/OnnxJavaType;
@@ -257,24 +257,24 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_4c
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_4c
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_4c
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_34
+    if-ne v0, v1, :cond_1
 
-    goto :goto_4c
+    goto :goto_0
 
     .line 7
-    :cond_34
+    :cond_1
     new-instance v0, Lai/onnxruntime/OrtException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -298,8 +298,8 @@
     throw v0
 
     .line 8
-    :cond_4c
-    :goto_4c
+    :cond_2
+    :goto_0
     sget-wide v3, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
     iget-wide v5, p0, Lai/onnxruntime/OnnxSequence;->nativeHandle:J
@@ -326,32 +326,32 @@
 .end method
 
 .method public declared-synchronized isClosed()Z
-    .registers 2
+    .locals 1
 
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Lai/onnxruntime/OnnxSequence;->closed:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
-    :try_start_6
+    :try_start_1
     monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_6 .. :try_end_7} :catchall_5
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 

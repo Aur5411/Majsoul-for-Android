@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
 
     new-instance v0, Lai/onnxruntime/OrtSession$SessionOptions$OptLevel;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -109,7 +109,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lai/onnxruntime/OrtSession$SessionOptions$OptLevel;
-    .registers 2
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OrtSession$SessionOptions$OptLevel;
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public static values()[Lai/onnxruntime/OrtSession$SessionOptions$OptLevel;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OrtSession$SessionOptions$OptLevel;->$VALUES:[Lai/onnxruntime/OrtSession$SessionOptions$OptLevel;
 
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method public getID()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lai/onnxruntime/OrtSession$SessionOptions$OptLevel;->id:I
 

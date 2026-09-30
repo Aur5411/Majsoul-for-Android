@@ -1,72 +1,107 @@
-.class public final Lq/c6;
+.class public final synthetic Lq/C6;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Landroid/webkit/ValueCallback;
 
 
 # instance fields
-.field public a:Ljava/lang/Integer;
+.field public final synthetic a:I
 
-.field public b:Ljava/lang/String;
+.field public final synthetic b:Lcom/qiuhui/mahjong/WebGameActivity;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/WebGameActivity;I)V
+    .locals 0
+
+    iput p2, p0, Lq/C6;->a:I
+
+    iput-object p1, p0, Lq/C6;->b:Lcom/qiuhui/mahjong/WebGameActivity;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .registers 5
+.method public final onReceiveValue(Ljava/lang/Object;)V
+    .locals 4
 
-    check-cast p1, Ljava/lang/Integer;
+    const/4 v0, 0x1
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    iget v1, p0, Lq/C6;->a:I
 
-    move-result v0
+    check-cast p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_2b
+    packed-switch v1, :pswitch_data_0
 
-    const/4 v1, 0x1
+    sget-boolean p1, Lcom/qiuhui/mahjong/WebGameActivity;->B0:Z
 
-    if-eq v0, v1, :cond_26
+    iget-object p1, p0, Lq/C6;->b:Lcom/qiuhui/mahjong/WebGameActivity;
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Lcom/qiuhui/mahjong/WebGameActivity;->P()V
 
-    move-result p2
-
-    if-ltz p2, :cond_12
-
-    goto :goto_2f
-
-    :cond_12
-    new-instance p2, Ljava/lang/UnsupportedOperationException;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    const-string v1, "The current AndroidX version doesn\'t support this callback value: "
-
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {p2, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw p2
-
-    :cond_26
-    check-cast p2, Ljava/lang/String;
-
-    iput-object p2, p0, Lq/c6;->b:Ljava/lang/String;
-
-    goto :goto_2f
-
-    :cond_2b
-    check-cast p2, Ljava/lang/Integer;
-
-    iput-object p2, p0, Lq/c6;->a:Ljava/lang/Integer;
-
-    :goto_2f
     return-void
+
+    :pswitch_0
+    iget-object v1, p0, Lq/C6;->b:Lcom/qiuhui/mahjong/WebGameActivity;
+
+    iget-object v2, v1, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
+
+    if-eqz v2, :cond_1
+
+    const-string v2, "true"
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iput-boolean v0, v1, Lcom/qiuhui/mahjong/WebGameActivity;->k0:Z
+
+    :try_start_0
+    iget-object p1, v1, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
+
+    const-string v2, "web/cat-hud.js"
+
+    invoke-virtual {v1, v2}, Lcom/qiuhui/mahjong/WebGameActivity;->F(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v3, Lq/C6;
+
+    invoke-direct {v3, v1, v0}, Lq/C6;-><init>(Lcom/qiuhui/mahjong/WebGameActivity;I)V
+
+    invoke-virtual {p1, v2, v3}, Landroid/webkit/WebView;->evaluateJavascript(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p1
+
+    const-string v0, "QiuHuiWeb"
+
+    const-string v1, "Cat HUD fallback injection failed"
+
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_1
+    :goto_0
+    return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

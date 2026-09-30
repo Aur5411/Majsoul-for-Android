@@ -1,70 +1,85 @@
-.class public final synthetic Lq/q3;
-.super Ljava/lang/Object;
+.class public Lq/q3;
+.super Ljava/io/IOException;
 .source "SourceFile"
 
-# interfaces
-.implements Ljava/util/function/Predicate;
 
-
-# instance fields
-.field public final synthetic a:I
-
-.field public final synthetic b:Ljava/lang/String;
+# static fields
+.field public static final synthetic a:I
 
 
 # direct methods
-.method public synthetic constructor <init>(ILjava/lang/String;)V
-    .registers 3
+.method public static a()Lq/q3;
+    .locals 2
 
-    iput p1, p0, Lq/q3;->a:I
+    new-instance v0, Lq/q3;
 
-    iput-object p2, p0, Lq/q3;->b:Ljava/lang/String;
+    const-string v1, "Protocol message had invalid UTF-8."
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    return-void
+    return-object v0
+.end method
+
+.method public static b()Lq/q3;
+    .locals 2
+
+    new-instance v0, Lq/q3;
+
+    const-string v1, "CodedInputStream encountered a malformed varint."
+
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static c()Lq/q3;
+    .locals 2
+
+    new-instance v0, Lq/q3;
+
+    const-string v1, "CodedInputStream encountered an embedded string or message which claimed to have negative size."
+
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static d()Lq/q3;
+    .locals 2
+
+    new-instance v0, Lq/q3;
+
+    const-string v1, "While parsing a protocol message, the input ended unexpectedly in the middle of a field.  This could mean either that the input has been truncated or that an embedded message misreported its own length."
+
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .registers 3
+.method public final e()Ljava/io/IOException;
+    .locals 1
 
-    iget v0, p0, Lq/q3;->a:I
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
-    check-cast p1, Ljava/lang/String;
+    move-result-object v0
 
-    packed-switch v0, :pswitch_data_1c
+    instance-of v0, v0, Ljava/io/IOException;
 
-    iget-object v0, p0, Lq/q3;->b:Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
-    move-result p1
+    move-result-object v0
 
-    return p1
+    check-cast v0, Ljava/io/IOException;
 
-    :pswitch_e  #0x1
-    iget-object v0, p0, Lq/q3;->b:Ljava/lang/String;
+    goto :goto_0
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    :cond_0
+    move-object v0, p0
 
-    move-result p1
-
-    return p1
-
-    :pswitch_15  #0x0
-    iget-object v0, p0, Lq/q3;->b:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result p1
-
-    return p1
-
-    :pswitch_data_1c
-    .packed-switch 0x0
-        :pswitch_15  #00000000
-        :pswitch_e  #00000001
-    .end packed-switch
+    :goto_0
+    return-object v0
 .end method

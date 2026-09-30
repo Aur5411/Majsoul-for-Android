@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
 
     .line 3
     invoke-static {p1}, Lai/onnxruntime/OrtException$OrtErrorCode;->mapFromInt(I)Lai/onnxruntime/OrtException$OrtErrorCode;
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Lai/onnxruntime/OrtException$OrtErrorCode;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
 
     .line 4
     new-instance v0, Ljava/lang/StringBuilder;
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 1
     invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public getCode()Lai/onnxruntime/OrtException$OrtErrorCode;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OrtException;->errorCode:Lai/onnxruntime/OrtException$OrtErrorCode;
 

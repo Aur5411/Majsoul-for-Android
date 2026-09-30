@@ -2,18 +2,374 @@
 .super Ljava/lang/Object;
 .source "SourceFile"
 
+# interfaces
+.implements Lq/V2;
+.implements Lq/X2;
+
 
 # instance fields
-.field public final a:Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;
+.field public final synthetic a:I
+
+.field public final b:Lq/r2;
 
 
 # direct methods
-.method public constructor <init>(Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;)V
-    .registers 2
+.method public constructor <init>(ILq/g2;)V
+    .locals 1
 
+    const/4 v0, 0x1
+
+    iput v0, p0, Lq/W2;->a:I
+
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lq/W2;->a:Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;
+    .line 2
+    invoke-virtual {p2}, Lq/g2;->k()Ljava/util/List;
+
+    move-result-object p2
+
+    invoke-interface {p2, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lq/v2;
+
+    .line 3
+    iget-object p1, p1, Lq/v2;->g:[Lq/r2;
+
+    .line 4
+    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object p1
+
+    invoke-static {p1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object p1
+
+    const/4 p2, 0x0
+
+    .line 5
+    invoke-interface {p1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lq/r2;
+
+    iput-object p1, p0, Lq/W2;->b:Lq/r2;
 
     return-void
+.end method
+
+.method public constructor <init>(Lq/r2;Ljava/lang/Class;)V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lq/W2;->a:I
+
+    .line 6
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 7
+    iput-object p1, p0, Lq/W2;->b:Lq/r2;
+
+    const/4 p1, 0x0
+
+    .line 8
+    new-array v0, p1, [Ljava/lang/Class;
+
+    const-string v1, "getDefaultInstance"
+
+    invoke-static {p2, v1, v0}, Lq/i3;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object p2
+
+    .line 9
+    new-array p1, p1, [Ljava/lang/Object;
+
+    const/4 v0, 0x0
+
+    .line 10
+    invoke-static {v0, p2, p1}, Lq/i3;->u(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lq/i3;
+
+    invoke-virtual {p0, p1}, Lq/W2;->i(Lq/i3;)V
+
+    throw v0
+.end method
+
+
+# virtual methods
+.method public a(Lq/R2;)Ljava/lang/Object;
+    .locals 2
+
+    .line 2
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 3
+    iget-object v0, p0, Lq/W2;->b:Lq/r2;
+
+    iget-object v0, v0, Lq/r2;->b:Lq/c1;
+
+    iget v0, v0, Lq/c1;->f:I
+
+    .line 4
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 5
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v1, "No map fields found in "
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public a(Lq/R2;)Lq/r2;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lq/W2;->b:Lq/r2;
+
+    invoke-virtual {p1, v0}, Lq/R2;->g(Lq/r2;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return-object v0
+.end method
+
+.method public b(Lq/i3;)Ljava/lang/Object;
+    .locals 1
+
+    .line 2
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 3
+    invoke-virtual {p0, p1}, Lq/W2;->i(Lq/i3;)V
+
+    const/4 p1, 0x0
+
+    throw p1
+.end method
+
+.method public b(Lq/i3;)Lq/r2;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lq/W2;->b:Lq/r2;
+
+    invoke-virtual {p1, v0}, Lq/i3;->g(Lq/r2;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return-object v0
+.end method
+
+.method public final c(Lq/i3;)Z
+    .locals 1
+
+    iget v0, p0, Lq/W2;->a:I
+
+    packed-switch v0, :pswitch_data_0
+
+    iget-object v0, p0, Lq/W2;->b:Lq/r2;
+
+    invoke-virtual {p1, v0}, Lq/i3;->g(Lq/r2;)Z
+
+    move-result p1
+
+    return p1
+
+    :pswitch_0
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    const-string v0, "hasField() is not supported for repeated fields."
+
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
+.end method
+
+.method public final d(Lq/R2;)Z
+    .locals 1
+
+    iget v0, p0, Lq/W2;->a:I
+
+    packed-switch v0, :pswitch_data_0
+
+    iget-object v0, p0, Lq/W2;->b:Lq/r2;
+
+    invoke-virtual {p1, v0}, Lq/R2;->g(Lq/r2;)Z
+
+    move-result p1
+
+    return p1
+
+    :pswitch_0
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    const-string v0, "hasField() is not supported for repeated fields."
+
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
+.end method
+
+.method public e(Lq/R2;)Lq/a;
+    .locals 1
+
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    const-string v0, "Nested builder not supported for map fields."
+
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method public f()Lq/a;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    throw v0
+.end method
+
+.method public g(Lq/R2;Ljava/lang/Object;)V
+    .locals 1
+
+    iget-object p2, p0, Lq/W2;->b:Lq/r2;
+
+    iget-object p2, p2, Lq/r2;->b:Lq/c1;
+
+    iget p2, p2, Lq/c1;->f:I
+
+    new-instance p2, Ljava/lang/IllegalArgumentException;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "No map fields found in "
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p2
+.end method
+
+.method public h(Lq/R2;Ljava/lang/Object;)V
+    .locals 1
+
+    iget-object p2, p0, Lq/W2;->b:Lq/r2;
+
+    iget-object p2, p2, Lq/r2;->b:Lq/c1;
+
+    iget p2, p2, Lq/c1;->f:I
+
+    new-instance p2, Ljava/lang/IllegalArgumentException;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "No map fields found in "
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p2
+.end method
+
+.method public i(Lq/i3;)V
+    .locals 2
+
+    iget-object v0, p0, Lq/W2;->b:Lq/r2;
+
+    iget-object v0, v0, Lq/r2;->b:Lq/c1;
+
+    iget v0, v0, Lq/c1;->f:I
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v1, "No map fields found in "
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method

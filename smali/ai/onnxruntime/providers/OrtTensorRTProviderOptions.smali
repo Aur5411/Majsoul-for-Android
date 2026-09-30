@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OrtProvider;->TENSOR_RT:Lai/onnxruntime/OrtProvider;
 
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -30,16 +30,16 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 5
+    .locals 3
 
     .line 2
     sget-object v0, Lai/onnxruntime/providers/OrtTensorRTProviderOptions;->PROVIDER:Lai/onnxruntime/OrtProvider;
 
-    new-instance v1, Lq/c4;
+    new-instance v1, Lq/D3;
 
-    const/4 v2, 0x1
+    const/4 v2, 0x2
 
-    invoke-direct {v1, v2}, Lq/c4;-><init>(I)V
+    invoke-direct {v1, v2}, Lq/D3;-><init>(I)V
 
     invoke-static {v0, v1}, Lai/onnxruntime/OrtProviderOptions;->loadLibraryAndCreate(Lai/onnxruntime/OrtProvider;Lai/onnxruntime/OrtProviderOptions$OrtProviderSupplier;)J
 
@@ -47,7 +47,7 @@
 
     invoke-direct {p0, v0, v1}, Lai/onnxruntime/providers/StringConfigProviderOptions;-><init>(J)V
 
-    if-ltz p1, :cond_27
+    if-ltz p1, :cond_0
 
     .line 3
     new-instance v0, Ljava/lang/StringBuilder;
@@ -72,7 +72,7 @@
     return-void
 
     .line 5
-    :cond_27
+    :cond_0
     invoke-virtual {p0}, Lai/onnxruntime/OrtProviderOptions;->close()V
 
     .line 6
@@ -96,7 +96,7 @@
 .end method
 
 .method public static synthetic b()J
-    .registers 2
+    .locals 2
 
     invoke-static {}, Lai/onnxruntime/providers/OrtTensorRTProviderOptions;->lambda$new$0()J
 
@@ -109,7 +109,7 @@
 .end method
 
 .method private static synthetic lambda$new$0()J
-    .registers 2
+    .locals 2
 
     invoke-static {}, Lai/onnxruntime/OrtProviderOptions;->getApiHandle()J
 
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public bridge synthetic add(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     invoke-super {p0, p1, p2}, Lai/onnxruntime/providers/StringConfigProviderOptions;->add(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -139,7 +139,7 @@
 .end method
 
 .method public bridge synthetic getOptionsString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     invoke-super {p0}, Lai/onnxruntime/providers/StringConfigProviderOptions;->getOptionsString()Ljava/lang/String;
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public getProvider()Lai/onnxruntime/OrtProvider;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/providers/OrtTensorRTProviderOptions;->PROVIDER:Lai/onnxruntime/OrtProvider;
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public bridge synthetic parseOptionsString(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     invoke-super {p0, p1}, Lai/onnxruntime/providers/StringConfigProviderOptions;->parseOptionsString(Ljava/lang/String;)V
 
@@ -165,7 +165,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     invoke-super {p0}, Lai/onnxruntime/providers/StringConfigProviderOptions;->toString()Ljava/lang/String;
 

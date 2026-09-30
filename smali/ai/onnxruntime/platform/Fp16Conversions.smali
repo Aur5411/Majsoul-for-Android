@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const-class v0, Lai/onnxruntime/platform/Fp16Conversions;
 
@@ -27,7 +27,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,7 +35,7 @@
 .end method
 
 .method public static bf16ToFloat(S)F
-    .registers 1
+    .locals 0
 
     shl-int/lit8 p0, p0, 0x10
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public static convertBf16BufferToFloatBuffer(Ljava/nio/ShortBuffer;)Ljava/nio/FloatBuffer;
-    .registers 6
+    .locals 5
 
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
@@ -77,8 +77,8 @@
 
     const/4 v3, 0x0
 
-    :goto_1b
-    if-ge v3, v1, :cond_2d
+    :goto_0
+    if-ge v3, v1, :cond_0
 
     add-int v4, v3, v0
 
@@ -94,14 +94,14 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
-    :cond_2d
+    :cond_0
     return-object v2
 .end method
 
 .method public static convertFloatBufferToBf16Buffer(Ljava/nio/FloatBuffer;)Ljava/nio/ShortBuffer;
-    .registers 6
+    .locals 5
 
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
@@ -131,8 +131,8 @@
 
     const/4 v3, 0x0
 
-    :goto_1b
-    if-ge v3, v1, :cond_2d
+    :goto_0
+    if-ge v3, v1, :cond_0
 
     add-int v4, v3, v0
 
@@ -148,14 +148,14 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
-    :cond_2d
+    :cond_0
     return-object v2
 .end method
 
 .method public static convertFloatBufferToFp16Buffer(Ljava/nio/FloatBuffer;)Ljava/nio/ShortBuffer;
-    .registers 6
+    .locals 5
 
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
@@ -185,8 +185,8 @@
 
     const/4 v3, 0x0
 
-    :goto_1b
-    if-ge v3, v1, :cond_2d
+    :goto_0
+    if-ge v3, v1, :cond_0
 
     add-int v4, v3, v0
 
@@ -202,14 +202,14 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
-    :cond_2d
+    :cond_0
     return-object v2
 .end method
 
 .method public static convertFp16BufferToFloatBuffer(Ljava/nio/ShortBuffer;)Ljava/nio/FloatBuffer;
-    .registers 6
+    .locals 5
 
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
@@ -239,8 +239,8 @@
 
     const/4 v3, 0x0
 
-    :goto_1b
-    if-ge v3, v1, :cond_2d
+    :goto_0
+    if-ge v3, v1, :cond_0
 
     add-int v4, v3, v0
 
@@ -256,14 +256,14 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
-    :cond_2d
+    :cond_0
     return-object v2
 .end method
 
 .method public static floatToBf16(F)S
-    .registers 2
+    .locals 1
 
     invoke-static {p0}, Ljava/lang/Float;->floatToIntBits(F)I
 
@@ -285,7 +285,7 @@
 .end method
 
 .method public static floatToFp16(F)S
-    .registers 1
+    .locals 0
 
     invoke-static {p0}, Lai/onnxruntime/platform/Fp16Conversions;->mlasFloatToFp16(F)S
 
@@ -295,7 +295,7 @@
 .end method
 
 .method public static fp16ToFloat(S)F
-    .registers 1
+    .locals 0
 
     invoke-static {p0}, Lai/onnxruntime/platform/Fp16Conversions;->mlasFp16ToFloat(S)F
 
@@ -305,13 +305,13 @@
 .end method
 
 .method public static mlasFloatToFp16(F)S
-    .registers 4
+    .locals 3
 
     invoke-static {p0}, Ljava/lang/Float;->floatToIntBits(F)I
 
     move-result p0
 
-    const/high16 v0, 0x7f800000  # Float.POSITIVE_INFINITY
+    const/high16 v0, 0x7f800000    # Float.POSITIVE_INFINITY
 
     invoke-static {v0}, Ljava/lang/Float;->floatToIntBits(F)I
 
@@ -323,31 +323,31 @@
 
     xor-int/2addr p0, v1
 
-    const/high16 v2, 0x47800000  # 65536.0f
+    const/high16 v2, 0x47800000    # 65536.0f
 
-    if-lt p0, v2, :cond_1a
+    if-lt p0, v2, :cond_1
 
-    if-le p0, v0, :cond_17
+    if-le p0, v0, :cond_0
 
     const/16 p0, 0x7e00
 
-    goto :goto_3c
+    goto :goto_1
 
-    :cond_17
+    :cond_0
     const/16 p0, 0x7c00
 
-    goto :goto_3c
+    goto :goto_1
 
-    :cond_1a
+    :cond_1
     const/high16 v0, 0x38800000
 
-    if-ge p0, v0, :cond_30
+    if-ge p0, v0, :cond_2
 
     invoke-static {p0}, Ljava/lang/Float;->intBitsToFloat(I)F
 
     move-result p0
 
-    const/high16 v0, 0x3f000000  # 0.5f
+    const/high16 v0, 0x3f000000    # 0.5f
 
     invoke-static {v0}, Ljava/lang/Float;->intBitsToFloat(I)F
 
@@ -361,12 +361,12 @@
 
     sub-int/2addr p0, v0
 
-    :goto_2e
+    :goto_0
     int-to-short p0, p0
 
-    goto :goto_3c
+    goto :goto_1
 
-    :cond_30
+    :cond_2
     shr-int/lit8 v0, p0, 0xd
 
     and-int/lit8 v0, v0, 0x1
@@ -379,9 +379,9 @@
 
     shr-int/lit8 p0, p0, 0xd
 
-    goto :goto_2e
+    goto :goto_0
 
-    :goto_3c
+    :goto_1
     shr-int/lit8 v0, v1, 0x10
 
     int-to-short v0, v0
@@ -394,7 +394,7 @@
 .end method
 
 .method public static mlasFp16ToFloat(S)F
-    .registers 5
+    .locals 4
 
     and-int/lit16 v0, p0, 0x7fff
 
@@ -408,16 +408,16 @@
 
     add-int/2addr v3, v0
 
-    if-ne v2, v1, :cond_12
+    if-ne v2, v1, :cond_0
 
     const/high16 v1, 0x70000000
 
     add-int v3, v0, v1
 
-    goto :goto_24
+    goto :goto_0
 
-    :cond_12
-    if-nez v2, :cond_24
+    :cond_0
+    if-nez v2, :cond_1
 
     const/high16 v1, 0x38800000
 
@@ -437,8 +437,8 @@
 
     move-result v3
 
-    :cond_24
-    :goto_24
+    :cond_1
+    :goto_0
     const v0, 0x8000
 
     and-int/2addr p0, v0

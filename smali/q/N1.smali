@@ -1,38 +1,61 @@
 .class public final Lq/N1;
-.super Ljava/lang/Object;
+.super Lq/d;
 .source "SourceFile"
-
-# interfaces
-.implements Ljava/util/Comparator;
 
 
 # virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+.method public final a(Lq/f0;Lq/F2;)Ljava/lang/Object;
+    .locals 2
 
-    check-cast p1, Lq/O1;
+    sget-object v0, Lq/P1;->i:Lq/P1;
 
-    check-cast p2, Lq/O1;
+    invoke-virtual {v0}, Lq/P1;->G()Lq/O1;
 
-    iget-object p1, p1, Lq/O1;->a:Lq/e0;
+    move-result-object v0
 
-    iget p1, p1, Lq/e0;->f:I
+    :try_start_0
+    invoke-virtual {v0, p1, p2}, Lq/O1;->R(Lq/f0;Lq/F2;)V
+    :try_end_0
+    .catch Lq/q3; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Lq/R5; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v0}, Lq/O1;->P()Lq/P1;
 
     move-result-object p1
 
-    iget-object p2, p2, Lq/O1;->a:Lq/e0;
+    return-object p1
 
-    iget p2, p2, Lq/e0;->f:I
+    :catch_0
+    move-exception p1
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    new-instance p2, Lq/q3;
 
-    move-result-object p2
+    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Ljava/lang/Integer;->compareTo(Ljava/lang/Integer;)I
+    move-result-object v1
 
-    move-result p1
+    invoke-direct {p2, v1, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    return p1
+    invoke-virtual {v0}, Lq/O1;->P()Lq/P1;
+
+    throw p2
+
+    :catch_1
+    move-exception p1
+
+    invoke-virtual {p1}, Lq/R5;->a()Lq/q3;
+
+    move-result-object p1
+
+    invoke-virtual {v0}, Lq/O1;->P()Lq/P1;
+
+    throw p1
+
+    :catch_2
+    move-exception p1
+
+    invoke-virtual {v0}, Lq/O1;->P()Lq/P1;
+
+    throw p1
 .end method

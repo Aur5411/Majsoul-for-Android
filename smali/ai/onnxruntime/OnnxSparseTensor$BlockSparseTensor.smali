@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/IntBuffer;[JLjava/nio/Buffer;[J[JLai/onnxruntime/OnnxJavaType;J)V
-    .registers 11
+    .locals 2
 
     invoke-direct/range {p0 .. p8}, Lai/onnxruntime/OnnxSparseTensor$SparseTensor;-><init>(Ljava/nio/Buffer;[JLjava/nio/Buffer;[J[JLai/onnxruntime/OnnxJavaType;J)V
 
@@ -36,7 +36,7 @@
 
     const-string p6, "Expected "
 
-    if-nez p5, :cond_9c
+    if-nez p5, :cond_4
 
     invoke-virtual {p3}, Ljava/nio/Buffer;->remaining()I
 
@@ -46,7 +46,7 @@
 
     cmp-long p5, p7, v0
 
-    if-nez p5, :cond_7e
+    if-nez p5, :cond_3
 
     invoke-static {p2}, Lai/onnxruntime/OrtUtil;->elementCount([J)J
 
@@ -60,23 +60,23 @@
 
     cmp-long p3, p7, v0
 
-    if-nez p3, :cond_5c
+    if-nez p3, :cond_2
 
     array-length p1, p4
 
     const/4 p3, 0x3
 
-    if-lt p1, p3, :cond_44
+    if-lt p1, p3, :cond_1
 
     array-length p1, p2
 
     const/4 p3, 0x2
 
-    if-lt p1, p3, :cond_2c
+    if-lt p1, p3, :cond_0
 
     return-void
 
-    :cond_2c
+    :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p3, Ljava/lang/StringBuilder;
@@ -99,7 +99,7 @@
 
     throw p1
 
-    :cond_44
+    :cond_1
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -122,7 +122,7 @@
 
     throw p1
 
-    :cond_5c
+    :cond_2
     new-instance p3, Ljava/lang/IllegalArgumentException;
 
     new-instance p4, Ljava/lang/StringBuilder;
@@ -153,7 +153,7 @@
 
     throw p3
 
-    :cond_7e
+    :cond_3
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -180,7 +180,7 @@
 
     throw p1
 
-    :cond_9c
+    :cond_4
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -211,7 +211,7 @@
 
 # virtual methods
 .method public getIndicesType()Lai/onnxruntime/OnnxJavaType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxJavaType;->INT32:Lai/onnxruntime/OnnxJavaType;
 
@@ -219,7 +219,7 @@
 .end method
 
 .method public getSparsityType()Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;->BLOCK_SPARSE:Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 

@@ -1,61 +1,173 @@
-.class public final Lq/f0;
-.super Lq/d;
+.class public abstract Lq/f0;
+.super Ljava/lang/Object;
 .source "SourceFile"
 
 
+# instance fields
+.field public a:I
+
+
+# direct methods
+.method public static d([BIIZ)Lq/d0;
+    .locals 1
+
+    new-instance v0, Lq/d0;
+
+    invoke-direct {v0, p0, p1, p2, p3}, Lq/d0;-><init>([BIIZ)V
+
+    :try_start_0
+    invoke-virtual {v0, p2}, Lq/d0;->f(I)I
+    :try_end_0
+    .catch Lq/q3; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v0
+
+    :catch_0
+    move-exception p0
+
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
+
+    throw p1
+.end method
+
+
 # virtual methods
-.method public final a(Lq/E;Lq/d2;)Ljava/lang/Object;
-    .registers 5
+.method public abstract A()I
+.end method
 
-    sget-object v0, Lq/h0;->k:Lq/h0;
+.method public abstract B()J
+.end method
 
-    invoke-virtual {v0}, Lq/h0;->H()Lq/g0;
+.method public abstract C(I)Z
+.end method
 
-    move-result-object v0
+.method public final D()V
+    .locals 2
 
-    :try_start_6
-    invoke-virtual {v0, p1, p2}, Lq/g0;->W(Lq/E;Lq/d2;)V
-    :try_end_9
-    .catch Lq/U2; {:try_start_6 .. :try_end_9} :catch_25
-    .catch Lq/R4; {:try_start_6 .. :try_end_9} :catch_1c
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_9} :catch_e
+    :cond_0
+    invoke-virtual {p0}, Lq/f0;->z()I
 
-    invoke-virtual {v0}, Lq/g0;->U()Lq/h0;
+    move-result v0
 
-    move-result-object p1
+    if-nez v0, :cond_1
 
-    return-object p1
+    return-void
 
-    :catch_e
-    move-exception p1
+    :cond_1
+    invoke-virtual {p0}, Lq/f0;->b()V
 
-    new-instance p2, Lq/U2;
+    iget v1, p0, Lq/f0;->a:I
 
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    add-int/lit8 v1, v1, 0x1
 
-    move-result-object v1
+    iput v1, p0, Lq/f0;->a:I
 
-    invoke-direct {p2, v1, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v0}, Lq/f0;->C(I)Z
 
-    invoke-virtual {v0}, Lq/g0;->U()Lq/h0;
+    move-result v0
 
-    throw p2
+    iget v1, p0, Lq/f0;->a:I
 
-    :catch_1c
-    move-exception p1
+    add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p1}, Lq/R4;->a()Lq/U2;
+    iput v1, p0, Lq/f0;->a:I
 
-    move-result-object p1
+    if-nez v0, :cond_0
 
-    invoke-virtual {v0}, Lq/g0;->U()Lq/h0;
+    return-void
+.end method
 
-    throw p1
+.method public abstract a(I)V
+.end method
 
-    :catch_25
-    move-exception p1
+.method public final b()V
+    .locals 2
 
-    invoke-virtual {v0}, Lq/g0;->U()Lq/h0;
+    iget v0, p0, Lq/f0;->a:I
 
-    throw p1
+    const/16 v1, 0x64
+
+    if-ge v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v0, Lq/q3;
+
+    const-string v1, "Protocol message had too many levels of nesting.  May be malicious.  Use setRecursionLimit() to increase the recursion depth limit."
+
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public abstract c()I
+.end method
+
+.method public abstract e(I)V
+.end method
+
+.method public abstract f(I)I
+.end method
+
+.method public abstract g()Z
+.end method
+
+.method public abstract h()Lq/c0;
+.end method
+
+.method public abstract i()D
+.end method
+
+.method public abstract j()I
+.end method
+
+.method public abstract k()I
+.end method
+
+.method public abstract l()J
+.end method
+
+.method public abstract m()F
+.end method
+
+.method public abstract n(ILq/n4;Lq/F2;)V
+.end method
+
+.method public abstract o()I
+.end method
+
+.method public abstract p()J
+.end method
+
+.method public abstract q(Lq/K4;Lq/F2;)Lq/o4;
+.end method
+
+.method public abstract r(Lq/n4;Lq/F2;)V
+.end method
+
+.method public abstract s()I
+.end method
+
+.method public abstract t()I
+.end method
+
+.method public abstract u()J
+.end method
+
+.method public abstract v()I
+.end method
+
+.method public abstract w()J
+.end method
+
+.method public abstract x()Ljava/lang/String;
+.end method
+
+.method public abstract y()Ljava/lang/String;
+.end method
+
+.method public abstract z()I
 .end method

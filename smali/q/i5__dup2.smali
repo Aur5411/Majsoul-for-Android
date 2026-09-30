@@ -1,312 +1,149 @@
-.class public abstract Lq/i5;
+.class public final synthetic Lq/i5;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
+# interfaces
+.implements Landroid/view/View$OnClickListener;
 
-# static fields
-.field public static final a:Lq/k3;
+
+# instance fields
+.field public final synthetic a:I
+
+.field public final synthetic b:Lq/q5;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .registers 2
+.method public synthetic constructor <init>(Lq/q5;I)V
+    .locals 0
 
-    sget-boolean v0, Lq/b5;->d:Z
+    iput p2, p0, Lq/i5;->a:I
 
-    if-eqz v0, :cond_15
+    iput-object p1, p0, Lq/i5;->b:Lq/q5;
 
-    sget-boolean v0, Lq/b5;->c:Z
-
-    if-eqz v0, :cond_15
-
-    invoke-static {}, Lq/f;->a()Z
-
-    move-result v0
-
-    if-nez v0, :cond_15
-
-    new-instance v0, Lq/g5;
-
-    const/4 v1, 0x1
-
-    invoke-direct {v0, v1}, Lq/g5;-><init>(I)V
-
-    goto :goto_1b
-
-    :cond_15
-    new-instance v0, Lq/g5;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lq/g5;-><init>(I)V
-
-    :goto_1b
-    sput-object v0, Lq/i5;->a:Lq/k3;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static a([BII)I
-    .registers 6
 
-    add-int/lit8 v0, p1, -0x1
+# virtual methods
+.method public final onClick(Landroid/view/View;)V
+    .locals 5
 
-    aget-byte v0, p0, v0
+    iget p1, p0, Lq/i5;->a:I
 
-    sub-int/2addr p2, p1
+    packed-switch p1, :pswitch_data_0
 
-    if-eqz p2, :cond_24
+    iget-object p1, p0, Lq/i5;->b:Lq/q5;
 
-    const/4 v1, 0x1
+    iget-object p1, p1, Lq/q5;->a:Lcom/qiuhui/mahjong/MainActivity;
 
-    if-eq p2, v1, :cond_1d
+    const/4 v0, 0x0
 
-    const/4 v2, 0x2
+    invoke-static {p1, v0}, Lq/W;->i(Landroid/app/Activity;Lq/A;)V
 
-    if-ne p2, v2, :cond_17
+    return-void
 
-    aget-byte p2, p0, p1
+    :pswitch_0
+    iget-object p1, p0, Lq/i5;->b:Lq/q5;
 
-    add-int/2addr p1, v1
+    iget v0, p1, Lq/q5;->h:I
 
-    aget-byte p0, p0, p1
+    const/16 v1, 0xc
 
-    invoke-static {v0, p2, p0}, Lq/i5;->d(III)I
+    if-ne v0, v1, :cond_1
 
-    move-result p0
+    iget-object v0, p1, Lq/q5;->a:Lcom/qiuhui/mahjong/MainActivity;
 
-    goto :goto_2a
+    const-string v1, "setup_guide"
 
-    :cond_17
-    new-instance p0, Ljava/lang/AssertionError;
+    const/4 v2, 0x0
 
-    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    throw p0
+    move-result-object v1
 
-    :cond_1d
-    aget-byte p0, p0, p1
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    invoke-static {v0, p0}, Lq/i5;->c(II)I
+    move-result-object v1
 
-    move-result p0
+    const-string v3, "completed_version"
 
-    goto :goto_2a
+    const/4 v4, 0x3
 
-    :cond_24
-    const/16 p0, -0xc
+    invoke-interface {v1, v3, v4}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    if-le v0, p0, :cond_29
+    move-result-object v1
 
-    const/4 v0, -0x1
+    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    :cond_29
-    move p0, v0
+    invoke-static {v0}, Landroid/provider/Settings;->canDrawOverlays(Landroid/content/Context;)Z
 
-    :goto_2a
-    return p0
-.end method
+    move-result v1
 
-.method public static b(Ljava/lang/String;)I
-    .registers 9
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
+    const-string v1, "overlay"
 
-    move-result v0
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    const/4 v1, 0x0
+    move-result-object v1
 
-    move v2, v1
+    const-string v3, "overlay_enabled"
 
-    :goto_6
-    if-ge v2, v0, :cond_13
+    invoke-interface {v1, v3, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
+    move-result v1
 
-    move-result v3
+    if-eqz v1, :cond_0
 
-    const/16 v4, 0x80
+    new-instance v1, Landroid/content/Intent;
 
-    if-ge v3, v4, :cond_13
+    const-class v2, Lcom/qiuhui/mahjong/OverlayService;
 
-    add-int/lit8 v2, v2, 0x1
+    invoke-direct {v1, v0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    goto :goto_6
+    const-string v2, "com.qiuhui.mahjong.action.RESTORE_OVERLAY"
 
-    :cond_13
-    move v3, v0
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    :goto_14
-    if-ge v2, v0, :cond_59
+    move-result-object v1
 
-    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
+    :try_start_0
+    invoke-virtual {v0, v1}, Landroid/content/Context;->startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v4
+    :catch_0
+    :cond_0
+    iget-object p1, p1, Lq/q5;->b:Lq/J3;
 
-    const/16 v5, 0x800
+    invoke-virtual {p1}, Lq/J3;->run()V
 
-    if-ge v4, v5, :cond_26
+    goto :goto_0
 
-    rsub-int/lit8 v4, v4, 0x7f
+    :cond_1
+    const/4 v0, 0x1
 
-    ushr-int/lit8 v4, v4, 0x1f
+    invoke-virtual {p1, v0}, Lq/q5;->e(I)V
 
-    add-int/2addr v3, v4
+    :goto_0
+    return-void
 
-    add-int/lit8 v2, v2, 0x1
+    :pswitch_1
+    const/4 p1, -0x1
 
-    goto :goto_14
+    iget-object v0, p0, Lq/i5;->b:Lq/q5;
 
-    :cond_26
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
+    invoke-virtual {v0, p1}, Lq/q5;->e(I)V
 
-    move-result v4
+    return-void
 
-    :goto_2a
-    if-ge v2, v4, :cond_58
+    nop
 
-    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v6
-
-    if-ge v6, v5, :cond_38
-
-    rsub-int/lit8 v6, v6, 0x7f
-
-    ushr-int/lit8 v6, v6, 0x1f
-
-    add-int/2addr v1, v6
-
-    goto :goto_55
-
-    :cond_38
-    add-int/lit8 v1, v1, 0x2
-
-    const v7, 0xd800
-
-    if-gt v7, v6, :cond_55
-
-    const v7, 0xdfff
-
-    if-gt v6, v7, :cond_55
-
-    invoke-static {p0, v2}, Ljava/lang/Character;->codePointAt(Ljava/lang/CharSequence;I)I
-
-    move-result v6
-
-    const/high16 v7, 0x10000
-
-    if-lt v6, v7, :cond_4f
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_55
-
-    :cond_4f
-    new-instance p0, Lq/h5;
-
-    invoke-direct {p0, v2, v4}, Lq/h5;-><init>(II)V
-
-    throw p0
-
-    :cond_55
-    :goto_55
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_2a
-
-    :cond_58
-    add-int/2addr v3, v1
-
-    :cond_59
-    if-lt v3, v0, :cond_5c
-
-    return v3
-
-    :cond_5c
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    const-string v1, "UTF-8 length does not fit in int: "
-
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    int-to-long v1, v3
-
-    const-wide v3, 0x100000000L
-
-    add-long/2addr v1, v3
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-.end method
-
-.method public static c(II)I
-    .registers 3
-
-    const/16 v0, -0xc
-
-    if-gt p0, v0, :cond_d
-
-    const/16 v0, -0x41
-
-    if-le p1, v0, :cond_9
-
-    goto :goto_d
-
-    :cond_9
-    shl-int/lit8 p1, p1, 0x8
-
-    xor-int/2addr p0, p1
-
-    goto :goto_e
-
-    :cond_d
-    :goto_d
-    const/4 p0, -0x1
-
-    :goto_e
-    return p0
-.end method
-
-.method public static d(III)I
-    .registers 4
-
-    const/16 v0, -0xc
-
-    if-gt p0, v0, :cond_12
-
-    const/16 v0, -0x41
-
-    if-gt p1, v0, :cond_12
-
-    if-le p2, v0, :cond_b
-
-    goto :goto_12
-
-    :cond_b
-    shl-int/lit8 p1, p1, 0x8
-
-    xor-int/2addr p0, p1
-
-    shl-int/lit8 p1, p2, 0x10
-
-    xor-int/2addr p0, p1
-
-    goto :goto_13
-
-    :cond_12
-    :goto_12
-    const/4 p0, -0x1
-
-    :goto_13
-    return p0
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

@@ -1,913 +1,927 @@
-.class public abstract Lq/j3;
+.class public final Lq/j3;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
+# interfaces
+.implements Lq/X6;
+.implements Lq/j;
+
 
 # static fields
-.field public static a:Z
+.field public static final b:[Ljava/lang/String;
 
-.field public static final b:Lq/E4;
 
-.field public static final c:Lq/F4;
+# instance fields
+.field public final synthetic a:I
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
-    new-instance v0, Lq/E4;
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    new-array v0, v0, [Ljava/lang/String;
 
-    sput-object v0, Lq/j3;->b:Lq/E4;
-
-    new-instance v0, Lq/F4;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    sput-object v0, Lq/j3;->c:Lq/F4;
+    sput-object v0, Lq/j3;->b:[Ljava/lang/String;
 
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;)V
-    .registers 3
+.method public synthetic constructor <init>(I)V
+    .locals 0
 
-    const-string v0, "license_state"
+    iput p1, p0, Lq/j3;->a:I
 
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->clear()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static b(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+.method public static b(Ljava/lang/Object;)V
+    .locals 3
 
-    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+    check-cast p0, Lq/b7;
+
+    :try_start_0
+    invoke-static {}, Landroid/webkit/CookieManager;->getInstance()Landroid/webkit/CookieManager;
+
+    move-result-object p0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Landroid/webkit/CookieManager;->setAcceptCookie(Z)V
+
+    sget-object p0, Lq/S6;->g:Lq/R6;
+
+    invoke-virtual {p0}, Lq/R6;->b()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_6
 
-    const-string p0, ""
+    sget-object v0, Lq/h;->c:Lq/h;
 
-    return-object p0
+    if-nez v0, :cond_0
 
-    :cond_9
-    const-string v0, "\\."
+    new-instance v0, Lq/h;
 
-    const/4 v1, 0x2
+    sget-object v1, Lq/T6;->a:Lq/X6;
 
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-interface {v1}, Lq/X6;->getProfileStore()Lorg/chromium/support_lib_boundary/ProfileStoreBoundaryInterface;
 
-    move-result-object p1
+    move-result-object v1
 
-    array-length v0, p1
+    const/4 v2, 0x6
 
-    if-ne v0, v1, :cond_48
+    invoke-direct {v0, v2, v1}, Lq/h;-><init>(ILjava/lang/Object;)V
 
-    const-string v0, "AES/GCM/NoPadding"
+    sput-object v0, Lq/h;->c:Lq/h;
 
-    invoke-static {v0}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+    :cond_0
+    sget-object v0, Lq/h;->c:Lq/h;
 
-    move-result-object v0
+    const-string v1, "Default"
 
-    invoke-static {}, Lq/j3;->h()Ljavax/crypto/SecretKey;
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p0}, Lq/R6;->b()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_5
+
+    iget-object p0, v0, Lq/h;->b:Ljava/lang/Object;
+
+    check-cast p0, Lorg/chromium/support_lib_boundary/ProfileStoreBoundaryInterface;
+
+    invoke-interface {p0, v1}, Lorg/chromium/support_lib_boundary/ProfileStoreBoundaryInterface;->getProfile(Ljava/lang/String;)Ljava/lang/reflect/InvocationHandler;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_1
+
+    new-instance v0, Lq/h;
+
+    const-class v1, Lorg/chromium/support_lib_boundary/ProfileBoundaryInterface;
+
+    invoke-static {v1, p0}, Lq/W;->c(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lorg/chromium/support_lib_boundary/ProfileBoundaryInterface;
+
+    const/4 v1, 0x5
+
+    invoke-direct {v0, v1, p0}, Lq/h;-><init>(ILjava/lang/Object;)V
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    if-eqz v0, :cond_3
+
+    const-string p0, "WARM_UP_RENDERER_PROCESS"
+
+    invoke-static {p0}, Lq/p;->p(Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_3
+
+    sget-object p0, Lq/S6;->l:Lq/m;
+
+    invoke-virtual {p0}, Lq/n;->b()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2
+
+    iget-object p0, v0, Lq/h;->b:Ljava/lang/Object;
+
+    check-cast p0, Lorg/chromium/support_lib_boundary/ProfileBoundaryInterface;
+
+    invoke-interface {p0}, Lorg/chromium/support_lib_boundary/ProfileBoundaryInterface;->warmUpRendererProcess()V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-static {}, Lq/S6;->a()Ljava/lang/UnsupportedOperationException;
+
+    move-result-object p0
+
+    throw p0
+
+    :cond_3
+    :goto_1
+    if-eqz v0, :cond_7
+
+    const-string p0, "PRECONNECT"
+
+    invoke-static {p0}, Lq/p;->p(Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_7
+
+    const-string p0, "https://game.maj-soul.com/1/"
+
+    sget-object v1, Lq/S6;->m:Lq/m;
+
+    invoke-virtual {v1}, Lq/n;->b()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    iget-object v0, v0, Lq/h;->b:Ljava/lang/Object;
+
+    check-cast v0, Lorg/chromium/support_lib_boundary/ProfileBoundaryInterface;
+
+    invoke-interface {v0, p0}, Lorg/chromium/support_lib_boundary/ProfileBoundaryInterface;->preconnect(Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_4
+    invoke-static {}, Lq/S6;->a()Ljava/lang/UnsupportedOperationException;
+
+    move-result-object p0
+
+    throw p0
+
+    :cond_5
+    invoke-static {}, Lq/S6;->a()Ljava/lang/UnsupportedOperationException;
+
+    move-result-object p0
+
+    throw p0
+
+    :cond_6
+    invoke-static {}, Lq/S6;->a()Ljava/lang/UnsupportedOperationException;
+
+    move-result-object p0
+
+    throw p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    :cond_7
+    :goto_2
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Ljava/lang/String;)V
+    .locals 26
+
+    sget-object v0, Lq/x;->a:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    const-class v1, Lq/x;
+
+    monitor-enter v1
+
+    :try_start_0
+    new-instance v0, Lorg/json/JSONObject;
+
+    move-object/from16 v2, p1
+
+    invoke-direct {v0, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string v2, "mode"
+
+    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    new-instance v3, Ljavax/crypto/spec/GCMParameterSpec;
+    invoke-static {v2}, Lq/t;->valueOf(Ljava/lang/String;)Lq/t;
 
-    const/4 v4, 0x0
+    move-result-object v2
 
-    aget-object v4, p1, v4
+    const-string v3, "status"
 
-    invoke-static {v4, v1}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lq/r;->valueOf(Ljava/lang/String;)Lq/r;
+
+    move-result-object v3
+
+    const-string v4, "decision"
+
+    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v4
 
-    const/16 v5, 0x80
+    const-string v5, "hand"
 
-    invoke-direct {v3, v5, v4}, Ljavax/crypto/spec/GCMParameterSpec;-><init>(I[B)V
+    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    invoke-virtual {v0, v1, v2, v3}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+    move-result-object v5
 
-    sget-object v2, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    new-instance v9, Ljava/util/ArrayList;
 
-    invoke-virtual {p0, v2}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    invoke-virtual {v5}, Lorg/json/JSONArray;->length()I
 
-    move-result-object p0
+    move-result v6
 
-    invoke-virtual {v0, p0}, Ljavax/crypto/Cipher;->updateAAD([B)V
+    invoke-direct {v9, v6}, Ljava/util/ArrayList;-><init>(I)V
 
-    new-instance p0, Ljava/lang/String;
+    const/4 v13, 0x0
 
-    const/4 v3, 0x1
+    move v6, v13
 
-    aget-object p1, p1, v3
+    :goto_0
+    invoke-virtual {v5}, Lorg/json/JSONArray;->length()I
 
-    invoke-static {p1, v1}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+    move-result v7
 
-    move-result-object p1
+    if-ge v6, v7, :cond_0
 
-    invoke-virtual {v0, p1}, Ljavax/crypto/Cipher;->doFinal([B)[B
+    const-string v7, ""
 
-    move-result-object p1
+    invoke-virtual {v5, v6, v7}, Lorg/json/JSONArray;->optString(ILjava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {p0, p1, v2}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+    move-result-object v7
 
-    return-object p0
+    invoke-virtual {v9, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_48
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    add-int/lit8 v6, v6, 0x1
 
-    const-string p1, "Invalid protected value"
+    goto :goto_0
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    :catchall_0
+    move-exception v0
 
-    throw p0
-.end method
+    goto/16 :goto_8
 
-.method public static declared-synchronized c(Ljava/lang/String;Z)Z
-    .registers 2
+    :catch_0
+    move-exception v0
 
-    const/4 p0, 0x1
+    goto/16 :goto_6
 
-    return p0
-.end method
+    :cond_0
+    const-string v5, "operations"
 
-.method public static d(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    if-eqz p1, :cond_4a
+    move-result-object v5
 
-    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+    new-instance v11, Ljava/util/ArrayList;
 
-    move-result v0
+    invoke-virtual {v5}, Lorg/json/JSONArray;->length()I
 
-    if-eqz v0, :cond_9
+    move-result v6
 
-    goto :goto_4a
+    invoke-direct {v11, v6}, Ljava/util/ArrayList;-><init>(I)V
 
-    :cond_9
-    const-string v0, "AES/GCM/NoPadding"
+    move v6, v13
 
-    invoke-static {v0}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+    :goto_1
+    invoke-virtual {v5}, Lorg/json/JSONArray;->length()I
 
-    move-result-object v0
+    move-result v7
 
-    const/4 v1, 0x1
+    const/4 v8, -0x1
 
-    invoke-static {}, Lq/j3;->h()Ljavax/crypto/SecretKey;
+    if-ge v6, v7, :cond_2
+
+    invoke-virtual {v5, v6}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v7
+
+    const-string v10, "combinations"
+
+    invoke-virtual {v7, v10}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v10
+
+    new-instance v12, Ljava/util/ArrayList;
+
+    invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
+
+    if-eqz v10, :cond_1
+
+    move v14, v13
+
+    :goto_2
+    invoke-virtual {v10}, Lorg/json/JSONArray;->length()I
+
+    move-result v15
+
+    if-ge v14, v15, :cond_1
+
+    const-string v15, ""
+
+    invoke-virtual {v10, v14, v15}, Lorg/json/JSONArray;->optString(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v12, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v14, v14, 0x1
+
+    goto :goto_2
+
+    :cond_1
+    new-instance v10, Lq/v;
+
+    const-string v14, "type"
+
+    invoke-virtual {v7, v14, v8}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+
+    move-result v8
+
+    const-string v14, "calledTile"
+
+    const-string v15, ""
+
+    invoke-virtual {v7, v14, v15}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {v10, v8, v12, v7}, Lq/v;-><init>(ILjava/util/List;Ljava/lang/String;)V
+
+    invoke-virtual {v11, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    const-string v5, "legalActions"
+
+    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lorg/json/JSONArray;->length()I
+
+    move-result v6
+
+    new-array v12, v6, [Z
+
+    move v6, v13
+
+    :goto_3
+    invoke-virtual {v5}, Lorg/json/JSONArray;->length()I
+
+    move-result v7
+
+    if-ge v6, v7, :cond_3
+
+    invoke-virtual {v5, v6, v13}, Lorg/json/JSONArray;->optBoolean(IZ)Z
+
+    move-result v7
+
+    aput-boolean v7, v12, v6
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_3
+
+    :cond_3
+    const-string v5, "recommendations"
+
+    invoke-virtual {v0, v5}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v5
+
+    new-instance v6, Ljava/util/ArrayList;
+
+    invoke-virtual {v5}, Lorg/json/JSONArray;->length()I
+
+    move-result v7
+
+    invoke-direct {v6, v7}, Ljava/util/ArrayList;-><init>(I)V
+
+    move v7, v13
+
+    :goto_4
+    invoke-virtual {v5}, Lorg/json/JSONArray;->length()I
+
+    move-result v10
+
+    if-ge v7, v10, :cond_4
+
+    invoke-virtual {v5, v7}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v10
+
+    new-instance v15, Lq/W4;
+
+    const-string v14, "tile"
+
+    invoke-virtual {v10, v14, v8}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+
+    move-result v16
+
+    const-string v14, "tileLabel"
+
+    const-string v8, ""
+
+    invoke-virtual {v10, v14, v8}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string v14, "shanten"
+
+    invoke-virtual {v10, v14, v13}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+
+    move-result v17
+
+    const-string v14, "ukeire"
+
+    invoke-virtual {v10, v14, v13}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+
+    move-result v18
+
+    const-string v14, "confidence"
+
+    move-object/from16 v24, v11
+
+    move-object/from16 v25, v12
+
+    const-wide/16 v11, 0x0
+
+    invoke-virtual {v10, v14, v11, v12}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;D)D
+
+    move-result-wide v11
+
+    double-to-float v11, v11
+
+    const-string v12, "reason"
+
+    const-string v14, ""
+
+    invoke-virtual {v10, v12, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v20
+
+    const-string v12, "action"
+
+    const/4 v14, -0x1
+
+    invoke-virtual {v10, v12, v14}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+
+    move-result v21
+
+    const-string v12, "followupAction"
+
+    invoke-virtual {v10, v12, v14}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+
+    move-result v22
+
+    move v10, v14
+
+    move-object v14, v15
+
+    move-object v12, v15
+
+    move/from16 v15, v16
+
+    move-object/from16 v16, v8
+
+    move/from16 v19, v11
+
+    move/from16 v23, v11
+
+    invoke-direct/range {v14 .. v23}, Lq/W4;-><init>(ILjava/lang/String;IIFLjava/lang/String;IIF)V
+
+    invoke-virtual {v6, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v7, v7, 0x1
+
+    move v8, v10
+
+    move-object/from16 v11, v24
+
+    move-object/from16 v12, v25
+
+    goto :goto_4
+
+    :cond_4
+    move-object/from16 v24, v11
+
+    move-object/from16 v25, v12
+
+    const-string v5, "roundEnd"
+
+    invoke-virtual {v0, v5}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v5
+
+    const-string v7, "id"
+
+    invoke-virtual {v4, v7}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v14
+
+    const-string v7, "id"
+
+    invoke-virtual {v5, v7}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v11
+
+    sput-object v2, Lq/x;->b:Lq/t;
+
+    sput-object v3, Lq/x;->c:Lq/r;
+
+    const-string v2, "nickname"
+
+    const-string v3, ""
+
+    invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
+    sput-object v2, Lq/x;->d:Ljava/lang/String;
 
-    sget-object v1, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    const-string v2, "accountId"
 
-    invoke-virtual {p0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    const-string v3, ""
 
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Ljavax/crypto/Cipher;->updateAAD([B)V
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Ljavax/crypto/Cipher;->doFinal([B)[B
-
-    move-result-object p0
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0}, Ljavax/crypto/Cipher;->getIV()[B
-
-    move-result-object v0
-
-    const/4 v1, 0x2
-
-    invoke-static {v0, v1}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "."
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p0, v1}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_4a
-    :goto_4a
-    const-string p0, ""
-
-    return-object p0
-.end method
-
-.method public static e(Landroid/content/Context;)J
-    .registers 3
-
-    const-wide v0, 0x7fffffffffffffffL
-
-    return-wide v0
-.end method
-
-.method public static f()Ljavax/crypto/SecretKey;
-    .registers 5
-
-    const-string v0, "AndroidKeyStore"
-
-    invoke-static {v0}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Ljava/security/KeyStore;->load(Ljava/security/KeyStore$LoadStoreParameter;)V
-
-    const-string v3, "qiuhui_license_token_v1"
-
-    invoke-virtual {v1, v3}, Ljava/security/KeyStore;->containsAlias(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1d
-
-    invoke-virtual {v1, v3, v2}, Ljava/security/KeyStore;->getEntry(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/security/KeyStore$SecretKeyEntry;
-
-    invoke-virtual {v0}, Ljava/security/KeyStore$SecretKeyEntry;->getSecretKey()Ljavax/crypto/SecretKey;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_1d
-    const-string v1, "AES"
-
-    invoke-static {v1, v0}, Ljavax/crypto/KeyGenerator;->getInstance(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/KeyGenerator;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/security/keystore/KeyGenParameterSpec$Builder;
-
-    const/4 v2, 0x3
-
-    invoke-direct {v1, v3, v2}, Landroid/security/keystore/KeyGenParameterSpec$Builder;-><init>(Ljava/lang/String;I)V
-
-    const-string v2, "GCM"
-
-    filled-new-array {v2}, [Ljava/lang/String;
+    invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->setBlockModes([Ljava/lang/String;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
+    sput-object v2, Lq/x;->e:Ljava/lang/String;
 
-    move-result-object v1
+    const-string v2, "roundLabel"
 
-    const-string v2, "NoPadding"
+    const-string v3, ""
 
-    filled-new-array {v2}, [Ljava/lang/String;
+    invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->setEncryptionPaddings([Ljava/lang/String;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
+    sput-object v2, Lq/x;->f:Ljava/lang/String;
 
-    move-result-object v1
+    const-string v2, "authenticated"
 
-    invoke-virtual {v1}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->build()Landroid/security/keystore/KeyGenParameterSpec;
+    invoke-virtual {v0, v2, v13}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;Z)Z
 
-    move-result-object v1
+    move-result v2
 
-    invoke-virtual {v0, v1}, Ljavax/crypto/KeyGenerator;->init(Ljava/security/spec/AlgorithmParameterSpec;)V
+    sput-boolean v2, Lq/x;->g:Z
 
-    invoke-virtual {v0}, Ljavax/crypto/KeyGenerator;->generateKey()Ljavax/crypto/SecretKey;
+    const-string v2, "analysisActive"
 
-    move-result-object v0
+    invoke-virtual {v0, v2, v13}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;Z)Z
 
-    return-object v0
-.end method
+    move-result v2
 
-.method public static g(B)Z
-    .registers 2
+    sput-boolean v2, Lq/x;->h:Z
 
-    const/16 v0, -0x41
+    const-string v2, "fourPlayerLevelId"
 
-    if-le p0, v0, :cond_6
+    invoke-virtual {v0, v2, v13}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
 
-    const/4 p0, 0x1
+    move-result v2
+
+    invoke-static {v13, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    sput v2, Lq/x;->l:I
+
+    const-string v2, "threePlayerLevelId"
+
+    invoke-virtual {v0, v2, v13}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-static {v13, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    sput v2, Lq/x;->m:I
+
+    const-string v2, "capturedMatchMode"
+
+    invoke-virtual {v0, v2, v13}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-static {v13, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    sput v2, Lq/x;->n:I
+
+    const-string v2, "capturedClientVersion"
+
+    const-string v3, ""
+
+    invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    sput-object v2, Lq/x;->o:Ljava/lang/String;
+
+    invoke-static {v6}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v2
+
+    sput-object v2, Lq/x;->i:Ljava/util/List;
+
+    new-instance v2, Lq/s;
+
+    const-string v3, "separatedDraw"
+
+    invoke-virtual {v4, v3, v13}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;Z)Z
+
+    move-result v10
+
+    move-object v6, v2
+
+    move-wide v7, v14
+
+    move-wide v3, v11
+
+    move-object/from16 v11, v24
+
+    move-object/from16 v12, v25
+
+    invoke-direct/range {v6 .. v12}, Lq/s;-><init>(JLjava/util/List;ZLjava/util/List;[Z)V
+
+    sput-object v2, Lq/x;->j:Lq/s;
+
+    new-instance v2, Lq/w;
+
+    const-string v6, "finalMatch"
+
+    invoke-virtual {v5, v6, v13}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;Z)Z
+
+    move-result v5
+
+    invoke-direct {v2, v3, v4, v5}, Lq/w;-><init>(JZ)V
+
+    sput-object v2, Lq/x;->k:Lq/w;
+
+    const-string v2, "initialDealDecisionId"
+
+    const-wide/16 v5, -0x1
+
+    invoke-virtual {v0, v2, v5, v6}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;J)J
+
+    move-result-wide v5
+
+    sput-wide v5, Lq/x;->p:J
+
+    sget-wide v5, Lq/x;->s:J
+
+    invoke-static {v5, v6, v14, v15}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v5
+
+    sput-wide v5, Lq/x;->s:J
+
+    sget-wide v5, Lq/x;->t:J
+
+    invoke-static {v5, v6, v3, v4}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v2
+
+    sput-wide v2, Lq/x;->t:J
+
+    sget-object v2, Lq/x;->r:Ljava/util/concurrent/atomic/AtomicLong;
+
+    const-string v3, "modelGeneration"
+
+    const-wide/16 v4, 0x0
+
+    invoke-virtual {v0, v3, v4, v5}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;J)J
+
+    move-result-wide v6
+
+    new-instance v3, Lq/q;
+
+    invoke-direct {v3}, Ljava/lang/Object;-><init>()V
+
+    invoke-virtual {v2, v6, v7, v3}, Ljava/util/concurrent/atomic/AtomicLong;->accumulateAndGet(JLjava/util/function/LongBinaryOperator;)J
+
+    const-string v2, "animationRemainingMs"
+
+    invoke-virtual {v0, v2, v4, v5}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    const-wide/16 v6, 0x3a98
+
+    invoke-static {v6, v7, v2, v3}, Ljava/lang/Math;->min(JJ)J
+
+    move-result-wide v2
+
+    invoke-static {v4, v5, v2, v3}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v2
+
+    sget-object v0, Lq/x;->q:Ljava/util/concurrent/atomic/AtomicLong;
+
+    cmp-long v6, v2, v4
+
+    if-nez v6, :cond_5
+
+    goto :goto_5
+
+    :cond_5
+    invoke-static {}, Ljava/lang/System;->nanoTime()J
+
+    move-result-wide v4
+
+    const-wide/32 v6, 0xf4240
+
+    mul-long/2addr v2, v6
+
+    add-long/2addr v4, v2
+
+    :goto_5
+    invoke-virtual {v0, v4, v5}, Ljava/util/concurrent/atomic/AtomicLong;->set(J)V
+
+    invoke-static {}, Lq/x;->f()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_7
 
-    :cond_6
-    const/4 p0, 0x0
+    :goto_6
+    :try_start_1
+    const-string v2, "QiuHuiDiag"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "snapshot apply failed type="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_7
-    return p0
+    monitor-exit v1
+
+    return-void
+
+    :goto_8
+    :try_start_2
+    monitor-exit v1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw v0
 .end method
 
-.method public static h()Ljavax/crypto/SecretKey;
-    .registers 5
+.method public createWebView(Landroid/webkit/WebView;)Lorg/chromium/support_lib_boundary/WebViewProviderBoundaryInterface;
+    .locals 1
 
-    const-string v0, "AndroidKeyStore"
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-static {v0}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
+    const-string v0, "This should never happen, if this method was called it means we\'re trying to reach into WebView APK code on an incompatible device. This most likely means the current method is being called too early, or is being called on start-up rather than lazily"
 
-    move-result-object v1
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Ljava/security/KeyStore;->load(Ljava/security/KeyStore$LoadStoreParameter;)V
-
-    const-string v3, "qiuhui_sensitive_settings_v1"
-
-    invoke-virtual {v1, v3}, Ljava/security/KeyStore;->containsAlias(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1d
-
-    invoke-virtual {v1, v3, v2}, Ljava/security/KeyStore;->getEntry(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/security/KeyStore$SecretKeyEntry;
-
-    invoke-virtual {v0}, Ljava/security/KeyStore$SecretKeyEntry;->getSecretKey()Ljavax/crypto/SecretKey;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_1d
-    const-string v1, "AES"
-
-    invoke-static {v1, v0}, Ljavax/crypto/KeyGenerator;->getInstance(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/KeyGenerator;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/security/keystore/KeyGenParameterSpec$Builder;
-
-    const/4 v2, 0x3
-
-    invoke-direct {v1, v3, v2}, Landroid/security/keystore/KeyGenParameterSpec$Builder;-><init>(Ljava/lang/String;I)V
-
-    const-string v2, "GCM"
-
-    filled-new-array {v2}, [Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->setBlockModes([Ljava/lang/String;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
-
-    move-result-object v1
-
-    const-string v2, "NoPadding"
-
-    filled-new-array {v2}, [Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->setEncryptionPaddings([Ljava/lang/String;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->build()Landroid/security/keystore/KeyGenParameterSpec;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljavax/crypto/KeyGenerator;->init(Ljava/security/spec/AlgorithmParameterSpec;)V
-
-    invoke-virtual {v0}, Ljavax/crypto/KeyGenerator;->generateKey()Ljavax/crypto/SecretKey;
-
-    move-result-object v0
-
-    return-object v0
+    throw p1
 .end method
 
-.method public static i([BI)I
-    .registers 4
-
-    aget-byte v0, p0, p1
-
-    and-int/lit16 v0, v0, 0xff
-
-    add-int/lit8 v1, p1, 0x1
-
-    aget-byte v1, p0, v1
-
-    and-int/lit16 v1, v1, 0xff
-
-    shl-int/lit8 v1, v1, 0x8
-
-    or-int/2addr v0, v1
-
-    add-int/lit8 v1, p1, 0x2
-
-    aget-byte v1, p0, v1
-
-    and-int/lit16 v1, v1, 0xff
-
-    shl-int/lit8 v1, v1, 0x10
-
-    or-int/2addr v0, v1
-
-    add-int/lit8 p1, p1, 0x3
-
-    aget-byte p0, p0, p1
-
-    and-int/lit16 p0, p0, 0xff
-
-    shl-int/lit8 p0, p0, 0x18
-
-    or-int/2addr p0, v0
-
-    return p0
-.end method
-
-.method public static declared-synchronized j()Z
-    .registers 2
-
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method public static k(Lq/E;Lq/i6;I)Ljava/lang/Object;
-    .registers 3
-
-    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result p1
-
-    packed-switch p1, :pswitch_data_b6
-
-    new-instance p0, Ljava/lang/RuntimeException;
-
-    const-string p1, "There is no way to get here, but the compiler thinks otherwise."
-
-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :pswitch_f  #0x11
-    invoke-virtual {p0}, Lq/E;->w()J
-
-    move-result-wide p0
-
-    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_18  #0x10
-    invoke-virtual {p0}, Lq/E;->v()I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_21  #0xf
-    invoke-virtual {p0}, Lq/E;->u()J
-
-    move-result-wide p0
-
-    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_2a  #0xe
-    invoke-virtual {p0}, Lq/E;->t()I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_33  #0xd
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "readPrimitiveField() cannot handle enums."
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :pswitch_3b  #0xc
-    invoke-virtual {p0}, Lq/E;->A()I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_44  #0xb
-    invoke-virtual {p0}, Lq/E;->h()Lq/B;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_49  #0xa
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "readPrimitiveField() cannot handle embedded messages."
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :pswitch_51  #0x9
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "readPrimitiveField() cannot handle nested groups."
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :pswitch_59  #0x8
-    const/4 p1, 0x1
-
-    if-eq p2, p1, :cond_69
-
-    const/4 p1, 0x2
-
-    if-eq p2, p1, :cond_64
-
-    invoke-virtual {p0}, Lq/E;->h()Lq/B;
-
-    move-result-object p0
-
-    goto :goto_6d
-
-    :cond_64
-    invoke-virtual {p0}, Lq/E;->y()Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_6d
-
-    :cond_69
-    invoke-virtual {p0}, Lq/E;->x()Ljava/lang/String;
-
-    move-result-object p0
-
-    :goto_6d
-    return-object p0
-
-    :pswitch_6e  #0x7
-    invoke-virtual {p0}, Lq/E;->g()Z
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_77  #0x6
-    invoke-virtual {p0}, Lq/E;->k()I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_80  #0x5
-    invoke-virtual {p0}, Lq/E;->l()J
-
-    move-result-wide p0
-
-    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_89  #0x4
-    invoke-virtual {p0}, Lq/E;->o()I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_92  #0x3
-    invoke-virtual {p0}, Lq/E;->B()J
-
-    move-result-wide p0
-
-    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_9b  #0x2
-    invoke-virtual {p0}, Lq/E;->p()J
-
-    move-result-wide p0
-
-    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_a4  #0x1
-    invoke-virtual {p0}, Lq/E;->m()F
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_ad  #0x0
-    invoke-virtual {p0}, Lq/E;->i()D
-
-    move-result-wide p0
-
-    invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_data_b6
-    .packed-switch 0x0
-        :pswitch_ad  #00000000
-        :pswitch_a4  #00000001
-        :pswitch_9b  #00000002
-        :pswitch_92  #00000003
-        :pswitch_89  #00000004
-        :pswitch_80  #00000005
-        :pswitch_77  #00000006
-        :pswitch_6e  #00000007
-        :pswitch_59  #00000008
-        :pswitch_51  #00000009
-        :pswitch_49  #0000000a
-        :pswitch_44  #0000000b
-        :pswitch_3b  #0000000c
-        :pswitch_33  #0000000d
-        :pswitch_2a  #0000000e
-        :pswitch_21  #0000000f
-        :pswitch_18  #00000010
-        :pswitch_f  #00000011
-    .end packed-switch
-.end method
-
-.method public static l(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;J)V
-    .registers 8
-
-    const-string v0, "AES/GCM/NoPadding"
-
-    invoke-static {v0}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-static {}, Lq/j3;->f()Ljavax/crypto/SecretKey;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
-
-    sget-object v1, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Ljavax/crypto/Cipher;->doFinal([B)[B
-
-    move-result-object p1
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0}, Ljavax/crypto/Cipher;->getIV()[B
-
-    move-result-object v0
-
-    const/4 v2, 0x2
-
-    invoke-static {v0, v2}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "."
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p1, v2}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v0, "license_state"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p0
-
-    const-string v0, "token"
-
-    invoke-interface {p0, v0, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p0
-
-    const-string p1, "plan"
-
-    invoke-interface {p0, p1, p2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p0
-
-    const-string p1, "expires_at"
-
-    invoke-interface {p0, p1, p3, p4}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
+.method public e(ILjava/lang/String;[B)V
+    .locals 0
 
     return-void
 .end method
 
-.method public static declared-synchronized m()Z
-    .registers 2
+.method public f(Lq/a7;Lq/j3;)V
+    .locals 0
 
-    const/4 v0, 0x1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    return v0
+    const-string p2, "This should never happen, if this method was called it means we\'re trying to reach into WebView APK code on an incompatible device. This most likely means the current method is being called too early, or is being called on start-up rather than lazily"
+
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
-.method public static n(Landroid/content/Context;)Ljava/lang/String;
-    .registers 9
+.method public getProfileStore()Lorg/chromium/support_lib_boundary/ProfileStoreBoundaryInterface;
+    .locals 2
 
-    const-string v0, "license_state"
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const/4 v1, 0x0
+    const-string v1, "This should never happen, if this method was called it means we\'re trying to reach into WebView APK code on an incompatible device. This most likely means the current method is being called too early, or is being called on start-up rather than lazily"
 
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v0
+    throw v0
+.end method
 
-    const-string v2, "token"
+.method public getProxyController()Lorg/chromium/support_lib_boundary/ProxyControllerBoundaryInterface;
+    .locals 2
 
-    const-string v3, ""
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string v1, "This should never happen, if this method was called it means we\'re trying to reach into WebView APK code on an incompatible device. This most likely means the current method is being called too early, or is being called on start-up rather than lazily"
 
-    move-result-object v0
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    if-eqz v0, :cond_53
+    throw v0
+.end method
 
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+.method public getStatics()Lorg/chromium/support_lib_boundary/StaticsBoundaryInterface;
+    .locals 2
 
-    move-result v2
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    if-eqz v2, :cond_18
+    const-string v1, "This should never happen, if this method was called it means we\'re trying to reach into WebView APK code on an incompatible device. This most likely means the current method is being called too early, or is being called on start-up rather than lazily"
 
-    goto :goto_53
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    :cond_18
-    :try_start_18
-    const-string v2, "\\."
+    throw v0
+.end method
 
-    const/4 v4, 0x2
+.method public i(Lq/a7;Lq/D3;)V
+    .locals 0
 
-    invoke-virtual {v0, v2, v4}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v0
+    const-string p2, "This should never happen, if this method was called it means we\'re trying to reach into WebView APK code on an incompatible device. This most likely means the current method is being called too early, or is being called on start-up rather than lazily"
 
-    array-length v2, v0
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    if-eq v2, v4, :cond_23
+    throw p1
+.end method
 
-    return-object v3
+.method public j(Ljava/lang/String;)V
+    .locals 0
 
-    :cond_23
-    const-string v2, "AES/GCM/NoPadding"
+    return-void
+.end method
 
-    invoke-static {v2}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+.method public l()[Ljava/lang/String;
+    .locals 1
 
-    move-result-object v2
+    sget-object v0, Lq/j3;->b:[Ljava/lang/String;
 
-    invoke-static {}, Lq/j3;->f()Ljavax/crypto/SecretKey;
-
-    move-result-object v5
-
-    new-instance v6, Ljavax/crypto/spec/GCMParameterSpec;
-
-    aget-object v1, v0, v1
-
-    invoke-static {v1, v4}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
-
-    move-result-object v1
-
-    const/16 v7, 0x80
-
-    invoke-direct {v6, v7, v1}, Ljavax/crypto/spec/GCMParameterSpec;-><init>(I[B)V
-
-    invoke-virtual {v2, v4, v5, v6}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
-
-    new-instance v1, Ljava/lang/String;
-
-    const/4 v5, 0x1
-
-    aget-object v0, v0, v5
-
-    invoke-static {v0, v4}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Ljavax/crypto/Cipher;->doFinal([B)[B
-
-    move-result-object v0
-
-    sget-object v2, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
-
-    invoke-direct {v1, v0, v2}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
-    :try_end_4f
-    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_4f} :catch_50
-
-    return-object v1
-
-    :catch_50
-    invoke-static {p0}, Lq/j3;->a(Landroid/content/Context;)V
-
-    :cond_53
-    :goto_53
-    return-object v3
+    return-object v0
 .end method

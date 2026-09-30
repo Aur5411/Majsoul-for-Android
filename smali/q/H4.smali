@@ -1,215 +1,92 @@
-.class public final Lq/H4;
+.class public final synthetic Lq/H4;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
 # interfaces
-.implements Ljava/util/Iterator;
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
 # instance fields
-.field public a:I
+.field public final synthetic a:I
 
-.field public b:Z
-
-.field public c:Ljava/util/Iterator;
-
-.field public final synthetic d:Lq/D4;
+.field public final synthetic b:Lcom/qiuhui/mahjong/OverlayService;
 
 
 # direct methods
-.method public constructor <init>(Lq/D4;)V
-    .registers 2
+.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/OverlayService;I)V
+    .locals 0
+
+    iput p2, p0, Lq/H4;->a:I
+
+    iput-object p1, p0, Lq/H4;->b:Lcom/qiuhui/mahjong/OverlayService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lq/H4;->d:Lq/D4;
-
-    const/4 p1, -0x1
-
-    iput p1, p0, Lq/H4;->a:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final a()Ljava/util/Iterator;
-    .registers 2
+.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    .locals 2
 
-    iget-object v0, p0, Lq/H4;->c:Ljava/util/Iterator;
-
-    if-nez v0, :cond_12
-
-    iget-object v0, p0, Lq/H4;->d:Lq/D4;
-
-    iget-object v0, v0, Lq/D4;->c:Ljava/util/Map;
-
-    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lq/H4;->c:Ljava/util/Iterator;
-
-    :cond_12
-    iget-object v0, p0, Lq/H4;->c:Ljava/util/Iterator;
-
-    return-object v0
-.end method
-
-.method public final hasNext()Z
-    .registers 5
+    const/4 p1, 0x0
 
     iget v0, p0, Lq/H4;->a:I
 
-    const/4 v1, 0x1
+    packed-switch v0, :pswitch_data_0
 
-    add-int/2addr v0, v1
+    sget-boolean v0, Lcom/qiuhui/mahjong/OverlayService;->I:Z
 
-    iget-object v2, p0, Lq/H4;->d:Lq/D4;
+    const-string v0, "overlay"
 
-    iget-object v3, v2, Lq/D4;->b:Ljava/util/List;
+    iget-object v1, p0, Lq/H4;->b:Lcom/qiuhui/mahjong/OverlayService;
 
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    invoke-virtual {v1, v0, p1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result v3
+    move-result-object p1
 
-    if-lt v0, v3, :cond_22
+    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    iget-object v0, v2, Lq/D4;->c:Ljava/util/Map;
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
+    const-string v0, "cat_recommendation_enabled"
 
-    move-result v0
+    invoke-interface {p1, v0, p2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    if-nez v0, :cond_21
+    move-result-object p1
 
-    invoke-virtual {p0}, Lq/H4;->a()Ljava/util/Iterator;
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_21
-
-    goto :goto_22
-
-    :cond_21
-    const/4 v1, 0x0
-
-    :cond_22
-    :goto_22
-    return v1
-.end method
-
-.method public final next()Ljava/lang/Object;
-    .registers 4
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lq/H4;->b:Z
-
-    iget v1, p0, Lq/H4;->a:I
-
-    add-int/2addr v1, v0
-
-    iput v1, p0, Lq/H4;->a:I
-
-    iget-object v0, p0, Lq/H4;->d:Lq/D4;
-
-    iget-object v2, v0, Lq/D4;->b:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_1d
-
-    iget-object v0, v0, Lq/D4;->b:Ljava/util/List;
-
-    iget v1, p0, Lq/H4;->a:I
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map$Entry;
-
-    goto :goto_27
-
-    :cond_1d
-    invoke-virtual {p0}, Lq/H4;->a()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map$Entry;
-
-    :goto_27
-    return-object v0
-.end method
-
-.method public final remove()V
-    .registers 4
-
-    iget-boolean v0, p0, Lq/H4;->b:Z
-
-    if-eqz v0, :cond_2a
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lq/H4;->b:Z
-
-    sget v0, Lq/D4;->g:I
-
-    iget-object v0, p0, Lq/H4;->d:Lq/D4;
-
-    invoke-virtual {v0}, Lq/D4;->b()V
-
-    iget v1, p0, Lq/H4;->a:I
-
-    iget-object v2, v0, Lq/D4;->b:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_22
-
-    iget v1, p0, Lq/H4;->a:I
-
-    add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lq/H4;->a:I
-
-    invoke-virtual {v0, v1}, Lq/D4;->h(I)Ljava/lang/Object;
-
-    goto :goto_29
-
-    :cond_22
-    invoke-virtual {p0}, Lq/H4;->a()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
-
-    :goto_29
     return-void
 
-    :cond_2a
-    new-instance v0, Ljava/lang/IllegalStateException;
+    :pswitch_0
+    sget-boolean v0, Lcom/qiuhui/mahjong/OverlayService;->I:Z
 
-    const-string v1, "remove() was called before next()"
+    const-string v0, "automation"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object v1, p0, Lq/H4;->b:Lcom/qiuhui/mahjong/OverlayService;
 
-    throw v0
+    invoke-virtual {v1, v0, p1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object p1
+
+    const-string v0, "enabled"
+
+    invoke-interface {p1, v0, p2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    return-void
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

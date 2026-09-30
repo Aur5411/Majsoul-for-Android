@@ -1,61 +1,114 @@
-.class public final Lq/k1;
-.super Lq/d;
+.class public final enum Lq/k1;
+.super Ljava/lang/Enum;
 .source "SourceFile"
 
+# interfaces
+.implements Lq/l3;
 
-# virtual methods
-.method public final a(Lq/E;Lq/d2;)Ljava/lang/Object;
-    .registers 5
 
-    sget-object v0, Lq/m1;->i:Lq/m1;
+# static fields
+.field public static final enum b:Lq/k1;
 
-    invoke-virtual {v0}, Lq/m1;->F()Lq/l1;
+.field public static final enum c:Lq/k1;
+
+.field public static final enum d:Lq/k1;
+
+.field public static final synthetic e:[Lq/k1;
+
+
+# instance fields
+.field public final a:I
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 5
+
+    new-instance v0, Lq/k1;
+
+    const-string v1, "RETENTION_UNKNOWN"
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v1, v2, v2}, Lq/k1;-><init>(Ljava/lang/String;II)V
+
+    sput-object v0, Lq/k1;->b:Lq/k1;
+
+    new-instance v1, Lq/k1;
+
+    const-string v2, "RETENTION_RUNTIME"
+
+    const/4 v3, 0x1
+
+    invoke-direct {v1, v2, v3, v3}, Lq/k1;-><init>(Ljava/lang/String;II)V
+
+    sput-object v1, Lq/k1;->c:Lq/k1;
+
+    new-instance v2, Lq/k1;
+
+    const-string v3, "RETENTION_SOURCE"
+
+    const/4 v4, 0x2
+
+    invoke-direct {v2, v3, v4, v4}, Lq/k1;-><init>(Ljava/lang/String;II)V
+
+    sput-object v2, Lq/k1;->d:Lq/k1;
+
+    filled-new-array {v0, v1, v2}, [Lq/k1;
 
     move-result-object v0
 
-    :try_start_6
-    invoke-virtual {v0, p1, p2}, Lq/l1;->W(Lq/E;Lq/d2;)V
-    :try_end_9
-    .catch Lq/U2; {:try_start_6 .. :try_end_9} :catch_25
-    .catch Lq/R4; {:try_start_6 .. :try_end_9} :catch_1c
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_9} :catch_e
+    sput-object v0, Lq/k1;->e:[Lq/k1;
 
-    invoke-virtual {v0}, Lq/l1;->U()Lq/m1;
+    invoke-static {}, Lq/k1;->values()[Lq/k1;
 
-    move-result-object p1
+    return-void
+.end method
 
-    return-object p1
+.method public constructor <init>(Ljava/lang/String;II)V
+    .locals 0
 
-    :catch_e
-    move-exception p1
+    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    new-instance p2, Lq/U2;
+    iput p3, p0, Lq/k1;->a:I
 
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    return-void
+.end method
 
-    move-result-object v1
+.method public static valueOf(Ljava/lang/String;)Lq/k1;
+    .locals 1
 
-    invoke-direct {p2, v1, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    const-class v0, Lq/k1;
 
-    invoke-virtual {v0}, Lq/l1;->U()Lq/m1;
+    invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    throw p2
+    move-result-object p0
 
-    :catch_1c
-    move-exception p1
+    check-cast p0, Lq/k1;
 
-    invoke-virtual {p1}, Lq/R4;->a()Lq/U2;
+    return-object p0
+.end method
 
-    move-result-object p1
+.method public static values()[Lq/k1;
+    .locals 1
 
-    invoke-virtual {v0}, Lq/l1;->U()Lq/m1;
+    sget-object v0, Lq/k1;->e:[Lq/k1;
 
-    throw p1
+    invoke-virtual {v0}, [Lq/k1;->clone()Ljava/lang/Object;
 
-    :catch_25
-    move-exception p1
+    move-result-object v0
 
-    invoke-virtual {v0}, Lq/l1;->U()Lq/m1;
+    check-cast v0, [Lq/k1;
 
-    throw p1
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public final a()I
+    .locals 1
+
+    iget v0, p0, Lq/k1;->a:I
+
+    return v0
 .end method

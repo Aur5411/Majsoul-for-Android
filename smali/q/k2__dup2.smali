@@ -1,62 +1,77 @@
-.class public final synthetic Lq/k2;
-.super Ljava/lang/Object;
+.class public final Lq/k2;
+.super Ljava/lang/Exception;
 .source "SourceFile"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic a:I
-
-.field public final synthetic b:Ljava/lang/Runnable;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/Runnable;I)V
-    .registers 3
+.method public constructor <init>(Ljava/lang/String;Lq/s2;)V
+    .locals 2
 
-    iput p2, p0, Lq/k2;->a:I
+    .line 4
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    iput-object p1, p0, Lq/k2;->b:Ljava/lang/Runnable;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 5
+    iget-object v1, p2, Lq/s2;->a:Lq/p1;
+
+    .line 6
+    invoke-virtual {v1}, Lq/p1;->C()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 7
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ": "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    .line 8
+    invoke-virtual {p2}, Lq/s2;->d()Ljava/lang/String;
 
     return-void
 .end method
 
+.method public constructor <init>(Ljava/lang/String;Lq/t2;)V
+    .locals 2
 
-# virtual methods
-.method public final run()V
-    .registers 2
+    .line 1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    iget v0, p0, Lq/k2;->a:I
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    packed-switch v0, :pswitch_data_1a
+    invoke-virtual {p2}, Lq/t2;->c()Ljava/lang/String;
 
-    const/16 v0, 0xa
+    move-result-object v1
 
-    invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lq/k2;->b:Ljava/lang/Runnable;
+    const-string v1, ": "
 
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    .line 2
+    invoke-virtual {p2}, Lq/t2;->c()Ljava/lang/String;
+
+    .line 3
+    invoke-virtual {p2}, Lq/t2;->e()Lq/c;
 
     return-void
-
-    :pswitch_10  #0x0
-    const/4 v0, 0x2
-
-    invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
-
-    iget-object v0, p0, Lq/k2;->b:Ljava/lang/Runnable;
-
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
-
-    return-void
-
-    :pswitch_data_1a
-    .packed-switch 0x0
-        :pswitch_10  #00000000
-    .end packed-switch
 .end method

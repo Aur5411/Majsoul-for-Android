@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OnnxSparseTensor;
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(JJILai/onnxruntime/TensorInfo;)V
-    .registers 17
+    .locals 10
 
     .line 1
     invoke-static {p5}, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;->mapFromInt(I)Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(JJLai/onnxruntime/OnnxSparseTensor$SparseTensorType;Lai/onnxruntime/TensorInfo;Ljava/nio/Buffer;Ljava/nio/Buffer;)V
-    .registers 19
+    .locals 10
 
     const/4 v8, 0x0
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(JJLai/onnxruntime/OnnxSparseTensor$SparseTensorType;Lai/onnxruntime/TensorInfo;Ljava/nio/Buffer;Ljava/nio/LongBuffer;Ljava/nio/Buffer;)V
-    .registers 16
+    .locals 6
 
     move-object v0, p0
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public static createSparseTensor(Lai/onnxruntime/OrtEnvironment;Lai/onnxruntime/OnnxSparseTensor$SparseTensor;)Lai/onnxruntime/OnnxSparseTensor;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -161,7 +161,7 @@
 .end method
 
 .method public static createSparseTensor(Lai/onnxruntime/OrtEnvironment;Lai/onnxruntime/OrtAllocator;Lai/onnxruntime/OnnxSparseTensor$SparseTensor;)Lai/onnxruntime/OnnxSparseTensor;
-    .registers 33
+    .locals 30
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -182,7 +182,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_10e
+    if-nez v1, :cond_4
 
     .line 3
     invoke-static/range {p2 .. p2}, Lai/onnxruntime/TensorInfo;->constructFromSparseTensor(Lai/onnxruntime/OnnxSparseTensor$SparseTensor;)Lai/onnxruntime/TensorInfo;
@@ -219,16 +219,16 @@
 
     instance-of v5, v4, Ljava/nio/LongBuffer;
 
-    if-nez v5, :cond_4c
+    if-nez v5, :cond_1
 
     instance-of v4, v4, Ljava/nio/IntBuffer;
 
-    if-eqz v4, :cond_2d
+    if-eqz v4, :cond_0
 
-    goto :goto_4c
+    goto :goto_0
 
     .line 8
-    :cond_2d
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -259,8 +259,8 @@
     throw v0
 
     .line 10
-    :cond_4c
-    :goto_4c
+    :cond_1
+    :goto_0
     sget-object v4, Lai/onnxruntime/OnnxSparseTensor$1;->$SwitchMap$ai$onnxruntime$OnnxSparseTensor$SparseTensorType:[I
 
     invoke-virtual/range {p2 .. p2}, Lai/onnxruntime/OnnxSparseTensor$SparseTensor;->getSparsityType()Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
@@ -275,15 +275,15 @@
 
     const/4 v5, 0x1
 
-    if-eq v4, v5, :cond_c5
+    if-eq v4, v5, :cond_3
 
     const/4 v5, 0x2
 
-    if-eq v4, v5, :cond_c5
+    if-eq v4, v5, :cond_3
 
     const/4 v5, 0x3
 
-    if-ne v4, v5, :cond_bd
+    if-ne v4, v5, :cond_2
 
     .line 11
     move-object/from16 v4, p2
@@ -390,7 +390,7 @@
     return-object v12
 
     .line 17
-    :cond_bd
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Cannot create an UNDEFINED sparse tensor."
@@ -400,7 +400,7 @@
     throw v0
 
     .line 18
-    :cond_c5
+    :cond_3
     new-instance v1, Lai/onnxruntime/OnnxSparseTensor;
 
     sget-wide v9, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -485,7 +485,7 @@
     return-object v1
 
     .line 24
-    :cond_10e
+    :cond_4
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to create an OnnxSparseTensor on a closed OrtAllocator."
@@ -519,15 +519,15 @@
 
 # virtual methods
 .method public declared-synchronized close()V
-    .registers 5
+    .locals 4
 
     monitor-enter p0
 
     .line 1
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Lai/onnxruntime/OnnxTensorLike;->closed:Z
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 2
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -541,40 +541,40 @@
     .line 3
     iput-boolean v0, p0, Lai/onnxruntime/OnnxTensorLike;->closed:Z
 
-    goto :goto_19
+    goto :goto_0
 
-    :catchall_10
+    :catchall_0
     move-exception v0
 
-    goto :goto_1b
+    goto :goto_1
 
     .line 4
-    :cond_12
+    :cond_0
     sget-object v0, Lai/onnxruntime/OnnxSparseTensor;->logger:Ljava/util/logging/Logger;
 
     const-string v1, "Closing an already closed OnnxSparseTensor."
 
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->warning(Ljava/lang/String;)V
-    :try_end_19
-    .catchall {:try_start_1 .. :try_end_19} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 5
-    :goto_19
+    :goto_0
     monitor-exit p0
 
     return-void
 
-    :goto_1b
-    :try_start_1b
+    :goto_1
+    :try_start_1
     monitor-exit p0
-    :try_end_1c
-    .catchall {:try_start_1b .. :try_end_1c} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public getIndicesBuffer()Ljava/nio/Buffer;
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxTensorLike;->checkClosed()V
@@ -592,20 +592,20 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_42
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1f
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_17
+    if-ne v0, v1, :cond_0
 
-    goto :goto_42
+    goto :goto_0
 
     .line 3
-    :cond_17
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "UNDEFINED sparse tensor type."
@@ -615,7 +615,7 @@
     throw v0
 
     .line 4
-    :cond_1f
+    :cond_1
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
     iget-wide v2, p0, Lai/onnxruntime/OnnxTensorLike;->nativeHandle:J
@@ -657,8 +657,8 @@
     return-object v1
 
     .line 11
-    :cond_42
-    :goto_42
+    :cond_2
+    :goto_0
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
     iget-wide v2, p0, Lai/onnxruntime/OnnxTensorLike;->nativeHandle:J
@@ -701,7 +701,7 @@
 .end method
 
 .method public getIndicesShape()[J
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxTensorLike;->checkClosed()V
@@ -719,7 +719,7 @@
 .end method
 
 .method public getInnerIndicesBuffer()Ljava/nio/LongBuffer;
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxTensorLike;->checkClosed()V
@@ -729,7 +729,7 @@
 
     sget-object v1, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;->CSRC:Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 
-    if-ne v0, v1, :cond_2c
+    if-ne v0, v1, :cond_0
 
     .line 3
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -773,7 +773,7 @@
     return-object v1
 
     .line 10
-    :cond_2c
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -796,7 +796,7 @@
 .end method
 
 .method public getInnerIndicesShape()[J
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxTensorLike;->checkClosed()V
@@ -806,7 +806,7 @@
 
     sget-object v1, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;->CSRC:Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 
-    if-ne v0, v1, :cond_12
+    if-ne v0, v1, :cond_0
 
     .line 3
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -820,7 +820,7 @@
     return-object v0
 
     .line 4
-    :cond_12
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -843,7 +843,7 @@
 .end method
 
 .method public getSparseTensorType()Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxSparseTensor;->sparseTensorType:Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 
@@ -851,7 +851,7 @@
 .end method
 
 .method public getType()Lai/onnxruntime/OnnxValue$OnnxValueType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxValue$OnnxValueType;->ONNX_TYPE_SPARSETENSOR:Lai/onnxruntime/OnnxValue$OnnxValueType;
 
@@ -859,7 +859,7 @@
 .end method
 
 .method public getValue()Lai/onnxruntime/OnnxSparseTensor$SparseTensor;
-    .registers 11
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -900,15 +900,15 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_68
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_47
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_3f
+    if-ne v0, v1, :cond_0
 
     .line 6
     new-instance v8, Lai/onnxruntime/OnnxSparseTensor$CSRCTensor;
@@ -947,7 +947,7 @@
     return-object v8
 
     .line 10
-    :cond_3f
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Undefined sparsity type in this sparse tensor."
@@ -957,7 +957,7 @@
     throw v0
 
     .line 11
-    :cond_47
+    :cond_1
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
     iget-wide v4, p0, Lai/onnxruntime/OnnxTensorLike;->nativeHandle:J
@@ -998,7 +998,7 @@
     return-object v9
 
     .line 15
-    :cond_68
+    :cond_2
     new-instance v8, Lai/onnxruntime/OnnxSparseTensor$COOTensor;
 
     .line 16
@@ -1031,7 +1031,7 @@
 .end method
 
 .method public bridge synthetic getValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxSparseTensor;->getValue()Lai/onnxruntime/OnnxSparseTensor$SparseTensor;
@@ -1042,7 +1042,7 @@
 .end method
 
 .method public getValuesBuffer()Ljava/nio/Buffer;
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxTensorLike;->checkClosed()V
@@ -1078,7 +1078,7 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_b2
+    packed-switch v1, :pswitch_data_0
 
     .line 5
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -1090,7 +1090,7 @@
     throw v0
 
     .line 6
-    :pswitch_2a  #0xb
+    :pswitch_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Unsupported data type String"
@@ -1100,7 +1100,7 @@
     throw v0
 
     .line 7
-    :pswitch_32  #0x8, 0x9, 0xa
+    :pswitch_1
     invoke-virtual {v0}, Ljava/nio/Buffer;->capacity()I
 
     move-result v1
@@ -1118,7 +1118,7 @@
     return-object v1
 
     .line 10
-    :pswitch_41  #0x7
+    :pswitch_2
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asLongBuffer()Ljava/nio/LongBuffer;
 
     move-result-object v0
@@ -1141,7 +1141,7 @@
     return-object v1
 
     .line 14
-    :pswitch_54  #0x6
+    :pswitch_3
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
     move-result-object v0
@@ -1164,7 +1164,7 @@
     return-object v1
 
     .line 18
-    :pswitch_67  #0x5
+    :pswitch_4
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
     move-result-object v0
@@ -1187,7 +1187,7 @@
     return-object v1
 
     .line 22
-    :pswitch_7a  #0x4
+    :pswitch_5
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asDoubleBuffer()Ljava/nio/DoubleBuffer;
 
     move-result-object v0
@@ -1210,7 +1210,7 @@
     return-object v1
 
     .line 26
-    :pswitch_8d  #0x3
+    :pswitch_6
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
     move-result-object v0
@@ -1223,7 +1223,7 @@
     return-object v0
 
     .line 28
-    :pswitch_96  #0x2
+    :pswitch_7
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
     move-result-object v0
@@ -1236,7 +1236,7 @@
     return-object v0
 
     .line 30
-    :pswitch_9f  #0x1
+    :pswitch_8
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
 
     move-result-object v0
@@ -1258,24 +1258,24 @@
 
     return-object v1
 
-    :pswitch_data_b2
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_9f  #00000001
-        :pswitch_96  #00000002
-        :pswitch_8d  #00000003
-        :pswitch_7a  #00000004
-        :pswitch_67  #00000005
-        :pswitch_54  #00000006
-        :pswitch_41  #00000007
-        :pswitch_32  #00000008
-        :pswitch_32  #00000009
-        :pswitch_32  #0000000a
-        :pswitch_2a  #0000000b
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public getValuesShape()[J
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-virtual {p0}, Lai/onnxruntime/OnnxTensorLike;->checkClosed()V

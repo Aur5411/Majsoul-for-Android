@@ -76,7 +76,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 25
+    .locals 25
 
     new-instance v1, Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
@@ -364,8 +364,8 @@
 
     move/from16 v15, v23
 
-    :goto_11a
-    if-ge v15, v1, :cond_127
+    :goto_0
+    if-ge v15, v1, :cond_0
 
     aget-object v2, v0, v15
 
@@ -377,14 +377,14 @@
 
     add-int/lit8 v15, v15, 0x1
 
-    goto :goto_11a
+    goto :goto_0
 
-    :cond_127
+    :cond_0
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -399,28 +399,28 @@
 .end method
 
 .method public static mapFromInt(I)Lai/onnxruntime/TensorInfo$OnnxTensorType;
-    .registers 3
+    .locals 2
 
-    if-lez p0, :cond_a
+    if-lez p0, :cond_0
 
     sget-object v0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->values:[Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     array-length v1, v0
 
-    if-ge p0, v1, :cond_a
+    if-ge p0, v1, :cond_0
 
     aget-object p0, v0, p0
 
     return-object p0
 
-    :cond_a
+    :cond_0
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_UNDEFINED:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 .end method
 
 .method public static mapFromJavaType(Lai/onnxruntime/OnnxJavaType;)Lai/onnxruntime/TensorInfo$OnnxTensorType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/TensorInfo$1;->$SwitchMap$ai$onnxruntime$OnnxJavaType:[I
 
@@ -430,87 +430,87 @@
 
     aget p0, v0, p0
 
-    packed-switch p0, :pswitch_data_30
+    packed-switch p0, :pswitch_data_0
 
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_UNDEFINED:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_e  #0xb
+    :pswitch_0
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_BFLOAT16:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_11  #0xa
+    :pswitch_1
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT16:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_14  #0x9
+    :pswitch_2
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_STRING:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_17  #0x8
+    :pswitch_3
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_BOOL:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_1a  #0x7
+    :pswitch_4
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_INT64:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_1d  #0x6
+    :pswitch_5
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_INT32:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_20  #0x5
+    :pswitch_6
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_INT16:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_23  #0x4
+    :pswitch_7
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_UINT8:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_26  #0x3
+    :pswitch_8
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_INT8:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_29  #0x2
+    :pswitch_9
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_DOUBLE:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
-    :pswitch_2c  #0x1
+    :pswitch_a
     sget-object p0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT:Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
     return-object p0
 
     nop
 
-    :pswitch_data_30
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_2c  #00000001
-        :pswitch_29  #00000002
-        :pswitch_26  #00000003
-        :pswitch_23  #00000004
-        :pswitch_20  #00000005
-        :pswitch_1d  #00000006
-        :pswitch_1a  #00000007
-        :pswitch_17  #00000008
-        :pswitch_14  #00000009
-        :pswitch_11  #0000000a
-        :pswitch_e  #0000000b
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lai/onnxruntime/TensorInfo$OnnxTensorType;
-    .registers 2
+    .locals 1
 
     const-class v0, Lai/onnxruntime/TensorInfo$OnnxTensorType;
 
@@ -524,7 +524,7 @@
 .end method
 
 .method public static values()[Lai/onnxruntime/TensorInfo$OnnxTensorType;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/TensorInfo$OnnxTensorType;->$VALUES:[Lai/onnxruntime/TensorInfo$OnnxTensorType;
 

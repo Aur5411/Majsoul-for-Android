@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 20
+    .locals 20
 
     new-instance v0, Lai/onnxruntime/OrtProvider;
 
@@ -300,8 +300,8 @@
 
     move/from16 v15, v16
 
-    :goto_ef
-    if-ge v15, v1, :cond_fd
+    :goto_0
+    if-ge v15, v1, :cond_0
 
     aget-object v2, v0, v15
 
@@ -313,14 +313,14 @@
 
     add-int/lit8 v15, v15, 0x1
 
-    goto :goto_ef
+    goto :goto_0
 
-    :cond_fd
+    :cond_0
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -337,7 +337,7 @@
 .end method
 
 .method public static mapFromName(Ljava/lang/String;)Lai/onnxruntime/OrtProvider;
-    .registers 4
+    .locals 3
 
     sget-object v0, Lai/onnxruntime/OrtProvider;->valueMap:Ljava/util/Map;
 
@@ -347,11 +347,11 @@
 
     check-cast v0, Lai/onnxruntime/OrtProvider;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     return-object v0
 
-    :cond_b
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -372,7 +372,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lai/onnxruntime/OrtProvider;
-    .registers 2
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OrtProvider;
 
@@ -386,7 +386,7 @@
 .end method
 
 .method public static values()[Lai/onnxruntime/OrtProvider;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OrtProvider;->$VALUES:[Lai/onnxruntime/OrtProvider;
 
@@ -402,7 +402,7 @@
 
 # virtual methods
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OrtProvider;->name:Ljava/lang/String;
 

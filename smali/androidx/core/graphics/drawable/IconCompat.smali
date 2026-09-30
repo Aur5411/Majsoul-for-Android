@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     invoke-direct {p0}, Landroidx/versionedparcelable/CustomVersionedParcelable;-><init>()V
 
@@ -73,13 +73,13 @@
 
 # virtual methods
 .method public final toString()Ljava/lang/String;
-    .registers 12
+    .locals 11
 
     iget v0, p0, Landroidx/core/graphics/drawable/IconCompat;->a:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Landroidx/core/graphics/drawable/IconCompat;->b:Ljava/lang/Object;
 
@@ -89,7 +89,7 @@
 
     return-object v0
 
-    :cond_c
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v2, "Icon(typ="
@@ -108,61 +108,61 @@
 
     const/4 v7, 0x2
 
-    if-eq v2, v6, :cond_33
+    if-eq v2, v6, :cond_5
 
-    if-eq v2, v7, :cond_30
+    if-eq v2, v7, :cond_4
 
-    if-eq v2, v5, :cond_2d
+    if-eq v2, v5, :cond_3
 
-    if-eq v2, v4, :cond_2a
+    if-eq v2, v4, :cond_2
 
-    if-eq v2, v3, :cond_27
+    if-eq v2, v3, :cond_1
 
     const-string v2, "UNKNOWN"
 
-    goto :goto_35
+    goto :goto_0
 
-    :cond_27
+    :cond_1
     const-string v2, "BITMAP_MASKABLE"
 
-    goto :goto_35
+    goto :goto_0
 
-    :cond_2a
+    :cond_2
     const-string v2, "URI"
 
-    goto :goto_35
+    goto :goto_0
 
-    :cond_2d
+    :cond_3
     const-string v2, "DATA"
 
-    goto :goto_35
+    goto :goto_0
 
-    :cond_30
+    :cond_4
     const-string v2, "RESOURCE"
 
-    goto :goto_35
+    goto :goto_0
 
-    :cond_33
+    :cond_5
     const-string v2, "BITMAP"
 
-    :goto_35
+    :goto_0
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget v2, p0, Landroidx/core/graphics/drawable/IconCompat;->a:I
 
-    if-eq v2, v6, :cond_13c
+    if-eq v2, v6, :cond_f
 
-    if-eq v2, v7, :cond_6c
+    if-eq v2, v7, :cond_8
 
-    if-eq v2, v5, :cond_52
+    if-eq v2, v5, :cond_7
 
-    if-eq v2, v4, :cond_46
+    if-eq v2, v4, :cond_6
 
-    if-eq v2, v3, :cond_13c
+    if-eq v2, v3, :cond_f
 
-    goto/16 :goto_15c
+    goto/16 :goto_a
 
-    :cond_46
+    :cond_6
     const-string v1, " uri="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -171,9 +171,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_15c
+    goto/16 :goto_a
 
-    :cond_52
+    :cond_7
     const-string v1, " len="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -184,7 +184,7 @@
 
     iget v1, p0, Landroidx/core/graphics/drawable/IconCompat;->f:I
 
-    if-eqz v1, :cond_15c
+    if-eqz v1, :cond_10
 
     const-string v1, " off="
 
@@ -194,9 +194,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_15c
+    goto/16 :goto_a
 
-    :cond_6c
+    :cond_8
     const-string v2, " pkg="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -211,7 +211,7 @@
 
     const-string v6, "IconCompat"
 
-    if-ne v2, v1, :cond_ae
+    if-ne v2, v1, :cond_a
 
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -221,16 +221,16 @@
 
     const-string v9, "Unable to get icon package"
 
-    if-lt v2, v5, :cond_8a
+    if-lt v2, v5, :cond_9
 
-    invoke-static {v8}, Lq/j;->e(Landroid/graphics/drawable/Icon;)Ljava/lang/String;
+    invoke-static {v8}, Lq/o;->e(Landroid/graphics/drawable/Icon;)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_bc
+    goto :goto_5
 
-    :cond_8a
-    :try_start_8a
+    :cond_9
+    :try_start_0
     invoke-virtual {v8}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -246,48 +246,48 @@
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
-    :try_end_9a
-    .catch Ljava/lang/IllegalAccessException; {:try_start_8a .. :try_end_9a} :catch_9f
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_8a .. :try_end_9a} :catch_9d
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_8a .. :try_end_9a} :catch_9b
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_bc
+    goto :goto_5
 
-    :catch_9b
+    :catch_0
     move-exception v2
 
-    goto :goto_a1
+    goto :goto_1
 
-    :catch_9d
+    :catch_1
     move-exception v2
 
-    goto :goto_a6
+    goto :goto_3
 
-    :catch_9f
+    :catch_2
     move-exception v2
 
-    goto :goto_aa
+    goto :goto_4
 
-    :goto_a1
+    :goto_1
     invoke-static {v6, v9, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_a4
+    :goto_2
     move-object v2, v4
 
-    goto :goto_bc
+    goto :goto_5
 
-    :goto_a6
+    :goto_3
     invoke-static {v6, v9, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_a4
+    goto :goto_2
 
-    :goto_aa
+    :goto_4
     invoke-static {v6, v9, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_a4
+    goto :goto_2
 
-    :cond_ae
-    if-ne v2, v7, :cond_128
+    :cond_a
+    if-ne v2, v7, :cond_e
 
     iget-object v2, p0, Landroidx/core/graphics/drawable/IconCompat;->b:Ljava/lang/Object;
 
@@ -301,7 +301,7 @@
 
     aget-object v2, v2, v3
 
-    :goto_bc
+    :goto_5
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v2, " id="
@@ -310,7 +310,7 @@
 
     iget v2, p0, Landroidx/core/graphics/drawable/IconCompat;->a:I
 
-    if-ne v2, v1, :cond_fe
+    if-ne v2, v1, :cond_c
 
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -320,16 +320,16 @@
 
     const-string v7, "Unable to get icon resource"
 
-    if-lt v1, v5, :cond_d7
+    if-lt v1, v5, :cond_b
 
-    invoke-static {v2}, Lq/j;->a(Landroid/graphics/drawable/Icon;)I
+    invoke-static {v2}, Lq/o;->a(Landroid/graphics/drawable/Icon;)I
 
     move-result v3
 
-    goto :goto_102
+    goto :goto_9
 
-    :cond_d7
-    :try_start_d7
+    :cond_b
+    :try_start_1
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -349,49 +349,49 @@
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
-    :try_end_eb
-    .catch Ljava/lang/IllegalAccessException; {:try_start_d7 .. :try_end_eb} :catch_f0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_d7 .. :try_end_eb} :catch_ee
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_d7 .. :try_end_eb} :catch_ec
+    :try_end_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_5
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_4
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_3
 
-    goto :goto_102
+    goto :goto_9
 
-    :catch_ec
+    :catch_3
     move-exception v1
 
-    goto :goto_f2
+    goto :goto_6
 
-    :catch_ee
+    :catch_4
     move-exception v1
 
-    goto :goto_f6
+    goto :goto_7
 
-    :catch_f0
+    :catch_5
     move-exception v1
 
-    goto :goto_fa
+    goto :goto_8
 
-    :goto_f2
+    :goto_6
     invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_102
+    goto :goto_9
 
-    :goto_f6
+    :goto_7
     invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_102
+    goto :goto_9
 
-    :goto_fa
+    :goto_8
     invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_102
+    goto :goto_9
 
-    :cond_fe
-    if-ne v2, v7, :cond_114
+    :cond_c
+    if-ne v2, v7, :cond_d
 
     iget v3, p0, Landroidx/core/graphics/drawable/IconCompat;->e:I
 
-    :goto_102
+    :goto_9
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -408,9 +408,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_15c
+    goto :goto_a
 
-    :cond_114
+    :cond_d
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -429,7 +429,7 @@
 
     throw v0
 
-    :cond_128
+    :cond_e
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -448,7 +448,7 @@
 
     throw v0
 
-    :cond_13c
+    :cond_f
     const-string v1, " size="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -477,11 +477,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :cond_15c
-    :goto_15c
+    :cond_10
+    :goto_a
     iget-object v1, p0, Landroidx/core/graphics/drawable/IconCompat;->g:Landroid/content/res/ColorStateList;
 
-    if-eqz v1, :cond_16a
+    if-eqz v1, :cond_11
 
     const-string v1, " tint="
 
@@ -491,12 +491,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :cond_16a
+    :cond_11
     iget-object v1, p0, Landroidx/core/graphics/drawable/IconCompat;->h:Landroid/graphics/PorterDuff$Mode;
 
     sget-object v2, Landroidx/core/graphics/drawable/IconCompat;->j:Landroid/graphics/PorterDuff$Mode;
 
-    if-eq v1, v2, :cond_17a
+    if-eq v1, v2, :cond_12
 
     const-string v1, " mode="
 
@@ -506,7 +506,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :cond_17a
+    :cond_12
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

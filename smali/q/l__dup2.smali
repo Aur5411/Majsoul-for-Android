@@ -1,18 +1,31 @@
-.class public final synthetic Lq/l;
+.class public abstract Lq/l;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
-# interfaces
-.implements Ljava/util/function/LongBinaryOperator;
+
+# static fields
+.field public static final a:Ljava/util/HashSet;
 
 
-# virtual methods
-.method public final applyAsLong(JJ)J
-    .registers 5
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
 
-    invoke-static {p1, p2, p3, p4}, Ljava/lang/Math;->max(JJ)J
+    new-instance v0, Ljava/util/HashSet;
 
-    move-result-wide p1
+    sget-object v1, Lq/T6;->a:Lq/X6;
 
-    return-wide p1
+    invoke-interface {v1}, Lq/X6;->l()[Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+
+    sput-object v0, Lq/l;->a:Ljava/util/HashSet;
+
+    return-void
 .end method

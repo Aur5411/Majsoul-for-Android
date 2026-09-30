@@ -5,27 +5,27 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Landroidx/core/app/RemoteActionCompatParcelizer;-><init>()V
 
     return-void
 .end method
 
-.method public static read(Lq/j5;)Landroidx/core/app/RemoteActionCompat;
-    .registers 1
+.method public static read(Lq/i6;)Landroidx/core/app/RemoteActionCompat;
+    .locals 0
 
-    invoke-static {p0}, Landroidx/core/app/RemoteActionCompatParcelizer;->read(Lq/j5;)Landroidx/core/app/RemoteActionCompat;
+    invoke-static {p0}, Landroidx/core/app/RemoteActionCompatParcelizer;->read(Lq/i6;)Landroidx/core/app/RemoteActionCompat;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static write(Landroidx/core/app/RemoteActionCompat;Lq/j5;)V
-    .registers 2
+.method public static write(Landroidx/core/app/RemoteActionCompat;Lq/i6;)V
+    .locals 0
 
-    invoke-static {p0, p1}, Landroidx/core/app/RemoteActionCompatParcelizer;->write(Landroidx/core/app/RemoteActionCompat;Lq/j5;)V
+    invoke-static {p0, p1}, Landroidx/core/app/RemoteActionCompatParcelizer;->write(Landroidx/core/app/RemoteActionCompat;Lq/i6;)V
 
     return-void
 .end method

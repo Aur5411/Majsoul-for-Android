@@ -2,32 +2,25 @@
 .super Ljava/lang/Object;
 .source "SourceFile"
 
+# interfaces
+.implements Landroid/os/Parcelable$Creator;
 
-# static fields
-.field public static final a:Ljava/util/HashSet;
 
+# virtual methods
+.method public final createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 1
 
-# direct methods
-.method static constructor <clinit>()V
-    .registers 1
+    new-instance v0, Landroidx/versionedparcelable/ParcelImpl;
 
-    new-instance v0, Ljava/util/HashSet;
+    invoke-direct {v0, p1}, Landroidx/versionedparcelable/ParcelImpl;-><init>(Landroid/os/Parcel;)V
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    sput-object v0, Lq/J4;->a:Ljava/util/HashSet;
-
-    return-void
+    return-object v0
 .end method
 
-.method public constructor <init>()V
-    .registers 2
+.method public final newArray(I)[Ljava/lang/Object;
+    .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    new-array p1, p1, [Landroidx/versionedparcelable/ParcelImpl;
 
-    sget-object v0, Lq/J4;->a:Ljava/util/HashSet;
-
-    invoke-virtual {v0, p0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    return-void
+    return-object p1
 .end method

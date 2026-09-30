@@ -1,100 +1,91 @@
-.class public final synthetic Lq/G3;
+.class public abstract Lq/G3;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
-# interfaces
-.implements Ljava/lang/Runnable;
 
-
-# instance fields
-.field public final synthetic a:I
-
-.field public final synthetic b:Lcom/qiuhui/mahjong/MainActivity;
+# static fields
+.field public static final a:Ljava/util/concurrent/ExecutorService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/MainActivity;I)V
-    .registers 3
+.method static constructor <clinit>()V
+    .locals 1
 
-    iput p2, p0, Lq/G3;->a:I
+    invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
-    iput-object p1, p0, Lq/G3;->b:Lcom/qiuhui/mahjong/MainActivity;
+    move-result-object v0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    sput-object v0, Lq/G3;->a:Ljava/util/concurrent/ExecutorService;
 
     return-void
 .end method
 
+.method public static a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Z)Lq/F3;
+    .locals 10
 
-# virtual methods
-.method public final run()V
-    .registers 6
+    new-instance v0, Lq/F3;
 
-    iget v0, p0, Lq/G3;->a:I
+    const/4 v1, 0x1
 
-    packed-switch v0, :pswitch_data_3e
+    const-string v2, "OK"
 
-    sget-boolean v0, Lcom/qiuhui/mahjong/MainActivity;->r:Z
+    const-string v3, "1.0.0"
 
-    iget-object v0, p0, Lq/G3;->b:Lcom/qiuhui/mahjong/MainActivity;
+    const-string v4, "QIUHUI0001"
 
-    invoke-virtual {v0}, Lcom/qiuhui/mahjong/MainActivity;->f()V
+    const-string v5, ""
 
-    return-void
+    const-wide v6, 0x3bb2cc3d800L
 
-    :pswitch_d  #0x2
-    iget-object v0, p0, Lq/G3;->b:Lcom/qiuhui/mahjong/MainActivity;
+    const-string v8, "ACTIVE"
 
-    iget-object v1, v0, Lcom/qiuhui/mahjong/MainActivity;->p:Lq/A3;
+    const-wide/16 v9, 0x0
 
-    invoke-static {v0, v1}, Lq/C4;->a(Landroid/content/Context;Lq/A3;)V
+    const-string p1, "pro"
 
-    return-void
+    const/4 p2, 0x1
 
-    :pswitch_15  #0x1
-    sget-boolean v0, Lcom/qiuhui/mahjong/MainActivity;->r:Z
+    const/4 p3, 0x1
 
-    iget-object v0, p0, Lq/G3;->b:Lcom/qiuhui/mahjong/MainActivity;
+    const/4 p4, 0x1
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const-wide p5, 0x3bb2cc3d800L
 
-    invoke-static {v0}, Lq/y;->d(Landroid/app/Activity;)V
+    invoke-direct/range {v0 .. v16}, Lq/F3;-><init>(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLjava/lang/String;ZZZJ)V
 
-    return-void
+    return-object v0
+.end method
 
-    :pswitch_20  #0x0
-    sget-boolean v0, Lcom/qiuhui/mahjong/MainActivity;->r:Z
+.method public static b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLq/E3;)V
+    .locals 9
 
-    iget-object v0, p0, Lq/G3;->b:Lcom/qiuhui/mahjong/MainActivity;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    invoke-static {v0}, Lq/y;->d(Landroid/app/Activity;)V
-
-    invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    new-instance p0, Lq/C3;
 
-    move-result-object v1
+    const-string v6, ""
 
-    new-instance v2, Lq/G3;
+    const/4 v7, 0x0
 
-    const/4 v3, 0x1
+    move-object v0, p0
 
-    invoke-direct {v2, v0, v3}, Lq/G3;-><init>(Lcom/qiuhui/mahjong/MainActivity;I)V
+    move-object v2, p1
 
-    const-wide/16 v3, 0xf0
+    move-object v3, p2
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    move-object v4, p3
+
+    move v5, p4
+
+    move-object v8, p5
+
+    invoke-direct/range {v0 .. v8}, Lq/C3;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ZLq/E3;)V
+
+    sget-object p1, Lq/G3;->a:Ljava/util/concurrent/ExecutorService;
+
+    invoke-interface {p1, p0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     return-void
-
-    :pswitch_data_3e
-    .packed-switch 0x0
-        :pswitch_20  #00000000
-        :pswitch_15  #00000001
-        :pswitch_d  #00000002
-    .end packed-switch
 .end method

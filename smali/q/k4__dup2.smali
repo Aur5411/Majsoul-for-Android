@@ -3,312 +3,400 @@
 .source "SourceFile"
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Ljava/util/Iterator;
+.implements Ljava/util/Map$Entry;
 
 
 # instance fields
-.field public final a:Lq/l2;
+.field public a:I
 
-.field public b:F
+.field public b:I
 
-.field public c:F
+.field public c:Z
 
-.field public d:I
-
-.field public e:I
-
-.field public f:Z
-
-.field public final synthetic g:Lcom/qiuhui/mahjong/OverlayService;
+.field public final synthetic d:Lq/y;
 
 
 # direct methods
-.method public constructor <init>(Lcom/qiuhui/mahjong/OverlayService;Lq/l2;)V
-    .registers 3
+.method public constructor <init>(Lq/y;)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lq/k4;->g:Lcom/qiuhui/mahjong/OverlayService;
+    iput-object p1, p0, Lq/k4;->d:Lq/y;
 
-    iput-object p2, p0, Lq/k4;->a:Lq/l2;
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lq/k4;->c:Z
+
+    iget-object p1, p1, Lq/y;->d:Ljava/lang/Object;
+
+    check-cast p1, Lq/z;
+
+    iget p1, p1, Lq/z;->c:I
+
+    add-int/lit8 p1, p1, -0x1
+
+    iput p1, p0, Lq/k4;->a:I
+
+    const/4 p1, -0x1
+
+    iput p1, p0, Lq/k4;->b:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .registers 11
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 4
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
+    iget-boolean v0, p0, Lq/k4;->c:Z
+
+    if-eqz v0, :cond_4
+
+    instance-of v0, p1, Ljava/util/Map$Entry;
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    check-cast p1, Ljava/util/Map$Entry;
+
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    iget v2, p0, Lq/k4;->b:I
+
+    iget-object v3, p0, Lq/k4;->d:Lq/y;
+
+    invoke-virtual {v3, v2, v1}, Lq/y;->a(II)Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-eq v0, v2, :cond_1
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    :cond_1
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    iget v0, p0, Lq/k4;->b:I
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v3, v0, v2}, Lq/y;->a(II)Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eq p1, v0, :cond_2
+
+    if-eqz p1, :cond_3
+
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
+    if-eqz p1, :cond_3
+
+    :cond_2
+    move v1, v2
+
+    :cond_3
+    return v1
+
+    :cond_4
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    const-string v0, "This container does not support retaining Map.Entry objects"
+
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method public final getKey()Ljava/lang/Object;
+    .locals 3
+
+    iget-boolean v0, p0, Lq/k4;->c:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lq/k4;->b:I
+
+    iget-object v1, p0, Lq/k4;->d:Lq/y;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v0, v2}, Lq/y;->a(II)Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "This container does not support retaining Map.Entry objects"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public final getValue()Ljava/lang/Object;
+    .locals 3
+
+    iget-boolean v0, p0, Lq/k4;->c:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lq/k4;->b:I
+
+    iget-object v1, p0, Lq/k4;->d:Lq/y;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v0, v2}, Lq/y;->a(II)Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "This container does not support retaining Map.Entry objects"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public final hasNext()Z
+    .locals 2
+
+    iget v0, p0, Lq/k4;->b:I
+
+    iget v1, p0, Lq/k4;->a:I
+
+    if-ge v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
     const/4 v0, 0x0
 
-    const/4 v1, 0x1
+    :goto_0
+    return v0
+.end method
 
-    iget-object v2, p0, Lq/k4;->g:Lcom/qiuhui/mahjong/OverlayService;
+.method public final hashCode()I
+    .locals 5
 
-    if-eqz p1, :cond_df
+    iget-boolean v0, p0, Lq/k4;->c:Z
 
-    if-eq p1, v1, :cond_b4
+    if-eqz v0, :cond_2
 
-    const/4 v3, 0x2
+    iget v0, p0, Lq/k4;->b:I
 
-    if-eq p1, v3, :cond_10
+    iget-object v1, p0, Lq/k4;->d:Lq/y;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v0, v2}, Lq/y;->a(II)Ljava/lang/Object;
+
+    move-result-object v0
+
+    iget v3, p0, Lq/k4;->b:I
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v1, v3, v4}, Lq/y;->a(II)Ljava/lang/Object;
+
+    move-result-object v1
+
+    if-nez v0, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
+
+    move-result v0
+
+    :goto_0
+    if-nez v1, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
+
+    move-result v2
+
+    :goto_1
+    xor-int/2addr v0, v2
 
     return v0
 
-    :cond_10
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    move-result p1
+    const-string v1, "This container does not support retaining Map.Entry objects"
 
-    iget v3, p0, Lq/k4;->b:F
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    sub-float/2addr p1, v3
+    throw v0
+.end method
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawY()F
+.method public final next()Ljava/lang/Object;
+    .locals 2
 
-    move-result p2
+    invoke-virtual {p0}, Lq/k4;->hasNext()Z
 
-    iget v3, p0, Lq/k4;->c:F
+    move-result v0
 
-    sub-float/2addr p2, v3
+    if-eqz v0, :cond_0
 
-    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
+    iget v0, p0, Lq/k4;->b:I
 
-    move-result v3
+    const/4 v1, 0x1
 
-    const/high16 v4, 0x40a00000  # 5.0f
+    add-int/2addr v0, v1
 
-    invoke-static {v2, v4}, Lq/Q4;->b(Landroid/content/Context;F)I
+    iput v0, p0, Lq/k4;->b:I
 
-    move-result v5
+    iput-boolean v1, p0, Lq/k4;->c:Z
 
-    int-to-float v5, v5
+    return-object p0
 
-    cmpl-float v3, v3, v5
+    :cond_0
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    if-gtz v3, :cond_3a
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    invoke-static {p2}, Ljava/lang/Math;->abs(F)F
+    throw v0
+.end method
 
-    move-result v3
+.method public final remove()V
+    .locals 2
 
-    invoke-static {v2, v4}, Lq/Q4;->b(Landroid/content/Context;F)I
+    iget-boolean v0, p0, Lq/k4;->c:Z
 
-    move-result v4
+    if-eqz v0, :cond_0
 
-    int-to-float v4, v4
+    iget-object v0, p0, Lq/k4;->d:Lq/y;
 
-    cmpl-float v3, v3, v4
+    iget v1, p0, Lq/k4;->b:I
 
-    if-lez v3, :cond_3c
+    invoke-virtual {v0, v1}, Lq/y;->b(I)V
 
-    :cond_3a
-    iput-boolean v1, p0, Lq/k4;->f:Z
+    iget v0, p0, Lq/k4;->b:I
 
-    :cond_3c
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    add-int/lit8 v0, v0, -0x1
 
-    move-result-object v3
+    iput v0, p0, Lq/k4;->b:I
 
-    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    iget v0, p0, Lq/k4;->a:I
 
-    move-result-object v3
+    add-int/lit8 v0, v0, -0x1
 
-    iget v3, v3, Landroid/util/DisplayMetrics;->widthPixels:I
+    iput v0, p0, Lq/k4;->a:I
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const/4 v0, 0x0
 
-    move-result-object v4
+    iput-boolean v0, p0, Lq/k4;->c:Z
 
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    return-void
 
-    move-result-object v4
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    iget v4, v4, Landroid/util/DisplayMetrics;->heightPixels:I
+    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
-    iget-object v5, v2, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    throw v0
+.end method
 
-    invoke-virtual {v5}, Landroid/view/View;->getWidth()I
+.method public final setValue(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 3
 
-    move-result v5
+    iget-boolean v0, p0, Lq/k4;->c:Z
 
-    if-lez v5, :cond_5f
+    if-eqz v0, :cond_0
 
-    iget-object v5, v2, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget v0, p0, Lq/k4;->b:I
 
-    invoke-virtual {v5}, Landroid/view/View;->getWidth()I
+    shl-int/lit8 v0, v0, 0x1
 
-    move-result v5
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_63
+    iget-object v1, p0, Lq/k4;->d:Lq/y;
 
-    :cond_5f
-    iget-object v5, v2, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
+    iget-object v1, v1, Lq/y;->d:Ljava/lang/Object;
 
-    iget v5, v5, Landroid/view/WindowManager$LayoutParams;->width:I
+    check-cast v1, Lq/z;
 
-    :goto_63
-    iget-object v6, v2, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    iget-object v1, v1, Lq/z;->b:[Ljava/lang/Object;
 
-    invoke-virtual {v6}, Landroid/view/View;->getHeight()I
+    aget-object v2, v1, v0
 
-    move-result v6
+    aput-object p1, v1, v0
 
-    if-lez v6, :cond_72
+    return-object v2
 
-    iget-object v6, v2, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
+    :cond_0
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    invoke-virtual {v6}, Landroid/view/View;->getHeight()I
+    const-string v0, "This container does not support retaining Map.Entry objects"
 
-    move-result v6
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_78
+    throw p1
+.end method
 
-    :cond_72
-    const/high16 v6, 0x42700000  # 60.0f
+.method public final toString()Ljava/lang/String;
+    .locals 2
 
-    invoke-static {v2, v6}, Lq/Q4;->b(Landroid/content/Context;F)I
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-result v6
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    :goto_78
-    iget v7, p0, Lq/k4;->d:I
+    invoke-virtual {p0}, Lq/k4;->getKey()Ljava/lang/Object;
 
-    invoke-static {p1}, Ljava/lang/Math;->round(F)I
+    move-result-object v1
 
-    move-result p1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    add-int/2addr p1, v7
+    const-string v1, "="
 
-    sub-int/2addr v3, v5
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
+    invoke-virtual {p0}, Lq/k4;->getValue()Ljava/lang/Object;
 
-    move-result v3
+    move-result-object v1
 
-    invoke-static {p1, v3}, Ljava/lang/Math;->min(II)I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result p1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
+    move-result-object v0
 
-    move-result p1
-
-    iput p1, v2, Lcom/qiuhui/mahjong/OverlayService;->y:I
-
-    iget p1, p0, Lq/k4;->e:I
-
-    invoke-static {p2}, Ljava/lang/Math;->round(F)I
-
-    move-result p2
-
-    add-int/2addr p2, p1
-
-    sub-int/2addr v4, v6
-
-    invoke-static {v0, v4}, Ljava/lang/Math;->max(II)I
-
-    move-result p1
-
-    invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
-
-    invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
-
-    move-result p1
-
-    iput p1, v2, Lcom/qiuhui/mahjong/OverlayService;->z:I
-
-    iget-object p2, v2, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
-
-    iget v0, v2, Lcom/qiuhui/mahjong/OverlayService;->y:I
-
-    iput v0, p2, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    iput p1, p2, Landroid/view/WindowManager$LayoutParams;->y:I
-
-    iget-object p1, v2, Lcom/qiuhui/mahjong/OverlayService;->h:Landroid/view/WindowManager;
-
-    iget-object v0, v2, Lcom/qiuhui/mahjong/OverlayService;->j:Landroid/widget/FrameLayout;
-
-    invoke-interface {p1, v0, p2}, Landroid/view/ViewManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    return v1
-
-    :cond_b4
-    iget-boolean p1, p0, Lq/k4;->f:Z
-
-    if-nez p1, :cond_bf
-
-    iget-object p1, p0, Lq/k4;->a:Lq/l2;
-
-    if-eqz p1, :cond_bf
-
-    invoke-virtual {p1}, Lq/l2;->run()V
-
-    :cond_bf
-    sget-boolean p1, Lcom/qiuhui/mahjong/OverlayService;->G:Z
-
-    const-string p1, "overlay"
-
-    invoke-virtual {v2, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    const-string p2, "x"
-
-    iget v0, v2, Lcom/qiuhui/mahjong/OverlayService;->y:I
-
-    invoke-interface {p1, p2, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    const-string p2, "y"
-
-    iget v0, v2, Lcom/qiuhui/mahjong/OverlayService;->z:I
-
-    invoke-interface {p1, p2, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    return v1
-
-    :cond_df
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
-
-    move-result p1
-
-    iput p1, p0, Lq/k4;->b:F
-
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawY()F
-
-    move-result p1
-
-    iput p1, p0, Lq/k4;->c:F
-
-    iget-object p1, v2, Lcom/qiuhui/mahjong/OverlayService;->i:Landroid/view/WindowManager$LayoutParams;
-
-    iget p2, p1, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    iput p2, p0, Lq/k4;->d:I
-
-    iget p1, p1, Landroid/view/WindowManager$LayoutParams;->y:I
-
-    iput p1, p0, Lq/k4;->e:I
-
-    iput-boolean v0, p0, Lq/k4;->f:Z
-
-    return v1
+    return-object v0
 .end method

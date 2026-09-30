@@ -1,113 +1,88 @@
-.class public final synthetic Lq/g4;
+.class public final Lq/g4;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
 
 # instance fields
 .field public final synthetic a:I
 
-.field public final synthetic b:Lcom/qiuhui/mahjong/OverlayService;
+.field public final synthetic b:Landroid/widget/TextView;
+
+.field public final synthetic c:Lcom/qiuhui/mahjong/MainActivity;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/OverlayService;I)V
-    .registers 3
+.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/MainActivity;Landroid/widget/TextView;I)V
+    .locals 0
 
-    iput p2, p0, Lq/g4;->a:I
+    iput p3, p0, Lq/g4;->a:I
 
-    iput-object p1, p0, Lq/g4;->b:Lcom/qiuhui/mahjong/OverlayService;
+    iput-object p1, p0, Lq/g4;->c:Lcom/qiuhui/mahjong/MainActivity;
+
+    iput-object p2, p0, Lq/g4;->b:Landroid/widget/TextView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
+.method private final a(Landroid/widget/SeekBar;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method private final b(Landroid/widget/SeekBar;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method private final c(Landroid/widget/SeekBar;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method private final d(Landroid/widget/SeekBar;)V
+    .locals 0
+
+    return-void
+.end method
+
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .registers 8
+.method public final onProgressChanged(Landroid/widget/SeekBar;IZ)V
+    .locals 1
 
-    const/4 p1, 0x1
+    iget p1, p0, Lq/g4;->a:I
 
-    const-wide/16 v0, 0x0
+    packed-switch p1, :pswitch_data_0
 
-    const/4 v2, 0x0
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    iget v3, p0, Lq/g4;->a:I
+    const-string v0, "AI \u6253\u724c\u724c\u6743\u6700\u4f4e\u503c "
 
-    packed-switch v3, :pswitch_data_76
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    sget-boolean p1, Lcom/qiuhui/mahjong/OverlayService;->G:Z
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget-object p1, p0, Lq/g4;->b:Lcom/qiuhui/mahjong/OverlayService;
-
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    const-string v0, "请长按以关闭悬浮窗"
-
-    invoke-static {p1, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+    iget-object v0, p0, Lq/g4;->b:Landroid/widget/TextView;
 
-    return-void
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :pswitch_1a  #0x2
-    sget-boolean p1, Lcom/qiuhui/mahjong/OverlayService;->G:Z
+    if-eqz p3, :cond_0
 
-    iget-object p1, p0, Lq/g4;->b:Lcom/qiuhui/mahjong/OverlayService;
+    iget-object p1, p0, Lq/g4;->c:Lcom/qiuhui/mahjong/MainActivity;
 
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    invoke-static {}, Lq/r;->a()J
-
-    move-result-wide v3
-
-    cmp-long v0, v3, v0
-
-    if-lez v0, :cond_2a
-
-    goto :goto_2f
-
-    :cond_2a
-    iput-boolean v2, p1, Lcom/qiuhui/mahjong/OverlayService;->w:Z
-
-    invoke-virtual {p1}, Lcom/qiuhui/mahjong/OverlayService;->l()V
-
-    :goto_2f
-    return-void
-
-    :pswitch_30  #0x1
-    sget-boolean v3, Lcom/qiuhui/mahjong/OverlayService;->G:Z
-
-    iget-object v3, p0, Lq/g4;->b:Lcom/qiuhui/mahjong/OverlayService;
-
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    invoke-static {}, Lq/r;->a()J
-
-    move-result-wide v4
-
-    cmp-long v0, v4, v0
-
-    if-lez v0, :cond_40
-
-    goto :goto_5f
-
-    :cond_40
-    iget-boolean v0, v3, Lcom/qiuhui/mahjong/OverlayService;->x:Z
-
-    xor-int/2addr p1, v0
-
-    iput-boolean p1, v3, Lcom/qiuhui/mahjong/OverlayService;->x:Z
-
-    const-string p1, "overlay"
-
-    invoke-virtual {v3, p1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-static {p1}, Lq/L3;->s(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object p1
 
@@ -115,52 +90,93 @@
 
     move-result-object p1
 
-    const-string v0, "vertical_compact"
+    const/16 p3, 0x64
 
-    iget-boolean v1, v3, Lcom/qiuhui/mahjong/OverlayService;->x:Z
+    invoke-static {p3, p2}, Ljava/lang/Math;->min(II)I
 
-    invoke-interface {p1, v0, v1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    move-result p2
+
+    const/4 p3, 0x0
+
+    invoke-static {p3, p2}, Ljava/lang/Math;->max(II)I
+
+    move-result p2
+
+    const-string p3, "minimum_tile_weight"
+
+    invoke-interface {p1, p3, p2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
     move-result-object p1
 
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    iput-boolean v2, v3, Lcom/qiuhui/mahjong/OverlayService;->w:Z
-
-    invoke-virtual {v3}, Lcom/qiuhui/mahjong/OverlayService;->l()V
-
-    :goto_5f
+    :cond_0
     return-void
 
-    :pswitch_60  #0x0
-    sget-boolean v2, Lcom/qiuhui/mahjong/OverlayService;->G:Z
+    :pswitch_0
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lq/g4;->b:Lcom/qiuhui/mahjong/OverlayService;
+    const-string v0, "Moral "
 
-    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-static {}, Lq/r;->a()J
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-wide v3
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    cmp-long v0, v3, v0
+    move-result-object p1
 
-    if-lez v0, :cond_70
+    iget-object v0, p0, Lq/g4;->b:Landroid/widget/TextView;
 
-    goto :goto_75
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_70
-    iput-boolean p1, v2, Lcom/qiuhui/mahjong/OverlayService;->w:Z
+    if-eqz p3, :cond_1
 
-    invoke-virtual {v2}, Lcom/qiuhui/mahjong/OverlayService;->l()V
+    const-string p1, "automation"
 
-    :goto_75
+    const/4 p3, 0x0
+
+    iget-object v0, p0, Lq/g4;->c:Lcom/qiuhui/mahjong/MainActivity;
+
+    invoke-virtual {v0, p1, p3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object p1
+
+    const-string p3, "moral"
+
+    invoke-interface {p1, p3, p2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    :cond_1
     return-void
 
-    :pswitch_data_76
+    nop
+
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_60  #00000000
-        :pswitch_30  #00000001
-        :pswitch_1a  #00000002
+        :pswitch_0
     .end packed-switch
+.end method
+
+.method public final onStartTrackingTouch(Landroid/widget/SeekBar;)V
+    .locals 0
+
+    iget p1, p0, Lq/g4;->a:I
+
+    return-void
+.end method
+
+.method public final onStopTrackingTouch(Landroid/widget/SeekBar;)V
+    .locals 0
+
+    iget p1, p0, Lq/g4;->a:I
+
+    return-void
 .end method

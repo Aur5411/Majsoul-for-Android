@@ -1,36 +1,39 @@
-.class public final synthetic Lq/v5;
+.class public final Lq/v5;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
-
 
 # instance fields
-.field public final synthetic a:Lcom/qiuhui/mahjong/WebGameActivity;
+.field public final a:I
+
+.field public final b:I
+
+.field public final c:I
+
+.field public final d:Ljava/util/List;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/WebGameActivity;)V
-    .registers 2
+.method public constructor <init>(IIILjava/util/List;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lq/v5;->a:Lcom/qiuhui/mahjong/WebGameActivity;
+    iput p1, p0, Lq/v5;->a:I
 
-    return-void
-.end method
+    iput p2, p0, Lq/v5;->b:I
 
+    iput p3, p0, Lq/v5;->c:I
 
-# virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    new-instance p1, Ljava/util/ArrayList;
 
-    sget-boolean p1, Lcom/qiuhui/mahjong/WebGameActivity;->C:Z
+    invoke-direct {p1, p4}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    iget-object p1, p0, Lq/v5;->a:Lcom/qiuhui/mahjong/WebGameActivity;
+    invoke-static {p1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    invoke-virtual {p1}, Lcom/qiuhui/mahjong/WebGameActivity;->A()V
+    move-result-object p1
+
+    iput-object p1, p0, Lq/v5;->d:Ljava/util/List;
 
     return-void
 .end method

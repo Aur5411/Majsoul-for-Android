@@ -1,92 +1,83 @@
 .class public final Lq/u3;
-.super Lorg/json/JSONObject;
+.super Ljava/lang/Object;
 .source "SourceFile"
+
+# interfaces
+.implements Ljava/util/Map$Entry;
+
+
+# instance fields
+.field public a:Ljava/util/Map$Entry;
 
 
 # virtual methods
-.method public final a(ILjava/lang/String;)V
-    .registers 3
+.method public final getKey()Ljava/lang/Object;
+    .locals 1
 
-    :try_start_0
-    invoke-super {p0, p2, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-    :try_end_3
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_3} :catch_4
+    iget-object v0, p0, Lq/u3;->a:Ljava/util/Map$Entry;
 
-    return-void
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    :catch_4
-    move-exception p1
+    move-result-object v0
 
-    new-instance p2, Ljava/lang/IllegalArgumentException;
-
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
-
-    throw p2
+    return-object v0
 .end method
 
-.method public final b(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 3
+.method public final getValue()Ljava/lang/Object;
+    .locals 1
 
-    :try_start_0
-    invoke-super {p0, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_3
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_3} :catch_4
+    iget-object v0, p0, Lq/u3;->a:Ljava/util/Map$Entry;
 
-    return-void
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    :catch_4
-    move-exception p1
+    move-result-object v0
 
-    new-instance p2, Ljava/lang/IllegalArgumentException;
+    if-nez v0, :cond_0
 
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
+    const/4 v0, 0x0
 
-    throw p2
+    return-object v0
+
+    :cond_0
+    new-instance v0, Ljava/lang/ClassCastException;
+
+    invoke-direct {v0}, Ljava/lang/ClassCastException;-><init>()V
+
+    throw v0
 .end method
 
-.method public final c(Ljava/lang/String;Z)V
-    .registers 3
+.method public final setValue(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
-    :try_start_0
-    invoke-super {p0, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
-    :try_end_3
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_3} :catch_4
+    instance-of p1, p1, Lq/o4;
 
-    return-void
+    if-eqz p1, :cond_1
 
-    :catch_4
-    move-exception p1
+    iget-object p1, p0, Lq/u3;->a:Ljava/util/Map$Entry;
 
-    new-instance p2, Ljava/lang/IllegalArgumentException;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
+    move-result-object p1
 
-    throw p2
-.end method
+    if-nez p1, :cond_0
 
-.method public final bridge synthetic put(Ljava/lang/String;I)Lorg/json/JSONObject;
-    .registers 3
+    const/4 p1, 0x0
 
-    .line 1
-    invoke-virtual {p0, p2, p1}, Lq/u3;->a(ILjava/lang/String;)V
+    throw p1
 
-    return-object p0
-.end method
+    :cond_0
+    new-instance p1, Ljava/lang/ClassCastException;
 
-.method public final bridge synthetic put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    .registers 3
+    invoke-direct {p1}, Ljava/lang/ClassCastException;-><init>()V
 
-    .line 2
-    invoke-virtual {p0, p1, p2}, Lq/u3;->b(Ljava/lang/String;Ljava/lang/Object;)V
+    throw p1
 
-    return-object p0
-.end method
+    :cond_1
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-.method public final bridge synthetic put(Ljava/lang/String;Z)Lorg/json/JSONObject;
-    .registers 3
+    const-string v0, "LazyField now only used for MessageSet, and the value of MessageSet must be an instance of MessageLite"
 
-    .line 3
-    invoke-virtual {p0, p1, p2}, Lq/u3;->c(Ljava/lang/String;Z)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    return-object p0
+    throw p1
 .end method

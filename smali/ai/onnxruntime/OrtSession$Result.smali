@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OrtSession$Result;
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;[Lai/onnxruntime/OnnxValue;[Z)V
-    .registers 8
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -89,13 +89,13 @@
 
     array-length v1, p2
 
-    if-ne v0, v1, :cond_38
+    if-ne v0, v1, :cond_1
 
     array-length v0, p1
 
     array-length v1, p3
 
-    if-ne v0, v1, :cond_38
+    if-ne v0, v1, :cond_1
 
     new-instance v0, Ljava/util/LinkedHashMap;
 
@@ -125,10 +125,10 @@
 
     move v0, p3
 
-    :goto_26
+    :goto_0
     array-length v1, p1
 
-    if-ge v0, v1, :cond_35
+    if-ge v0, v1, :cond_0
 
     iget-object v1, p0, Lai/onnxruntime/OrtSession$Result;->map:Ljava/util/Map;
 
@@ -140,14 +140,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_26
+    goto :goto_0
 
-    :cond_35
+    :cond_0
     iput-boolean p3, p0, Lai/onnxruntime/OrtSession$Result;->closed:Z
 
     return-void
 
-    :cond_38
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -188,11 +188,11 @@
 
 # virtual methods
 .method public close()V
-    .registers 3
+    .locals 2
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession$Result;->closed:Z
 
-    if-nez v0, :cond_24
+    if-nez v0, :cond_1
 
     const/4 v0, 0x1
 
@@ -200,20 +200,20 @@
 
     const/4 v0, 0x0
 
-    :goto_8
+    :goto_0
     iget-object v1, p0, Lai/onnxruntime/OrtSession$Result;->list:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_2b
+    if-ge v0, v1, :cond_2
 
     iget-object v1, p0, Lai/onnxruntime/OrtSession$Result;->ownedByResult:[Z
 
     aget-boolean v1, v1, v0
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lai/onnxruntime/OrtSession$Result;->list:Ljava/util/List;
 
@@ -225,29 +225,29 @@
 
     invoke-interface {v1}, Lai/onnxruntime/OnnxValue;->close()V
 
-    :cond_21
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_24
+    :cond_1
     sget-object v0, Lai/onnxruntime/OrtSession$Result;->logger:Ljava/util/logging/Logger;
 
     const-string v1, "Closing an already closed Result"
 
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->warning(Ljava/lang/String;)V
 
-    :cond_2b
+    :cond_2
     return-void
 .end method
 
 .method public get(I)Lai/onnxruntime/OnnxValue;
-    .registers 3
+    .locals 1
 
     .line 1
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession$Result;->closed:Z
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 2
     iget-object v0, p0, Lai/onnxruntime/OrtSession$Result;->list:Ljava/util/List;
@@ -261,7 +261,7 @@
     return-object p1
 
     .line 3
-    :cond_d
+    :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string v0, "Result is closed"
@@ -272,7 +272,7 @@
 .end method
 
 .method public get(Ljava/lang/String;)Ljava/util/Optional;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -287,7 +287,7 @@
     .line 4
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession$Result;->closed:Z
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_1
 
     .line 5
     iget-object v0, p0, Lai/onnxruntime/OrtSession$Result;->map:Ljava/util/Map;
@@ -298,7 +298,7 @@
 
     check-cast p1, Lai/onnxruntime/OnnxValue;
 
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_0
 
     .line 6
     invoke-static {p1}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
@@ -308,7 +308,7 @@
     return-object p1
 
     .line 7
-    :cond_13
+    :cond_0
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
     move-result-object p1
@@ -316,7 +316,7 @@
     return-object p1
 
     .line 8
-    :cond_18
+    :cond_1
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string v0, "Result is closed"
@@ -327,11 +327,11 @@
 .end method
 
 .method public isResultOwner(I)Z
-    .registers 3
+    .locals 1
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession$Result;->closed:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lai/onnxruntime/OrtSession$Result;->ownedByResult:[Z
 
@@ -339,7 +339,7 @@
 
     return p1
 
-    :cond_9
+    :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string v0, "Result is closed"
@@ -350,7 +350,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -364,7 +364,7 @@
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession$Result;->closed:Z
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lai/onnxruntime/OrtSession$Result;->map:Ljava/util/Map;
 
@@ -378,7 +378,7 @@
 
     return-object v0
 
-    :cond_f
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Result is closed"
@@ -389,7 +389,7 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OrtSession$Result;->map:Ljava/util/Map;
 

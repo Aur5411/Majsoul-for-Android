@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 32
+    .locals 32
 
     new-instance v6, Lai/onnxruntime/OnnxJavaType;
 
@@ -304,8 +304,8 @@
 
     const/4 v2, 0x0
 
-    :goto_e9
-    if-ge v2, v1, :cond_f6
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     aget-object v3, v0, v2
 
@@ -317,14 +317,14 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_e9
+    goto :goto_0
 
-    :cond_f6
+    :cond_0
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IILjava/lang/Class;I)V
-    .registers 6
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -345,7 +345,7 @@
 .end method
 
 .method public static mapFromClass(Ljava/lang/Class;)Lai/onnxruntime/OnnxJavaType;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -361,7 +361,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_99
+    if-nez v0, :cond_e
 
     const-class v0, Ljava/lang/Byte;
 
@@ -369,18 +369,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
-    goto/16 :goto_99
+    goto/16 :goto_6
 
-    :cond_12
+    :cond_0
     sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {p0, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_96
+    if-nez v0, :cond_d
 
     const-class v0, Ljava/lang/Short;
 
@@ -388,18 +388,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_1
 
-    goto/16 :goto_96
+    goto/16 :goto_5
 
-    :cond_24
+    :cond_1
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {p0, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_93
+    if-nez v0, :cond_c
 
     const-class v0, Ljava/lang/Integer;
 
@@ -407,18 +407,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_2
 
-    goto :goto_93
+    goto :goto_4
 
-    :cond_35
+    :cond_2
     sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {p0, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_90
+    if-nez v0, :cond_b
 
     const-class v0, Ljava/lang/Long;
 
@@ -426,18 +426,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_46
+    if-eqz v0, :cond_3
 
-    goto :goto_90
+    goto :goto_3
 
-    :cond_46
+    :cond_3
     sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {p0, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_8d
+    if-nez v0, :cond_a
 
     const-class v0, Ljava/lang/Float;
 
@@ -445,18 +445,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_57
+    if-eqz v0, :cond_4
 
-    goto :goto_8d
+    goto :goto_2
 
-    :cond_57
+    :cond_4
     sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {p0, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_8a
+    if-nez v0, :cond_9
 
     const-class v0, Ljava/lang/Double;
 
@@ -464,18 +464,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_68
+    if-eqz v0, :cond_5
 
-    goto :goto_8a
+    goto :goto_1
 
-    :cond_68
+    :cond_5
     sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
     invoke-virtual {p0, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_87
+    if-nez v0, :cond_8
 
     const-class v0, Ljava/lang/Boolean;
 
@@ -483,94 +483,94 @@
 
     move-result v0
 
-    if-eqz v0, :cond_79
+    if-eqz v0, :cond_6
 
-    goto :goto_87
+    goto :goto_0
 
-    :cond_79
+    :cond_6
     const-class v0, Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_84
+    if-eqz p0, :cond_7
 
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->STRING:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :cond_84
+    :cond_7
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->UNKNOWN:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :cond_87
-    :goto_87
+    :cond_8
+    :goto_0
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->BOOL:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :cond_8a
-    :goto_8a
+    :cond_9
+    :goto_1
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->DOUBLE:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :cond_8d
-    :goto_8d
+    :cond_a
+    :goto_2
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->FLOAT:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :cond_90
-    :goto_90
+    :cond_b
+    :goto_3
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->INT64:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :cond_93
-    :goto_93
+    :cond_c
+    :goto_4
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->INT32:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :cond_96
-    :goto_96
+    :cond_d
+    :goto_5
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->INT16:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :cond_99
-    :goto_99
+    :cond_e
+    :goto_6
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->INT8:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 .end method
 
 .method public static mapFromInt(I)Lai/onnxruntime/OnnxJavaType;
-    .registers 3
+    .locals 2
 
-    if-lez p0, :cond_a
+    if-lez p0, :cond_0
 
     sget-object v0, Lai/onnxruntime/OnnxJavaType;->values:[Lai/onnxruntime/OnnxJavaType;
 
     array-length v1, v0
 
-    if-ge p0, v1, :cond_a
+    if-ge p0, v1, :cond_0
 
     aget-object p0, v0, p0
 
     return-object p0
 
-    :cond_a
+    :cond_0
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->UNKNOWN:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 .end method
 
 .method public static mapFromOnnxTensorType(Lai/onnxruntime/TensorInfo$OnnxTensorType;)Lai/onnxruntime/OnnxJavaType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxJavaType$1;->$SwitchMap$ai$onnxruntime$TensorInfo$OnnxTensorType:[I
 
@@ -580,90 +580,90 @@
 
     aget p0, v0, p0
 
-    packed-switch p0, :pswitch_data_30
+    packed-switch p0, :pswitch_data_0
 
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->UNKNOWN:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_e  #0xe
+    :pswitch_0
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->BOOL:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_11  #0xd
+    :pswitch_1
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->STRING:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_14  #0xc
+    :pswitch_2
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->DOUBLE:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_17  #0xb
+    :pswitch_3
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->FLOAT:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_1a  #0xa
+    :pswitch_4
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->BFLOAT16:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_1d  #0x9
+    :pswitch_5
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->FLOAT16:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_20  #0x7, 0x8
+    :pswitch_6
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->INT64:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_23  #0x5, 0x6
+    :pswitch_7
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->INT32:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_26  #0x3, 0x4
+    :pswitch_8
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->INT16:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_29  #0x2
+    :pswitch_9
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->INT8:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
-    :pswitch_2c  #0x1
+    :pswitch_a
     sget-object p0, Lai/onnxruntime/OnnxJavaType;->UINT8:Lai/onnxruntime/OnnxJavaType;
 
     return-object p0
 
     nop
 
-    :pswitch_data_30
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_2c  #00000001
-        :pswitch_29  #00000002
-        :pswitch_26  #00000003
-        :pswitch_26  #00000004
-        :pswitch_23  #00000005
-        :pswitch_23  #00000006
-        :pswitch_20  #00000007
-        :pswitch_20  #00000008
-        :pswitch_1d  #00000009
-        :pswitch_1a  #0000000a
-        :pswitch_17  #0000000b
-        :pswitch_14  #0000000c
-        :pswitch_11  #0000000d
-        :pswitch_e  #0000000e
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_8
+        :pswitch_7
+        :pswitch_7
+        :pswitch_6
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lai/onnxruntime/OnnxJavaType;
-    .registers 2
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OnnxJavaType;
 
@@ -677,7 +677,7 @@
 .end method
 
 .method public static values()[Lai/onnxruntime/OnnxJavaType;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxJavaType;->$VALUES:[Lai/onnxruntime/OnnxJavaType;
 

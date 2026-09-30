@@ -1,479 +1,85 @@
-.class public final Lq/T4;
-.super Ljava/lang/Object;
+.class public final enum Lq/T4;
+.super Ljava/lang/Enum;
 .source "SourceFile"
 
 
-# instance fields
-.field public a:Lq/U4;
+# static fields
+.field public static final enum a:Lq/T4;
+
+.field public static final enum b:Lq/T4;
+
+.field public static final enum c:Lq/T4;
+
+.field public static final synthetic d:[Lq/T4;
 
 
 # direct methods
-.method public constructor <init>()V
-    .registers 2
+.method static constructor <clinit>()V
+    .locals 5
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    new-instance v0, Lq/T4;
 
-    new-instance v0, Lq/U4;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final a()Lq/U4;
-    .registers 4
-
-    new-instance v0, Lq/U4;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->a:Ljava/util/List;
-
-    if-nez v1, :cond_12
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->a:Ljava/util/List;
-
-    goto :goto_21
-
-    :cond_12
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v2, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v2, v2, Lq/U4;->a:Ljava/util/List;
-
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->a:Ljava/util/List;
-
-    :goto_21
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->b:Ljava/util/List;
-
-    if-nez v1, :cond_2e
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->b:Ljava/util/List;
-
-    goto :goto_3d
-
-    :cond_2e
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v2, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v2, v2, Lq/U4;->b:Ljava/util/List;
-
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->b:Ljava/util/List;
-
-    :goto_3d
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->c:Ljava/util/List;
-
-    if-nez v1, :cond_4a
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->c:Ljava/util/List;
-
-    goto :goto_59
-
-    :cond_4a
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v2, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v2, v2, Lq/U4;->c:Ljava/util/List;
-
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->c:Ljava/util/List;
-
-    :goto_59
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->d:Ljava/util/List;
-
-    if-nez v1, :cond_66
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->d:Ljava/util/List;
-
-    goto :goto_75
-
-    :cond_66
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v2, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v2, v2, Lq/U4;->d:Ljava/util/List;
-
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->d:Ljava/util/List;
-
-    :goto_75
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->e:Ljava/util/List;
-
-    if-nez v1, :cond_82
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->e:Ljava/util/List;
-
-    goto :goto_91
-
-    :cond_82
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v2, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v2, v2, Lq/U4;->e:Ljava/util/List;
-
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lq/U4;->e:Ljava/util/List;
-
-    :goto_91
-    return-object v0
-.end method
-
-.method public final b()Lq/T4;
-    .registers 5
-
-    new-instance v0, Lq/U4;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->a:Ljava/util/List;
+    const-string v1, "RESULT_CONFIRM"
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_f
+    invoke-direct {v0, v1, v2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    iput-object v2, v0, Lq/U4;->a:Ljava/util/List;
+    sput-object v0, Lq/T4;->a:Lq/T4;
 
-    goto :goto_1a
-
-    :cond_f
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v3, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v3, v3, Lq/U4;->a:Ljava/util/List;
-
-    invoke-direct {v1, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    iput-object v1, v0, Lq/U4;->a:Ljava/util/List;
-
-    :goto_1a
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->b:Ljava/util/List;
-
-    if-nez v1, :cond_23
-
-    iput-object v2, v0, Lq/U4;->b:Ljava/util/List;
-
-    goto :goto_2e
-
-    :cond_23
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v3, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v3, v3, Lq/U4;->b:Ljava/util/List;
-
-    invoke-direct {v1, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    iput-object v1, v0, Lq/U4;->b:Ljava/util/List;
-
-    :goto_2e
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->c:Ljava/util/List;
-
-    if-nez v1, :cond_37
-
-    iput-object v2, v0, Lq/U4;->c:Ljava/util/List;
-
-    goto :goto_42
-
-    :cond_37
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v3, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v3, v3, Lq/U4;->c:Ljava/util/List;
-
-    invoke-direct {v1, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    iput-object v1, v0, Lq/U4;->c:Ljava/util/List;
-
-    :goto_42
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->d:Ljava/util/List;
-
-    if-nez v1, :cond_4b
-
-    iput-object v2, v0, Lq/U4;->d:Ljava/util/List;
-
-    goto :goto_56
-
-    :cond_4b
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v3, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v3, v3, Lq/U4;->d:Ljava/util/List;
-
-    invoke-direct {v1, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    iput-object v1, v0, Lq/U4;->d:Ljava/util/List;
-
-    :goto_56
-    iget-object v1, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v1, Lq/U4;->e:Ljava/util/List;
-
-    if-nez v1, :cond_5f
-
-    iput-object v2, v0, Lq/U4;->e:Ljava/util/List;
-
-    goto :goto_6a
-
-    :cond_5f
-    new-instance v1, Ljava/util/ArrayList;
-
-    iget-object v2, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v2, v2, Lq/U4;->e:Ljava/util/List;
-
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    iput-object v1, v0, Lq/U4;->e:Ljava/util/List;
-
-    :goto_6a
     new-instance v1, Lq/T4;
 
-    invoke-direct {v1}, Lq/T4;-><init>()V
+    const-string v2, "PLAY_AGAIN"
 
-    iput-object v0, v1, Lq/T4;->a:Lq/U4;
+    const/4 v3, 0x1
 
-    return-object v1
-.end method
+    invoke-direct {v1, v2, v3}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-.method public final c(Lq/U4;)V
-    .registers 4
+    sput-object v1, Lq/T4;->b:Lq/T4;
 
-    iget-object v0, p1, Lq/U4;->a:Ljava/util/List;
+    new-instance v2, Lq/T4;
 
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    const-string v3, "PLAY_AGAIN_CONFIRM"
 
-    move-result v0
+    const/4 v4, 0x2
 
-    if-nez v0, :cond_1e
+    invoke-direct {v2, v3, v4}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
+    sput-object v2, Lq/T4;->c:Lq/T4;
 
-    iget-object v1, v0, Lq/U4;->a:Ljava/util/List;
+    filled-new-array {v0, v1, v2}, [Lq/T4;
 
-    if-nez v1, :cond_15
+    move-result-object v0
 
-    new-instance v1, Ljava/util/ArrayList;
+    sput-object v0, Lq/T4;->d:[Lq/T4;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, v0, Lq/U4;->a:Ljava/util/List;
-
-    :cond_15
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v0, v0, Lq/U4;->a:Ljava/util/List;
-
-    iget-object v1, p1, Lq/U4;->a:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    :cond_1e
-    iget-object v0, p1, Lq/U4;->b:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3c
-
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v0, Lq/U4;->b:Ljava/util/List;
-
-    if-nez v1, :cond_33
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, v0, Lq/U4;->b:Ljava/util/List;
-
-    :cond_33
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v0, v0, Lq/U4;->b:Ljava/util/List;
-
-    iget-object v1, p1, Lq/U4;->b:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    :cond_3c
-    iget-object v0, p1, Lq/U4;->c:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_5a
-
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v0, Lq/U4;->c:Ljava/util/List;
-
-    if-nez v1, :cond_51
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, v0, Lq/U4;->c:Ljava/util/List;
-
-    :cond_51
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v0, v0, Lq/U4;->c:Ljava/util/List;
-
-    iget-object v1, p1, Lq/U4;->c:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    :cond_5a
-    iget-object v0, p1, Lq/U4;->d:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_78
-
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v0, Lq/U4;->d:Ljava/util/List;
-
-    if-nez v1, :cond_6f
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, v0, Lq/U4;->d:Ljava/util/List;
-
-    :cond_6f
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v0, v0, Lq/U4;->d:Ljava/util/List;
-
-    iget-object v1, p1, Lq/U4;->d:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    :cond_78
-    iget-object v0, p1, Lq/U4;->e:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_96
-
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v1, v0, Lq/U4;->e:Ljava/util/List;
-
-    if-nez v1, :cond_8d
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, v0, Lq/U4;->e:Ljava/util/List;
-
-    :cond_8d
-    iget-object v0, p0, Lq/T4;->a:Lq/U4;
-
-    iget-object v0, v0, Lq/U4;->e:Ljava/util/List;
-
-    iget-object p1, p1, Lq/U4;->e:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    :cond_96
     return-void
 .end method
 
-.method public final bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+.method public static valueOf(Ljava/lang/String;)Lq/T4;
+    .locals 1
 
-    invoke-virtual {p0}, Lq/T4;->b()Lq/T4;
+    const-class v0, Lq/T4;
+
+    invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+
+    move-result-object p0
+
+    check-cast p0, Lq/T4;
+
+    return-object p0
+.end method
+
+.method public static values()[Lq/T4;
+    .locals 1
+
+    sget-object v0, Lq/T4;->d:[Lq/T4;
+
+    invoke-virtual {v0}, [Lq/T4;->clone()Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, [Lq/T4;
 
     return-object v0
 .end method

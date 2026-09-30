@@ -20,7 +20,7 @@
 .end method
 
 .method public getVariationsId()Ljava/lang/Integer;
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 

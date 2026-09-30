@@ -1,136 +1,217 @@
-.class public final synthetic Lq/u5;
-.super Ljava/lang/Object;
+.class public final Lq/u5;
+.super Lq/i2;
 .source "SourceFile"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic a:Lcom/qiuhui/mahjong/WebGameActivity;
+.field public final a:Ljava/lang/String;
 
-.field public final synthetic b:J
-
-.field public final synthetic c:J
-
-.field public final synthetic d:Lorg/json/JSONObject;
+.field public final b:Lq/g2;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/WebGameActivity;JJLorg/json/JSONObject;)V
-    .registers 7
+.method public constructor <init>(Ljava/lang/String;Lq/g2;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lq/u5;->a:Lcom/qiuhui/mahjong/WebGameActivity;
+    iput-object p1, p0, Lq/u5;->a:Ljava/lang/String;
 
-    iput-wide p2, p0, Lq/u5;->b:J
-
-    iput-wide p4, p0, Lq/u5;->c:J
-
-    iput-object p6, p0, Lq/u5;->d:Lorg/json/JSONObject;
+    iput-object p2, p0, Lq/u5;->b:Lq/g2;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .registers 9
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 4
 
-    iget-object v0, p0, Lq/u5;->a:Lcom/qiuhui/mahjong/WebGameActivity;
+    const/4 v0, 0x0
 
-    iget-wide v1, p0, Lq/u5;->b:J
+    if-nez p1, :cond_0
 
-    iget-wide v3, p0, Lq/u5;->c:J
+    goto :goto_0
 
-    iget-object v5, p0, Lq/u5;->d:Lorg/json/JSONObject;
-
-    iget-wide v6, v0, Lcom/qiuhui/mahjong/WebGameActivity;->v:J
-
-    cmp-long v1, v6, v1
-
-    if-nez v1, :cond_59
-
-    sget-object v1, Lq/r;->j:Lq/m;
-
-    iget-wide v1, v1, Lq/m;->a:J
-
-    cmp-long v1, v1, v3
-
-    if-nez v1, :cond_59
-
-    sget v1, Lq/r;->c:I
-
-    const/4 v2, 0x4
-
-    if-ne v1, v2, :cond_59
-
-    sget-object v1, Lq/r;->i:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_24
-
-    goto :goto_59
-
-    :cond_24
-    iget-object v1, v0, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
-
-    if-eqz v1, :cond_59
-
-    const-string v1, "markers"
-
-    invoke-virtual {v5, v1}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    :cond_0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    if-eqz v1, :cond_56
+    const-class v2, Lq/u5;
 
-    invoke-virtual {v1}, Lorg/json/JSONArray;->length()I
+    if-eq v2, v1, :cond_1
 
-    move-result v2
+    goto :goto_0
 
-    if-nez v2, :cond_37
+    :cond_1
+    iget-object v0, p0, Lq/u5;->b:Lq/g2;
 
-    goto :goto_56
+    iget-object v1, p0, Lq/u5;->a:Ljava/lang/String;
 
-    :cond_37
-    new-instance v2, Ljava/lang/StringBuilder;
+    const/4 v2, 0x2
 
-    const-string v3, "(function(){try{if(window.AyakaCatHUD&&window.AyakaCatHUD.showImmediate){window.AyakaCatHUD.showImmediate("
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v1, ");return true;}return false;}catch(_){return false;}})();"
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v2, Lq/C5;
+    new-array v2, v2, [Ljava/lang/Object;
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, v0, v3}, Lq/C5;-><init>(Lcom/qiuhui/mahjong/WebGameActivity;I)V
+    aput-object v1, v2, v3
 
-    iget-object v0, v0, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1, v2}, Landroid/webkit/WebView;->evaluateJavascript(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
+    aput-object v0, v2, v1
 
-    goto :goto_59
+    check-cast p1, Lq/u5;
 
-    :cond_56
-    :goto_56
-    invoke-virtual {v0}, Lcom/qiuhui/mahjong/WebGameActivity;->h()V
+    iget-object v0, p1, Lq/u5;->b:Lq/g2;
 
-    :cond_59
-    :goto_59
-    return-void
+    iget-object p1, p1, Lq/u5;->a:Ljava/lang/String;
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object p1, v1, v3
+
+    const/4 p1, 0x1
+
+    aput-object v0, v1, p1
+
+    invoke-static {v2, v1}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final hashCode()I
+    .locals 4
+
+    iget-object v0, p0, Lq/u5;->b:Lq/g2;
+
+    iget-object v1, p0, Lq/u5;->a:Ljava/lang/String;
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object v1, v2, v3
+
+    const/4 v1, 0x1
+
+    aput-object v0, v2, v1
+
+    invoke-static {v2}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
+
+    move-result v0
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    const-class v1, Lq/u5;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    return v1
+.end method
+
+.method public final toString()Ljava/lang/String;
+    .locals 7
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    iget-object v2, p0, Lq/u5;->b:Lq/g2;
+
+    iget-object v3, p0, Lq/u5;->a:Ljava/lang/String;
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    aput-object v3, v4, v0
+
+    aput-object v2, v4, v1
+
+    const-string v2, "a;b"
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    new-array v2, v0, [Ljava/lang/String;
+
+    goto :goto_0
+
+    :cond_0
+    const-string v3, ";"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    :goto_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-class v5, Lq/u5;
+
+    const-string v6, "["
+
+    invoke-static {v5, v3, v6}, Lq/i2;->f(Ljava/lang/Class;Ljava/lang/StringBuilder;Ljava/lang/String;)V
+
+    :goto_1
+    array-length v5, v2
+
+    if-ge v0, v5, :cond_2
+
+    aget-object v5, v2, v0
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, "="
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    aget-object v5, v4, v0
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    array-length v5, v2
+
+    sub-int/2addr v5, v1
+
+    if-eq v0, v5, :cond_1
+
+    const-string v5, ", "
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_1
+    add-int/2addr v0, v1
+
+    goto :goto_1
+
+    :cond_2
+    const-string v0, "]"
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

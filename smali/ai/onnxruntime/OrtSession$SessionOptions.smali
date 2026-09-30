@@ -53,16 +53,16 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     :try_start_0
     invoke-static {}, Lai/onnxruntime/OnnxRuntime;->init()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_4
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_4
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/RuntimeException;
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -164,15 +164,15 @@
 .end method
 
 .method private checkClosed()V
-    .registers 3
+    .locals 2
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession$SessionOptions;->closed:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     return-void
 
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to use a closed SessionOptions"
@@ -239,7 +239,7 @@
 
 # virtual methods
 .method public addACL(Z)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -259,7 +259,7 @@
 .end method
 
 .method public addArmNN(Z)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -279,7 +279,7 @@
 .end method
 
 .method public addCPU(Z)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -299,7 +299,7 @@
 .end method
 
 .method public addCUDA()V
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -310,7 +310,7 @@
 .end method
 
 .method public addCUDA(I)V
-    .registers 9
+    .locals 7
 
     .line 2
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -320,7 +320,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 4
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -336,7 +336,7 @@
     return-void
 
     .line 5
-    :cond_13
+    :cond_0
     new-instance p1, Lai/onnxruntime/OrtException;
 
     sget-object v0, Lai/onnxruntime/OrtException$OrtErrorCode;->ORT_EP_FAIL:Lai/onnxruntime/OrtException$OrtErrorCode;
@@ -349,7 +349,7 @@
 .end method
 
 .method public addCUDA(Lai/onnxruntime/providers/OrtCUDAProviderOptions;)V
-    .registers 10
+    .locals 8
 
     .line 6
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -359,7 +359,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 8
     invoke-virtual {p1}, Lai/onnxruntime/providers/StringConfigProviderOptions;->applyToNative()V
@@ -378,7 +378,7 @@
     return-void
 
     .line 10
-    :cond_17
+    :cond_0
     new-instance p1, Lai/onnxruntime/OrtException;
 
     sget-object v0, Lai/onnxruntime/OrtException$OrtErrorCode;->ORT_EP_FAIL:Lai/onnxruntime/OrtException$OrtErrorCode;
@@ -391,7 +391,7 @@
 .end method
 
 .method public addConfigEntry(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 10
+    .locals 7
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -418,7 +418,7 @@
 .end method
 
 .method public addCoreML()V
-    .registers 2
+    .locals 1
 
     .line 1
     const-class v0, Lai/onnxruntime/providers/CoreMLFlags;
@@ -433,7 +433,7 @@
 .end method
 
 .method public addCoreML(Ljava/util/EnumSet;)V
-    .registers 8
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -463,7 +463,7 @@
 .end method
 
 .method public addDirectML(I)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -483,7 +483,7 @@
 .end method
 
 .method public addDnnl(Z)V
-    .registers 9
+    .locals 7
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -493,7 +493,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 3
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -509,7 +509,7 @@
     return-void
 
     .line 4
-    :cond_13
+    :cond_0
     new-instance p1, Lai/onnxruntime/OrtException;
 
     sget-object v0, Lai/onnxruntime/OrtException$OrtErrorCode;->ORT_EP_FAIL:Lai/onnxruntime/OrtException$OrtErrorCode;
@@ -522,7 +522,7 @@
 .end method
 
 .method public addExternalInitializers(Ljava/util/Map;)V
-    .registers 10
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -541,12 +541,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     return-void
 
     .line 3
-    :cond_a
+    :cond_0
     invoke-interface {p1}, Ljava/util/Map;->size()I
 
     move-result v0
@@ -571,12 +571,12 @@
 
     const/4 v0, 0x0
 
-    :goto_1f
+    :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_40
+    if-eqz v1, :cond_1
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -606,10 +606,10 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 8
-    :cond_40
+    :cond_1
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
     iget-wide v4, p0, Lai/onnxruntime/OrtSession$SessionOptions;->nativeHandle:J
@@ -622,7 +622,7 @@
 .end method
 
 .method public addInitializer(Ljava/lang/String;Lai/onnxruntime/OnnxTensorLike;)V
-    .registers 12
+    .locals 9
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -636,7 +636,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_0
 
     .line 3
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -656,7 +656,7 @@
     return-void
 
     .line 4
-    :cond_1b
+    :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     const-string p2, "Initializer name was blank"
@@ -667,7 +667,7 @@
 .end method
 
 .method public addNnapi()V
-    .registers 2
+    .locals 1
 
     .line 1
     const-class v0, Lai/onnxruntime/providers/NNAPIFlags;
@@ -682,7 +682,7 @@
 .end method
 
 .method public addNnapi(Ljava/util/EnumSet;)V
-    .registers 8
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -712,7 +712,7 @@
 .end method
 
 .method public addOpenVINO(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -722,7 +722,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 3
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -738,7 +738,7 @@
     return-void
 
     .line 4
-    :cond_13
+    :cond_0
     new-instance p1, Lai/onnxruntime/OrtException;
 
     sget-object v0, Lai/onnxruntime/OrtException$OrtErrorCode;->ORT_EP_FAIL:Lai/onnxruntime/OrtException$OrtErrorCode;
@@ -751,7 +751,7 @@
 .end method
 
 .method public addROCM()V
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -762,7 +762,7 @@
 .end method
 
 .method public addROCM(I)V
-    .registers 9
+    .locals 7
 
     .line 2
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -772,7 +772,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 4
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -788,7 +788,7 @@
     return-void
 
     .line 5
-    :cond_13
+    :cond_0
     new-instance p1, Lai/onnxruntime/OrtException;
 
     sget-object v0, Lai/onnxruntime/OrtException$OrtErrorCode;->ORT_EP_FAIL:Lai/onnxruntime/OrtException$OrtErrorCode;
@@ -801,7 +801,7 @@
 .end method
 
 .method public addTensorrt(I)V
-    .registers 9
+    .locals 7
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -811,7 +811,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 3
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -827,7 +827,7 @@
     return-void
 
     .line 4
-    :cond_13
+    :cond_0
     new-instance p1, Lai/onnxruntime/OrtException;
 
     sget-object v0, Lai/onnxruntime/OrtException$OrtErrorCode;->ORT_EP_FAIL:Lai/onnxruntime/OrtException$OrtErrorCode;
@@ -840,7 +840,7 @@
 .end method
 
 .method public addTensorrt(Lai/onnxruntime/providers/OrtTensorRTProviderOptions;)V
-    .registers 10
+    .locals 8
 
     .line 5
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -850,7 +850,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 7
     invoke-virtual {p1}, Lai/onnxruntime/providers/StringConfigProviderOptions;->applyToNative()V
@@ -869,7 +869,7 @@
     return-void
 
     .line 9
-    :cond_17
+    :cond_0
     new-instance p1, Lai/onnxruntime/OrtException;
 
     sget-object v0, Lai/onnxruntime/OrtException$OrtErrorCode;->ORT_EP_FAIL:Lai/onnxruntime/OrtException$OrtErrorCode;
@@ -882,7 +882,7 @@
 .end method
 
 .method public addTvm(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -902,7 +902,7 @@
 .end method
 
 .method public addXnnpack(Ljava/util/Map;)V
-    .registers 11
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -937,12 +937,12 @@
 
     const/4 v0, 0x0
 
-    :goto_18
+    :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_0
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -968,9 +968,9 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_18
+    goto :goto_0
 
-    :cond_37
+    :cond_0
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
     iget-wide v4, p0, Lai/onnxruntime/OrtSession$SessionOptions;->nativeHandle:J
@@ -985,11 +985,11 @@
 .end method
 
 .method public close()V
-    .registers 5
+    .locals 4
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession$SessionOptions;->closed:Z
 
-    if-nez v0, :cond_3c
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lai/onnxruntime/OrtSession$SessionOptions;->customLibraryHandles:Ljava/util/List;
 
@@ -997,7 +997,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_31
+    if-lez v0, :cond_1
 
     iget-object v0, p0, Lai/onnxruntime/OrtSession$SessionOptions;->customLibraryHandles:Ljava/util/List;
 
@@ -1009,14 +1009,14 @@
 
     const/4 v1, 0x0
 
-    :goto_15
+    :goto_0
     iget-object v2, p0, Lai/onnxruntime/OrtSession$SessionOptions;->customLibraryHandles:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2e
+    if-ge v1, v2, :cond_0
 
     iget-object v2, p0, Lai/onnxruntime/OrtSession$SessionOptions;->customLibraryHandles:Ljava/util/List;
 
@@ -1034,12 +1034,12 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
-    :cond_2e
+    :cond_0
     invoke-direct {p0, v0}, Lai/onnxruntime/OrtSession$SessionOptions;->closeCustomLibraries([J)V
 
-    :cond_31
+    :cond_1
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
     iget-wide v2, p0, Lai/onnxruntime/OrtSession$SessionOptions;->nativeHandle:J
@@ -1052,7 +1052,7 @@
 
     return-void
 
-    :cond_3c
+    :cond_2
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to close a closed SessionOptions."
@@ -1063,7 +1063,7 @@
 .end method
 
 .method public disablePerSessionThreads()V
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1079,7 +1079,7 @@
 .end method
 
 .method public disableProfiling()V
-    .registers 5
+    .locals 4
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1095,7 +1095,7 @@
 .end method
 
 .method public enableProfiling(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1115,7 +1115,7 @@
 .end method
 
 .method public getConfigEntries()Ljava/util/Map;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1138,7 +1138,7 @@
 .end method
 
 .method public getNativeHandle()J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lai/onnxruntime/OrtSession$SessionOptions;->nativeHandle:J
 
@@ -1146,7 +1146,7 @@
 .end method
 
 .method public registerCustomOpLibrary(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1182,7 +1182,7 @@
 .end method
 
 .method public registerCustomOpsUsingFunction(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1202,7 +1202,7 @@
 .end method
 
 .method public setCPUArenaAllocator(Z)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1222,7 +1222,7 @@
 .end method
 
 .method public setExecutionMode(Lai/onnxruntime/OrtSession$SessionOptions$ExecutionMode;)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1244,7 +1244,7 @@
 .end method
 
 .method public setInterOpNumThreads(I)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1264,7 +1264,7 @@
 .end method
 
 .method public setIntraOpNumThreads(I)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1284,7 +1284,7 @@
 .end method
 
 .method public setLoggerId(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1304,7 +1304,7 @@
 .end method
 
 .method public setMemoryPatternOptimization(Z)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1324,7 +1324,7 @@
 .end method
 
 .method public setOptimizationLevel(Lai/onnxruntime/OrtSession$SessionOptions$OptLevel;)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1346,7 +1346,7 @@
 .end method
 
 .method public setOptimizedModelFilePath(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
 
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
 
@@ -1364,7 +1364,7 @@
 .end method
 
 .method public setSessionLogLevel(Lai/onnxruntime/OrtLoggingLevel;)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1386,7 +1386,7 @@
 .end method
 
 .method public setSessionLogVerbosityLevel(I)V
-    .registers 8
+    .locals 6
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
@@ -1406,7 +1406,7 @@
 .end method
 
 .method public setSymbolicDimensionValue(Ljava/lang/String;J)V
-    .registers 12
+    .locals 8
 
     invoke-direct {p0}, Lai/onnxruntime/OrtSession$SessionOptions;->checkClosed()V
 

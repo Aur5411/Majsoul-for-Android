@@ -1,17 +1,16 @@
-.class public interface abstract Lq/z2;
+.class public final synthetic Lq/z2;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
+# interfaces
+.implements Ljava/lang/Thread$UncaughtExceptionHandler;
+
 
 # virtual methods
-.method public abstract a(Lq/t2;)Lq/R1;
-.end method
+.method public final uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
+    .locals 0
 
-.method public abstract b(Lq/K2;)Lq/R1;
-.end method
+    invoke-static {p1, p2}, Lcom/qiuhui/mahjong/custom/DiagnosticLog;->c(Ljava/lang/Thread;Ljava/lang/Throwable;)V
 
-.method public abstract c(Lq/K2;)Z
-.end method
-
-.method public abstract d(Lq/t2;)Z
+    return-void
 .end method

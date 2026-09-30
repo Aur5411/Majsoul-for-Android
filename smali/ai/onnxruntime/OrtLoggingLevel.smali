@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     new-instance v0, Lai/onnxruntime/OrtLoggingLevel;
 
@@ -119,8 +119,8 @@
 
     array-length v1, v0
 
-    :goto_4e
-    if-ge v2, v1, :cond_5b
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     aget-object v3, v0, v2
 
@@ -132,14 +132,14 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4e
+    goto :goto_0
 
-    :cond_5b
+    :cond_0
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -154,21 +154,21 @@
 .end method
 
 .method public static mapFromInt(I)Lai/onnxruntime/OrtLoggingLevel;
-    .registers 4
+    .locals 3
 
-    if-lez p0, :cond_a
+    if-lez p0, :cond_0
 
     sget-object v0, Lai/onnxruntime/OrtLoggingLevel;->values:[Lai/onnxruntime/OrtLoggingLevel;
 
     array-length v1, v0
 
-    if-ge p0, v1, :cond_a
+    if-ge p0, v1, :cond_0
 
     aget-object p0, v0, p0
 
     return-object p0
 
-    :cond_a
+    :cond_0
     sget-object v0, Lai/onnxruntime/OrtLoggingLevel;->logger:Ljava/util/logging/Logger;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -195,7 +195,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lai/onnxruntime/OrtLoggingLevel;
-    .registers 2
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OrtLoggingLevel;
 
@@ -209,7 +209,7 @@
 .end method
 
 .method public static values()[Lai/onnxruntime/OrtLoggingLevel;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OrtLoggingLevel;->$VALUES:[Lai/onnxruntime/OrtLoggingLevel;
 
@@ -225,7 +225,7 @@
 
 # virtual methods
 .method public getValue()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lai/onnxruntime/OrtLoggingLevel;->value:I
 

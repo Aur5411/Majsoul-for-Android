@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(J)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -70,15 +70,15 @@
 .end method
 
 .method private checkClosed()V
-    .registers 3
+    .locals 2
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->closed:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     return-void
 
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to use a closed OrtCheckpointState"
@@ -104,12 +104,12 @@
 .end method
 
 .method public static loadCheckpoint(Ljava/lang/String;)Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;
-    .registers 6
+    .locals 5
 
     .line 3
     sget-boolean v0, Lai/onnxruntime/OnnxRuntime;->trainingEnabled:Z
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 4
     const-string v0, "checkpoint path must not be null"
@@ -133,7 +133,7 @@
     return-object v0
 
     .line 7
-    :cond_17
+    :cond_0
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Training is not enabled in this build of ONNX Runtime."
@@ -144,7 +144,7 @@
 .end method
 
 .method public static loadCheckpoint(Ljava/nio/file/Path;)Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;
-    .registers 1
+    .locals 0
 
     .line 1
     invoke-interface {p0}, Ljava/nio/file/Path;->toString()Ljava/lang/String;
@@ -165,7 +165,7 @@
 
 # virtual methods
 .method public addProperty(Ljava/lang/String;F)V
-    .registers 12
+    .locals 9
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->checkClosed()V
@@ -189,7 +189,7 @@
 .end method
 
 .method public addProperty(Ljava/lang/String;I)V
-    .registers 12
+    .locals 9
 
     .line 3
     invoke-direct {p0}, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->checkClosed()V
@@ -213,7 +213,7 @@
 .end method
 
 .method public addProperty(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 12
+    .locals 9
 
     .line 5
     invoke-direct {p0}, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->checkClosed()V
@@ -237,15 +237,15 @@
 .end method
 
 .method public declared-synchronized close()V
-    .registers 5
+    .locals 4
 
     monitor-enter p0
 
     .line 1
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->closed:Z
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 2
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortTrainingApiHandle:J
@@ -259,40 +259,40 @@
     .line 3
     iput-boolean v0, p0, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->closed:Z
 
-    goto :goto_19
+    goto :goto_0
 
-    :catchall_10
+    :catchall_0
     move-exception v0
 
-    goto :goto_1b
+    goto :goto_1
 
     .line 4
-    :cond_12
+    :cond_0
     sget-object v0, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->logger:Ljava/util/logging/Logger;
 
     const-string v1, "Closing a checkpoint twice"
 
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->warning(Ljava/lang/String;)V
-    :try_end_19
-    .catchall {:try_start_1 .. :try_end_19} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 5
-    :goto_19
+    :goto_0
     monitor-exit p0
 
     return-void
 
-    :goto_1b
-    :try_start_1b
+    :goto_1
+    :try_start_1
     monitor-exit p0
-    :try_end_1c
-    .catchall {:try_start_1b .. :try_end_1c} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public getFloatProperty(Lai/onnxruntime/OrtAllocator;Ljava/lang/String;)F
-    .registers 13
+    .locals 10
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->checkClosed()V
@@ -318,7 +318,7 @@
 .end method
 
 .method public getIntProperty(Lai/onnxruntime/OrtAllocator;Ljava/lang/String;)I
-    .registers 13
+    .locals 10
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->checkClosed()V
@@ -344,7 +344,7 @@
 .end method
 
 .method public getStringProperty(Lai/onnxruntime/OrtAllocator;Ljava/lang/String;)Ljava/lang/String;
-    .registers 13
+    .locals 10
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->checkClosed()V
@@ -370,32 +370,32 @@
 .end method
 
 .method public declared-synchronized isClosed()Z
-    .registers 2
+    .locals 1
 
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->closed:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
-    :try_start_6
+    :try_start_1
     monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_6 .. :try_end_7} :catchall_5
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public saveCheckpoint(Ljava/nio/file/Path;Z)V
-    .registers 13
+    .locals 10
 
     .line 1
     invoke-direct {p0}, Lai/onnxruntime/OrtTrainingSession$OrtCheckpointState;->checkClosed()V

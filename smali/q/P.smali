@@ -1,473 +1,201 @@
 .class public final Lq/P;
-.super Lq/K2;
+.super Lq/i2;
 .source "SourceFile"
 
 
-# static fields
-.field public static final h:Lq/P;
-
-.field public static final i:Lq/N;
-
-
 # instance fields
-.field public d:I
+.field public final a:I
 
-.field public e:I
-
-.field public f:I
-
-.field public g:B
+.field public final b:C
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .registers 2
+.method public constructor <init>(IC)V
+    .locals 0
 
-    new-instance v0, Lq/P;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {v0}, Lq/K2;-><init>()V
+    iput p1, p0, Lq/P;->a:I
 
-    const/4 v1, 0x0
-
-    iput v1, v0, Lq/P;->e:I
-
-    iput v1, v0, Lq/P;->f:I
-
-    const/4 v1, -0x1
-
-    iput-byte v1, v0, Lq/P;->g:B
-
-    sput-object v0, Lq/P;->h:Lq/P;
-
-    new-instance v0, Lq/N;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    sput-object v0, Lq/P;->i:Lq/N;
+    iput-char p2, p0, Lq/P;->b:C
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final A(Lq/s2;)Lq/a;
-    .registers 3
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 3
 
-    new-instance v0, Lq/O;
-
-    invoke-direct {v0, p1}, Lq/t2;-><init>(Lq/s2;)V
-
-    return-object v0
-.end method
-
-.method public final C()Z
-    .registers 2
-
-    iget v0, p0, Lq/P;->d:I
-
-    and-int/lit8 v0, v0, 0x2
-
-    if-eqz v0, :cond_8
-
-    const/4 v0, 0x1
-
-    goto :goto_9
-
-    :cond_8
     const/4 v0, 0x0
 
-    :goto_9
-    return v0
-.end method
+    if-nez p1, :cond_0
 
-.method public final D()Z
-    .registers 3
+    goto :goto_0
 
-    iget v0, p0, Lq/P;->d:I
+    :cond_0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    const/4 v1, 0x1
+    move-result-object v1
 
-    and-int/2addr v0, v1
+    const-class v2, Lq/P;
 
-    if-eqz v0, :cond_7
+    if-eq v2, v1, :cond_1
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_7
-    const/4 v1, 0x0
+    :cond_1
+    invoke-virtual {p0}, Lq/P;->h()[Ljava/lang/Object;
 
-    :goto_8
-    return v1
-.end method
+    move-result-object v0
 
-.method public final E()Lq/O;
-    .registers 3
+    check-cast p1, Lq/P;
 
-    sget-object v0, Lq/P;->h:Lq/P;
+    invoke-virtual {p1}, Lq/P;->h()[Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    move-result-object p1
 
-    if-ne p0, v0, :cond_b
-
-    new-instance v0, Lq/O;
-
-    invoke-direct {v0, v1}, Lq/t2;-><init>(Lq/s2;)V
-
-    goto :goto_13
-
-    :cond_b
-    new-instance v0, Lq/O;
-
-    invoke-direct {v0, v1}, Lq/t2;-><init>(Lq/s2;)V
-
-    invoke-virtual {v0, p0}, Lq/O;->Q(Lq/P;)V
-
-    :goto_13
-    return-object v0
-.end method
-
-.method public final c(Lq/F;)V
-    .registers 4
-
-    iget v0, p0, Lq/P;->d:I
-
-    const/4 v1, 0x1
-
-    and-int/2addr v0, v1
-
-    if-eqz v0, :cond_b
-
-    iget v0, p0, Lq/P;->e:I
-
-    invoke-virtual {p1, v1, v0}, Lq/F;->H(II)V
-
-    :cond_b
-    iget v0, p0, Lq/P;->d:I
-
-    const/4 v1, 0x2
-
-    and-int/2addr v0, v1
-
-    if-eqz v0, :cond_16
-
-    iget v0, p0, Lq/P;->f:I
-
-    invoke-virtual {p1, v1, v0}, Lq/F;->H(II)V
-
-    :cond_16
-    iget-object v0, p0, Lq/K2;->c:Lq/W4;
-
-    invoke-virtual {v0, p1}, Lq/W4;->c(Lq/F;)V
-
-    return-void
-.end method
-
-.method public final e()I
-    .registers 4
-
-    iget v0, p0, Lq/c;->b:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_6
-
-    return v0
-
-    :cond_6
-    iget v0, p0, Lq/P;->d:I
-
-    const/4 v1, 0x1
-
-    and-int/2addr v0, v1
-
-    if-eqz v0, :cond_13
-
-    iget v0, p0, Lq/P;->e:I
-
-    invoke-static {v1, v0}, Lq/F;->s(II)I
+    invoke-static {v0, p1}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
 
     move-result v0
 
-    goto :goto_14
+    :goto_0
+    return v0
+.end method
 
-    :cond_13
-    const/4 v0, 0x0
+.method public final synthetic h()[Ljava/lang/Object;
+    .locals 4
 
-    :goto_14
-    iget v1, p0, Lq/P;->d:I
+    iget v0, p0, Lq/P;->a:I
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    iget-char v1, p0, Lq/P;->b:C
+
+    invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
+
+    move-result-object v1
 
     const/4 v2, 0x2
 
-    and-int/2addr v1, v2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    if-eqz v1, :cond_21
+    const/4 v3, 0x0
 
-    iget v1, p0, Lq/P;->f:I
+    aput-object v0, v2, v3
 
-    invoke-static {v2, v1}, Lq/F;->s(II)I
+    const/4 v0, 0x1
 
-    move-result v1
+    aput-object v1, v2, v0
 
-    add-int/2addr v0, v1
+    return-object v2
+.end method
 
-    :cond_21
-    iget-object v1, p0, Lq/K2;->c:Lq/W4;
+.method public final hashCode()I
+    .locals 2
 
-    invoke-virtual {v1}, Lq/W4;->e()I
+    invoke-virtual {p0}, Lq/P;->h()[Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
+
+    move-result v0
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    const-class v1, Lq/P;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
     add-int/2addr v1, v0
 
-    iput v1, p0, Lq/c;->b:I
-
     return v1
 .end method
 
-.method public final equals(Ljava/lang/Object;)Z
-    .registers 6
+.method public final toString()Ljava/lang/String;
+    .locals 6
 
-    const/4 v0, 0x1
+    invoke-virtual {p0}, Lq/P;->h()[Ljava/lang/Object;
 
-    if-ne p1, p0, :cond_4
+    move-result-object v0
 
-    return v0
+    const-string v1, "a;b"
 
-    :cond_4
-    instance-of v1, p1, Lq/P;
-
-    if-nez v1, :cond_d
-
-    invoke-super {p0, p1}, Lq/c;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    return p1
-
-    :cond_d
-    check-cast p1, Lq/P;
-
-    invoke-virtual {p0}, Lq/P;->D()Z
-
-    move-result v1
-
-    invoke-virtual {p1}, Lq/P;->D()Z
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v2
 
     const/4 v3, 0x0
 
-    if-eq v1, v2, :cond_1b
+    if-nez v2, :cond_0
 
-    return v3
+    new-array v1, v3, [Ljava/lang/String;
 
-    :cond_1b
-    invoke-virtual {p0}, Lq/P;->D()Z
+    goto :goto_0
 
-    move-result v1
+    :cond_0
+    const-string v2, ";"
 
-    if-eqz v1, :cond_28
+    invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    iget v1, p0, Lq/P;->e:I
+    move-result-object v1
 
-    iget v2, p1, Lq/P;->e:I
+    :goto_0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-eq v1, v2, :cond_28
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    return v3
+    const-class v4, Lq/P;
 
-    :cond_28
-    invoke-virtual {p0}, Lq/P;->C()Z
+    const-string v5, "["
 
-    move-result v1
+    invoke-static {v4, v2, v5}, Lq/i2;->f(Ljava/lang/Class;Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    invoke-virtual {p1}, Lq/P;->C()Z
+    :goto_1
+    array-length v4, v1
 
-    move-result v2
+    if-ge v3, v4, :cond_2
 
-    if-eq v1, v2, :cond_33
+    aget-object v4, v1, v3
 
-    return v3
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_33
-    invoke-virtual {p0}, Lq/P;->C()Z
+    const-string v4, "="
 
-    move-result v1
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v1, :cond_40
+    aget-object v4, v0, v3
 
-    iget v1, p0, Lq/P;->f:I
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    iget v2, p1, Lq/P;->f:I
+    array-length v4, v1
 
-    if-eq v1, v2, :cond_40
+    add-int/lit8 v4, v4, -0x1
 
-    return v3
+    if-eq v3, v4, :cond_1
 
-    :cond_40
-    iget-object v1, p0, Lq/K2;->c:Lq/W4;
+    const-string v4, ", "
 
-    iget-object p1, p1, Lq/K2;->c:Lq/W4;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Lq/W4;->equals(Ljava/lang/Object;)Z
+    :cond_1
+    add-int/lit8 v3, v3, 0x1
 
-    move-result p1
+    goto :goto_1
 
-    if-nez p1, :cond_4b
+    :cond_2
+    const-string v0, "]"
 
-    return v3
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_4b
-    return v0
-.end method
-
-.method public final h()Z
-    .registers 3
-
-    iget-byte v0, p0, Lq/P;->g:B
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_6
-
-    return v1
-
-    :cond_6
-    if-nez v0, :cond_a
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_a
-    iput-byte v1, p0, Lq/P;->g:B
-
-    return v1
-.end method
-
-.method public final hashCode()I
-    .registers 5
-
-    iget v0, p0, Lq/c;->a:I
-
-    if-eqz v0, :cond_5
-
-    return v0
-
-    :cond_5
-    sget-object v0, Lq/F1;->i:Lq/G1;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
-
-    move-result v0
-
-    add-int/lit16 v0, v0, 0x30b
-
-    invoke-virtual {p0}, Lq/P;->D()Z
-
-    move-result v1
-
-    const/16 v2, 0x35
-
-    if-eqz v1, :cond_1f
-
-    const/16 v1, 0x25
-
-    const/4 v3, 0x1
-
-    invoke-static {v0, v1, v3, v2}, Lq/I1;->d(IIII)I
-
-    move-result v0
-
-    iget v1, p0, Lq/P;->e:I
-
-    add-int/2addr v0, v1
-
-    :cond_1f
-    invoke-virtual {p0}, Lq/P;->C()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2f
-
-    const/16 v1, 0x25
-
-    const/4 v3, 0x2
-
-    invoke-static {v0, v1, v3, v2}, Lq/I1;->d(IIII)I
-
-    move-result v0
-
-    iget v1, p0, Lq/P;->f:I
-
-    add-int/2addr v0, v1
-
-    :cond_2f
-    mul-int/lit8 v0, v0, 0x1d
-
-    iget-object v1, p0, Lq/K2;->c:Lq/W4;
-
-    invoke-virtual {v1}, Lq/W4;->hashCode()I
-
-    move-result v1
-
-    add-int/2addr v1, v0
-
-    iput v1, p0, Lq/c;->a:I
-
-    return v1
-.end method
-
-.method public final i()Lq/c;
-    .registers 2
-
-    sget-object v0, Lq/P;->h:Lq/P;
-
-    return-object v0
-.end method
-
-.method public final bridge synthetic j()Lq/P3;
-    .registers 2
-
-    invoke-virtual {p0}, Lq/P;->E()Lq/O;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-
-    return-object v0
-.end method
-
-.method public final p()Lq/a;
-    .registers 2
-
-    sget-object v0, Lq/P;->h:Lq/P;
-
-    invoke-virtual {v0}, Lq/P;->E()Lq/O;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public final bridge synthetic r()Lq/a;
-    .registers 2
-
-    invoke-virtual {p0}, Lq/P;->E()Lq/O;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public final y()Lq/J2;
-    .registers 4
-
-    sget-object v0, Lq/F1;->j:Lq/J2;
-
-    const-class v1, Lq/P;
-
-    const-class v2, Lq/O;
-
-    invoke-virtual {v0, v1, v2}, Lq/J2;->c(Ljava/lang/Class;Ljava/lang/Class;)V
 
     return-object v0
 .end method

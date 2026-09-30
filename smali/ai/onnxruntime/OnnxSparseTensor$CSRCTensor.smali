@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/LongBuffer;Ljava/nio/LongBuffer;Ljava/nio/Buffer;[JLai/onnxruntime/OnnxJavaType;J)V
-    .registers 20
+    .locals 12
 
     move-wide/from16 v9, p6
 
@@ -86,7 +86,7 @@
 
     const-string v5, ", expected "
 
-    if-nez v4, :cond_59
+    if-nez v4, :cond_1
 
     invoke-virtual {p2}, Ljava/nio/Buffer;->remaining()I
 
@@ -96,11 +96,11 @@
 
     cmp-long v2, v2, v9
 
-    if-nez v2, :cond_3b
+    if-nez v2, :cond_0
 
     return-void
 
-    :cond_3b
+    :cond_0
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -127,7 +127,7 @@
 
     throw v2
 
-    :cond_59
+    :cond_1
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public getIndicesType()Lai/onnxruntime/OnnxJavaType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxJavaType;->INT64:Lai/onnxruntime/OnnxJavaType;
 
@@ -166,7 +166,7 @@
 .end method
 
 .method public getInnerIndices()Ljava/nio/LongBuffer;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxSparseTensor$CSRCTensor;->innerIndices:Ljava/nio/LongBuffer;
 
@@ -174,7 +174,7 @@
 .end method
 
 .method public getInnerIndicesShape()[J
-    .registers 5
+    .locals 4
 
     iget-object v0, p0, Lai/onnxruntime/OnnxSparseTensor$CSRCTensor;->innerIndices:Ljava/nio/LongBuffer;
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public getSparsityType()Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;->CSRC:Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 

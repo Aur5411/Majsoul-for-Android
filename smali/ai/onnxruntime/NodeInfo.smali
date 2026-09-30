@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lai/onnxruntime/ValueInfo;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public getInfo()Lai/onnxruntime/ValueInfo;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/NodeInfo;->info:Lai/onnxruntime/ValueInfo;
 
@@ -33,7 +33,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/NodeInfo;->name:Ljava/lang/String;
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 

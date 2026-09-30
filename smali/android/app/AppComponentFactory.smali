@@ -5,7 +5,7 @@
 
 # direct methods
 .method static synthetic constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     new-instance v0, Ljava/lang/NoClassDefFoundError;
 

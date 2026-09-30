@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OrtUtil;
 
@@ -35,7 +35,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,15 +43,15 @@
 .end method
 
 .method public static capacityFromSize(I)I
-    .registers 5
+    .locals 4
 
     int-to-double v0, p0
 
-    const-wide/high16 v2, 0x3fe8000000000000L  # 0.75
+    const-wide/high16 v2, 0x3fe8000000000000L    # 0.75
 
     div-double/2addr v0, v2
 
-    const-wide/high16 v2, 0x3ff0000000000000L  # 1.0
+    const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
     add-double/2addr v0, v2
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static convertBoxedPrimitiveToArray(Lai/onnxruntime/OnnxJavaType;Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 5
+    .locals 3
 
     const/4 v0, 0x0
 
@@ -75,13 +75,13 @@
 
     aget p0, v2, p0
 
-    packed-switch p0, :pswitch_data_5c
+    packed-switch p0, :pswitch_data_0
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :pswitch_f  #0x8
+    :pswitch_0
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -94,7 +94,7 @@
 
     return-object p1
 
-    :pswitch_1a  #0x7
+    :pswitch_1
     check-cast p1, Ljava/lang/Long;
 
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
@@ -107,7 +107,7 @@
 
     return-object v1
 
-    :pswitch_25  #0x6
+    :pswitch_2
     check-cast p1, Ljava/lang/Integer;
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
@@ -120,7 +120,7 @@
 
     return-object p0
 
-    :pswitch_30  #0x5
+    :pswitch_3
     check-cast p1, Ljava/lang/Short;
 
     invoke-virtual {p1}, Ljava/lang/Short;->shortValue()S
@@ -133,7 +133,7 @@
 
     return-object p1
 
-    :pswitch_3b  #0x3, 0x4
+    :pswitch_4
     check-cast p1, Ljava/lang/Byte;
 
     invoke-virtual {p1}, Ljava/lang/Byte;->byteValue()B
@@ -146,7 +146,7 @@
 
     return-object p1
 
-    :pswitch_46  #0x2
+    :pswitch_5
     check-cast p1, Ljava/lang/Double;
 
     invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
@@ -159,7 +159,7 @@
 
     return-object v1
 
-    :pswitch_51  #0x1
+    :pswitch_6
     check-cast p1, Ljava/lang/Float;
 
     invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
@@ -172,30 +172,30 @@
 
     return-object p1
 
-    :pswitch_data_5c
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_51  #00000001
-        :pswitch_46  #00000002
-        :pswitch_3b  #00000003
-        :pswitch_3b  #00000004
-        :pswitch_30  #00000005
-        :pswitch_25  #00000006
-        :pswitch_1a  #00000007
-        :pswitch_f  #00000008
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static elementCount([J)J
-    .registers 8
+    .locals 7
 
     const-wide/16 v0, 0x1
 
     const/4 v2, 0x0
 
-    :goto_3
+    :goto_0
     array-length v3, p0
 
-    if-ge v2, v3, :cond_2f
+    if-ge v2, v3, :cond_1
 
     aget-wide v3, p0, v2
 
@@ -203,15 +203,15 @@
 
     cmp-long v5, v3, v5
 
-    if-ltz v5, :cond_12
+    if-ltz v5, :cond_0
 
     mul-long/2addr v0, v3
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
-    :cond_12
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -238,12 +238,12 @@
 
     throw v0
 
-    :cond_2f
+    :cond_1
     return-wide v0
 .end method
 
 .method private static flattenString([Ljava/lang/Object;Ljava/util/ArrayList;)V
-    .registers 8
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -259,8 +259,8 @@
 
     const/4 v1, 0x0
 
-    :goto_2
-    if-ge v1, v0, :cond_60
+    :goto_0
+    if-ge v1, v0, :cond_3
 
     aget-object v2, p0, v1
 
@@ -274,7 +274,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4c
+    if-eqz v4, :cond_2
 
     .line 9
     invoke-virtual {v3}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
@@ -285,17 +285,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_20
+    if-eqz v4, :cond_0
 
     .line 10
     check-cast v2, [Ljava/lang/Object;
 
     invoke-static {v2, p1}, Lai/onnxruntime/OrtUtil;->flattenString([Ljava/lang/Object;Ljava/util/ArrayList;)V
 
-    goto :goto_35
+    goto :goto_1
 
     .line 11
-    :cond_20
+    :cond_0
     invoke-virtual {v3}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
     move-result-object v4
@@ -306,7 +306,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_38
+    if-eqz v4, :cond_1
 
     .line 12
     check-cast v2, [Ljava/lang/String;
@@ -317,13 +317,13 @@
 
     invoke-virtual {p1, v2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    :goto_35
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 13
-    :cond_38
+    :cond_1
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -343,7 +343,7 @@
     throw p0
 
     .line 14
-    :cond_4c
+    :cond_2
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -362,17 +362,17 @@
 
     throw p0
 
-    :cond_60
+    :cond_3
     return-void
 .end method
 
 .method public static flattenString(Ljava/lang/Object;)[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 1
     instance-of v0, p0, [Ljava/lang/String;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 2
     check-cast p0, [Ljava/lang/String;
@@ -380,7 +380,7 @@
     return-object p0
 
     .line 3
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -405,7 +405,7 @@
 .end method
 
 .method public static newBooleanArray([J)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     invoke-static {p0}, Lai/onnxruntime/OrtUtil;->transformShape([J)[I
 
@@ -421,7 +421,7 @@
 .end method
 
 .method public static newByteArray([J)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     invoke-static {p0}, Lai/onnxruntime/OrtUtil;->transformShape([J)[I
 
@@ -437,7 +437,7 @@
 .end method
 
 .method public static newDoubleArray([J)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     invoke-static {p0}, Lai/onnxruntime/OrtUtil;->transformShape([J)[I
 
@@ -453,7 +453,7 @@
 .end method
 
 .method public static newFloatArray([J)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     invoke-static {p0}, Lai/onnxruntime/OrtUtil;->transformShape([J)[I
 
@@ -469,7 +469,7 @@
 .end method
 
 .method public static newIntArray([J)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     invoke-static {p0}, Lai/onnxruntime/OrtUtil;->transformShape([J)[I
 
@@ -485,7 +485,7 @@
 .end method
 
 .method public static newLongArray([J)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     invoke-static {p0}, Lai/onnxruntime/OrtUtil;->transformShape([J)[I
 
@@ -501,7 +501,7 @@
 .end method
 
 .method public static newShortArray([J)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     invoke-static {p0}, Lai/onnxruntime/OrtUtil;->transformShape([J)[I
 
@@ -517,7 +517,7 @@
 .end method
 
 .method public static newStringArray([J)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     invoke-static {p0}, Lai/onnxruntime/OrtUtil;->transformShape([J)[I
 
@@ -533,15 +533,15 @@
 .end method
 
 .method public static prepareBuffer(Ljava/nio/Buffer;Lai/onnxruntime/OnnxJavaType;)Lai/onnxruntime/OrtUtil$BufferTuple;
-    .registers 13
+    .locals 11
 
     sget-object v0, Lai/onnxruntime/OnnxJavaType;->STRING:Lai/onnxruntime/OnnxJavaType;
 
-    if-eq p1, v0, :cond_e0
+    if-eq p1, v0, :cond_3
 
     sget-object v0, Lai/onnxruntime/OnnxJavaType;->UNKNOWN:Lai/onnxruntime/OnnxJavaType;
 
-    if-eq p1, v0, :cond_e0
+    if-eq p1, v0, :cond_3
 
     invoke-virtual {p0}, Ljava/nio/Buffer;->remaining()I
 
@@ -565,7 +565,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gtz v0, :cond_c0
+    if-gtz v0, :cond_2
 
     invoke-virtual {p0}, Ljava/nio/Buffer;->remaining()I
 
@@ -581,7 +581,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_35
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
@@ -595,9 +595,9 @@
 
     move v5, v1
 
-    goto/16 :goto_af
+    goto/16 :goto_1
 
-    :cond_35
+    :cond_0
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
     move-result v1
@@ -622,9 +622,9 @@
 
     aget v4, v4, v5
 
-    packed-switch v4, :pswitch_data_fa
+    packed-switch v4, :pswitch_data_0
 
-    :pswitch_50  #0x9, 0xa
+    :pswitch_0
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -643,7 +643,7 @@
 
     throw p0
 
-    :pswitch_64  #0x7
+    :pswitch_1
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->asLongBuffer()Ljava/nio/LongBuffer;
 
     move-result-object p1
@@ -656,9 +656,9 @@
 
     move-result-object p1
 
-    goto :goto_a7
+    goto :goto_0
 
-    :pswitch_70  #0x6
+    :pswitch_2
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
     move-result-object p1
@@ -671,9 +671,9 @@
 
     move-result-object p1
 
-    goto :goto_a7
+    goto :goto_0
 
-    :pswitch_7c  #0x5, 0xb, 0xc
+    :pswitch_3
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
     move-result-object p1
@@ -686,9 +686,9 @@
 
     move-result-object p1
 
-    goto :goto_a7
+    goto :goto_0
 
-    :pswitch_88  #0x3, 0x4, 0x8
+    :pswitch_4
     move-object p1, p0
 
     check-cast p1, Ljava/nio/ByteBuffer;
@@ -697,9 +697,9 @@
 
     move-result-object p1
 
-    goto :goto_a7
+    goto :goto_0
 
-    :pswitch_90  #0x2
+    :pswitch_5
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->asDoubleBuffer()Ljava/nio/DoubleBuffer;
 
     move-result-object p1
@@ -712,9 +712,9 @@
 
     move-result-object p1
 
-    goto :goto_a7
+    goto :goto_0
 
-    :pswitch_9c  #0x1
+    :pswitch_6
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
 
     move-result-object p1
@@ -727,7 +727,7 @@
 
     move-result-object p1
 
-    :goto_a7
+    :goto_0
     invoke-virtual {p0, v1}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
     invoke-virtual {p1}, Ljava/nio/Buffer;->rewind()Ljava/nio/Buffer;
@@ -736,7 +736,7 @@
 
     move v5, v2
 
-    :goto_af
+    :goto_1
     new-instance p1, Lai/onnxruntime/OrtUtil$BufferTuple;
 
     int-to-long v6, v0
@@ -747,11 +747,11 @@
 
     int-to-long v8, v0
 
-    if-eq v4, p0, :cond_ba
+    if-eq v4, p0, :cond_1
 
     const/4 v2, 0x1
 
-    :cond_ba
+    :cond_1
     move v10, v2
 
     move-object v3, p1
@@ -760,7 +760,7 @@
 
     return-object p1
 
-    :cond_c0
+    :cond_2
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -789,7 +789,7 @@
 
     throw v0
 
-    :cond_e0
+    :cond_3
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -814,25 +814,25 @@
 
     nop
 
-    :pswitch_data_fa
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_9c  #00000001
-        :pswitch_90  #00000002
-        :pswitch_88  #00000003
-        :pswitch_88  #00000004
-        :pswitch_7c  #00000005
-        :pswitch_70  #00000006
-        :pswitch_64  #00000007
-        :pswitch_88  #00000008
-        :pswitch_50  #00000009
-        :pswitch_50  #0000000a
-        :pswitch_7c  #0000000b
-        :pswitch_7c  #0000000c
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_4
+        :pswitch_0
+        :pswitch_0
+        :pswitch_3
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method private static reshape(Ljava/lang/Object;Ljava/lang/Object;I)I
-    .registers 10
+    .locals 7
 
     .line 17
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -845,7 +845,7 @@
 
     const-string v1, "Found element type when expecting an array. Class "
 
-    if-eqz v0, :cond_52
+    if-eqz v0, :cond_4
 
     .line 18
     check-cast p1, [Ljava/lang/Object;
@@ -857,8 +857,8 @@
 
     move v3, v2
 
-    :goto_11
-    if-ge v3, v0, :cond_51
+    :goto_0
+    if-ge v3, v0, :cond_3
 
     aget-object v4, p1, v3
 
@@ -872,7 +872,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3f
+    if-eqz v6, :cond_2
 
     .line 22
     invoke-virtual {v5}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
@@ -884,25 +884,25 @@
 
     move-result v6
 
-    if-nez v6, :cond_33
+    if-nez v6, :cond_1
 
     const-class v6, Ljava/lang/String;
 
-    if-ne v5, v6, :cond_2e
+    if-ne v5, v6, :cond_0
 
-    goto :goto_33
+    goto :goto_1
 
     .line 24
-    :cond_2e
+    :cond_0
     invoke-static {p0, v4, p2}, Lai/onnxruntime/OrtUtil;->reshape(Ljava/lang/Object;Ljava/lang/Object;I)I
 
     move-result p2
 
-    goto :goto_3c
+    goto :goto_2
 
     .line 25
-    :cond_33
-    :goto_33
+    :cond_1
+    :goto_1
     invoke-static {v4}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v5
@@ -914,13 +914,13 @@
 
     move p2, v5
 
-    :goto_3c
+    :goto_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 27
-    :cond_3f
+    :cond_2
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -937,11 +937,11 @@
 
     throw p0
 
-    :cond_51
+    :cond_3
     return p2
 
     .line 28
-    :cond_52
+    :cond_4
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -965,7 +965,7 @@
 .end method
 
 .method public static reshape([B[J)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     .line 3
     invoke-static {p1}, Lai/onnxruntime/OrtUtil;->newByteArray([J)Ljava/lang/Object;
@@ -981,7 +981,7 @@
 .end method
 
 .method public static reshape([D[J)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     .line 13
     invoke-static {p1}, Lai/onnxruntime/OrtUtil;->newDoubleArray([J)Ljava/lang/Object;
@@ -997,7 +997,7 @@
 .end method
 
 .method public static reshape([F[J)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     .line 11
     invoke-static {p1}, Lai/onnxruntime/OrtUtil;->newFloatArray([J)Ljava/lang/Object;
@@ -1013,7 +1013,7 @@
 .end method
 
 .method public static reshape([I[J)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     .line 7
     invoke-static {p1}, Lai/onnxruntime/OrtUtil;->newIntArray([J)Ljava/lang/Object;
@@ -1029,7 +1029,7 @@
 .end method
 
 .method public static reshape([J[J)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     .line 9
     invoke-static {p1}, Lai/onnxruntime/OrtUtil;->newLongArray([J)Ljava/lang/Object;
@@ -1045,7 +1045,7 @@
 .end method
 
 .method public static reshape([Ljava/lang/String;[J)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     .line 15
     invoke-static {p1}, Lai/onnxruntime/OrtUtil;->newStringArray([J)Ljava/lang/Object;
@@ -1061,7 +1061,7 @@
 .end method
 
 .method public static reshape([S[J)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     .line 5
     invoke-static {p1}, Lai/onnxruntime/OrtUtil;->newShortArray([J)Ljava/lang/Object;
@@ -1077,7 +1077,7 @@
 .end method
 
 .method public static reshape([Z[J)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     .line 1
     invoke-static {p1}, Lai/onnxruntime/OrtUtil;->newBooleanArray([J)Ljava/lang/Object;
@@ -1093,18 +1093,18 @@
 .end method
 
 .method public static transformShape([J)[I
-    .registers 7
+    .locals 6
 
     .line 1
     array-length v0, p0
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_2
 
     array-length v0, p0
 
     const/16 v1, 0x8
 
-    if-gt v0, v1, :cond_3d
+    if-gt v0, v1, :cond_2
 
     .line 2
     array-length v0, p0
@@ -1114,10 +1114,10 @@
     const/4 v1, 0x0
 
     .line 3
-    :goto_c
+    :goto_0
     array-length v2, p0
 
-    if-ge v1, v2, :cond_3c
+    if-ge v1, v2, :cond_1
 
     .line 4
     aget-wide v2, p0, v1
@@ -1126,13 +1126,13 @@
 
     cmp-long v4, v2, v4
 
-    if-ltz v4, :cond_24
+    if-ltz v4, :cond_0
 
     const-wide/32 v4, 0x7fffffff
 
     cmp-long v4, v2, v4
 
-    if-gtz v4, :cond_24
+    if-gtz v4, :cond_0
 
     long-to-int v2, v2
 
@@ -1141,10 +1141,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 6
-    :cond_24
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1168,11 +1168,11 @@
 
     throw v0
 
-    :cond_3c
+    :cond_1
     return-object v0
 
     .line 8
-    :cond_3d
+    :cond_2
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Arrays with less than 1 and greater than 8 dimensions are not supported."
@@ -1183,18 +1183,18 @@
 .end method
 
 .method public static transformShape([I)[J
-    .registers 7
+    .locals 6
 
     .line 9
     array-length v0, p0
 
-    if-eqz v0, :cond_36
+    if-eqz v0, :cond_2
 
     array-length v0, p0
 
     const/16 v1, 0x8
 
-    if-gt v0, v1, :cond_36
+    if-gt v0, v1, :cond_2
 
     .line 10
     array-length v0, p0
@@ -1204,10 +1204,10 @@
     const/4 v1, 0x0
 
     .line 11
-    :goto_c
+    :goto_0
     array-length v2, p0
 
-    if-ge v1, v2, :cond_35
+    if-ge v1, v2, :cond_1
 
     .line 12
     aget v2, p0, v1
@@ -1218,17 +1218,17 @@
 
     cmp-long v4, v2, v4
 
-    if-ltz v4, :cond_1d
+    if-ltz v4, :cond_0
 
     .line 13
     aput-wide v2, v0, v1
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 14
-    :cond_1d
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1252,11 +1252,11 @@
 
     throw v0
 
-    :cond_35
+    :cond_1
     return-object v0
 
     .line 16
-    :cond_36
+    :cond_2
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Arrays with less than 1 and greater than 8 dimensions are not supported."
@@ -1267,7 +1267,7 @@
 .end method
 
 .method public static validateShape([J)Z
-    .registers 9
+    .locals 8
 
     const/4 v0, 0x1
 
@@ -1277,10 +1277,10 @@
 
     move v2, v1
 
-    :goto_4
+    :goto_0
     array-length v4, p0
 
-    if-ge v2, v4, :cond_20
+    if-ge v2, v4, :cond_2
 
     aget-wide v4, p0, v2
 
@@ -1288,16 +1288,16 @@
 
     cmp-long v6, v4, v6
 
-    if-lez v6, :cond_11
+    if-lez v6, :cond_0
 
     move v6, v0
 
-    goto :goto_12
+    goto :goto_1
 
-    :cond_11
+    :cond_0
     move v6, v1
 
-    :goto_12
+    :goto_1
     and-int/2addr v3, v6
 
     long-to-int v6, v4
@@ -1306,36 +1306,36 @@
 
     cmp-long v4, v6, v4
 
-    if-nez v4, :cond_1b
+    if-nez v4, :cond_1
 
     move v4, v0
 
-    goto :goto_1c
+    goto :goto_2
 
-    :cond_1b
+    :cond_1
     move v4, v1
 
-    :goto_1c
+    :goto_2
     and-int/2addr v3, v4
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_20
-    if-eqz v3, :cond_28
+    :cond_2
+    if-eqz v3, :cond_3
 
     array-length p0, p0
 
     const/16 v2, 0x8
 
-    if-gt p0, v2, :cond_28
+    if-gt p0, v2, :cond_3
 
-    goto :goto_29
+    goto :goto_3
 
-    :cond_28
+    :cond_3
     move v0, v1
 
-    :goto_29
+    :goto_3
     return v0
 .end method

@@ -1,149 +1,115 @@
-.class public abstract Lq/U5;
+.class public final Lq/U5;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
 
 # static fields
-.field public static final a:Landroid/os/Handler;
+.field public static final synthetic f:I
 
-.field public static final b:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-.field public static final c:Ljava/util/concurrent/atomic/AtomicBoolean;
+# instance fields
+.field public a:Ljava/util/List;
 
-.field public static final d:Lq/T5;
+.field public b:Ljava/util/List;
+
+.field public c:Ljava/util/List;
+
+.field public d:Ljava/util/List;
+
+.field public e:Ljava/util/List;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
-
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    sput-object v0, Lq/U5;->a:Landroid/os/Handler;
-
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
-
-    sput-object v0, Lq/U5;->b:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
-
-    sput-object v0, Lq/U5;->c:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .locals 1
 
     new-instance v0, Lq/T5;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Lq/T5;-><init>()V
 
-    sput-object v0, Lq/U5;->d:Lq/T5;
+    invoke-virtual {v0}, Lq/T5;->a()Lq/U5;
 
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;)V
-    .registers 8
 
-    const/4 v0, 0x1
+# virtual methods
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 5
 
-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    if-ne p0, p1, :cond_0
 
-    move-result-object p0
+    const/4 p1, 0x1
 
-    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+    return p1
 
-    move-result-object v1
+    :cond_0
+    instance-of v0, p1, Lq/U5;
 
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+    if-nez v0, :cond_1
 
-    move-result-object v2
+    const/4 p1, 0x0
 
-    if-eq v1, v2, :cond_1a
+    return p1
 
-    sget-object v1, Lq/U5;->a:Landroid/os/Handler;
+    :cond_1
+    iget-object v0, p0, Lq/U5;->a:Ljava/util/List;
 
-    new-instance v2, Lq/w4;
+    iget-object v1, p0, Lq/U5;->b:Ljava/util/List;
 
-    invoke-direct {v2, p0, v0}, Lq/w4;-><init>(Landroid/content/Context;I)V
+    iget-object v2, p0, Lq/U5;->c:Ljava/util/List;
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    iget-object v3, p0, Lq/U5;->d:Ljava/util/List;
 
-    return-void
+    iget-object v4, p0, Lq/U5;->e:Ljava/util/List;
 
-    :cond_1a
-    sget-object v1, Lq/U5;->b:Ljava/util/concurrent/atomic/AtomicBoolean;
+    filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    move-result-object v0
 
-    invoke-virtual {v1, v2, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
+    check-cast p1, Lq/U5;
 
-    move-result v3
+    iget-object v1, p1, Lq/U5;->a:Ljava/util/List;
 
-    if-eqz v3, :cond_3e
+    iget-object v2, p1, Lq/U5;->b:Ljava/util/List;
 
-    :try_start_23
-    sget-object v3, Lq/U5;->d:Lq/T5;
+    iget-object v3, p1, Lq/U5;->c:Ljava/util/List;
 
-    new-instance v4, Lq/Z5;
+    iget-object v4, p1, Lq/U5;->d:Ljava/util/List;
 
-    invoke-direct {v4, v3}, Lq/Z5;-><init>(Lq/T5;)V
+    iget-object p1, p1, Lq/U5;->e:Ljava/util/List;
 
-    new-instance v5, Lq/L2;
+    filled-new-array {v1, v2, v3, v4, p1}, [Ljava/lang/Object;
 
-    const/4 v6, 0x5
+    move-result-object p1
 
-    invoke-direct {v5, v6}, Lq/L2;-><init>(I)V
+    invoke-static {v0, p1}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
 
-    sget-object v6, Lq/O5;->a:Ljava/util/WeakHashMap;
+    move-result p1
 
-    new-instance v6, Lq/M5;
+    return p1
+.end method
 
-    invoke-direct {v6, v4, v5, p0}, Lq/M5;-><init>(Lq/Z5;Lq/L2;Landroid/content/Context;)V
+.method public final hashCode()I
+    .locals 5
 
-    invoke-virtual {v3, v6}, Lq/T5;->execute(Ljava/lang/Runnable;)V
-    :try_end_3a
-    .catchall {:try_start_23 .. :try_end_3a} :catchall_3b
+    iget-object v0, p0, Lq/U5;->a:Ljava/util/List;
 
-    goto :goto_3e
+    iget-object v1, p0, Lq/U5;->b:Ljava/util/List;
 
-    :catchall_3b
-    invoke-virtual {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    iget-object v2, p0, Lq/U5;->c:Ljava/util/List;
 
-    :cond_3e
-    :goto_3e
-    sget-object p0, Lq/U5;->c:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object v3, p0, Lq/U5;->d:Ljava/util/List;
 
-    invoke-virtual {p0, v2, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
+    iget-object v4, p0, Lq/U5;->e:Ljava/util/List;
 
-    move-result p0
+    filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/Object;
 
-    if-eqz p0, :cond_59
+    move-result-object v0
 
-    new-instance p0, Ljava/lang/Thread;
+    invoke-static {v0}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
-    new-instance v1, Lq/r3;
+    move-result v0
 
-    const/4 v2, 0x2
-
-    invoke-direct {v1, v2}, Lq/r3;-><init>(I)V
-
-    const-string v2, "qiuhui-game-dns-warmup"
-
-    invoke-direct {p0, v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
-
-    invoke-virtual {p0, v0}, Ljava/lang/Thread;->setDaemon(Z)V
-
-    invoke-virtual {p0}, Ljava/lang/Thread;->start()V
-
-    :cond_59
-    return-void
+    return v0
 .end method

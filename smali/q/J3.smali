@@ -1,172 +1,175 @@
-.class public final Lq/J3;
+.class public final synthetic Lq/J3;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
 # interfaces
-.implements Landroid/widget/SeekBar$OnSeekBarChangeListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic a:Landroid/widget/SeekBar;
+.field public final synthetic a:I
 
-.field public final synthetic b:Landroid/widget/SeekBar;
-
-.field public final synthetic c:Landroid/widget/TextView;
-
-.field public final synthetic d:Lcom/qiuhui/mahjong/MainActivity;
+.field public final synthetic b:Lcom/qiuhui/mahjong/MainActivity;
 
 
 # direct methods
-.method public constructor <init>(Lcom/qiuhui/mahjong/MainActivity;Landroid/widget/SeekBar;Landroid/widget/SeekBar;Landroid/widget/TextView;)V
-    .registers 5
+.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/MainActivity;I)V
+    .locals 0
+
+    iput p2, p0, Lq/J3;->a:I
+
+    iput-object p1, p0, Lq/J3;->b:Lcom/qiuhui/mahjong/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lq/J3;->d:Lcom/qiuhui/mahjong/MainActivity;
-
-    iput-object p2, p0, Lq/J3;->a:Landroid/widget/SeekBar;
-
-    iput-object p3, p0, Lq/J3;->b:Landroid/widget/SeekBar;
-
-    iput-object p4, p0, Lq/J3;->c:Landroid/widget/TextView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .registers 8
+.method public final run()V
+    .locals 6
 
-    if-nez p3, :cond_3
-
-    return-void
-
-    :cond_3
-    iget-object p2, p0, Lq/J3;->a:Landroid/widget/SeekBar;
-
-    invoke-virtual {p2}, Landroid/widget/ProgressBar;->getProgress()I
-
-    move-result p3
-
-    const/16 v0, 0x2f
-
-    invoke-static {p3, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result p3
+    const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    invoke-static {v1, p3}, Ljava/lang/Math;->max(II)I
+    iget v2, p0, Lq/J3;->a:I
 
-    move-result p3
+    packed-switch v2, :pswitch_data_0
 
-    mul-int/lit8 p3, p3, 0x64
+    sget-boolean v2, Lcom/qiuhui/mahjong/MainActivity;->v:Z
 
-    add-int/lit16 p3, p3, 0x12c
+    iget-object v2, p0, Lq/J3;->b:Lcom/qiuhui/mahjong/MainActivity;
 
-    iget-object v2, p0, Lq/J3;->b:Landroid/widget/SeekBar;
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {v2}, Landroid/widget/ProgressBar;->getProgress()I
+    new-instance v3, Lq/J3;
 
-    move-result v3
+    const/4 v4, 0x2
 
-    invoke-static {v3, v0}, Ljava/lang/Math;->min(II)I
+    invoke-direct {v3, v2, v4}, Lq/J3;-><init>(Lcom/qiuhui/mahjong/MainActivity;I)V
 
-    move-result v0
+    invoke-virtual {v2}, Landroid/app/Activity;->isFinishing()Z
 
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+    move-result v4
 
-    move-result v0
+    if-nez v4, :cond_2
 
-    mul-int/lit8 v0, v0, 0x64
+    invoke-virtual {v2}, Landroid/app/Activity;->isDestroyed()Z
 
-    add-int/lit16 v0, v0, 0x12c
+    move-result v4
 
-    if-ne p1, p2, :cond_37
+    if-eqz v4, :cond_0
 
-    if-le p3, v0, :cond_37
+    goto :goto_0
 
-    invoke-virtual {p2}, Landroid/widget/ProgressBar;->getProgress()I
+    :cond_0
 
-    move-result p1
+    invoke-virtual {v3}, Lq/J3;->run()V
 
-    invoke-virtual {v2, p1}, Landroid/widget/ProgressBar;->setProgress(I)V
+    goto :goto_1
 
-    move v0, p3
 
-    goto :goto_43
 
-    :cond_37
-    if-ne p1, v2, :cond_43
+    :cond_2
+    :goto_0
+    invoke-virtual {v3}, Lq/J3;->run()V
 
-    if-ge v0, p3, :cond_43
+    :goto_1
+    return-void
 
-    invoke-virtual {v2}, Landroid/widget/ProgressBar;->getProgress()I
+    :pswitch_0
+    sget-boolean v0, Lcom/qiuhui/mahjong/MainActivity;->v:Z
 
-    move-result p1
+    iget-object v0, p0, Lq/J3;->b:Lcom/qiuhui/mahjong/MainActivity;
 
-    invoke-virtual {p2, p1}, Landroid/widget/ProgressBar;->setProgress(I)V
+    invoke-virtual {v0}, Lcom/qiuhui/mahjong/MainActivity;->l()V
 
-    move p3, v0
+    return-void
 
-    :cond_43
-    :goto_43
-    invoke-static {p3}, Lq/y;->j(I)I
+    :pswitch_1
+    sget-boolean v0, Lcom/qiuhui/mahjong/MainActivity;->v:Z
 
-    move-result p1
+    iget-object v0, p0, Lq/J3;->b:Lcom/qiuhui/mahjong/MainActivity;
 
-    invoke-static {v0}, Lq/y;->j(I)I
+    invoke-virtual {v0}, Lcom/qiuhui/mahjong/MainActivity;->b()V
 
-    move-result p2
+    invoke-virtual {v0}, Lcom/qiuhui/mahjong/MainActivity;->k()V
 
-    invoke-static {p1, p2}, Ljava/lang/Math;->max(II)I
+    return-void
 
-    move-result p2
+    :pswitch_2
+    sget-boolean v1, Lcom/qiuhui/mahjong/MainActivity;->v:Z
 
-    iget-object v1, p0, Lq/J3;->d:Lcom/qiuhui/mahjong/MainActivity;
+    iget-object v1, p0, Lq/J3;->b:Lcom/qiuhui/mahjong/MainActivity;
 
-    invoke-static {v1}, Lq/y;->t(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {v1}, Lq/O;->n(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-static {v1, v0}, Lq/W;->j(Landroid/app/Activity;Lq/z3;)V
+
+    :cond_3
+    return-void
+
+    :pswitch_3
+    iget-object v0, p0, Lq/J3;->b:Lcom/qiuhui/mahjong/MainActivity;
+
+    iget-object v1, v0, Lcom/qiuhui/mahjong/MainActivity;->t:Lq/a4;
+
+    invoke-static {v0, v1}, Lq/C5;->a(Landroid/content/Context;Lq/a4;)V
+
+    return-void
+
+    :pswitch_4
+    iget-object v0, p0, Lq/J3;->b:Lcom/qiuhui/mahjong/MainActivity;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    invoke-virtual {v0}, Landroid/app/Activity;->isDestroyed()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    new-instance v1, Landroid/content/Intent;
+
+    const-class v2, Lcom/qiuhui/mahjong/LicenseActivity;
+
+    invoke-direct {v1, v0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const/high16 v2, 0x4000000
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     move-result-object v1
 
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    move-result-object v1
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    const-string v2, "discard_delay_min_ms"
-
-    invoke-interface {v1, v2, p1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    const-string v1, "discard_delay_max_ms"
-
-    invoke-interface {p1, v1, p2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    invoke-static {p3, v0}, Lq/y;->o(II)Ljava/lang/String;
-
-    move-result-object p1
-
-    iget-object p2, p0, Lq/J3;->c:Landroid/widget/TextView;
-
-    invoke-virtual {p2, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
+    :cond_5
+    :goto_2
     return-void
-.end method
 
-.method public final onStartTrackingTouch(Landroid/widget/SeekBar;)V
-    .registers 2
-
-    return-void
-.end method
-
-.method public final onStopTrackingTouch(Landroid/widget/SeekBar;)V
-    .registers 2
-
-    return-void
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

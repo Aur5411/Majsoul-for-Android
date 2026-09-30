@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Lai/onnxruntime/OnnxModelMetadata;)V
-    .registers 4
+    .locals 2
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,17 +72,17 @@
 
     move-result p1
 
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     .line 31
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object p1
 
-    goto :goto_31
+    goto :goto_0
 
     .line 32
-    :cond_28
+    :cond_0
     new-instance p1, Ljava/util/HashMap;
 
     invoke-virtual {p0}, Lai/onnxruntime/OnnxModelMetadata;->getCustomMetadata()Ljava/util/Map;
@@ -91,14 +91,14 @@
 
     invoke-direct {p1, v0}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
-    :goto_31
+    :goto_0
     iput-object p1, p0, Lai/onnxruntime/OnnxModelMetadata;->customMetadata:Ljava/util/Map;
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/util/Map;)V
-    .registers 10
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,63 +121,63 @@
     .line 16
     const-string v0, ""
 
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     move-object p1, v0
 
-    :cond_8
+    :cond_0
     iput-object p1, p0, Lai/onnxruntime/OnnxModelMetadata;->producerName:Ljava/lang/String;
 
-    if-nez p2, :cond_d
+    if-nez p2, :cond_1
 
     move-object p2, v0
 
     .line 17
-    :cond_d
+    :cond_1
     iput-object p2, p0, Lai/onnxruntime/OnnxModelMetadata;->graphName:Ljava/lang/String;
 
-    if-nez p3, :cond_12
+    if-nez p3, :cond_2
 
     move-object p3, v0
 
     .line 18
-    :cond_12
+    :cond_2
     iput-object p3, p0, Lai/onnxruntime/OnnxModelMetadata;->graphDescription:Ljava/lang/String;
 
-    if-nez p4, :cond_17
+    if-nez p4, :cond_3
 
     move-object p4, v0
 
     .line 19
-    :cond_17
+    :cond_3
     iput-object p4, p0, Lai/onnxruntime/OnnxModelMetadata;->domain:Ljava/lang/String;
 
-    if-nez p5, :cond_1c
+    if-nez p5, :cond_4
 
     move-object p5, v0
 
     .line 20
-    :cond_1c
+    :cond_4
     iput-object p5, p0, Lai/onnxruntime/OnnxModelMetadata;->description:Ljava/lang/String;
 
     .line 21
     iput-wide p6, p0, Lai/onnxruntime/OnnxModelMetadata;->version:J
 
-    if-nez p8, :cond_26
+    if-nez p8, :cond_5
 
     .line 22
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object p8
 
-    :cond_26
+    :cond_5
     iput-object p8, p0, Lai/onnxruntime/OnnxModelMetadata;->customMetadata:Ljava/util/Map;
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J[Ljava/lang/String;)V
-    .registers 10
+    .locals 1
 
     .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -185,54 +185,54 @@
     .line 2
     const-string v0, ""
 
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     move-object p1, v0
 
-    :cond_8
+    :cond_0
     iput-object p1, p0, Lai/onnxruntime/OnnxModelMetadata;->producerName:Ljava/lang/String;
 
-    if-nez p2, :cond_d
+    if-nez p2, :cond_1
 
     move-object p2, v0
 
     .line 3
-    :cond_d
+    :cond_1
     iput-object p2, p0, Lai/onnxruntime/OnnxModelMetadata;->graphName:Ljava/lang/String;
 
-    if-nez p3, :cond_12
+    if-nez p3, :cond_2
 
     move-object p3, v0
 
     .line 4
-    :cond_12
+    :cond_2
     iput-object p3, p0, Lai/onnxruntime/OnnxModelMetadata;->graphDescription:Ljava/lang/String;
 
-    if-nez p4, :cond_17
+    if-nez p4, :cond_3
 
     move-object p4, v0
 
     .line 5
-    :cond_17
+    :cond_3
     iput-object p4, p0, Lai/onnxruntime/OnnxModelMetadata;->domain:Ljava/lang/String;
 
-    if-nez p5, :cond_1c
+    if-nez p5, :cond_4
 
     move-object p5, v0
 
     .line 6
-    :cond_1c
+    :cond_4
     iput-object p5, p0, Lai/onnxruntime/OnnxModelMetadata;->description:Ljava/lang/String;
 
     .line 7
     iput-wide p6, p0, Lai/onnxruntime/OnnxModelMetadata;->version:J
 
-    if-eqz p8, :cond_4c
+    if-eqz p8, :cond_6
 
     .line 8
     array-length p1, p8
 
-    if-lez p1, :cond_4c
+    if-lez p1, :cond_6
 
     .line 9
     new-instance p1, Ljava/util/HashMap;
@@ -248,15 +248,15 @@
 
     const/4 p2, 0x1
 
-    if-eq p1, p2, :cond_44
+    if-eq p1, p2, :cond_5
 
     const/4 p1, 0x0
 
     .line 11
-    :goto_33
+    :goto_0
     array-length p2, p8
 
-    if-ge p1, p2, :cond_52
+    if-ge p1, p2, :cond_7
 
     .line 12
     iget-object p2, p0, Lai/onnxruntime/OnnxModelMetadata;->customMetadata:Ljava/util/Map;
@@ -271,10 +271,10 @@
 
     add-int/lit8 p1, p1, 0x2
 
-    goto :goto_33
+    goto :goto_0
 
     .line 13
-    :cond_44
+    :cond_5
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string p2, "Asked for keys and values, but received an odd number of elements."
@@ -284,32 +284,32 @@
     throw p1
 
     .line 14
-    :cond_4c
+    :cond_6
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object p1
 
     iput-object p1, p0, Lai/onnxruntime/OnnxModelMetadata;->customMetadata:Ljava/util/Map;
 
-    :cond_52
+    :cond_7
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 8
+    .locals 6
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
     return v0
 
-    :cond_4
+    :cond_0
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_59
+    if-eqz p1, :cond_3
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -317,11 +317,11 @@
 
     const-class v3, Lai/onnxruntime/OnnxModelMetadata;
 
-    if-eq v3, v2, :cond_10
+    if-eq v3, v2, :cond_1
 
-    goto :goto_59
+    goto :goto_1
 
-    :cond_10
+    :cond_1
     check-cast p1, Lai/onnxruntime/OnnxModelMetadata;
 
     iget-wide v2, p0, Lai/onnxruntime/OnnxModelMetadata;->version:J
@@ -330,7 +330,7 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_57
+    if-nez v2, :cond_2
 
     iget-object v2, p0, Lai/onnxruntime/OnnxModelMetadata;->producerName:Ljava/lang/String;
 
@@ -340,7 +340,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lai/onnxruntime/OnnxModelMetadata;->graphName:Ljava/lang/String;
 
@@ -350,7 +350,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lai/onnxruntime/OnnxModelMetadata;->graphDescription:Ljava/lang/String;
 
@@ -360,7 +360,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lai/onnxruntime/OnnxModelMetadata;->domain:Ljava/lang/String;
 
@@ -370,7 +370,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lai/onnxruntime/OnnxModelMetadata;->description:Ljava/lang/String;
 
@@ -380,7 +380,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lai/onnxruntime/OnnxModelMetadata;->customMetadata:Ljava/util/Map;
 
@@ -390,23 +390,23 @@
 
     move-result p1
 
-    if-eqz p1, :cond_57
+    if-eqz p1, :cond_2
 
-    goto :goto_58
+    goto :goto_0
 
-    :cond_57
+    :cond_2
     move v0, v1
 
-    :goto_58
+    :goto_0
     return v0
 
-    :cond_59
-    :goto_59
+    :cond_3
+    :goto_1
     return v1
 .end method
 
 .method public getCustomMetadata()Ljava/util/Map;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -427,7 +427,7 @@
 .end method
 
 .method public getCustomMetadataValue(Ljava/lang/String;)Ljava/util/Optional;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -455,7 +455,7 @@
 .end method
 
 .method public getDescription()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxModelMetadata;->description:Ljava/lang/String;
 
@@ -463,7 +463,7 @@
 .end method
 
 .method public getDomain()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxModelMetadata;->domain:Ljava/lang/String;
 
@@ -471,7 +471,7 @@
 .end method
 
 .method public getGraphDescription()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxModelMetadata;->graphDescription:Ljava/lang/String;
 
@@ -479,7 +479,7 @@
 .end method
 
 .method public getGraphName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxModelMetadata;->graphName:Ljava/lang/String;
 
@@ -487,7 +487,7 @@
 .end method
 
 .method public getProducerName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxModelMetadata;->producerName:Ljava/lang/String;
 
@@ -495,7 +495,7 @@
 .end method
 
 .method public getVersion()J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lai/onnxruntime/OnnxModelMetadata;->version:J
 
@@ -503,7 +503,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 8
+    .locals 7
 
     iget-object v0, p0, Lai/onnxruntime/OnnxModelMetadata;->producerName:Ljava/lang/String;
 
@@ -535,7 +535,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

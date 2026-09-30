@@ -1,203 +1,115 @@
-.class public final Lq/Y4;
-.super Lq/a5;
+.class public final synthetic Lq/Y4;
+.super Ljava/lang/Object;
 .source "SourceFile"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic b:I
+.field public final synthetic a:I
+
+.field public final synthetic b:Lq/e5;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lsun/misc/Unsafe;I)V
-    .registers 3
+.method public synthetic constructor <init>(Lq/e5;I)V
+    .locals 0
 
-    iput p2, p0, Lq/Y4;->b:I
+    iput p2, p0, Lq/Y4;->a:I
 
-    invoke-direct {p0, p1}, Lq/a5;-><init>(Lsun/misc/Unsafe;)V
+    iput-object p1, p0, Lq/Y4;->b:Lq/e5;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final c(Ljava/lang/Object;J)B
-    .registers 10
+.method public final run()V
+    .locals 4
 
-    iget v0, p0, Lq/Y4;->b:I
+    iget v0, p0, Lq/Y4;->a:I
 
-    packed-switch v0, :pswitch_data_4a
+    packed-switch v0, :pswitch_data_0
 
-    sget-boolean v0, Lq/b5;->f:Z
+    iget-object v0, p0, Lq/Y4;->b:Lq/e5;
 
-    const/4 v1, 0x3
+    invoke-virtual {v0}, Lq/e5;->g()V
 
-    const-wide/16 v2, 0x3
-
-    const-wide/16 v4, -0x4
-
-    if-eqz v0, :cond_1e
-
-    and-long/2addr v4, p2
-
-    sget-object v0, Lq/b5;->b:Lq/a5;
-
-    invoke-virtual {v0, p1, v4, v5}, Lq/a5;->d(Ljava/lang/Object;J)I
-
-    move-result p1
-
-    not-long p2, p2
-
-    :goto_16
-    and-long/2addr p2, v2
-
-    shl-long/2addr p2, v1
-
-    long-to-int p2, p2
-
-    ushr-int/2addr p1, p2
-
-    and-int/lit16 p1, p1, 0xff
-
-    int-to-byte p1, p1
-
-    goto :goto_26
-
-    :cond_1e
-    and-long/2addr v4, p2
-
-    sget-object v0, Lq/b5;->b:Lq/a5;
-
-    invoke-virtual {v0, p1, v4, v5}, Lq/a5;->d(Ljava/lang/Object;J)I
-
-    move-result p1
-
-    goto :goto_16
-
-    :goto_26
-    return p1
-
-    :pswitch_27  #0x0
-    sget-boolean v0, Lq/b5;->f:Z
-
-    const/4 v1, 0x3
-
-    const-wide/16 v2, 0x3
-
-    const-wide/16 v4, -0x4
-
-    if-eqz v0, :cond_40
-
-    and-long/2addr v4, p2
-
-    sget-object v0, Lq/b5;->b:Lq/a5;
-
-    invoke-virtual {v0, p1, v4, v5}, Lq/a5;->d(Ljava/lang/Object;J)I
-
-    move-result p1
-
-    not-long p2, p2
-
-    :goto_38
-    and-long/2addr p2, v2
-
-    shl-long/2addr p2, v1
-
-    long-to-int p2, p2
-
-    ushr-int/2addr p1, p2
-
-    and-int/lit16 p1, p1, 0xff
-
-    int-to-byte p1, p1
-
-    goto :goto_48
-
-    :cond_40
-    and-long/2addr v4, p2
-
-    sget-object v0, Lq/b5;->b:Lq/a5;
-
-    invoke-virtual {v0, p1, v4, v5}, Lq/a5;->d(Ljava/lang/Object;J)I
-
-    move-result p1
-
-    goto :goto_38
-
-    :goto_48
-    return p1
-
-    nop
-
-    :pswitch_data_4a
-    .packed-switch 0x0
-        :pswitch_27  #00000000
-    .end packed-switch
-.end method
-
-.method public final g(Ljava/lang/Object;JB)V
-    .registers 6
-
-    iget v0, p0, Lq/Y4;->b:I
-
-    packed-switch v0, :pswitch_data_1e
-
-    sget-boolean v0, Lq/b5;->f:Z
-
-    if-eqz v0, :cond_d
-
-    invoke-static {p1, p2, p3, p4}, Lq/b5;->b(Ljava/lang/Object;JB)V
-
-    goto :goto_10
-
-    :cond_d
-    invoke-static {p1, p2, p3, p4}, Lq/b5;->c(Ljava/lang/Object;JB)V
-
-    :goto_10
     return-void
 
-    :pswitch_11  #0x0
-    sget-boolean v0, Lq/b5;->f:Z
+    :pswitch_0
+    iget-object v0, p0, Lq/Y4;->b:Lq/e5;
 
-    if-eqz v0, :cond_19
+    invoke-virtual {v0}, Lq/e5;->e()V
 
-    invoke-static {p1, p2, p3, p4}, Lq/b5;->b(Ljava/lang/Object;JB)V
-
-    goto :goto_1c
-
-    :cond_19
-    invoke-static {p1, p2, p3, p4}, Lq/b5;->c(Ljava/lang/Object;JB)V
-
-    :goto_1c
     return-void
 
-    nop
+    :pswitch_1
+    iget-object v0, p0, Lq/Y4;->b:Lq/e5;
 
-    :pswitch_data_1e
+    iget-object v1, v0, Lq/e5;->h:Landroid/os/Messenger;
+
+    iget-boolean v2, v0, Lq/e5;->n:Z
+
+    if-nez v2, :cond_1
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    invoke-static {v2, v3}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+
+    move-result-object v2
+
+    iget-object v3, v0, Lq/e5;->g:Landroid/os/Messenger;
+
+    iput-object v3, v2, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
+
+    :try_start_0
+    invoke-virtual {v1, v2}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "bridge channel request failed type="
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "QiuHuiDiag"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Lq/e5;->e()V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_11  #00000000
-    .end packed-switch
-.end method
-
-.method public final j()Z
-    .registers 2
-
-    iget v0, p0, Lq/Y4;->b:I
-
-    packed-switch v0, :pswitch_data_a
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :pswitch_7  #0x0
-    const/4 v0, 0x0
-
-    return v0
-
-    nop
-
-    :pswitch_data_a
-    .packed-switch 0x0
-        :pswitch_7  #00000000
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

@@ -1,47 +1,61 @@
-.class public Lq/b2;
-.super Lq/d2;
+.class public final Lq/b2;
+.super Lq/d;
 .source "SourceFile"
 
 
-# static fields
-.field public static final e:Lq/b2;
+# virtual methods
+.method public final a(Lq/f0;Lq/F2;)Ljava/lang/Object;
+    .locals 2
 
+    sget-object v0, Lq/d2;->h:Lq/d2;
 
-# instance fields
-.field public final d:Ljava/util/Map;
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .registers 1
-
-    new-instance v0, Lq/b2;
-
-    invoke-direct {v0}, Lq/b2;-><init>()V
-
-    sput-object v0, Lq/b2;->e:Lq/b2;
-
-    return-void
-.end method
-
-.method public constructor <init>()V
-    .registers 2
-
-    sget-object v0, Lq/d2;->c:Lq/d2;
-
-    invoke-direct {p0, v0}, Lq/d2;-><init>(Lq/d2;)V
-
-    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
-
-    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
-
-    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+    invoke-virtual {v0}, Lq/d2;->F()Lq/c2;
 
     move-result-object v0
 
-    iput-object v0, p0, Lq/b2;->d:Ljava/util/Map;
+    :try_start_0
+    invoke-virtual {v0, p1, p2}, Lq/c2;->R(Lq/f0;Lq/F2;)V
+    :try_end_0
+    .catch Lq/q3; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Lq/R5; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+    invoke-virtual {v0}, Lq/c2;->P()Lq/d2;
 
-    return-void
+    move-result-object p1
+
+    return-object p1
+
+    :catch_0
+    move-exception p1
+
+    new-instance p2, Lq/q3;
+
+    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p2, v1, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    invoke-virtual {v0}, Lq/c2;->P()Lq/d2;
+
+    throw p2
+
+    :catch_1
+    move-exception p1
+
+    invoke-virtual {p1}, Lq/R5;->a()Lq/q3;
+
+    move-result-object p1
+
+    invoke-virtual {v0}, Lq/c2;->P()Lq/d2;
+
+    throw p1
+
+    :catch_2
+    move-exception p1
+
+    invoke-virtual {v0}, Lq/c2;->P()Lq/d2;
+
+    throw p1
 .end method

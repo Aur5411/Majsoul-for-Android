@@ -1,36 +1,29 @@
-.class public final synthetic Lq/V2;
+.class public interface abstract Lq/V2;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
-# interfaces
-.implements Ljava/util/concurrent/Callable;
-
-
-# instance fields
-.field public final synthetic a:Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;
-
-
-# direct methods
-.method public synthetic constructor <init>(Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;)V
-    .registers 2
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lq/V2;->a:Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public final call()Ljava/lang/Object;
-    .registers 3
+.method public abstract a(Lq/R2;)Ljava/lang/Object;
+.end method
 
-    new-instance v0, Lq/W2;
+.method public abstract b(Lq/i3;)Ljava/lang/Object;
+.end method
 
-    iget-object v1, p0, Lq/V2;->a:Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;
+.method public abstract c(Lq/i3;)Z
+.end method
 
-    invoke-direct {v0, v1}, Lq/W2;-><init>(Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;)V
+.method public abstract d(Lq/R2;)Z
+.end method
 
-    return-object v0
+.method public abstract e(Lq/R2;)Lq/a;
+.end method
+
+.method public abstract f()Lq/a;
+.end method
+
+.method public abstract g(Lq/R2;Ljava/lang/Object;)V
+.end method
+
+.method public abstract h(Lq/R2;Ljava/lang/Object;)V
 .end method

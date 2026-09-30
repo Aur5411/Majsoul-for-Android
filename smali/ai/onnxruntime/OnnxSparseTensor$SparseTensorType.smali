@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 10
+    .locals 10
 
     new-instance v0, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -127,28 +127,28 @@
 .end method
 
 .method public static mapFromInt(I)Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
-    .registers 3
+    .locals 2
 
-    if-lez p0, :cond_a
+    if-lez p0, :cond_0
 
     sget-object v0, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;->values:[Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 
     array-length v1, v0
 
-    if-ge p0, v1, :cond_a
+    if-ge p0, v1, :cond_0
 
     aget-object p0, v0, p0
 
     return-object p0
 
-    :cond_a
+    :cond_0
     sget-object p0, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;->UNDEFINED:Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 
     return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
-    .registers 2
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public static values()[Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;->$VALUES:[Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 

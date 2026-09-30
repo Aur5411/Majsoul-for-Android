@@ -1,1737 +1,896 @@
 .class public final Lq/s2;
-.super Ljava/lang/Object;
+.super Lq/t2;
 .source "SourceFile"
-
-# interfaces
-.implements Lq/U3;
-.implements Lorg/chromium/support_lib_boundary/WebMessageListenerBoundaryInterface;
-.implements Lq/W5;
-.implements Lorg/chromium/support_lib_boundary/WebViewStartUpCallbackBoundaryInterface;
-.implements Lorg/chromium/support_lib_boundary/WebViewStartUpConfigBoundaryInterface;
-.implements Lq/b;
-
-
-# static fields
-.field public static c:Lq/s2;
 
 
 # instance fields
-.field public final synthetic a:I
+.field public final a:Lq/p1;
 
-.field public b:Ljava/lang/Object;
+.field public final b:[Lq/g2;
+
+.field public final c:[Lq/m2;
+
+.field public final d:[Lq/w2;
+
+.field public final e:[Lq/r2;
+
+.field public final f:[Lq/s2;
+
+.field public final g:Lq/j2;
 
 
 # direct methods
-.method public synthetic constructor <init>()V
-    .registers 2
+.method public constructor <init>(Ljava/lang/String;Lq/g2;)V
+    .locals 6
 
     .line 1
-    const/16 v0, 0x9
-
-    iput v0, p0, Lq/s2;->a:I
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(ILjava/lang/Object;)V
-    .registers 3
 
     .line 2
-    iput p1, p0, Lq/s2;->a:I
-
-    iput-object p2, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public a(Lq/E;Lq/d2;Lq/R1;)V
-    .registers 7
-
-    invoke-virtual {p3}, Lq/R1;->p()Z
-
-    move-result v0
+    new-instance v0, Lq/j2;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_2c
+    new-array v2, v1, [Lq/s2;
 
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
+    const/4 v3, 0x1
 
-    check-cast v0, Lq/e2;
+    invoke-direct {v0, v2, v3}, Lq/j2;-><init>([Lq/s2;Z)V
 
-    invoke-virtual {v0, p3}, Lq/e2;->f(Lq/R1;)Z
+    iput-object v0, p0, Lq/s2;->g:Lq/j2;
 
-    move-result v2
+    .line 3
+    sget-object v2, Lq/p1;->s:Lq/p1;
 
-    if-eqz v2, :cond_2b
+    invoke-virtual {v2}, Lq/p1;->N()Lq/o1;
 
-    iget-object v1, v0, Lq/e2;->a:Lq/D4;
+    move-result-object v2
 
-    invoke-virtual {v1, p3}, Lq/D4;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .line 4
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    instance-of v2, v1, Lq/P3;
+    .line 5
+    iget-object v5, p2, Lq/g2;->b:Ljava/lang/String;
 
-    if-eqz v2, :cond_1e
+    .line 6
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    check-cast v1, Lq/P3;
+    const-string v5, ".placeholder.proto"
 
-    goto :goto_27
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1e
-    check-cast v1, Lq/Q3;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-interface {v1}, Lq/Q3;->j()Lq/P3;
+    move-result-object v4
 
-    move-result-object v1
+    .line 7
+    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {v0, p3, v1}, Lq/e2;->l(Lq/R1;Ljava/lang/Object;)V
+    .line 8
+    iput-object v4, v2, Lq/o1;->f:Ljava/io/Serializable;
 
-    :goto_27
-    invoke-virtual {p1, v1, p2}, Lq/E;->r(Lq/P3;Lq/d2;)V
+    .line 9
+    iget v4, v2, Lq/o1;->e:I
 
-    return-void
+    or-int/2addr v3, v4
 
-    :cond_2b
-    throw v1
+    iput v3, v2, Lq/o1;->e:I
 
-    :cond_2c
-    throw v1
-.end method
+    .line 10
+    invoke-virtual {v2}, Lq/R2;->N()V
 
-.method public b(Lq/R1;)I
-    .registers 2
+    .line 11
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {p1}, Lq/R1;->r()Z
+    .line 12
+    iput-object p1, v2, Lq/o1;->g:Ljava/io/Serializable;
 
-    move-result p1
+    .line 13
+    iget v3, v2, Lq/o1;->e:I
 
-    if-eqz p1, :cond_8
+    or-int/lit8 v3, v3, 0x2
 
-    const/4 p1, 0x2
+    iput v3, v2, Lq/o1;->e:I
 
-    return p1
+    .line 14
+    invoke-virtual {v2}, Lq/R2;->N()V
 
-    :cond_8
-    const/4 p1, 0x1
+    .line 15
+    iget-object v3, p2, Lq/g2;->a:Lq/r0;
 
-    return p1
-.end method
+    .line 16
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-.method public c()I
-    .registers 2
+    .line 17
+    invoke-virtual {v2}, Lq/o1;->Q()V
 
-    const/4 v0, 0x2
+    .line 18
+    iget-object v4, v2, Lq/o1;->k:Ljava/util/List;
 
-    return v0
-.end method
+    invoke-interface {v4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-.method public createWebView(Landroid/webkit/WebView;)Lorg/chromium/support_lib_boundary/WebViewProviderBoundaryInterface;
-    .registers 3
+    .line 19
+    invoke-virtual {v2}, Lq/R2;->N()V
 
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
+    .line 20
+    invoke-virtual {v2}, Lq/o1;->P()Lq/p1;
 
-    check-cast v0, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;
+    move-result-object v2
 
-    invoke-interface {v0, p1}, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;->createWebView(Landroid/webkit/WebView;)Ljava/lang/reflect/InvocationHandler;
-
-    move-result-object p1
-
-    const-class v0, Lorg/chromium/support_lib_boundary/WebViewProviderBoundaryInterface;
-
-    invoke-static {v0, p1}, Lq/y;->i(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lorg/chromium/support_lib_boundary/WebViewProviderBoundaryInterface;
-
-    return-object p1
-.end method
-
-.method public d(Lq/Z5;Lq/L2;)V
-    .registers 6
-
-    new-instance v0, Lq/X5;
-
-    const/4 v1, 0x2
-
-    invoke-direct {v0, v1, p1}, Lq/X5;-><init>(ILjava/lang/Object;)V
-
-    new-instance p1, Lq/X5;
-
-    const/4 v1, 0x0
-
-    invoke-direct {p1, v1, p2}, Lq/X5;-><init>(ILjava/lang/Object;)V
-
-    new-instance v1, Lq/X5;
-
-    const/4 v2, 0x1
-
-    invoke-direct {v1, v2, p2}, Lq/X5;-><init>(ILjava/lang/Object;)V
-
-    iget-object p2, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast p2, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;
-
-    invoke-interface {p2, v0, p1, v1}, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;->startUpWebView(Ljava/util/function/Consumer;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method public e()V
-    .registers 2
-
-    iget v0, p0, Lq/s2;->a:I
-
-    packed-switch v0, :pswitch_data_16
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lq/t2;
-
-    invoke-virtual {v0}, Lq/t2;->M()V
-
-    return-void
-
-    :pswitch_d  #0x0
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lq/q4;
-
-    invoke-virtual {v0}, Lq/q4;->e()V
-
-    return-void
-
-    nop
-
-    :pswitch_data_16
-    .packed-switch 0x0
-        :pswitch_d  #00000000
-    .end packed-switch
-.end method
-
-.method public f(Lq/E;Lq/d2;Lq/R1;)V
-    .registers 8
-
-    invoke-virtual {p3}, Lq/R1;->p()Z
-
-    move-result v0
-
-    iget-object v1, p3, Lq/R1;->b:Lq/C0;
-
-    const/4 v2, 0x0
-
-    if-nez v0, :cond_30
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lq/e2;
-
-    invoke-virtual {v0, p3}, Lq/e2;->f(Lq/R1;)Z
+    .line 21
+    invoke-virtual {v2}, Lq/p1;->h()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_0
 
-    iget-object v2, v0, Lq/e2;->a:Lq/D4;
+    .line 22
+    iput-object v2, p0, Lq/s2;->a:Lq/p1;
 
-    invoke-virtual {v2, p3}, Lq/D4;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .line 23
+    new-array v1, v1, [Lq/s2;
 
-    move-result-object v2
+    iput-object v1, p0, Lq/s2;->f:[Lq/s2;
 
-    instance-of v3, v2, Lq/P3;
+    .line 24
+    filled-new-array {p2}, [Lq/g2;
 
-    if-eqz v3, :cond_20
+    move-result-object v1
 
-    check-cast v2, Lq/P3;
+    iput-object v1, p0, Lq/s2;->b:[Lq/g2;
 
-    goto :goto_29
+    .line 25
+    sget-object v1, Lq/x2;->e:[Lq/m2;
 
-    :cond_20
-    check-cast v2, Lq/Q3;
+    .line 26
+    iput-object v1, p0, Lq/s2;->c:[Lq/m2;
 
-    invoke-interface {v2}, Lq/Q3;->j()Lq/P3;
+    .line 27
+    sget-object v1, Lq/x2;->f:[Lq/w2;
 
-    move-result-object v2
+    .line 28
+    iput-object v1, p0, Lq/s2;->d:[Lq/w2;
 
-    invoke-virtual {v0, p3, v2}, Lq/e2;->l(Lq/R1;Ljava/lang/Object;)V
+    .line 29
+    sget-object v1, Lq/x2;->d:[Lq/r2;
 
-    :goto_29
-    iget p3, v1, Lq/C0;->f:I
+    .line 30
+    iput-object v1, p0, Lq/s2;->e:[Lq/r2;
 
-    invoke-virtual {p1, p3, v2, p2}, Lq/E;->n(ILq/P3;Lq/d2;)V
+    .line 31
+    invoke-virtual {v0, p1, p0}, Lq/j2;->a(Ljava/lang/String;Lq/s2;)V
+
+    .line 32
+    invoke-virtual {v0, p2}, Lq/j2;->b(Lq/t2;)V
 
     return-void
 
-    :cond_2f
-    throw v2
-
-    :cond_30
-    throw v2
-.end method
-
-.method public g(Lq/R1;Ljava/lang/Object;)Lq/U3;
-    .registers 4
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lq/e2;
-
-    invoke-virtual {v0, p1, p2}, Lq/e2;->l(Lq/R1;Ljava/lang/Object;)V
-
-    return-object p0
-.end method
-
-.method public getBackgroundExecutor()Ljava/util/concurrent/Executor;
-    .registers 2
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lq/Z5;
-
-    iget-object v0, v0, Lq/Z5;->a:Lq/T5;
-
-    return-object v0
-.end method
-
-.method public getProfileNamesToLoad()Ljava/util/Set;
-    .registers 2
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lq/Z5;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public getProfileStore()Lorg/chromium/support_lib_boundary/ProfileStoreBoundaryInterface;
-    .registers 3
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;
-
-    invoke-interface {v0}, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;->getProfileStore()Ljava/lang/reflect/InvocationHandler;
-
-    move-result-object v0
-
-    const-class v1, Lorg/chromium/support_lib_boundary/ProfileStoreBoundaryInterface;
-
-    invoke-static {v1, v0}, Lq/y;->i(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lorg/chromium/support_lib_boundary/ProfileStoreBoundaryInterface;
-
-    return-object v0
-.end method
-
-.method public getStatics()Lorg/chromium/support_lib_boundary/StaticsBoundaryInterface;
-    .registers 3
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;
-
-    invoke-interface {v0}, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;->getStatics()Ljava/lang/reflect/InvocationHandler;
-
-    move-result-object v0
-
-    const-class v1, Lorg/chromium/support_lib_boundary/StaticsBoundaryInterface;
-
-    invoke-static {v1, v0}, Lq/y;->i(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lorg/chromium/support_lib_boundary/StaticsBoundaryInterface;
-
-    return-object v0
-.end method
-
-.method public getSupportedFeatures()[Ljava/lang/String;
-    .registers 3
-
-    const-string v0, "WEB_MESSAGE_LISTENER"
-
-    const-string v1, "WEB_MESSAGE_ARRAY_BUFFER"
-
-    filled-new-array {v0, v1}, [Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public h()[Ljava/lang/String;
-    .registers 2
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;
-
-    invoke-interface {v0}, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;->getSupportedFeatures()[Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public i(Lq/R1;Ljava/lang/Object;)Lq/U3;
-    .registers 4
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lq/e2;
-
-    invoke-virtual {v0, p1, p2}, Lq/e2;->a(Lq/R1;Ljava/lang/Object;)V
-
-    return-object p0
-.end method
-
-.method public j(Lq/b2;Lq/G1;I)V
-    .registers 5
-
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    new-instance v0, Lq/a2;
-
-    invoke-direct {v0, p3, p2}, Lq/a2;-><init>(ILq/G1;)V
-
-    iget-object p1, p1, Lq/b2;->d:Ljava/util/Map;
-
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .line 33
+    :cond_0
+    invoke-static {v2}, Lq/a;->B(Lq/c;)Lq/R5;
 
     move-result-object p1
-
-    if-nez p1, :cond_11
-
-    return-void
-
-    :cond_11
-    new-instance p1, Ljava/lang/ClassCastException;
-
-    invoke-direct {p1}, Ljava/lang/ClassCastException;-><init>()V
 
     throw p1
 .end method
 
-.method public k(Lq/Z5;Lq/c4;)V
-    .registers 6
+.method public constructor <init>(Lq/p1;[Lq/s2;Lq/j2;Z)V
+    .locals 9
 
-    new-instance v0, Lq/s2;
+    .line 34
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/16 v1, 0xc
+    .line 35
+    iput-object p3, p0, Lq/s2;->g:Lq/j2;
 
-    invoke-direct {v0, v1, p1}, Lq/s2;-><init>(ILjava/lang/Object;)V
+    .line 36
+    iput-object p1, p0, Lq/s2;->a:Lq/p1;
 
-    new-instance p1, Lq/x;
+    .line 37
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {p1, v0}, Lq/x;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    new-instance v0, Lq/s2;
+    .line 38
+    array-length v1, p2
 
-    new-instance v1, Lq/l3;
+    const/4 v2, 0x0
 
-    const/4 v2, 0x3
+    move v3, v2
 
-    invoke-direct {v1, v2, p2}, Lq/l3;-><init>(ILjava/lang/Object;)V
+    :goto_0
+    if-ge v3, v1, :cond_0
 
-    const/16 p2, 0xb
+    aget-object v4, p2, v3
 
-    invoke-direct {v0, p2, v1}, Lq/s2;-><init>(ILjava/lang/Object;)V
+    .line 39
+    iget-object v5, v4, Lq/s2;->a:Lq/p1;
 
-    new-instance p2, Lq/x;
+    .line 40
+    invoke-virtual {v5}, Lq/p1;->C()Ljava/lang/String;
 
-    invoke-direct {p2, v0}, Lq/x;-><init>(Ljava/lang/Object;)V
+    move-result-object v5
 
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;
-
-    invoke-interface {v0, p1, p2}, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;->startUpWebView(Ljava/lang/reflect/InvocationHandler;Ljava/lang/reflect/InvocationHandler;)V
-
-    return-void
-.end method
-
-.method public l(Ljava/lang/String;)V
-    .registers 15
-
-    new-instance v0, Lorg/json/JSONObject;
-
-    invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    const-string p1, "type"
-
-    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v1, "method"
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "game_opened"
-
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    iget-object v3, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    move-object v4, v3
-
-    check-cast v4, Lq/r2;
-
-    if-eqz v2, :cond_25
-
-    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    invoke-static {}, Lq/r;->c()V
-
-    return-void
-
-    :cond_25
-    const-string v2, "login"
-
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_ad
-
-    const-string v2, ".login"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_ad
-
-    const-string v2, ".oauth2Login"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3f
-
-    goto/16 :goto_ad
-
-    :cond_3f
-    const-string v1, "hand"
-
-    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_51
-
-    const-string p1, "tiles"
-
-    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {v4, p1}, Lq/r2;->d(Ljava/lang/String;)V
-
-    return-void
-
-    :cond_51
-    const-string v1, "mortal_observation"
-
-    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_ac
-
-    const-string p1, "players"
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, p1, v1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
-
-    move-result p1
-
-    const/4 v1, 0x3
-
-    if-ne p1, v1, :cond_67
-
-    sget-object p1, Lq/n;->d:Lq/n;
-
-    :goto_65
-    move-object v5, p1
-
-    goto :goto_6a
-
-    :cond_67
-    sget-object p1, Lq/n;->e:Lq/n;
-
-    goto :goto_65
-
-    :goto_6a
-    const-string p1, "obs"
-
-    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
-
-    move-result-object p1
-
-    const-string v1, "mask"
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Lorg/json/JSONArray;->length()I
-
-    move-result v1
-
-    new-array v6, v1, [F
-
-    invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
-
-    move-result v2
-
-    new-array v7, v2, [Z
-
-    const/4 v3, 0x0
-
-    move v8, v3
-
-    :goto_84
-    if-ge v8, v1, :cond_90
-
-    invoke-virtual {p1, v8}, Lorg/json/JSONArray;->getDouble(I)D
-
-    move-result-wide v9
-
-    double-to-float v9, v9
-
-    aput v9, v6, v8
-
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_84
-
-    :cond_90
-    :goto_90
-    if-ge v3, v2, :cond_9b
-
-    invoke-virtual {v0, v3}, Lorg/json/JSONArray;->getBoolean(I)Z
-
-    move-result p1
-
-    aput-boolean p1, v7, v3
+    .line 41
+    invoke-virtual {v0, v5, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_90
+    goto :goto_0
 
-    :cond_9b
-    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    .line 42
+    :cond_0
+    new-instance p2, Ljava/util/ArrayList;
 
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
 
-    move-result-object v8
+    move v1, v2
 
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+    .line 43
+    :goto_1
+    iget-object v3, p1, Lq/p1;->h:Lq/m3;
 
-    move-result-object v10
+    .line 44
+    check-cast v3, Lq/k3;
 
-    const/4 v9, 0x0
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    invoke-virtual/range {v4 .. v12}, Lq/r2;->c(Lq/n;[F[ZLjava/util/List;ZLjava/util/List;Lq/b4;Z)V
-
-    :cond_ac
-    return-void
-
-    :cond_ad
-    :goto_ad
-    const-string p1, "account"
-
-    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    if-nez v1, :cond_c5
-
-    const-string v1, "data"
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    if-nez v0, :cond_c0
-
-    const/4 p1, 0x0
-
-    :goto_be
-    move-object v1, p1
-
-    goto :goto_c5
-
-    :cond_c0
-    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object p1
-
-    goto :goto_be
-
-    :cond_c5
-    :goto_c5
-    if-eqz v1, :cond_e8
-
-    const-string p1, "nickname"
-
-    const-string v0, ""
-
-    invoke-virtual {v1, p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_e8
-
-    const-string v0, "account_id"
-
-    const-wide/16 v2, 0x0
-
-    invoke-virtual {v1, v0, v2, v3}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;J)J
-
-    move-result-wide v0
-
-    invoke-static {v0, v1}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v4, p1, v0}, Lq/r2;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_e8
-    return-void
-.end method
-
-.method public m()I
-    .registers 2
-
-    iget v0, p0, Lq/s2;->a:I
-
-    packed-switch v0, :pswitch_data_14
-
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, [B
-
-    array-length v0, v0
-
-    return v0
-
-    :pswitch_b  #0x6
-    iget-object v0, p0, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v0, Lq/B;
-
-    invoke-virtual {v0}, Lq/B;->size()I
-
-    move-result v0
-
-    return v0
-
-    :pswitch_data_14
-    .packed-switch 0x6
-        :pswitch_b  #00000006
-    .end packed-switch
-.end method
-
-.method public onPostMessage(Landroid/webkit/WebView;Ljava/lang/reflect/InvocationHandler;Landroid/net/Uri;ZLjava/lang/reflect/InvocationHandler;)V
-    .registers 27
-
-    const/16 v0, 0x8
-
-    const/16 v1, 0xc
-
-    const/4 v2, 0x1
-
-    const-class v3, Lorg/chromium/support_lib_boundary/WebMessageBoundaryInterface;
-
-    move-object/from16 v4, p2
-
-    invoke-static {v3, v4}, Lq/y;->i(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lorg/chromium/support_lib_boundary/WebMessageBoundaryInterface;
-
-    invoke-interface {v3}, Lorg/chromium/support_lib_boundary/WebMessageBoundaryInterface;->getPorts()[Ljava/lang/reflect/InvocationHandler;
-
-    move-result-object v4
-
-    array-length v5, v4
-
-    new-array v5, v5, [Lq/s2;
-
-    const/4 v6, 0x0
-
-    move v7, v6
-
-    :goto_18
-    array-length v8, v4
-
-    if-ge v7, v8, :cond_30
-
-    new-instance v8, Lq/s2;
-
-    aget-object v9, v4, v7
-
-    invoke-direct {v8}, Lq/s2;-><init>()V
-
-    const-class v10, Lorg/chromium/support_lib_boundary/WebMessagePortBoundaryInterface;
-
-    invoke-static {v10, v9}, Lq/y;->i(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Lorg/chromium/support_lib_boundary/WebMessagePortBoundaryInterface;
-
-    iput-object v9, v8, Lq/s2;->b:Ljava/lang/Object;
-
-    aput-object v8, v5, v7
-
-    add-int/2addr v7, v2
-
-    goto :goto_18
-
-    :cond_30
-    sget-object v4, Lq/R5;->a:Lq/h;
-
-    invoke-virtual {v4}, Lq/i;->b()Z
-
-    move-result v4
-
-    const/4 v5, 0x0
-
-    if-eqz v4, :cond_63
-
-    const-class v4, Lorg/chromium/support_lib_boundary/WebMessagePayloadBoundaryInterface;
-
-    invoke-interface {v3}, Lorg/chromium/support_lib_boundary/WebMessageBoundaryInterface;->getMessagePayload()Ljava/lang/reflect/InvocationHandler;
-
-    move-result-object v3
-
-    invoke-static {v4, v3}, Lq/y;->i(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lorg/chromium/support_lib_boundary/WebMessagePayloadBoundaryInterface;
-
-    invoke-interface {v3}, Lorg/chromium/support_lib_boundary/WebMessagePayloadBoundaryInterface;->getType()I
-
-    move-result v4
-
-    if-eqz v4, :cond_59
-
-    if-eq v4, v2, :cond_4f
-
-    move-object v4, v5
-
-    goto :goto_6c
-
-    :cond_4f
-    new-instance v4, Lq/o4;
-
-    invoke-interface {v3}, Lorg/chromium/support_lib_boundary/WebMessagePayloadBoundaryInterface;->getAsArrayBuffer()[B
-
-    move-result-object v3
-
-    invoke-direct {v4, v3}, Lq/o4;-><init>([B)V
-
-    goto :goto_6c
-
-    :cond_59
-    new-instance v4, Lq/o4;
-
-    invoke-interface {v3}, Lorg/chromium/support_lib_boundary/WebMessagePayloadBoundaryInterface;->getAsString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v4, v3}, Lq/o4;-><init>(Ljava/lang/String;)V
-
-    goto :goto_6c
-
-    :cond_63
-    new-instance v4, Lq/o4;
-
-    invoke-interface {v3}, Lorg/chromium/support_lib_boundary/WebMessageBoundaryInterface;->getData()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v4, v3}, Lq/o4;-><init>(Ljava/lang/String;)V
-
-    :goto_6c
-    if-eqz v4, :cond_2fc
-
-    const-class v3, Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;
-
-    move-object/from16 v7, p5
-
-    invoke-static {v3, v7}, Lq/y;->i(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;
-
-    new-instance v7, Lq/V2;
-
-    invoke-direct {v7, v3}, Lq/V2;-><init>(Lorg/chromium/support_lib_boundary/JsReplyProxyBoundaryInterface;)V
-
-    invoke-interface {v3, v7}, Lorg/chromium/support_lib_boundary/IsomorphicObjectBoundaryInterface;->getOrCreatePeer(Ljava/util/concurrent/Callable;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lq/W2;
-
-    move-object/from16 v3, p0
-
-    iget-object v7, v3, Lq/s2;->b:Ljava/lang/Object;
-
-    check-cast v7, Lq/l3;
-
-    iget-object v7, v7, Lq/l3;->b:Ljava/lang/Object;
-
-    check-cast v7, Lcom/qiuhui/mahjong/WebGameActivity;
-
-    sget-boolean v8, Lcom/qiuhui/mahjong/WebGameActivity;->C:Z
-
-    invoke-virtual {v7}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    if-eqz p3, :cond_2fe
-
-    invoke-virtual/range {p3 .. p3}, Landroid/net/Uri;->getHost()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v8}, Lcom/qiuhui/mahjong/WebGameActivity;->u(Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_a0
-
-    goto/16 :goto_2fe
-
-    :cond_a0
-    iget-boolean v8, v7, Lcom/qiuhui/mahjong/WebGameActivity;->w:Z
-
-    if-eqz v8, :cond_142
-
-    iget v8, v4, Lq/o4;->a:I
-
-    if-ne v8, v2, :cond_142
-
-    invoke-virtual {v4, v2}, Lq/o4;->a(I)V
-
-    iget-object v4, v4, Lq/o4;->c:Ljava/lang/Object;
-
-    check-cast v4, [B
-
-    invoke-static {v4}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    array-length v7, v4
-
-    const/high16 v8, 0x400000
-
-    if-lt v7, v1, :cond_f4
-
-    aget-byte v6, v4, v6
-
-    const/16 v7, 0x51
-
-    if-ne v6, v7, :cond_f4
-
-    aget-byte v6, v4, v2
-
-    const/16 v7, 0x48
-
-    if-ne v6, v7, :cond_f4
-
-    const/4 v6, 0x2
-
-    aget-byte v6, v4, v6
-
-    if-eq v6, v2, :cond_c9
-
-    goto :goto_f4
-
-    :cond_c9
-    const/4 v6, 0x3
-
-    aget-byte v6, v4, v6
-
-    and-int/lit16 v6, v6, 0xff
-
-    if-eqz v6, :cond_d3
-
-    if-eq v6, v2, :cond_d3
-
-    goto :goto_f4
-
-    :cond_d3
-    const/4 v7, 0x4
-
-    invoke-static {v4, v7}, Lq/j3;->i([BI)I
-
-    move-result v7
-
-    invoke-static {v4, v0}, Lq/j3;->i([BI)I
-
-    move-result v0
-
-    if-ltz v7, :cond_f4
-
-    if-ltz v0, :cond_f4
-
-    if-gt v0, v8, :cond_f4
-
-    array-length v9, v4
-
-    add-int/lit8 v10, v0, 0xc
-
-    if-eq v9, v10, :cond_e8
-
-    goto :goto_f4
-
-    :cond_e8
-    new-instance v5, Lq/w;
-
-    if-ne v6, v2, :cond_ef
-
-    const-string v2, "in"
-
-    goto :goto_f1
-
-    :cond_ef
-    const-string v2, "out"
-
-    :goto_f1
-    invoke-direct {v5, v7, v0, v2, v4}, Lq/w;-><init>(IILjava/lang/String;[B)V
-
-    :cond_f4
-    :goto_f4
-    if-eqz v5, :cond_2fe
-
-    iget v0, v5, Lq/w;->a:I
-
-    iget-object v2, v5, Lq/w;->b:Ljava/lang/String;
-
-    iget-object v4, v5, Lq/w;->c:[B
-
-    iget v5, v5, Lq/w;->d:I
-
-    sget-object v6, Lq/p5;->a:Lq/y3;
-
-    if-ltz v0, :cond_2fe
-
-    const-string v6, "in"
-
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_112
-
-    const-string v6, "out"
-
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2fe
-
-    :cond_112
-    if-eqz v4, :cond_2fe
-
-    if-ltz v5, :cond_2fe
-
-    array-length v6, v4
-
-    sub-int/2addr v6, v5
-
-    if-gt v1, v6, :cond_2fe
-
-    if-le v5, v8, :cond_11e
-
-    goto/16 :goto_2fe
-
-    :cond_11e
-    new-instance v1, Lq/m5;
-
-    invoke-direct {v1, v0, v5, v2, v4}, Lq/m5;-><init>(IILjava/lang/String;[B)V
-
-    sget-object v2, Lq/p5;->b:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    :try_start_126
-    sget-object v0, Lq/p5;->a:Lq/y3;
-
-    if-nez v0, :cond_132
-
-    invoke-static {v1}, Lq/p5;->b(Lq/n5;)V
-
-    monitor-exit v2
-
-    goto/16 :goto_2fe
-
-    :catchall_130
-    move-exception v0
-
-    goto :goto_140
-
-    :cond_132
-    monitor-exit v2
-    :try_end_133
-    .catchall {:try_start_126 .. :try_end_133} :catchall_130
-
-    sget-object v2, Lq/p5;->e:Ljava/util/concurrent/ThreadPoolExecutor;
-
-    new-instance v4, Lq/m2;
-
-    const/4 v5, 0x6
-
-    invoke-direct {v4, v0, v1, v5}, Lq/m2;-><init>(Ljava/lang/Object;Ljava/lang/Object;I)V
-
-    invoke-virtual {v2, v4}, Ljava/util/concurrent/ThreadPoolExecutor;->execute(Ljava/lang/Runnable;)V
-
-    goto/16 :goto_2fe
-
-    :goto_140
-    :try_start_140
-    monitor-exit v2
-    :try_end_141
-    .catchall {:try_start_140 .. :try_end_141} :catchall_130
-
-    throw v0
-
-    :cond_142
-    invoke-virtual {v4, v6}, Lq/o4;->a(I)V
-
-    iget-object v1, v4, Lq/o4;->b:Ljava/io/Serializable;
-
-    check-cast v1, Ljava/lang/String;
-
-    if-eqz v1, :cond_2fe
-
-    const-string v2, "{\"kind\":\"skin_"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_23e
-
-    invoke-static {v7, v1}, Lq/SkinAsync;->a(Lcom/qiuhui/mahjong/WebGameActivity;Ljava/lang/String;)V
-
-    goto/16 :goto_2fe
-
-    const-string v0, ""
-
-    const-string v2, "socketId"
-
-    const-string v4, "data"
-
-    const-string v5, "kind"
-
-    const-string v6, "window.__qiuhuiSkinUnlockReceive&&window.__qiuhuiSkinUnlockReceive("
-
-    iget-object v8, v7, Lcom/qiuhui/mahjong/WebGameActivity;->z:Lq/A2;
-
-    if-eqz v8, :cond_2fe
-
-    iget-object v8, v7, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
-
-    if-nez v8, :cond_16c
-
-    goto/16 :goto_2fe
-
-    :cond_16c
-    :try_start_16c
-    new-instance v8, Lorg/json/JSONObject;
-
-    invoke-direct {v8, v1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v8, v5}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v9, -0x1
-
-    invoke-virtual {v8, v2, v9}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
-
-    move-result v9
-
-    invoke-virtual {v8, v4, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    const-string v11, "skin_request"
-
-    invoke-virtual {v11, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1a3
-
-    iget-object v0, v7, Lcom/qiuhui/mahjong/WebGameActivity;->z:Lq/A2;
-
-    invoke-virtual {v0, v9, v10}, Lq/A2;->m(ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_214
-
-    const-string v1, "{"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_214
-
-    new-instance v1, Lorg/json/JSONObject;
-
-    invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, v2, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-
-    invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_214
-
-    :cond_1a3
-    const-string v2, "skin_response"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-    :try_end_1a9
-    .catch Ljava/lang/Exception; {:try_start_16c .. :try_end_1a9} :catch_2fe
-
-    const-string v11, "skin_response_result"
-
-    const-string v12, "token"
-
-    if-eqz v2, :cond_1d7
-
-    :try_start_1af
-    iget-object v0, v7, Lcom/qiuhui/mahjong/WebGameActivity;->z:Lq/A2;
-
-    invoke-virtual {v0, v9, v10}, Lq/A2;->v(ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_214
-
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_214
-
-    new-instance v1, Lorg/json/JSONObject;
-
-    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
-
-    invoke-virtual {v1, v5, v11}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    invoke-virtual {v8, v12}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v12, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v4, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_214
-
-    :cond_1d7
-    const-string v2, "skin_notification"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_207
-
-    iget-object v0, v7, Lcom/qiuhui/mahjong/WebGameActivity;->z:Lq/A2;
-
-    invoke-virtual {v0, v10}, Lq/A2;->w(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_214
-
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_214
-
-    new-instance v1, Lorg/json/JSONObject;
-
-    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
-
-    invoke-virtual {v1, v5, v11}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    invoke-virtual {v8, v12}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v12, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v4, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_214
-
-    :cond_207
-    const-string v2, "skin_socket_close"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_214
-
-    iget-object v1, v7, Lcom/qiuhui/mahjong/WebGameActivity;->z:Lq/A2;
-
-    invoke-virtual {v1, v9}, Lq/A2;->i(I)V
-
-    :cond_214
-    :goto_214
-    if-eqz v0, :cond_2fe
-
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_21e
-
-    goto/16 :goto_2fe
-
-    :cond_21e
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v0}, Lorg/json/JSONObject;->quote(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, ");"
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v1, Lq/m2;
-
-    const/4 v2, 0x7
-
-    invoke-direct {v1, v7, v0, v2}, Lq/m2;-><init>(Ljava/lang/Object;Ljava/lang/Object;I)V
-
-    invoke-virtual {v7, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
-    :try_end_23c
-    .catch Ljava/lang/Exception; {:try_start_1af .. :try_end_23c} :catch_2fe
-
-    goto/16 :goto_2fe
-
-    :cond_23e
-    const-string v2, "{\"kind\":\"local_action_submitted\""
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_25a
-
-    iget-wide v8, v7, Lcom/qiuhui/mahjong/WebGameActivity;->v:J
-
-    const-wide/16 v10, 0x1
-
-    add-long/2addr v8, v10
-
-    iput-wide v8, v7, Lcom/qiuhui/mahjong/WebGameActivity;->v:J
-
-    iget-object v0, v7, Lcom/qiuhui/mahjong/WebGameActivity;->p:Landroid/os/Handler;
-
-    invoke-virtual {v0, v5}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
-
-    invoke-virtual {v7}, Lcom/qiuhui/mahjong/WebGameActivity;->h()V
-
-    invoke-static {v1}, Lq/p5;->c(Ljava/lang/String;)V
-
-    goto/16 :goto_2fe
-
-    :cond_25a
-    const-string v2, "{\"kind\":\"frame\""
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2f8
-
-    const-string v2, "{\"kind\":\"animation_priority\""
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_26c
-
-    goto/16 :goto_2f8
-
-    :cond_26c
-    :try_start_26c
-    new-instance v2, Lorg/json/JSONObject;
-
-    invoke-direct {v2, v1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    const-string v4, "kind"
-
-    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v5, "keyboard_hide"
-
-    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_289
-
-    new-instance v2, Lq/s5;
-
-    invoke-direct {v2, v7, v0}, Lq/s5;-><init>(Lcom/qiuhui/mahjong/WebGameActivity;I)V
-
-    invoke-virtual {v7, v2}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
-
-    goto/16 :goto_2fe
-
-    :cond_289
-    const-string v0, "game_viewport"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2e8
-
-    const-string v0, "width"
-
-    invoke-virtual {v2, v0}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;)D
-
-    move-result-wide v13
-
-    const-string v0, "height"
-
-    invoke-virtual {v2, v0}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;)D
-
-    move-result-wide v15
-
-    const-string v0, "viewportWidth"
-
-    invoke-virtual {v2, v0}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;)D
-
-    move-result-wide v17
-
-    const-string v0, "viewportHeight"
-
-    invoke-virtual {v2, v0}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;)D
-
-    move-result-wide v19
-
-    invoke-static {v13, v14}, Ljava/lang/Double;->isFinite(D)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2fe
-
-    invoke-static/range {v15 .. v16}, Ljava/lang/Double;->isFinite(D)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2fe
-
-    invoke-static/range {v17 .. v18}, Ljava/lang/Double;->isFinite(D)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2fe
-
-    invoke-static/range {v19 .. v20}, Ljava/lang/Double;->isFinite(D)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2fe
-
-    const-wide/16 v4, 0x0
-
-    cmpl-double v0, v13, v4
-
-    if-lez v0, :cond_2fe
-
-    cmpl-double v0, v15, v4
-
-    if-lez v0, :cond_2fe
-
-    cmpl-double v0, v17, v4
-
-    if-lez v0, :cond_2fe
-
-    cmpl-double v0, v19, v4
-
-    if-lez v0, :cond_2fe
-
-    new-instance v0, Lq/K5;
-
-    const-string v4, "left"
-
-    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;)D
-
-    move-result-wide v9
-
-    const-string v4, "top"
-
-    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;)D
-
-    move-result-wide v11
-
-    move-object v8, v0
-
-    invoke-direct/range {v8 .. v20}, Lq/K5;-><init>(DDDDDD)V
-
-    iput-object v0, v7, Lcom/qiuhui/mahjong/WebGameActivity;->j:Lq/K5;
-
-    goto :goto_2fe
-
-    :cond_2e8
-    const-string v0, "auto_battle"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2f4
-
-    invoke-static {v1}, Lq/p5;->c(Ljava/lang/String;)V
-    :try_end_2f3
-    .catch Ljava/lang/Exception; {:try_start_26c .. :try_end_2f3} :catch_2f4
-
-    goto :goto_2fe
-
-    :catch_2f4
-    :cond_2f4
-    invoke-static {v1}, Lq/p5;->c(Ljava/lang/String;)V
-
-    goto :goto_2fe
-
-    :cond_2f8
-    :goto_2f8
-    invoke-static {v1}, Lq/p5;->c(Ljava/lang/String;)V
-
-    goto :goto_2fe
-
-    :cond_2fc
-    move-object/from16 v3, p0
-
-    :catch_2fe
-    :cond_2fe
-    :goto_2fe
-    return-void
-.end method
-
-.method public onSuccess(Ljava/lang/reflect/InvocationHandler;)V
-    .registers 7
-
-    const-class v0, Lorg/chromium/support_lib_boundary/WebViewStartUpResultBoundaryInterface;
-
-    invoke-static {v0, p1}, Lq/y;->i(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lorg/chromium/support_lib_boundary/WebViewStartUpResultBoundaryInterface;
-
-    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-interface {p1}, Lorg/chromium/support_lib_boundary/WebViewStartUpResultBoundaryInterface;->getBlockingStartUpLocations()Ljava/util/List;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_18
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2e
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Throwable;
-
-    new-instance v2, Lq/L2;
-
-    const/4 v3, 0x6
-
-    invoke-direct {v2, v3}, Lq/L2;-><init>(I)V
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_18
-
-    :cond_2e
-    sget-object v0, Lq/R5;->h:Lq/h;
-
-    invoke-virtual {v0}, Lq/i;->b()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_59
-
-    invoke-interface {p1}, Lorg/chromium/support_lib_boundary/WebViewStartUpResultBoundaryInterface;->getAsyncStartUpLocations()Ljava/util/List;
-
-    move-result-object v0
-
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_43
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v3}, Lq/k3;->size()I
 
     move-result v3
 
-    if-eqz v3, :cond_5a
+    if-ge v1, v3, :cond_4
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 45
+    iget-object v3, p1, Lq/p1;->h:Lq/m3;
+
+    check-cast v3, Lq/k3;
+
+    invoke-virtual {v3, v1}, Lq/k3;->f(I)I
+
+    move-result v3
+
+    if-ltz v3, :cond_3
+
+    .line 46
+    iget-object v4, p1, Lq/p1;->g:Lq/x3;
+
+    .line 47
+    iget-object v4, v4, Lq/x3;->b:Ljava/util/List;
+
+    .line 48
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ge v3, v4, :cond_3
+
+    .line 49
+    iget-object v4, p1, Lq/p1;->g:Lq/x3;
+
+    invoke-virtual {v4, v3}, Lq/x3;->e(I)Ljava/lang/String;
 
     move-result-object v3
 
-    check-cast v3, Ljava/lang/Throwable;
+    .line 50
+    invoke-virtual {v0, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v3, Lq/L2;
+    move-result-object v4
 
-    const/4 v4, 0x6
+    check-cast v4, Lq/s2;
 
-    invoke-direct {v3, v4}, Lq/L2;-><init>(I)V
+    if-nez v4, :cond_2
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    if-eqz p4, :cond_1
 
-    goto :goto_43
+    goto :goto_2
 
-    :cond_59
-    const/4 v2, 0x0
+    .line 51
+    :cond_1
+    new-instance p1, Lq/k2;
 
-    :cond_5a
-    new-instance v0, Lq/Y5;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v1, v2, p1}, Lq/Y5;-><init>(Ljava/util/ArrayList;Ljava/util/ArrayList;Lorg/chromium/support_lib_boundary/WebViewStartUpResultBoundaryInterface;)V
+    const-string p3, "Invalid public dependency: "
 
-    iget-object p1, p0, Lq/s2;->b:Ljava/lang/Object;
+    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    check-cast p1, Lq/l3;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v1, Landroid/os/Handler;
+    move-result-object p2
 
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+    invoke-direct {p1, p2, p0}, Lq/k2;-><init>(Ljava/lang/String;Lq/s2;)V
 
-    move-result-object v2
+    throw p1
 
-    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    .line 52
+    :cond_2
+    invoke-virtual {p2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    new-instance v2, Lq/l2;
+    :goto_2
+    add-int/lit8 v1, v1, 0x1
 
-    iget-object p1, p1, Lq/l3;->b:Ljava/lang/Object;
+    goto :goto_1
 
-    check-cast p1, Lq/c4;
+    .line 53
+    :cond_3
+    new-instance p1, Lq/k2;
 
-    const/4 v3, 0x7
+    const-string p2, "Invalid public dependency index."
 
-    invoke-direct {v2, p1, v0, v3}, Lq/l2;-><init>(Ljava/lang/Object;Lq/a6;I)V
+    invoke-direct {p1, p2, p0}, Lq/k2;-><init>(Ljava/lang/String;Lq/s2;)V
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    throw p1
 
+    .line 54
+    :cond_4
+    invoke-virtual {p2}, Ljava/util/ArrayList;->size()I
+
+    move-result p4
+
+    new-array p4, p4, [Lq/s2;
+
+    iput-object p4, p0, Lq/s2;->f:[Lq/s2;
+
+    .line 55
+    invoke-virtual {p2, p4}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    .line 56
+    iget-object p2, p0, Lq/s2;->a:Lq/p1;
+
+    invoke-virtual {p2}, Lq/p1;->E()Ljava/lang/String;
+
+    move-result-object p2
+
+    .line 57
+    invoke-virtual {p3, p2, p0}, Lq/j2;->a(Ljava/lang/String;Lq/s2;)V
+
+    .line 58
+    iget-object p2, p1, Lq/p1;->j:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    if-lez p2, :cond_5
+
+    .line 59
+    iget-object p2, p1, Lq/p1;->j:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    .line 60
+    new-array p2, p2, [Lq/g2;
+
+    goto :goto_3
+
+    .line 61
+    :cond_5
+    sget-object p2, Lq/x2;->c:[Lq/g2;
+
+    .line 62
+    :goto_3
+    iput-object p2, p0, Lq/s2;->b:[Lq/g2;
+
+    move p2, v2
+
+    .line 63
+    :goto_4
+    iget-object p3, p1, Lq/p1;->j:Ljava/util/List;
+
+    invoke-interface {p3}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    const/4 p4, 0x0
+
+    if-ge p2, p3, :cond_6
+
+    .line 64
+    iget-object p3, p0, Lq/s2;->b:[Lq/g2;
+
+    new-instance v0, Lq/g2;
+
+    .line 65
+    iget-object v1, p1, Lq/p1;->j:Ljava/util/List;
+
+    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lq/r0;
+
+    .line 66
+    invoke-direct {v0, v1, p0, p4}, Lq/g2;-><init>(Lq/r0;Lq/s2;Lq/g2;)V
+
+    .line 67
+    aput-object v0, p3, p2
+
+    add-int/lit8 p2, p2, 0x1
+
+    goto :goto_4
+
+    .line 68
+    :cond_6
+    iget-object p2, p1, Lq/p1;->k:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    if-lez p2, :cond_7
+
+    .line 69
+    iget-object p2, p1, Lq/p1;->k:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    .line 70
+    new-array p2, p2, [Lq/m2;
+
+    goto :goto_5
+
+    .line 71
+    :cond_7
+    sget-object p2, Lq/x2;->e:[Lq/m2;
+
+    .line 72
+    :goto_5
+    iput-object p2, p0, Lq/s2;->c:[Lq/m2;
+
+    move p2, v2
+
+    .line 73
+    :goto_6
+    iget-object p3, p1, Lq/p1;->k:Ljava/util/List;
+
+    invoke-interface {p3}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    if-ge p2, p3, :cond_8
+
+    .line 74
+    iget-object p3, p0, Lq/s2;->c:[Lq/m2;
+
+    new-instance v0, Lq/m2;
+
+    .line 75
+    iget-object v1, p1, Lq/p1;->k:Ljava/util/List;
+
+    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lq/y0;
+
+    .line 76
+    invoke-direct {v0, v1, p0, p4}, Lq/m2;-><init>(Lq/y0;Lq/s2;Lq/g2;)V
+
+    aput-object v0, p3, p2
+
+    add-int/lit8 p2, p2, 0x1
+
+    goto :goto_6
+
+    .line 77
+    :cond_8
+    iget-object p2, p1, Lq/p1;->l:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    if-lez p2, :cond_9
+
+    .line 78
+    iget-object p2, p1, Lq/p1;->l:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    .line 79
+    new-array p2, p2, [Lq/w2;
+
+    goto :goto_7
+
+    .line 80
+    :cond_9
+    sget-object p2, Lq/x2;->f:[Lq/w2;
+
+    .line 81
+    :goto_7
+    iput-object p2, p0, Lq/s2;->d:[Lq/w2;
+
+    move p2, v2
+
+    .line 82
+    :goto_8
+    iget-object p3, p1, Lq/p1;->l:Ljava/util/List;
+
+    invoke-interface {p3}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    if-ge p2, p3, :cond_a
+
+    .line 83
+    iget-object p3, p0, Lq/s2;->d:[Lq/w2;
+
+    new-instance p4, Lq/w2;
+
+    .line 84
+    iget-object v0, p1, Lq/p1;->l:Ljava/util/List;
+
+    invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lq/P1;
+
+    .line 85
+    invoke-direct {p4, v0, p0}, Lq/w2;-><init>(Lq/P1;Lq/s2;)V
+
+    aput-object p4, p3, p2
+
+    add-int/lit8 p2, p2, 0x1
+
+    goto :goto_8
+
+    .line 86
+    :cond_a
+    iget-object p2, p1, Lq/p1;->m:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    if-lez p2, :cond_b
+
+    .line 87
+    iget-object p2, p1, Lq/p1;->m:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    .line 88
+    new-array p2, p2, [Lq/r2;
+
+    goto :goto_9
+
+    .line 89
+    :cond_b
+    sget-object p2, Lq/x2;->d:[Lq/r2;
+
+    .line 90
+    :goto_9
+    iput-object p2, p0, Lq/s2;->e:[Lq/r2;
+
+    .line 91
+    :goto_a
+    iget-object p2, p1, Lq/p1;->m:Ljava/util/List;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    if-ge v2, p2, :cond_c
+
+    .line 92
+    iget-object p2, p0, Lq/s2;->e:[Lq/r2;
+
+    new-instance p3, Lq/r2;
+
+    .line 93
+    iget-object p4, p1, Lq/p1;->m:Ljava/util/List;
+
+    invoke-interface {p4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p4
+
+    move-object v4, p4
+
+    check-cast v4, Lq/c1;
+
+    const/4 v8, 0x1
+
+    const/4 v6, 0x0
+
+    move-object v3, p3
+
+    move-object v5, p0
+
+    move v7, v2
+
+    .line 94
+    invoke-direct/range {v3 .. v8}, Lq/r2;-><init>(Lq/c1;Lq/s2;Lq/g2;IZ)V
+
+    aput-object p3, p2, v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_a
+
+    :cond_c
     return-void
 .end method
 
-.method public shouldRunUiThreadStartUpTasks()Z
-    .registers 2
+.method public static f(Lq/p1;[Lq/s2;Z)Lq/s2;
+    .locals 12
 
-    const/4 v0, 0x1
+    new-instance v0, Lq/j2;
+
+    invoke-direct {v0, p1, p2}, Lq/j2;-><init>([Lq/s2;Z)V
+
+    new-instance v1, Lq/s2;
+
+    invoke-direct {v1, p0, p1, v0, p2}, Lq/s2;-><init>(Lq/p1;[Lq/s2;Lq/j2;Z)V
+
+    iget-object p0, v1, Lq/s2;->b:[Lq/g2;
+
+    array-length p1, p0
+
+    const/4 p2, 0x0
+
+    move v0, p2
+
+    :goto_0
+    if-ge v0, p1, :cond_0
+
+    aget-object v2, p0, v0
+
+    invoke-virtual {v2}, Lq/g2;->f()V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, v1, Lq/s2;->d:[Lq/w2;
+
+    array-length p1, p0
+
+    move v0, p2
+
+    :goto_1
+    if-ge v0, p1, :cond_4
+
+    aget-object v2, p0, v0
+
+    iget-object v2, v2, Lq/w2;->d:[Lq/u2;
+
+    array-length v3, v2
+
+    move v4, p2
+
+    :goto_2
+    if-ge v4, v3, :cond_3
+
+    aget-object v5, v2, v4
+
+    iget-object v6, v5, Lq/u2;->c:Lq/s2;
+
+    iget-object v7, v6, Lq/s2;->g:Lq/j2;
+
+    iget-object v8, v5, Lq/u2;->a:Lq/C1;
+
+    invoke-virtual {v8}, Lq/C1;->C()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v7, v9, v5}, Lq/j2;->f(Ljava/lang/String;Lq/t2;)Lq/t2;
+
+    move-result-object v7
+
+    instance-of v9, v7, Lq/g2;
+
+    const-string v10, "\" is not a message type."
+
+    const-string v11, "\""
+
+    if-eqz v9, :cond_2
+
+    check-cast v7, Lq/g2;
+
+    iput-object v7, v5, Lq/u2;->d:Lq/g2;
+
+    invoke-virtual {v8}, Lq/C1;->F()Ljava/lang/String;
+
+    move-result-object v7
+
+    iget-object v6, v6, Lq/s2;->g:Lq/j2;
+
+    invoke-virtual {v6, v7, v5}, Lq/j2;->f(Ljava/lang/String;Lq/t2;)Lq/t2;
+
+    move-result-object v6
+
+    instance-of v7, v6, Lq/g2;
+
+    if-eqz v7, :cond_1
+
+    check-cast v6, Lq/g2;
+
+    iput-object v6, v5, Lq/u2;->e:Lq/g2;
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_2
+
+    :cond_1
+    new-instance p0, Lq/k2;
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1, v11}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v8}, Lq/C1;->F()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1, v5}, Lq/k2;-><init>(Ljava/lang/String;Lq/t2;)V
+
+    throw p0
+
+    :cond_2
+    new-instance p0, Lq/k2;
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1, v11}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v8}, Lq/C1;->C()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1, v5}, Lq/k2;-><init>(Ljava/lang/String;Lq/t2;)V
+
+    throw p0
+
+    :cond_3
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    iget-object p0, v1, Lq/s2;->e:[Lq/r2;
+
+    array-length p1, p0
+
+    :goto_3
+    if-ge p2, p1, :cond_5
+
+    aget-object v0, p0, p2
+
+    invoke-static {v0}, Lq/r2;->f(Lq/r2;)V
+
+    add-int/lit8 p2, p2, 0x1
+
+    goto :goto_3
+
+    :cond_5
+    return-object v1
+.end method
+
+
+# virtual methods
+.method public final b()Lq/s2;
+    .locals 0
+
+    return-object p0
+.end method
+
+.method public final c()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lq/s2;->a:Lq/p1;
+
+    invoke-virtual {v0}, Lq/p1;->C()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final d()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lq/s2;->a:Lq/p1;
+
+    invoke-virtual {v0}, Lq/p1;->C()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final e()Lq/c;
+    .locals 1
+
+    iget-object v0, p0, Lq/s2;->a:Lq/p1;
+
+    return-object v0
+.end method
+
+.method public final g()Ljava/util/List;
+    .locals 1
+
+    iget-object v0, p0, Lq/s2;->b:[Lq/g2;
+
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final h()I
+    .locals 3
+
+    iget-object v0, p0, Lq/s2;->a:Lq/p1;
+
+    invoke-virtual {v0}, Lq/p1;->G()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "proto3"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x3
+
+    return v0
+
+    :cond_0
+    invoke-virtual {v0}, Lq/p1;->G()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "editions"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x4
+
+    return v0
+
+    :cond_1
+    const/4 v0, 0x2
 
     return v0
 .end method

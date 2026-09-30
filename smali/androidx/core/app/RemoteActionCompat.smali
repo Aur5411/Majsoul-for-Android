@@ -3,7 +3,7 @@
 .source "SourceFile"
 
 # interfaces
-.implements Lq/l5;
+.implements Lq/k6;
 
 
 # instance fields
@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

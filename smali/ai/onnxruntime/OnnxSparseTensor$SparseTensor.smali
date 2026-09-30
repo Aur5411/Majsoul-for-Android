@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/Buffer;[JLjava/nio/Buffer;[J[JLai/onnxruntime/OnnxJavaType;J)V
-    .registers 9
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;[J",
@@ -82,15 +82,15 @@
 
     cmp-long p1, p1, p7
 
-    if-nez p1, :cond_27
+    if-nez p1, :cond_1
 
     sget-object p1, Lai/onnxruntime/OnnxJavaType;->STRING:Lai/onnxruntime/OnnxJavaType;
 
-    if-eq p6, p1, :cond_1f
+    if-eq p6, p1, :cond_0
 
     return-void
 
-    :cond_1f
+    :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     const-string p2, "String SparseTensors are not supported."
@@ -99,7 +99,7 @@
 
     throw p1
 
-    :cond_27
+    :cond_1
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public getDenseShape()[J
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxSparseTensor$SparseTensor;->denseShape:[J
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public getIndices()Ljava/nio/Buffer;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -157,7 +157,7 @@
 .end method
 
 .method public getIndicesShape()[J
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxSparseTensor$SparseTensor;->indicesShape:[J
 
@@ -168,7 +168,7 @@
 .end method
 
 .method public getNumNonZeroElements()J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lai/onnxruntime/OnnxSparseTensor$SparseTensor;->numNonZero:J
 
@@ -179,7 +179,7 @@
 .end method
 
 .method public getType()Lai/onnxruntime/OnnxJavaType;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxSparseTensor$SparseTensor;->type:Lai/onnxruntime/OnnxJavaType;
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public getValues()Ljava/nio/Buffer;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxSparseTensor$SparseTensor;->values:Ljava/nio/Buffer;
 
@@ -195,7 +195,7 @@
 .end method
 
 .method public getValuesShape()[J
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lai/onnxruntime/OnnxSparseTensor$SparseTensor;->valuesShape:[J
 

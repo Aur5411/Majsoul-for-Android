@@ -1,156 +1,355 @@
-.class public final Lq/x;
+.class public abstract Lq/x;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
-# interfaces
-.implements Ljava/lang/reflect/InvocationHandler;
 
+# static fields
+.field public static final a:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-# instance fields
-.field public final a:Ljava/lang/Object;
+.field public static volatile b:Lq/t;
+
+.field public static volatile c:Lq/r;
+
+.field public static volatile d:Ljava/lang/String;
+
+.field public static volatile e:Ljava/lang/String;
+
+.field public static volatile f:Ljava/lang/String;
+
+.field public static volatile g:Z
+
+.field public static volatile h:Z
+
+.field public static volatile i:Ljava/util/List;
+
+.field public static volatile j:Lq/s;
+
+.field public static volatile k:Lq/w;
+
+.field public static volatile l:I
+
+.field public static volatile m:I
+
+.field public static volatile n:I
+
+.field public static volatile o:Ljava/lang/String;
+
+.field public static volatile p:J
+
+.field public static final q:Ljava/util/concurrent/atomic/AtomicLong;
+
+.field public static final r:Ljava/util/concurrent/atomic/AtomicLong;
+
+.field public static s:J
+
+.field public static t:J
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/Object;)V
-    .registers 2
+.method static constructor <clinit>()V
+    .locals 10
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    iput-object p1, p0, Lq/x;->a:Ljava/lang/Object;
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    sput-object v0, Lq/x;->a:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    sget-object v0, Lq/t;->e:Lq/t;
+
+    sput-object v0, Lq/x;->b:Lq/t;
+
+    sget-object v0, Lq/r;->b:Lq/r;
+
+    sput-object v0, Lq/x;->c:Lq/r;
+
+    const-string v0, ""
+
+    sput-object v0, Lq/x;->d:Ljava/lang/String;
+
+    sput-object v0, Lq/x;->e:Ljava/lang/String;
+
+    sput-object v0, Lq/x;->f:Ljava/lang/String;
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v1
+
+    sput-object v1, Lq/x;->i:Ljava/util/List;
+
+    new-instance v1, Lq/s;
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v7
+
+    const/4 v9, 0x0
+
+    new-array v8, v9, [Z
+
+    const-wide/16 v3, 0x0
+
+    const/4 v6, 0x0
+
+    move-object v2, v1
+
+    invoke-direct/range {v2 .. v8}, Lq/s;-><init>(JLjava/util/List;ZLjava/util/List;[Z)V
+
+    sput-object v1, Lq/x;->j:Lq/s;
+
+    new-instance v1, Lq/w;
+
+    const-wide/16 v2, 0x0
+
+    invoke-direct {v1, v2, v3, v9}, Lq/w;-><init>(JZ)V
+
+    sput-object v1, Lq/x;->k:Lq/w;
+
+    sput-object v0, Lq/x;->o:Ljava/lang/String;
+
+    const-wide/16 v0, -0x1
+
+    sput-wide v0, Lq/x;->p:J
+
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+
+    sput-object v0, Lq/x;->q:Ljava/util/concurrent/atomic/AtomicLong;
+
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+
+    sput-object v0, Lq/x;->r:Ljava/util/concurrent/atomic/AtomicLong;
 
     return-void
 .end method
 
+.method public static a()J
+    .locals 5
 
-# virtual methods
-.method public final equals(Ljava/lang/Object;)Z
-    .registers 4
+    sget-object v0, Lq/x;->q:Ljava/util/concurrent/atomic/AtomicLong;
 
-    if-nez p1, :cond_4
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
-    const/4 p1, 0x0
+    move-result-wide v0
 
-    return p1
+    invoke-static {}, Ljava/lang/System;->nanoTime()J
 
-    :cond_4
-    instance-of v0, p1, Lq/x;
+    move-result-wide v2
 
-    iget-object v1, p0, Lq/x;->a:Ljava/lang/Object;
+    sub-long/2addr v0, v2
 
-    if-eqz v0, :cond_13
+    const-wide/16 v2, 0x0
 
-    check-cast p1, Lq/x;
+    cmp-long v4, v0, v2
 
-    iget-object p1, p1, Lq/x;->a:Ljava/lang/Object;
+    if-gtz v4, :cond_0
 
-    invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    return-wide v2
 
-    move-result p1
+    :cond_0
+    const-wide/32 v2, 0xf423f
 
-    return p1
+    add-long/2addr v0, v2
 
-    :cond_13
-    invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    const-wide/32 v2, 0xf4240
 
-    move-result p1
+    div-long/2addr v0, v2
 
-    return p1
+    const-wide/16 v2, 0x1
+
+    invoke-static {v2, v3, v0, v1}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v0
+
+    return-wide v0
 .end method
 
-.method public final hashCode()I
-    .registers 2
+.method public static declared-synchronized b()V
+    .locals 3
 
-    iget-object v0, p0, Lq/x;->a:Ljava/lang/Object;
+    const-class v0, Lq/x;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
+    monitor-enter v0
 
-    move-result v0
+    const/4 v1, 0x1
 
-    return v0
+    :try_start_0
+    sput-boolean v1, Lq/x;->g:Z
+
+    sget-object v1, Lq/x;->c:Lq/r;
+
+    sget-object v2, Lq/r;->b:Lq/r;
+
+    if-eq v1, v2, :cond_0
+
+    sget-object v1, Lq/x;->c:Lq/r;
+
+    sget-object v2, Lq/r;->c:Lq/r;
+
+    if-ne v1, v2, :cond_1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    goto :goto_1
+
+    :cond_0
+    :goto_0
+    sget-object v1, Lq/r;->d:Lq/r;
+
+    sput-object v1, Lq/x;->c:Lq/r;
+
+    invoke-static {}, Lq/x;->f()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_1
+    monitor-exit v0
+
+    return-void
+
+    :goto_1
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v1
 .end method
 
-.method public final invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 7
+.method public static c()V
+    .locals 2
 
-    iget-object p1, p0, Lq/x;->a:Ljava/lang/Object;
+    sget-object v0, Lq/x;->c:Lq/r;
 
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    sget-object v1, Lq/r;->b:Lq/r;
+
+    if-ne v0, v1, :cond_0
+
+    sget-object v0, Lq/r;->c:Lq/r;
+
+    sput-object v0, Lq/x;->c:Lq/r;
+
+    invoke-static {}, Lq/x;->f()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public static declared-synchronized d()V
+    .locals 10
+
+    const-class v0, Lq/x;
+
+    monitor-enter v0
+
+    const-wide/16 v1, -0x1
+
+    :try_start_0
+    sput-wide v1, Lq/x;->p:J
+
+    new-instance v1, Lq/s;
+
+    sget-wide v2, Lq/x;->s:J
+
+    const-wide/16 v4, 0x1
+
+    add-long/2addr v4, v2
+
+    sput-wide v4, Lq/x;->s:J
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v6
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v8
+
+    const/4 v2, 0x0
+
+    new-array v9, v2, [Z
+
+    const/4 v7, 0x0
+
+    move-object v3, v1
+
+    invoke-direct/range {v3 .. v9}, Lq/s;-><init>(JLjava/util/List;ZLjava/util/List;[Z)V
+
+    sput-object v1, Lq/x;->j:Lq/s;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v1
+.end method
+
+.method public static e(J)Z
+    .locals 2
+
+    sget-wide v0, Lq/x;->p:J
+
+    cmp-long p0, v0, p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public static f()V
+    .locals 2
+
+    sget-object v0, Lq/x;->a:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v0
+    move-result v1
 
-    :try_start_a
-    invoke-virtual {p2}, Ljava/lang/reflect/Method;->getDeclaringClass()Ljava/lang/Class;
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    check-cast v1, Lq/u;
 
-    move-result-object v1
+    invoke-interface {v1}, Lq/u;->a()V
 
-    const/4 v2, 0x1
+    goto :goto_0
 
-    invoke-static {v1, v2, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2, v1}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1, p3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-    :try_end_27
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_a .. :try_end_27} :catch_2a
-    .catch Ljava/lang/ReflectiveOperationException; {:try_start_a .. :try_end_27} :catch_28
-
-    return-object p1
-
-    :catch_28
-    move-exception p1
-
-    goto :goto_2c
-
-    :catch_2a
-    move-exception p1
-
-    goto :goto_40
-
-    :goto_2c
-    new-instance p3, Ljava/lang/RuntimeException;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    const-string v1, "Reflection failed for method "
-
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-direct {p3, p2, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw p3
-
-    :goto_40
-    invoke-virtual {p1}, Ljava/lang/reflect/InvocationTargetException;->getTargetException()Ljava/lang/Throwable;
-
-    move-result-object p1
-
-    throw p1
+    :cond_0
+    return-void
 .end method

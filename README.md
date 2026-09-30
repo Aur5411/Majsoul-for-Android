@@ -35,6 +35,9 @@
 ### 🖥️ 画质 / 帧率设置
 提供 720P / 1080P 两档渲染画质与帧率调节。开高画质会明显增加耗电与发热，性能较弱的机型建议保持默认档。
 
+### ⚡ 内置浏览器提速
+WebView 初始化时关闭安全浏览联网校验等 5 项设置，避免每次页面导航都等待后台联网校验，国内网络下首屏与切换页面明显更快。
+
 ### 🔐 授权与更新
 十位卡密激活，可查看有效期与续费，内置版本检查与更新。
 
@@ -45,6 +48,60 @@
 | 项目 | 值 |
 |---|---|
 | 包名 | `com.majsoul` |
-| 版本 | 9.9.9（versionCode 102） |
+| 版本 | 9.9.9（versionCode 136） |
 | 系统要求 | Android 8.0 及以上（minSdk 26） |
 | 架构 | 仅 arm64-v8a |
+
+---
+
+## 仓库结构
+
+仓库内容为 APK 的**解包布局**与**反编译源码**，可直接对照阅读。
+
+```
+.
+├── AndroidManifest.xml           # 二进制 AXML（解包产物）
+├── classes.dex                   # 编译后的 dex
+├── resources.arsc                # 资源索引表
+├── smali/                        # 反编译 smali 树（apktool 命名，见下）
+├── res/                          # 资源文件
+│   └── classes_smali.zip         # 同一份 smali 的 baksmali 原始命名副本
+├── assets/                       # 网页脚本与模型数据
+│   └── models/                   # 加密模型（.qhm，体积过大不入库，见 Releases）
+├── lib/arm64-v8a/                # 原生库（ONNX Runtime + Mortal 状态推断）
+├── kotlin/                       # Kotlin 编译期元数据
+├── META-INF/                     # 原 APK 签名与构建元信息
+├── smali_case_renames.txt        # 大小写重命名映射清单
+└── tools/skinfetcher/            # 皮肤数据拉取器（独立小工具，含构建脚本）
+```
+
+### 关于 smali 命名
+
+Windows 文件系统大小写不敏感，而 smali 里存在大量仅大小写不同的类名（如 `Lq/A;` 与 `Lq/a;`、`Lq/f6;` 与 `Lq/F6;`）。
+若直接按原名落地，后写的文件会把先写的覆盖掉。
+
+仓库内的处理方式：
+
+- `smali/` 目录下，**同名冲突中小写的那一个**追加 `__dup2` 后缀（如 `q/a.smali` → `q/a__dup2.smali`），
+  完整映射见 `smali_case_renames.txt`（本版共 207 条）。
+  文件内容里的 `.class` 声明保持原样，类名不受影响。
+- `res/classes_smali.zip` 存放**未改名**的原始命名副本，在 Linux / macOS 上解压即为标准 smali 树。
+
+### 关于模型文件
+
+`assets/models/*.qhm`（Mortal 三四麻模型）体积远超 GitHub 单文件限制，已加入 `.gitignore`，
+改随 [Releases](https://github.com/Aur5411/Majsoul-for-Android/releases) 分发。从源码还原完整工程时需自行放回该目录。
+
+---
+
+## 构建与还原
+
+`.gitattributes` 设置了 `* -text`，确保仓库内资产逐字节原样保存——程序会对预置资产做 SHA-256 完整性校验，任何换行符自动转换都会导致哈希不匹配。
+
+从本仓库回编译 APK 的流程：
+
+1. 把 `assets/models/*.qhm` 从 Releases 放回原路径；
+2. 将 `smali/` 下的 `__dup2` 文件名按 `smali_case_renames.txt` 还原（或直接用 `res/classes_smali.zip` 解压覆盖）；
+3. 用 apktool 回编译 → zipalign 对齐 → 用自有密钥签名。
+
+> 注意：原 APK 存在基于**签名哈希**的离线校验与模型密钥派生，换用其他密钥签名后需相应处理，否则模型无法解密。

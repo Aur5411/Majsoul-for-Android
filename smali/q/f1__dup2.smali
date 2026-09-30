@@ -3,7 +3,7 @@
 .source "SourceFile"
 
 # interfaces
-.implements Lq/P2;
+.implements Lq/l3;
 
 
 # static fields
@@ -22,11 +22,11 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     new-instance v0, Lq/f1;
 
-    const-string v1, "IDEMPOTENCY_UNKNOWN"
+    const-string v1, "STRING"
 
     const/4 v2, 0x0
 
@@ -36,7 +36,7 @@
 
     new-instance v1, Lq/f1;
 
-    const-string v2, "NO_SIDE_EFFECTS"
+    const-string v2, "CORD"
 
     const/4 v3, 0x1
 
@@ -46,7 +46,7 @@
 
     new-instance v2, Lq/f1;
 
-    const-string v3, "IDEMPOTENT"
+    const-string v3, "STRING_PIECE"
 
     const/4 v4, 0x2
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lq/f1;
-    .registers 2
+    .locals 1
 
     const-class v0, Lq/f1;
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public static values()[Lq/f1;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lq/f1;->e:[Lq/f1;
 
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public final a()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lq/f1;->a:I
 

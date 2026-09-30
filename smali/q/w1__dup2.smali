@@ -1,902 +1,3211 @@
 .class public final Lq/w1;
-.super Lq/t2;
+.super Lq/U2;
 .source "SourceFile"
 
 
+# static fields
+.field public static final C:Lq/w1;
+
+
 # instance fields
+.field public A:Ljava/util/List;
+
+.field public B:B
+
 .field public e:I
 
-.field public f:Lq/Q2;
+.field public volatile f:Ljava/io/Serializable;
 
-.field public g:Lq/Q2;
+.field public volatile g:Ljava/io/Serializable;
 
-.field public h:Ljava/io/Serializable;
+.field public h:Z
 
-.field public i:Ljava/io/Serializable;
+.field public i:Z
 
-.field public j:Lq/b3;
+.field public j:Z
+
+.field public k:I
+
+.field public volatile l:Ljava/io/Serializable;
+
+.field public m:Z
+
+.field public n:Z
+
+.field public o:Z
+
+.field public p:Z
+
+.field public q:Z
+
+.field public r:Z
+
+.field public volatile s:Ljava/io/Serializable;
+
+.field public volatile t:Ljava/io/Serializable;
+
+.field public volatile u:Ljava/io/Serializable;
+
+.field public volatile v:Ljava/io/Serializable;
+
+.field public volatile w:Ljava/io/Serializable;
+
+.field public volatile x:Ljava/io/Serializable;
+
+.field public volatile y:Ljava/io/Serializable;
+
+.field public z:Lq/X0;
 
 
 # direct methods
-.method public constructor <init>()V
-    .registers 2
+.method static constructor <clinit>()V
+    .locals 4
 
-    const/4 v0, 0x0
+    new-instance v0, Lq/w1;
 
-    invoke-direct {p0, v0}, Lq/t2;-><init>(Lq/s2;)V
+    invoke-direct {v0}, Lq/U2;-><init>()V
 
-    sget-object v0, Lq/O2;->d:Lq/O2;
+    const-string v1, ""
 
-    iput-object v0, p0, Lq/w1;->f:Lq/Q2;
+    iput-object v1, v0, Lq/w1;->f:Ljava/io/Serializable;
 
-    iput-object v0, p0, Lq/w1;->g:Lq/Q2;
+    iput-object v1, v0, Lq/w1;->g:Ljava/io/Serializable;
 
-    const-string v0, ""
+    const/4 v2, 0x0
 
-    iput-object v0, p0, Lq/w1;->h:Ljava/io/Serializable;
+    iput-boolean v2, v0, Lq/w1;->h:Z
 
-    iput-object v0, p0, Lq/w1;->i:Ljava/io/Serializable;
+    iput-boolean v2, v0, Lq/w1;->i:Z
 
-    sget-object v0, Lq/b3;->c:Lq/b3;
+    iput-boolean v2, v0, Lq/w1;->j:Z
 
-    iput-object v0, p0, Lq/w1;->j:Lq/b3;
+    const/4 v3, 0x1
+
+    iput v3, v0, Lq/w1;->k:I
+
+    iput-object v1, v0, Lq/w1;->l:Ljava/io/Serializable;
+
+    iput-boolean v2, v0, Lq/w1;->m:Z
+
+    iput-boolean v2, v0, Lq/w1;->n:Z
+
+    iput-boolean v2, v0, Lq/w1;->o:Z
+
+    iput-boolean v2, v0, Lq/w1;->p:Z
+
+    iput-boolean v2, v0, Lq/w1;->q:Z
+
+    iput-boolean v3, v0, Lq/w1;->r:Z
+
+    iput-object v1, v0, Lq/w1;->s:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->t:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->u:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->v:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->w:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->x:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->y:Ljava/io/Serializable;
+
+    const/4 v2, -0x1
+
+    iput-byte v2, v0, Lq/w1;->B:B
+
+    iput-object v1, v0, Lq/w1;->f:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->g:Ljava/io/Serializable;
+
+    iput v3, v0, Lq/w1;->k:I
+
+    iput-object v1, v0, Lq/w1;->l:Ljava/io/Serializable;
+
+    iput-boolean v3, v0, Lq/w1;->r:Z
+
+    iput-object v1, v0, Lq/w1;->s:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->t:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->u:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->v:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->w:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->x:Ljava/io/Serializable;
+
+    iput-object v1, v0, Lq/w1;->y:Ljava/io/Serializable;
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lq/w1;->A:Ljava/util/List;
+
+    sput-object v0, Lq/w1;->C:Lq/w1;
+
+    new-instance v0, Lq/t1;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final B(Lq/R1;Ljava/lang/Object;)Lq/a;
-    .registers 3
+.method public final A(Lq/h;)Lq/a;
+    .locals 2
 
-    invoke-virtual {p0, p1, p2}, Lq/t2;->N(Lq/R1;Ljava/lang/Object;)V
+    new-instance v0, Lq/u1;
 
-    return-object p0
-.end method
+    invoke-direct {v0, p1}, Lq/R2;-><init>(Lq/h;)V
 
-.method public final D(Lq/W4;)Lq/a;
-    .registers 2
+    const-string p1, ""
 
-    iput-object p1, p0, Lq/t2;->d:Lq/R3;
+    iput-object p1, v0, Lq/u1;->g:Ljava/io/Serializable;
 
-    invoke-virtual {p0}, Lq/t2;->M()V
-
-    return-object p0
-.end method
-
-.method public final I()Lq/J2;
-    .registers 4
-
-    sget-object v0, Lq/F1;->d0:Lq/J2;
-
-    const-class v1, Lq/x1;
-
-    const-class v2, Lq/w1;
-
-    invoke-virtual {v0, v1, v2}, Lq/J2;->c(Ljava/lang/Class;Ljava/lang/Class;)V
-
-    return-object v0
-.end method
-
-.method public final O()Lq/x1;
-    .registers 5
-
-    new-instance v0, Lq/x1;
-
-    invoke-direct {v0, p0}, Lq/K2;-><init>(Lq/t2;)V
-
-    sget-object v1, Lq/O2;->d:Lq/O2;
-
-    iput-object v1, v0, Lq/x1;->e:Lq/Q2;
-
-    const/4 v2, -0x1
-
-    iput v2, v0, Lq/x1;->f:I
-
-    iput-object v1, v0, Lq/x1;->g:Lq/Q2;
-
-    iput v2, v0, Lq/x1;->h:I
-
-    const-string v1, ""
-
-    iput-object v1, v0, Lq/x1;->i:Ljava/io/Serializable;
-
-    iput-object v1, v0, Lq/x1;->j:Ljava/io/Serializable;
-
-    sget-object v1, Lq/b3;->c:Lq/b3;
-
-    iput-object v1, v0, Lq/x1;->k:Lq/b3;
-
-    iput-byte v2, v0, Lq/x1;->l:B
-
-    iget v1, p0, Lq/w1;->e:I
-
-    if-eqz v1, :cond_65
-
-    and-int/lit8 v2, v1, 0x1
-
-    if-eqz v2, :cond_2f
-
-    iget-object v2, p0, Lq/w1;->f:Lq/Q2;
-
-    check-cast v2, Lq/e;
-
-    invoke-virtual {v2}, Lq/e;->c()V
-
-    iget-object v2, p0, Lq/w1;->f:Lq/Q2;
-
-    iput-object v2, v0, Lq/x1;->e:Lq/Q2;
-
-    :cond_2f
-    and-int/lit8 v2, v1, 0x2
-
-    if-eqz v2, :cond_3e
-
-    iget-object v2, p0, Lq/w1;->g:Lq/Q2;
-
-    check-cast v2, Lq/e;
-
-    invoke-virtual {v2}, Lq/e;->c()V
-
-    iget-object v2, p0, Lq/w1;->g:Lq/Q2;
-
-    iput-object v2, v0, Lq/x1;->g:Lq/Q2;
-
-    :cond_3e
-    and-int/lit8 v2, v1, 0x4
-
-    if-eqz v2, :cond_48
-
-    iget-object v2, p0, Lq/w1;->h:Ljava/io/Serializable;
-
-    iput-object v2, v0, Lq/x1;->i:Ljava/io/Serializable;
-
-    const/4 v2, 0x1
-
-    goto :goto_49
-
-    :cond_48
-    const/4 v2, 0x0
-
-    :goto_49
-    and-int/lit8 v3, v1, 0x8
-
-    if-eqz v3, :cond_53
-
-    iget-object v3, p0, Lq/w1;->i:Ljava/io/Serializable;
-
-    iput-object v3, v0, Lq/x1;->j:Ljava/io/Serializable;
-
-    or-int/lit8 v2, v2, 0x2
-
-    :cond_53
-    and-int/lit8 v1, v1, 0x10
-
-    if-eqz v1, :cond_60
-
-    iget-object v1, p0, Lq/w1;->j:Lq/b3;
-
-    invoke-virtual {v1}, Lq/e;->c()V
-
-    iget-object v1, p0, Lq/w1;->j:Lq/b3;
-
-    iput-object v1, v0, Lq/x1;->k:Lq/b3;
-
-    :cond_60
-    iget v1, v0, Lq/x1;->d:I
-
-    or-int/2addr v1, v2
-
-    iput v1, v0, Lq/x1;->d:I
-
-    :cond_65
-    invoke-virtual {p0}, Lq/t2;->L()V
-
-    return-object v0
-.end method
-
-.method public final P()V
-    .registers 3
-
-    iget-object v0, p0, Lq/w1;->f:Lq/Q2;
-
-    move-object v1, v0
-
-    check-cast v1, Lq/e;
-
-    iget-boolean v1, v1, Lq/e;->a:Z
-
-    if-nez v1, :cond_11
-
-    invoke-static {v0}, Lq/K2;->z(Lq/R2;)Lq/R2;
-
-    move-result-object v0
-
-    check-cast v0, Lq/Q2;
-
-    iput-object v0, p0, Lq/w1;->f:Lq/Q2;
-
-    :cond_11
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lq/w1;->e:I
-
-    return-void
-.end method
-
-.method public final Q()V
-    .registers 3
-
-    iget-object v0, p0, Lq/w1;->g:Lq/Q2;
-
-    move-object v1, v0
-
-    check-cast v1, Lq/e;
-
-    iget-boolean v1, v1, Lq/e;->a:Z
-
-    if-nez v1, :cond_11
-
-    invoke-static {v0}, Lq/K2;->z(Lq/R2;)Lq/R2;
-
-    move-result-object v0
-
-    check-cast v0, Lq/Q2;
-
-    iput-object v0, p0, Lq/w1;->g:Lq/Q2;
-
-    :cond_11
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/lit8 v0, v0, 0x2
-
-    iput v0, p0, Lq/w1;->e:I
-
-    return-void
-.end method
-
-.method public final R(Lq/x1;)V
-    .registers 4
-
-    sget-object v0, Lq/x1;->m:Lq/x1;
-
-    if-ne p1, v0, :cond_5
-
-    return-void
-
-    :cond_5
-    iget-object v0, p1, Lq/x1;->e:Lq/Q2;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_34
-
-    iget-object v0, p0, Lq/w1;->f:Lq/Q2;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_25
-
-    iget-object v0, p1, Lq/x1;->e:Lq/Q2;
-
-    iput-object v0, p0, Lq/w1;->f:Lq/Q2;
-
-    check-cast v0, Lq/e;
-
-    invoke-virtual {v0}, Lq/e;->c()V
-
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lq/w1;->e:I
-
-    goto :goto_31
-
-    :cond_25
-    invoke-virtual {p0}, Lq/w1;->P()V
-
-    iget-object v0, p0, Lq/w1;->f:Lq/Q2;
-
-    iget-object v1, p1, Lq/x1;->e:Lq/Q2;
-
-    check-cast v0, Lq/O2;
-
-    invoke-virtual {v0, v1}, Lq/O2;->addAll(Ljava/util/Collection;)Z
-
-    :goto_31
-    invoke-virtual {p0}, Lq/t2;->M()V
-
-    :cond_34
-    iget-object v0, p1, Lq/x1;->g:Lq/Q2;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_63
-
-    iget-object v0, p0, Lq/w1;->g:Lq/Q2;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_54
-
-    iget-object v0, p1, Lq/x1;->g:Lq/Q2;
-
-    iput-object v0, p0, Lq/w1;->g:Lq/Q2;
-
-    check-cast v0, Lq/e;
-
-    invoke-virtual {v0}, Lq/e;->c()V
-
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/lit8 v0, v0, 0x2
-
-    iput v0, p0, Lq/w1;->e:I
-
-    goto :goto_60
-
-    :cond_54
-    invoke-virtual {p0}, Lq/w1;->Q()V
-
-    iget-object v0, p0, Lq/w1;->g:Lq/Q2;
-
-    iget-object v1, p1, Lq/x1;->g:Lq/Q2;
-
-    check-cast v0, Lq/O2;
-
-    invoke-virtual {v0, v1}, Lq/O2;->addAll(Ljava/util/Collection;)Z
-
-    :goto_60
-    invoke-virtual {p0}, Lq/t2;->M()V
-
-    :cond_63
-    invoke-virtual {p1}, Lq/x1;->E()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_76
-
-    iget-object v0, p1, Lq/x1;->i:Ljava/io/Serializable;
-
-    iput-object v0, p0, Lq/w1;->h:Ljava/io/Serializable;
-
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/lit8 v0, v0, 0x4
-
-    iput v0, p0, Lq/w1;->e:I
-
-    invoke-virtual {p0}, Lq/t2;->M()V
-
-    :cond_76
-    invoke-virtual {p1}, Lq/x1;->F()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_89
-
-    iget-object v0, p1, Lq/x1;->j:Ljava/io/Serializable;
-
-    iput-object v0, p0, Lq/w1;->i:Ljava/io/Serializable;
-
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/lit8 v0, v0, 0x8
-
-    iput v0, p0, Lq/w1;->e:I
-
-    invoke-virtual {p0}, Lq/t2;->M()V
-
-    :cond_89
-    iget-object v0, p1, Lq/x1;->k:Lq/b3;
-
-    invoke-virtual {v0}, Ljava/util/AbstractCollection;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_c3
-
-    iget-object v0, p0, Lq/w1;->j:Lq/b3;
-
-    invoke-virtual {v0}, Ljava/util/AbstractCollection;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_a4
-
-    iget-object v0, p1, Lq/x1;->k:Lq/b3;
-
-    iput-object v0, p0, Lq/w1;->j:Lq/b3;
-
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/lit8 v0, v0, 0x10
-
-    iput v0, p0, Lq/w1;->e:I
-
-    goto :goto_c0
-
-    :cond_a4
-    iget-object v0, p0, Lq/w1;->j:Lq/b3;
-
-    iget-boolean v0, v0, Lq/e;->a:Z
-
-    if-nez v0, :cond_b3
-
-    new-instance v0, Lq/b3;
-
-    iget-object v1, p0, Lq/w1;->j:Lq/b3;
-
-    invoke-direct {v0, v1}, Lq/b3;-><init>(Lq/c3;)V
-
-    iput-object v0, p0, Lq/w1;->j:Lq/b3;
-
-    :cond_b3
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/lit8 v0, v0, 0x10
-
-    iput v0, p0, Lq/w1;->e:I
-
-    iget-object v0, p0, Lq/w1;->j:Lq/b3;
-
-    iget-object v1, p1, Lq/x1;->k:Lq/b3;
-
-    invoke-virtual {v0, v1}, Lq/b3;->addAll(Ljava/util/Collection;)Z
-
-    :goto_c0
-    invoke-virtual {p0}, Lq/t2;->M()V
-
-    :cond_c3
-    iget-object p1, p1, Lq/K2;->c:Lq/W4;
-
-    invoke-virtual {p0, p1}, Lq/t2;->J(Lq/W4;)V
-
-    invoke-virtual {p0}, Lq/t2;->M()V
-
-    return-void
-.end method
-
-.method public final S(Lq/E;Lq/d2;)V
-    .registers 8
-
-    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    const/4 p2, 0x0
-
-    :cond_4
-    :goto_4
-    if-nez p2, :cond_df
-
-    :try_start_6
-    invoke-virtual {p1}, Lq/E;->z()I
-
-    move-result v0
+    iput-object p1, v0, Lq/u1;->h:Ljava/io/Serializable;
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_33
+    iput v1, v0, Lq/u1;->l:I
 
-    const/16 v2, 0x8
+    iput-object p1, v0, Lq/u1;->m:Ljava/io/Serializable;
 
-    if-eq v0, v2, :cond_c6
+    iput-boolean v1, v0, Lq/u1;->s:Z
 
-    const/16 v3, 0xa
+    iput-object p1, v0, Lq/u1;->t:Ljava/io/Serializable;
 
-    if-eq v0, v3, :cond_a4
+    iput-object p1, v0, Lq/u1;->u:Ljava/io/Serializable;
 
-    const/16 v3, 0x10
+    iput-object p1, v0, Lq/u1;->v:Ljava/io/Serializable;
 
-    if-eq v0, v3, :cond_94
+    iput-object p1, v0, Lq/u1;->w:Ljava/io/Serializable;
 
-    const/16 v4, 0x12
+    iput-object p1, v0, Lq/u1;->x:Ljava/io/Serializable;
 
-    if-eq v0, v4, :cond_72
+    iput-object p1, v0, Lq/u1;->y:Ljava/io/Serializable;
 
-    const/16 v4, 0x1a
+    iput-object p1, v0, Lq/u1;->z:Ljava/io/Serializable;
 
-    if-eq v0, v4, :cond_65
-
-    const/16 v4, 0x22
-
-    if-eq v0, v4, :cond_59
-
-    const/16 v2, 0x32
-
-    if-eq v0, v2, :cond_35
-
-    invoke-virtual {p0}, Lq/t2;->s()Lq/S4;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0, p1}, Lq/S4;->q(ILq/E;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    :cond_33
-    move p2, v1
-
-    goto :goto_4
-
-    :cond_35
-    invoke-virtual {p1}, Lq/E;->h()Lq/B;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lq/w1;->j:Lq/b3;
-
-    iget-boolean v1, v1, Lq/e;->a:Z
-
-    if-nez v1, :cond_48
-
-    new-instance v1, Lq/b3;
-
-    iget-object v2, p0, Lq/w1;->j:Lq/b3;
-
-    invoke-direct {v1, v2}, Lq/b3;-><init>(Lq/c3;)V
-
-    iput-object v1, p0, Lq/w1;->j:Lq/b3;
-
-    :cond_48
-    iget v1, p0, Lq/w1;->e:I
-
-    or-int/2addr v1, v3
-
-    iput v1, p0, Lq/w1;->e:I
-
-    iget-object v1, p0, Lq/w1;->j:Lq/b3;
-
-    invoke-virtual {v1, v0}, Lq/b3;->d(Lq/B;)V
-
-    goto :goto_4
-
-    :catchall_53
-    move-exception p1
-
-    goto/16 :goto_db
-
-    :catch_56
-    move-exception p1
-
-    goto/16 :goto_d6
-
-    :cond_59
-    invoke-virtual {p1}, Lq/E;->h()Lq/B;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lq/w1;->i:Ljava/io/Serializable;
-
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/2addr v0, v2
-
-    iput v0, p0, Lq/w1;->e:I
-
-    goto :goto_4
-
-    :cond_65
-    invoke-virtual {p1}, Lq/E;->h()Lq/B;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lq/w1;->h:Ljava/io/Serializable;
-
-    iget v0, p0, Lq/w1;->e:I
-
-    or-int/lit8 v0, v0, 0x4
-
-    iput v0, p0, Lq/w1;->e:I
-
-    goto :goto_4
-
-    :cond_72
-    invoke-virtual {p1}, Lq/E;->s()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Lq/E;->f(I)I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lq/w1;->Q()V
-
-    :goto_7d
-    invoke-virtual {p1}, Lq/E;->c()I
-
-    move-result v1
-
-    if-lez v1, :cond_8f
-
-    iget-object v1, p0, Lq/w1;->g:Lq/Q2;
-
-    invoke-virtual {p1}, Lq/E;->o()I
-
-    move-result v2
-
-    check-cast v1, Lq/O2;
-
-    invoke-virtual {v1, v2}, Lq/O2;->d(I)V
-
-    goto :goto_7d
-
-    :cond_8f
-    invoke-virtual {p1, v0}, Lq/E;->e(I)V
-
-    goto/16 :goto_4
-
-    :cond_94
-    invoke-virtual {p1}, Lq/E;->o()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lq/w1;->Q()V
-
-    iget-object v1, p0, Lq/w1;->g:Lq/Q2;
-
-    check-cast v1, Lq/O2;
-
-    invoke-virtual {v1, v0}, Lq/O2;->d(I)V
-
-    goto/16 :goto_4
-
-    :cond_a4
-    invoke-virtual {p1}, Lq/E;->s()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Lq/E;->f(I)I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lq/w1;->P()V
-
-    :goto_af
-    invoke-virtual {p1}, Lq/E;->c()I
-
-    move-result v1
-
-    if-lez v1, :cond_c1
-
-    iget-object v1, p0, Lq/w1;->f:Lq/Q2;
-
-    invoke-virtual {p1}, Lq/E;->o()I
-
-    move-result v2
-
-    check-cast v1, Lq/O2;
-
-    invoke-virtual {v1, v2}, Lq/O2;->d(I)V
-
-    goto :goto_af
-
-    :cond_c1
-    invoke-virtual {p1, v0}, Lq/E;->e(I)V
-
-    goto/16 :goto_4
-
-    :cond_c6
-    invoke-virtual {p1}, Lq/E;->o()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lq/w1;->P()V
-
-    iget-object v1, p0, Lq/w1;->f:Lq/Q2;
-
-    check-cast v1, Lq/O2;
-
-    invoke-virtual {v1, v0}, Lq/O2;->d(I)V
-    :try_end_d4
-    .catch Lq/U2; {:try_start_6 .. :try_end_d4} :catch_56
-    .catchall {:try_start_6 .. :try_end_d4} :catchall_53
-
-    goto/16 :goto_4
-
-    :goto_d6
-    :try_start_d6
-    invoke-virtual {p1}, Lq/U2;->e()Ljava/io/IOException;
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object p1
 
-    throw p1
-    :try_end_db
-    .catchall {:try_start_d6 .. :try_end_db} :catchall_53
+    iput-object p1, v0, Lq/u1;->C:Ljava/util/List;
 
-    :goto_db
-    invoke-virtual {p0}, Lq/t2;->M()V
+    return-object v0
+.end method
 
-    throw p1
+.method public final D()Ljava/lang/String;
+    .locals 2
 
-    :cond_df
-    invoke-virtual {p0}, Lq/t2;->M()V
+    iget-object v0, p0, Lq/w1;->t:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->t:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final E()Lq/X0;
+    .locals 1
+
+    iget-object v0, p0, Lq/w1;->z:Lq/X0;
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lq/X0;->m:Lq/X0;
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public final F()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lq/w1;->l:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->l:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final G()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lq/w1;->g:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->g:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final H()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lq/w1;->f:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->f:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final I()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lq/w1;->s:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->s:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final J()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lq/w1;->v:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->v:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final K()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lq/w1;->x:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->x:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final L()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lq/w1;->w:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->w:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final M()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lq/w1;->y:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->y:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final N()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lq/w1;->u:Ljava/io/Serializable;
+
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    check-cast v0, Lq/c0;
+
+    invoke-virtual {v0}, Lq/c0;->k()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lq/c0;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v1, p0, Lq/w1;->u:Ljava/io/Serializable;
+
+    :cond_1
+    return-object v1
+.end method
+
+.method public final O()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit16 v0, v0, 0x1000
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final P()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit16 v0, v0, 0x80
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final Q()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit16 v0, v0, 0x4000
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final R()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit16 v0, v0, 0x800
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final S()Z
+    .locals 2
+
+    iget v0, p0, Lq/w1;->e:I
+
+    const/high16 v1, 0x100000
+
+    and-int/2addr v0, v1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final T()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit8 v0, v0, 0x40
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final U()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit8 v0, v0, 0x8
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final V()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit16 v0, v0, 0x100
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final W()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit8 v0, v0, 0x4
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final X()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit8 v0, v0, 0x2
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final Y()Z
+    .locals 2
+
+    iget v0, p0, Lq/w1;->e:I
+
+    const/4 v1, 0x1
+
+    and-int/2addr v0, v1
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+.end method
+
+.method public final Z()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit8 v0, v0, 0x10
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final a0()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit16 v0, v0, 0x2000
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final b0()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit8 v0, v0, 0x20
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final c(Lq/g0;)V
+    .locals 5
+
+    new-instance v0, Lq/T2;
+
+    invoke-direct {v0, p0}, Lq/T2;-><init>(Lq/U2;)V
+
+    iget v1, p0, Lq/w1;->e:I
+
+    const/4 v2, 0x1
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lq/w1;->f:Ljava/io/Serializable;
+
+    invoke-static {p1, v2, v1}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_0
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit8 v1, v1, 0x2
+
+    const/16 v2, 0x8
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lq/w1;->g:Ljava/io/Serializable;
+
+    invoke-static {p1, v2, v1}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_1
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit8 v1, v1, 0x20
+
+    if-eqz v1, :cond_2
+
+    iget v1, p0, Lq/w1;->k:I
+
+    const/16 v3, 0x9
+
+    invoke-virtual {p1, v3, v1}, Lq/g0;->P(II)V
+
+    :cond_2
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit8 v1, v1, 0x4
+
+    if-eqz v1, :cond_3
+
+    const/16 v1, 0xa
+
+    iget-boolean v3, p0, Lq/w1;->h:Z
+
+    invoke-virtual {p1, v3, v1}, Lq/g0;->K(ZI)V
+
+    :cond_3
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit8 v1, v1, 0x40
+
+    if-eqz v1, :cond_4
+
+    const/16 v1, 0xb
+
+    iget-object v3, p0, Lq/w1;->l:Ljava/io/Serializable;
+
+    invoke-static {p1, v1, v3}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_4
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x80
+
+    const/16 v3, 0x10
+
+    if-eqz v1, :cond_5
+
+    iget-boolean v1, p0, Lq/w1;->m:Z
+
+    invoke-virtual {p1, v1, v3}, Lq/g0;->K(ZI)V
+
+    :cond_5
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x100
+
+    if-eqz v1, :cond_6
+
+    const/16 v1, 0x11
+
+    iget-boolean v4, p0, Lq/w1;->n:Z
+
+    invoke-virtual {p1, v4, v1}, Lq/g0;->K(ZI)V
+
+    :cond_6
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x200
+
+    if-eqz v1, :cond_7
+
+    const/16 v1, 0x12
+
+    iget-boolean v4, p0, Lq/w1;->o:Z
+
+    invoke-virtual {p1, v4, v1}, Lq/g0;->K(ZI)V
+
+    :cond_7
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_8
+
+    const/16 v1, 0x14
+
+    iget-boolean v2, p0, Lq/w1;->i:Z
+
+    invoke-virtual {p1, v2, v1}, Lq/g0;->K(ZI)V
+
+    :cond_8
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x800
+
+    if-eqz v1, :cond_9
+
+    const/16 v1, 0x17
+
+    iget-boolean v2, p0, Lq/w1;->q:Z
+
+    invoke-virtual {p1, v2, v1}, Lq/g0;->K(ZI)V
+
+    :cond_9
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/2addr v1, v3
+
+    if-eqz v1, :cond_a
+
+    const/16 v1, 0x1b
+
+    iget-boolean v2, p0, Lq/w1;->j:Z
+
+    invoke-virtual {p1, v2, v1}, Lq/g0;->K(ZI)V
+
+    :cond_a
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x1000
+
+    if-eqz v1, :cond_b
+
+    const/16 v1, 0x1f
+
+    iget-boolean v2, p0, Lq/w1;->r:Z
+
+    invoke-virtual {p1, v2, v1}, Lq/g0;->K(ZI)V
+
+    :cond_b
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x2000
+
+    if-eqz v1, :cond_c
+
+    const/16 v1, 0x24
+
+    iget-object v2, p0, Lq/w1;->s:Ljava/io/Serializable;
+
+    invoke-static {p1, v1, v2}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_c
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x4000
+
+    if-eqz v1, :cond_d
+
+    const/16 v1, 0x25
+
+    iget-object v2, p0, Lq/w1;->t:Ljava/io/Serializable;
+
+    invoke-static {p1, v1, v2}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_d
+    iget v1, p0, Lq/w1;->e:I
+
+    const v2, 0x8000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_e
+
+    const/16 v1, 0x27
+
+    iget-object v2, p0, Lq/w1;->u:Ljava/io/Serializable;
+
+    invoke-static {p1, v1, v2}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_e
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v2, 0x10000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_f
+
+    const/16 v1, 0x28
+
+    iget-object v2, p0, Lq/w1;->v:Ljava/io/Serializable;
+
+    invoke-static {p1, v1, v2}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_f
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v2, 0x20000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_10
+
+    const/16 v1, 0x29
+
+    iget-object v2, p0, Lq/w1;->w:Ljava/io/Serializable;
+
+    invoke-static {p1, v1, v2}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_10
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x400
+
+    if-eqz v1, :cond_11
+
+    const/16 v1, 0x2a
+
+    iget-boolean v2, p0, Lq/w1;->p:Z
+
+    invoke-virtual {p1, v2, v1}, Lq/g0;->K(ZI)V
+
+    :cond_11
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v2, 0x40000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_12
+
+    const/16 v1, 0x2c
+
+    iget-object v2, p0, Lq/w1;->x:Ljava/io/Serializable;
+
+    invoke-static {p1, v1, v2}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_12
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v2, 0x80000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_13
+
+    const/16 v1, 0x2d
+
+    iget-object v2, p0, Lq/w1;->y:Ljava/io/Serializable;
+
+    invoke-static {p1, v1, v2}, Lq/i3;->B(Lq/g0;ILjava/lang/Object;)V
+
+    :cond_13
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v2, 0x100000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_14
+
+    const/16 v1, 0x32
+
+    invoke-virtual {p0}, Lq/w1;->E()Lq/X0;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v1, v2}, Lq/g0;->R(ILq/o4;)V
+
+    :cond_14
+    const/4 v1, 0x0
+
+    :goto_0
+    iget-object v2, p0, Lq/w1;->A:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_15
+
+    iget-object v2, p0, Lq/w1;->A:Ljava/util/List;
+
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lq/o4;
+
+    const/16 v3, 0x3e7
+
+    invoke-virtual {p1, v3, v2}, Lq/g0;->R(ILq/o4;)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_15
+    const/high16 v1, 0x20000000
+
+    invoke-virtual {v0, v1, p1}, Lq/T2;->n(ILq/g0;)V
+
+    iget-object v0, p0, Lq/i3;->c:Lq/W5;
+
+    invoke-virtual {v0, p1}, Lq/W5;->c(Lq/g0;)V
 
     return-void
 .end method
 
-.method public final bridge synthetic b()Lq/Q3;
-    .registers 2
+.method public final c0()Z
+    .locals 2
 
-    invoke-virtual {p0}, Lq/w1;->O()Lq/x1;
+    iget v0, p0, Lq/w1;->e:I
 
-    move-result-object v0
+    const/high16 v1, 0x10000
 
-    return-object v0
+    and-int/2addr v0, v1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
-.method public final clone()Ljava/lang/Object;
-    .registers 2
+.method public final d0()Z
+    .locals 1
 
-    invoke-virtual {p0}, Lq/t2;->F()Lq/t2;
+    iget v0, p0, Lq/w1;->e:I
 
-    move-result-object v0
+    and-int/lit16 v0, v0, 0x400
 
-    check-cast v0, Lq/w1;
+    if-eqz v0, :cond_0
 
-    return-object v0
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
-.method public final bridge synthetic d(Lq/E;Lq/d2;)Lq/P3;
-    .registers 3
+.method public final e()I
+    .locals 5
 
-    invoke-virtual {p0, p1, p2}, Lq/w1;->S(Lq/E;Lq/d2;)V
+    iget v0, p0, Lq/c;->b:I
 
-    return-object p0
-.end method
+    const/4 v1, -0x1
 
-.method public final f()Lq/Q3;
-    .registers 3
+    if-eq v0, v1, :cond_0
 
-    invoke-virtual {p0}, Lq/w1;->O()Lq/x1;
+    return v0
 
-    move-result-object v0
+    :cond_0
+    iget v0, p0, Lq/w1;->e:I
 
-    invoke-virtual {v0}, Lq/x1;->h()Z
+    const/4 v1, 0x1
+
+    and-int/2addr v0, v1
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lq/w1;->f:Ljava/io/Serializable;
+
+    invoke-static {v1, v0}, Lq/i3;->v(ILjava/lang/Object;)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v2
+
+    :goto_0
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit8 v1, v1, 0x2
+
+    const/16 v3, 0x8
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lq/w1;->g:Ljava/io/Serializable;
+
+    invoke-static {v3, v1}, Lq/i3;->v(ILjava/lang/Object;)I
 
     move-result v1
 
+    add-int/2addr v0, v1
+
+    :cond_2
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit8 v1, v1, 0x20
+
+    if-eqz v1, :cond_3
+
+    const/16 v1, 0x9
+
+    iget v4, p0, Lq/w1;->k:I
+
+    invoke-static {v1, v4}, Lq/g0;->z(II)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_3
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit8 v1, v1, 0x4
+
+    if-eqz v1, :cond_4
+
+    const/16 v1, 0xa
+
+    invoke-static {v1}, Lq/g0;->x(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_4
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit8 v1, v1, 0x40
+
+    if-eqz v1, :cond_5
+
+    const/16 v1, 0xb
+
+    iget-object v4, p0, Lq/w1;->l:Ljava/io/Serializable;
+
+    invoke-static {v1, v4}, Lq/i3;->v(ILjava/lang/Object;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_5
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x80
+
+    const/16 v4, 0x10
+
+    if-eqz v1, :cond_6
+
+    invoke-static {v4}, Lq/g0;->x(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_6
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x100
+
+    if-eqz v1, :cond_7
+
+    const/16 v1, 0x11
+
+    invoke-static {v1}, Lq/g0;->x(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_7
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x200
+
+    if-eqz v1, :cond_8
+
+    const/16 v1, 0x12
+
+    invoke-static {v1}, Lq/g0;->x(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_8
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/2addr v1, v3
+
+    if-eqz v1, :cond_9
+
+    const/16 v1, 0x14
+
+    invoke-static {v1}, Lq/g0;->x(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_9
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x800
+
+    if-eqz v1, :cond_a
+
+    const/16 v1, 0x17
+
+    invoke-static {v1}, Lq/g0;->x(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_a
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/2addr v1, v4
+
     if-eqz v1, :cond_b
 
-    return-object v0
+    const/16 v1, 0x1b
+
+    invoke-static {v1}, Lq/g0;->x(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
 
     :cond_b
-    invoke-static {v0}, Lq/a;->A(Lq/c;)Lq/R4;
+    iget v1, p0, Lq/w1;->e:I
 
-    move-result-object v0
+    and-int/lit16 v1, v1, 0x1000
 
-    throw v0
-.end method
+    if-eqz v1, :cond_c
 
-.method public final h()Z
-    .registers 2
+    const/16 v1, 0x1f
 
-    const/4 v0, 0x1
+    invoke-static {v1}, Lq/g0;->x(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_c
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x2000
+
+    if-eqz v1, :cond_d
+
+    const/16 v1, 0x24
+
+    iget-object v3, p0, Lq/w1;->s:Ljava/io/Serializable;
+
+    invoke-static {v1, v3}, Lq/i3;->v(ILjava/lang/Object;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_d
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x4000
+
+    if-eqz v1, :cond_e
+
+    const/16 v1, 0x25
+
+    iget-object v3, p0, Lq/w1;->t:Ljava/io/Serializable;
+
+    invoke-static {v1, v3}, Lq/i3;->v(ILjava/lang/Object;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_e
+    iget v1, p0, Lq/w1;->e:I
+
+    const v3, 0x8000
+
+    and-int/2addr v1, v3
+
+    if-eqz v1, :cond_f
+
+    const/16 v1, 0x27
+
+    iget-object v3, p0, Lq/w1;->u:Ljava/io/Serializable;
+
+    invoke-static {v1, v3}, Lq/i3;->v(ILjava/lang/Object;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_f
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v3, 0x10000
+
+    and-int/2addr v1, v3
+
+    if-eqz v1, :cond_10
+
+    const/16 v1, 0x28
+
+    iget-object v3, p0, Lq/w1;->v:Ljava/io/Serializable;
+
+    invoke-static {v1, v3}, Lq/i3;->v(ILjava/lang/Object;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_10
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v3, 0x20000
+
+    and-int/2addr v1, v3
+
+    if-eqz v1, :cond_11
+
+    const/16 v1, 0x29
+
+    iget-object v3, p0, Lq/w1;->w:Ljava/io/Serializable;
+
+    invoke-static {v1, v3}, Lq/i3;->v(ILjava/lang/Object;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_11
+    iget v1, p0, Lq/w1;->e:I
+
+    and-int/lit16 v1, v1, 0x400
+
+    if-eqz v1, :cond_12
+
+    const/16 v1, 0x2a
+
+    invoke-static {v1}, Lq/g0;->x(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_12
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v3, 0x40000
+
+    and-int/2addr v1, v3
+
+    if-eqz v1, :cond_13
+
+    const/16 v1, 0x2c
+
+    iget-object v3, p0, Lq/w1;->x:Ljava/io/Serializable;
+
+    invoke-static {v1, v3}, Lq/i3;->v(ILjava/lang/Object;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_13
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v3, 0x80000
+
+    and-int/2addr v1, v3
+
+    if-eqz v1, :cond_14
+
+    const/16 v1, 0x2d
+
+    iget-object v3, p0, Lq/w1;->y:Ljava/io/Serializable;
+
+    invoke-static {v1, v3}, Lq/i3;->v(ILjava/lang/Object;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_14
+    iget v1, p0, Lq/w1;->e:I
+
+    const/high16 v3, 0x100000
+
+    and-int/2addr v1, v3
+
+    if-eqz v1, :cond_15
+
+    const/16 v1, 0x32
+
+    invoke-virtual {p0}, Lq/w1;->E()Lq/X0;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Lq/g0;->C(ILq/o4;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_15
+    :goto_1
+    iget-object v1, p0, Lq/w1;->A:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-ge v2, v1, :cond_16
+
+    iget-object v1, p0, Lq/w1;->A:Ljava/util/List;
+
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lq/o4;
+
+    const/16 v3, 0x3e7
+
+    invoke-static {v3, v1}, Lq/g0;->C(ILq/o4;)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_16
+    iget-object v1, p0, Lq/U2;->d:Lq/I2;
+
+    invoke-virtual {v1}, Lq/I2;->h()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    iget-object v0, p0, Lq/i3;->c:Lq/W5;
+
+    invoke-virtual {v0}, Lq/W5;->e()I
+
+    move-result v0
+
+    add-int/2addr v0, v1
+
+    iput v0, p0, Lq/c;->b:I
 
     return v0
 .end method
 
-.method public final i()Lq/c;
-    .registers 2
+.method public final e0()Z
+    .locals 2
 
-    sget-object v0, Lq/x1;->m:Lq/x1;
+    iget v0, p0, Lq/w1;->e:I
 
-    return-object v0
+    const/high16 v1, 0x40000
+
+    and-int/2addr v0, v1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
-.method public final k()Lq/G1;
-    .registers 2
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 4
 
-    sget-object v0, Lq/F1;->c0:Lq/G1;
+    const/4 v0, 0x1
 
-    return-object v0
-.end method
+    if-ne p1, p0, :cond_0
 
-.method public final n(Lq/R1;Ljava/lang/Object;)Lq/a;
-    .registers 3
+    return v0
 
-    invoke-virtual {p0, p1, p2}, Lq/t2;->E(Lq/R1;Ljava/lang/Object;)V
+    :cond_0
+    instance-of v1, p1, Lq/w1;
 
-    return-object p0
-.end method
+    if-nez v1, :cond_1
 
-.method public final o()Lq/c;
-    .registers 3
+    invoke-super {p0, p1}, Lq/c;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {p0}, Lq/w1;->O()Lq/x1;
+    move-result p1
 
-    move-result-object v0
+    return p1
 
-    invoke-virtual {v0}, Lq/x1;->h()Z
+    :cond_1
+    check-cast p1, Lq/w1;
+
+    invoke-virtual {p0}, Lq/w1;->Y()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->Y()Z
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    if-eq v1, v2, :cond_2
+
+    return v3
+
+    :cond_2
+    invoke-virtual {p0}, Lq/w1;->Y()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {p0}, Lq/w1;->H()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->H()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    return v3
+
+    :cond_3
+    invoke-virtual {p0}, Lq/w1;->X()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->X()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_4
+
+    return v3
+
+    :cond_4
+    invoke-virtual {p0}, Lq/w1;->X()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-virtual {p0}, Lq/w1;->G()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->G()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    return v3
+
+    :cond_5
+    invoke-virtual {p0}, Lq/w1;->W()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->W()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_6
+
+    return v3
+
+    :cond_6
+    invoke-virtual {p0}, Lq/w1;->W()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    iget-boolean v1, p0, Lq/w1;->h:Z
+
+    iget-boolean v2, p1, Lq/w1;->h:Z
+
+    if-eq v1, v2, :cond_7
+
+    return v3
+
+    :cond_7
+    invoke-virtual {p0}, Lq/w1;->U()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->U()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_8
+
+    return v3
+
+    :cond_8
+    invoke-virtual {p0}, Lq/w1;->U()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    iget-boolean v1, p0, Lq/w1;->i:Z
+
+    iget-boolean v2, p1, Lq/w1;->i:Z
+
+    if-eq v1, v2, :cond_9
+
+    return v3
+
+    :cond_9
+    invoke-virtual {p0}, Lq/w1;->Z()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->Z()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_a
+
+    return v3
+
+    :cond_a
+    invoke-virtual {p0}, Lq/w1;->Z()Z
 
     move-result v1
 
     if-eqz v1, :cond_b
 
-    return-object v0
+    iget-boolean v1, p0, Lq/w1;->j:Z
+
+    iget-boolean v2, p1, Lq/w1;->j:Z
+
+    if-eq v1, v2, :cond_b
+
+    return v3
 
     :cond_b
-    invoke-static {v0}, Lq/a;->A(Lq/c;)Lq/R4;
+    invoke-virtual {p0}, Lq/w1;->b0()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->b0()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_c
+
+    return v3
+
+    :cond_c
+    invoke-virtual {p0}, Lq/w1;->b0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_d
+
+    iget v1, p0, Lq/w1;->k:I
+
+    iget v2, p1, Lq/w1;->k:I
+
+    if-eq v1, v2, :cond_d
+
+    return v3
+
+    :cond_d
+    invoke-virtual {p0}, Lq/w1;->T()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->T()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_e
+
+    return v3
+
+    :cond_e
+    invoke-virtual {p0}, Lq/w1;->T()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    invoke-virtual {p0}, Lq/w1;->F()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->F()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_f
+
+    return v3
+
+    :cond_f
+    invoke-virtual {p0}, Lq/w1;->P()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->P()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_10
+
+    return v3
+
+    :cond_10
+    invoke-virtual {p0}, Lq/w1;->P()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_11
+
+    iget-boolean v1, p0, Lq/w1;->m:Z
+
+    iget-boolean v2, p1, Lq/w1;->m:Z
+
+    if-eq v1, v2, :cond_11
+
+    return v3
+
+    :cond_11
+    invoke-virtual {p0}, Lq/w1;->V()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->V()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_12
+
+    return v3
+
+    :cond_12
+    invoke-virtual {p0}, Lq/w1;->V()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_13
+
+    iget-boolean v1, p0, Lq/w1;->n:Z
+
+    iget-boolean v2, p1, Lq/w1;->n:Z
+
+    if-eq v1, v2, :cond_13
+
+    return v3
+
+    :cond_13
+    invoke-virtual {p0}, Lq/w1;->g0()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->g0()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_14
+
+    return v3
+
+    :cond_14
+    invoke-virtual {p0}, Lq/w1;->g0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_15
+
+    iget-boolean v1, p0, Lq/w1;->o:Z
+
+    iget-boolean v2, p1, Lq/w1;->o:Z
+
+    if-eq v1, v2, :cond_15
+
+    return v3
+
+    :cond_15
+    invoke-virtual {p0}, Lq/w1;->d0()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->d0()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_16
+
+    return v3
+
+    :cond_16
+    invoke-virtual {p0}, Lq/w1;->d0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_17
+
+    iget-boolean v1, p0, Lq/w1;->p:Z
+
+    iget-boolean v2, p1, Lq/w1;->p:Z
+
+    if-eq v1, v2, :cond_17
+
+    return v3
+
+    :cond_17
+    invoke-virtual {p0}, Lq/w1;->R()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->R()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_18
+
+    return v3
+
+    :cond_18
+    invoke-virtual {p0}, Lq/w1;->R()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_19
+
+    iget-boolean v1, p0, Lq/w1;->q:Z
+
+    iget-boolean v2, p1, Lq/w1;->q:Z
+
+    if-eq v1, v2, :cond_19
+
+    return v3
+
+    :cond_19
+    invoke-virtual {p0}, Lq/w1;->O()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->O()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_1a
+
+    return v3
+
+    :cond_1a
+    invoke-virtual {p0}, Lq/w1;->O()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1b
+
+    iget-boolean v1, p0, Lq/w1;->r:Z
+
+    iget-boolean v2, p1, Lq/w1;->r:Z
+
+    if-eq v1, v2, :cond_1b
+
+    return v3
+
+    :cond_1b
+    invoke-virtual {p0}, Lq/w1;->a0()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->a0()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_1c
+
+    return v3
+
+    :cond_1c
+    invoke-virtual {p0}, Lq/w1;->a0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1d
+
+    invoke-virtual {p0}, Lq/w1;->I()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->I()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1d
+
+    return v3
+
+    :cond_1d
+    invoke-virtual {p0}, Lq/w1;->Q()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->Q()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_1e
+
+    return v3
+
+    :cond_1e
+    invoke-virtual {p0}, Lq/w1;->Q()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1f
+
+    invoke-virtual {p0}, Lq/w1;->D()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->D()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1f
+
+    return v3
+
+    :cond_1f
+    invoke-virtual {p0}, Lq/w1;->i0()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->i0()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_20
+
+    return v3
+
+    :cond_20
+    invoke-virtual {p0}, Lq/w1;->i0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_21
+
+    invoke-virtual {p0}, Lq/w1;->N()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->N()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_21
+
+    return v3
+
+    :cond_21
+    invoke-virtual {p0}, Lq/w1;->c0()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->c0()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_22
+
+    return v3
+
+    :cond_22
+    invoke-virtual {p0}, Lq/w1;->c0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_23
+
+    invoke-virtual {p0}, Lq/w1;->J()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->J()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_23
+
+    return v3
+
+    :cond_23
+    invoke-virtual {p0}, Lq/w1;->f0()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->f0()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_24
+
+    return v3
+
+    :cond_24
+    invoke-virtual {p0}, Lq/w1;->f0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_25
+
+    invoke-virtual {p0}, Lq/w1;->L()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->L()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_25
+
+    return v3
+
+    :cond_25
+    invoke-virtual {p0}, Lq/w1;->e0()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->e0()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_26
+
+    return v3
+
+    :cond_26
+    invoke-virtual {p0}, Lq/w1;->e0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_27
+
+    invoke-virtual {p0}, Lq/w1;->K()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->K()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_27
+
+    return v3
+
+    :cond_27
+    invoke-virtual {p0}, Lq/w1;->h0()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->h0()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_28
+
+    return v3
+
+    :cond_28
+    invoke-virtual {p0}, Lq/w1;->h0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_29
+
+    invoke-virtual {p0}, Lq/w1;->M()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->M()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_29
+
+    return v3
+
+    :cond_29
+    invoke-virtual {p0}, Lq/w1;->S()Z
+
+    move-result v1
+
+    invoke-virtual {p1}, Lq/w1;->S()Z
+
+    move-result v2
+
+    if-eq v1, v2, :cond_2a
+
+    return v3
+
+    :cond_2a
+    invoke-virtual {p0}, Lq/w1;->S()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2b
+
+    invoke-virtual {p0}, Lq/w1;->E()Lq/X0;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lq/w1;->E()Lq/X0;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lq/X0;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2b
+
+    return v3
+
+    :cond_2b
+    iget-object v1, p0, Lq/w1;->A:Ljava/util/List;
+
+    iget-object v2, p1, Lq/w1;->A:Ljava/util/List;
+
+    invoke-interface {v1, v2}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2c
+
+    return v3
+
+    :cond_2c
+    iget-object v1, p0, Lq/i3;->c:Lq/W5;
+
+    iget-object v2, p1, Lq/i3;->c:Lq/W5;
+
+    invoke-virtual {v1, v2}, Lq/W5;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2d
+
+    return v3
+
+    :cond_2d
+    iget-object v1, p0, Lq/U2;->d:Lq/I2;
+
+    invoke-virtual {v1}, Lq/I2;->f()Ljava/util/Map;
+
+    move-result-object v1
+
+    iget-object p1, p1, Lq/U2;->d:Lq/I2;
+
+    invoke-virtual {p1}, Lq/I2;->f()Ljava/util/Map;
+
+    move-result-object p1
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_2e
+
+    return v3
+
+    :cond_2e
+    return v0
+.end method
+
+.method public final f0()Z
+    .locals 2
+
+    iget v0, p0, Lq/w1;->e:I
+
+    const/high16 v1, 0x20000
+
+    and-int/2addr v0, v1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final g0()Z
+    .locals 1
+
+    iget v0, p0, Lq/w1;->e:I
+
+    and-int/lit16 v0, v0, 0x200
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final h()Z
+    .locals 4
+
+    iget-byte v0, p0, Lq/w1;->B:B
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    return v1
+
+    :cond_0
+    const/4 v2, 0x0
+
+    if-nez v0, :cond_1
+
+    return v2
+
+    :cond_1
+    invoke-virtual {p0}, Lq/w1;->S()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Lq/w1;->E()Lq/X0;
 
     move-result-object v0
 
-    throw v0
+    invoke-virtual {v0}, Lq/X0;->h()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iput-byte v2, p0, Lq/w1;->B:B
+
+    return v2
+
+    :cond_2
+    move v0, v2
+
+    :goto_0
+    iget-object v3, p0, Lq/w1;->A:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-ge v0, v3, :cond_4
+
+    iget-object v3, p0, Lq/w1;->A:Ljava/util/List;
+
+    invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lq/e2;
+
+    invoke-virtual {v3}, Lq/e2;->h()Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    iput-byte v2, p0, Lq/w1;->B:B
+
+    return v2
+
+    :cond_3
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    iget-object v0, p0, Lq/U2;->d:Lq/I2;
+
+    invoke-virtual {v0}, Lq/I2;->j()Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    iput-byte v2, p0, Lq/w1;->B:B
+
+    return v2
+
+    :cond_5
+    iput-byte v1, p0, Lq/w1;->B:B
+
+    return v1
 .end method
 
-.method public final bridge synthetic p()Lq/c;
-    .registers 2
+.method public final h0()Z
+    .locals 2
 
-    invoke-virtual {p0}, Lq/w1;->O()Lq/x1;
+    iget v0, p0, Lq/w1;->e:I
+
+    const/high16 v1, 0x80000
+
+    and-int/2addr v0, v1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final hashCode()I
+    .locals 4
+
+    iget v0, p0, Lq/c;->a:I
+
+    if-eqz v0, :cond_0
+
+    return v0
+
+    :cond_0
+    sget-object v0, Lq/f2;->C:Lq/g2;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
+
+    move-result v0
+
+    add-int/lit16 v0, v0, 0x30b
+
+    invoke-virtual {p0}, Lq/w1;->Y()Z
+
+    move-result v1
+
+    const/16 v2, 0x35
+
+    if-eqz v1, :cond_1
+
+    const/16 v1, 0x25
+
+    const/4 v3, 0x1
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->H()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_1
+    invoke-virtual {p0}, Lq/w1;->X()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x8
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->G()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_2
+    invoke-virtual {p0}, Lq/w1;->W()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0xa
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lq/w1;->h:Z
+
+    invoke-static {v1}, Lq/o3;->a(Z)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_3
+    invoke-virtual {p0}, Lq/w1;->U()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x14
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lq/w1;->i:Z
+
+    invoke-static {v1}, Lq/o3;->a(Z)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_4
+    invoke-virtual {p0}, Lq/w1;->Z()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x1b
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lq/w1;->j:Z
+
+    invoke-static {v1}, Lq/o3;->a(Z)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_5
+    invoke-virtual {p0}, Lq/w1;->b0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x9
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget v1, p0, Lq/w1;->k:I
+
+    add-int/2addr v0, v1
+
+    :cond_6
+    invoke-virtual {p0}, Lq/w1;->T()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0xb
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->F()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_7
+    invoke-virtual {p0}, Lq/w1;->P()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x10
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lq/w1;->m:Z
+
+    invoke-static {v1}, Lq/o3;->a(Z)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_8
+    invoke-virtual {p0}, Lq/w1;->V()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x11
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lq/w1;->n:Z
+
+    invoke-static {v1}, Lq/o3;->a(Z)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_9
+    invoke-virtual {p0}, Lq/w1;->g0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x12
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lq/w1;->o:Z
+
+    invoke-static {v1}, Lq/o3;->a(Z)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_a
+    invoke-virtual {p0}, Lq/w1;->d0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_b
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x2a
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lq/w1;->p:Z
+
+    invoke-static {v1}, Lq/o3;->a(Z)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_b
+    invoke-virtual {p0}, Lq/w1;->R()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_c
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x17
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lq/w1;->q:Z
+
+    invoke-static {v1}, Lq/o3;->a(Z)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_c
+    invoke-virtual {p0}, Lq/w1;->O()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_d
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x1f
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lq/w1;->r:Z
+
+    invoke-static {v1}, Lq/o3;->a(Z)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_d
+    invoke-virtual {p0}, Lq/w1;->a0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_e
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x24
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->I()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_e
+    invoke-virtual {p0}, Lq/w1;->Q()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x25
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->D()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_f
+    invoke-virtual {p0}, Lq/w1;->i0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_10
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x27
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->N()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_10
+    invoke-virtual {p0}, Lq/w1;->c0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_11
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x28
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->J()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_11
+    invoke-virtual {p0}, Lq/w1;->f0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_12
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x29
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->L()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_12
+    invoke-virtual {p0}, Lq/w1;->e0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_13
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x2c
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->K()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_13
+    invoke-virtual {p0}, Lq/w1;->h0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_14
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x2d
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->M()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_14
+    invoke-virtual {p0}, Lq/w1;->S()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_15
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x32
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lq/w1;->E()Lq/X0;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lq/X0;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_15
+    iget-object v1, p0, Lq/w1;->A:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-lez v1, :cond_16
+
+    const/16 v1, 0x25
+
+    const/16 v3, 0x3e7
+
+    invoke-static {v0, v1, v3, v2}, Lq/i2;->d(IIII)I
+
+    move-result v0
+
+    iget-object v1, p0, Lq/w1;->A:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :cond_16
+    iget-object v1, p0, Lq/U2;->d:Lq/I2;
+
+    invoke-virtual {v1}, Lq/I2;->f()Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lq/c;->o(ILjava/util/Map;)I
+
+    move-result v0
+
+    mul-int/lit8 v0, v0, 0x1d
+
+    iget-object v1, p0, Lq/i3;->c:Lq/W5;
+
+    invoke-virtual {v1}, Lq/W5;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    iput v1, p0, Lq/c;->a:I
+
+    return v1
+.end method
+
+.method public final i()Lq/c;
+    .locals 1
+
+    sget-object v0, Lq/w1;->C:Lq/w1;
+
+    return-object v0
+.end method
+
+.method public final i0()Z
+    .locals 2
+
+    iget v0, p0, Lq/w1;->e:I
+
+    const v1, 0x8000
+
+    and-int/2addr v0, v1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public final bridge synthetic j()Lq/n4;
+    .locals 1
+
+    invoke-virtual {p0}, Lq/w1;->j0()Lq/u1;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public final u(Lq/c;)Lq/a;
-    .registers 3
+.method public final j0()Lq/u1;
+    .locals 1
 
-    instance-of v0, p1, Lq/x1;
+    sget-object v0, Lq/w1;->C:Lq/w1;
 
-    if-eqz v0, :cond_a
+    if-ne p0, v0, :cond_0
 
-    check-cast p1, Lq/x1;
+    new-instance v0, Lq/u1;
 
-    invoke-virtual {p0, p1}, Lq/w1;->R(Lq/x1;)V
+    invoke-direct {v0}, Lq/u1;-><init>()V
 
-    goto :goto_d
+    goto :goto_0
 
-    :cond_a
-    invoke-super {p0, p1}, Lq/a;->u(Lq/c;)Lq/a;
+    :cond_0
+    new-instance v0, Lq/u1;
 
-    :goto_d
-    return-object p0
+    invoke-direct {v0}, Lq/u1;-><init>()V
+
+    invoke-virtual {v0, p0}, Lq/u1;->W(Lq/w1;)V
+
+    :goto_0
+    return-object v0
 .end method
 
-.method public final bridge synthetic v(Lq/E;Lq/d2;)Lq/a;
-    .registers 3
+.method public final p()Lq/a;
+    .locals 1
 
-    invoke-virtual {p0, p1, p2}, Lq/w1;->S(Lq/E;Lq/d2;)V
+    sget-object v0, Lq/w1;->C:Lq/w1;
 
-    return-object p0
+    invoke-virtual {v0}, Lq/w1;->j0()Lq/u1;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public final w(Lq/c;)Lq/a;
-    .registers 3
+.method public final bridge synthetic r()Lq/a;
+    .locals 1
 
-    instance-of v0, p1, Lq/x1;
+    invoke-virtual {p0}, Lq/w1;->j0()Lq/u1;
 
-    if-eqz v0, :cond_a
+    move-result-object v0
 
-    check-cast p1, Lq/x1;
-
-    invoke-virtual {p0, p1}, Lq/w1;->R(Lq/x1;)V
-
-    goto :goto_d
-
-    :cond_a
-    invoke-super {p0, p1}, Lq/a;->u(Lq/c;)Lq/a;
-
-    :goto_d
-    return-object p0
+    return-object v0
 .end method
 
-.method public final y(Lq/W4;)Lq/a;
-    .registers 2
+.method public final y()Lq/h3;
+    .locals 3
 
-    invoke-virtual {p0, p1}, Lq/t2;->J(Lq/W4;)V
+    sget-object v0, Lq/f2;->D:Lq/h3;
 
-    return-object p0
+    const-class v1, Lq/w1;
+
+    const-class v2, Lq/u1;
+
+    invoke-virtual {v0, v1, v2}, Lq/h3;->c(Ljava/lang/Class;Ljava/lang/Class;)V
+
+    return-object v0
 .end method

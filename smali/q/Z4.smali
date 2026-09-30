@@ -1,281 +1,100 @@
-.class public final Lq/Z4;
-.super Lq/a5;
+.class public final synthetic Lq/Z4;
+.super Ljava/lang/Object;
 .source "SourceFile"
 
+# interfaces
+.implements Ljava/lang/Runnable;
 
-# virtual methods
-.method public final c(Ljava/lang/Object;J)B
-    .registers 5
 
-    iget-object v0, p0, Lq/a5;->a:Lsun/misc/Unsafe;
+# instance fields
+.field public final synthetic a:I
 
-    invoke-virtual {v0, p1, p2, p3}, Lsun/misc/Unsafe;->getByte(Ljava/lang/Object;J)B
+.field public final synthetic b:Ljava/lang/Object;
 
-    move-result p1
+.field public final synthetic c:J
 
-    return p1
-.end method
 
-.method public final g(Ljava/lang/Object;JB)V
-    .registers 6
+# direct methods
+.method public synthetic constructor <init>(Ljava/lang/Object;JI)V
+    .locals 0
 
-    iget-object v0, p0, Lq/a5;->a:Lsun/misc/Unsafe;
+    iput p4, p0, Lq/Z4;->a:I
 
-    invoke-virtual {v0, p1, p2, p3, p4}, Lsun/misc/Unsafe;->putByte(Ljava/lang/Object;JB)V
+    iput-object p1, p0, Lq/Z4;->b:Ljava/lang/Object;
+
+    iput-wide p2, p0, Lq/Z4;->c:J
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public final i()Z
-    .registers 7
 
-    const-class v0, Ljava/lang/Object;
+# virtual methods
+.method public final run()V
+    .locals 5
 
-    invoke-super {p0}, Lq/a5;->i()Z
+    iget v0, p0, Lq/Z4;->a:I
 
-    move-result v1
+    packed-switch v0, :pswitch_data_0
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lq/Z4;->b:Ljava/lang/Object;
 
-    if-nez v1, :cond_a
+    check-cast v0, Lq/U3;
 
-    return v2
+    iget-wide v1, p0, Lq/Z4;->c:J
 
-    :cond_a
-    :try_start_a
-    iget-object v1, p0, Lq/a5;->a:Lsun/misc/Unsafe;
+    invoke-virtual {v0, v1, v2}, Lq/U3;->v(J)V
 
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    return-void
 
-    move-result-object v1
+    :pswitch_0
+    iget-object v0, p0, Lq/Z4;->b:Ljava/lang/Object;
 
-    const-string v3, "getByte"
+    check-cast v0, Lq/e5;
 
-    sget-object v4, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+    iget-wide v1, p0, Lq/Z4;->c:J
 
-    filled-new-array {v0, v4}, [Ljava/lang/Class;
+    iget-wide v3, v0, Lq/e5;->l:J
 
-    move-result-object v5
+    cmp-long v1, v1, v3
 
-    invoke-virtual {v1, v3, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    if-nez v1, :cond_0
 
-    const-string v3, "putByte"
+    invoke-virtual {v0}, Lq/e5;->e()V
 
-    sget-object v5, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+    :cond_0
+    return-void
 
-    filled-new-array {v0, v4, v5}, [Ljava/lang/Class;
+    :pswitch_1
+    iget-object v0, p0, Lq/Z4;->b:Ljava/lang/Object;
 
-    move-result-object v5
+    check-cast v0, Lq/e5;
 
-    invoke-virtual {v1, v3, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    iget-wide v1, p0, Lq/Z4;->c:J
 
-    const-string v3, "getBoolean"
+    iget-boolean v3, v0, Lq/e5;->n:Z
 
-    filled-new-array {v0, v4}, [Ljava/lang/Class;
+    if-nez v3, :cond_1
 
-    move-result-object v5
+    iget-wide v3, v0, Lq/e5;->l:J
 
-    invoke-virtual {v1, v3, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    cmp-long v1, v1, v3
 
-    const-string v3, "putBoolean"
+    if-nez v1, :cond_1
 
-    sget-object v5, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    iget-object v0, v0, Lq/e5;->b:Lq/A4;
 
-    filled-new-array {v0, v4, v5}, [Ljava/lang/Class;
+    invoke-virtual {v0}, Lq/A4;->run()V
 
-    move-result-object v5
+    :cond_1
+    return-void
 
-    invoke-virtual {v1, v3, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    nop
 
-    const-string v3, "getFloat"
-
-    filled-new-array {v0, v4}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v1, v3, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v3, "putFloat"
-
-    sget-object v5, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
-
-    filled-new-array {v0, v4, v5}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v1, v3, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v3, "getDouble"
-
-    filled-new-array {v0, v4}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v1, v3, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v3, "putDouble"
-
-    sget-object v5, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
-
-    filled-new-array {v0, v4, v5}, [Ljava/lang/Class;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v3, v0}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    :try_end_62
-    .catchall {:try_start_a .. :try_end_62} :catchall_64
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :catchall_64
-    move-exception v0
-
-    invoke-static {v0}, Lq/b5;->a(Ljava/lang/Throwable;)V
-
-    return v2
-.end method
-
-.method public final j()Z
-    .registers 9
-
-    const-string v0, "copyMemory"
-
-    const-string v1, "getLong"
-
-    const-class v2, Ljava/lang/Object;
-
-    iget-object v3, p0, Lq/a5;->a:Lsun/misc/Unsafe;
-
-    const/4 v4, 0x0
-
-    if-nez v3, :cond_c
-
-    goto :goto_82
-
-    :cond_c
-    :try_start_c
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v3
-
-    const-string v5, "objectFieldOffset"
-
-    const-class v6, Ljava/lang/reflect/Field;
-
-    filled-new-array {v6}, [Ljava/lang/Class;
-
-    move-result-object v6
-
-    invoke-virtual {v3, v5, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    sget-object v5, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
-
-    filled-new-array {v2, v5}, [Ljava/lang/Class;
-
-    move-result-object v6
-
-    invoke-virtual {v3, v1, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    invoke-static {}, Lq/b5;->f()Ljava/lang/reflect/Field;
-
-    move-result-object v3
-    :try_end_28
-    .catchall {:try_start_c .. :try_end_28} :catchall_7e
-
-    if-nez v3, :cond_2b
-
-    goto :goto_82
-
-    :cond_2b
-    :try_start_2b
-    iget-object v3, p0, Lq/a5;->a:Lsun/misc/Unsafe;
-
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v3
-
-    const-string v6, "getByte"
-
-    filled-new-array {v5}, [Ljava/lang/Class;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v6, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v6, "putByte"
-
-    sget-object v7, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
-
-    filled-new-array {v5, v7}, [Ljava/lang/Class;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v6, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v6, "getInt"
-
-    filled-new-array {v5}, [Ljava/lang/Class;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v6, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v6, "putInt"
-
-    sget-object v7, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    filled-new-array {v5, v7}, [Ljava/lang/Class;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v6, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    filled-new-array {v5}, [Ljava/lang/Class;
-
-    move-result-object v6
-
-    invoke-virtual {v3, v1, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v1, "putLong"
-
-    filled-new-array {v5, v5}, [Ljava/lang/Class;
-
-    move-result-object v6
-
-    invoke-virtual {v3, v1, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    filled-new-array {v5, v5, v5}, [Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v3, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    filled-new-array {v2, v5, v2, v5, v5}, [Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v3, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    :try_end_77
-    .catchall {:try_start_2b .. :try_end_77} :catchall_79
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :catchall_79
-    move-exception v0
-
-    invoke-static {v0}, Lq/b5;->a(Ljava/lang/Throwable;)V
-
-    return v4
-
-    :catchall_7e
-    move-exception v0
-
-    invoke-static {v0}, Lq/b5;->a(Ljava/lang/Throwable;)V
-
-    :goto_82
-    return v4
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

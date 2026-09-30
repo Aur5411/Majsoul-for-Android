@@ -27,14 +27,14 @@
 
 
 # instance fields
-.field public final a:Lq/l5;
+.field public final a:Lq/k6;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
-    new-instance v0, Lq/l4;
+    new-instance v0, Lq/J4;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
@@ -44,19 +44,19 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lq/k5;
+    new-instance v0, Lq/j6;
 
-    invoke-direct {v0, p1}, Lq/k5;-><init>(Landroid/os/Parcel;)V
+    invoke-direct {v0, p1}, Lq/j6;-><init>(Landroid/os/Parcel;)V
 
-    invoke-virtual {v0}, Lq/j5;->g()Lq/l5;
+    invoke-virtual {v0}, Lq/i6;->g()Lq/k6;
 
     move-result-object p1
 
-    iput-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->a:Lq/l5;
+    iput-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->a:Lq/k6;
 
     return-void
 .end method
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final describeContents()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -72,15 +72,15 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/Parcel;I)V
-    .registers 3
+    .locals 0
 
-    new-instance p2, Lq/k5;
+    new-instance p2, Lq/j6;
 
-    invoke-direct {p2, p1}, Lq/k5;-><init>(Landroid/os/Parcel;)V
+    invoke-direct {p2, p1}, Lq/j6;-><init>(Landroid/os/Parcel;)V
 
-    iget-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->a:Lq/l5;
+    iget-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->a:Lq/k6;
 
-    invoke-virtual {p2, p1}, Lq/j5;->i(Lq/l5;)V
+    invoke-virtual {p2, p1}, Lq/i6;->i(Lq/k6;)V
 
     return-void
 .end method

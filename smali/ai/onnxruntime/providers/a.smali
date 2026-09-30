@@ -8,7 +8,7 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 2
+    .locals 0
 
     check-cast p1, Ljava/util/Map$Entry;
 

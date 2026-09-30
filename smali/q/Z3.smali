@@ -3,40 +3,34 @@
 .source "SourceFile"
 
 # interfaces
-.implements Ljava/util/function/ToDoubleFunction;
+.implements Ljava/util/concurrent/ThreadFactory;
 
 
 # instance fields
-.field public final synthetic a:[F
+.field public final synthetic a:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # direct methods
-.method public synthetic constructor <init>([F)V
-    .registers 2
+.method public synthetic constructor <init>(Ljava/util/concurrent/atomic/AtomicInteger;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lq/Z3;->a:[F
+    iput-object p1, p0, Lq/Z3;->a:Ljava/util/concurrent/atomic/AtomicInteger;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final applyAsDouble(Ljava/lang/Object;)D
-    .registers 4
+.method public final newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
+    .locals 1
 
-    check-cast p1, Ljava/lang/Integer;
+    iget-object v0, p0, Lq/Z3;->a:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    invoke-static {v0, p1}, Lcom/qiuhui/mahjong/custom/LocalWebProxyGateway;->b(Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/Runnable;)Ljava/lang/Thread;
 
-    move-result p1
+    move-result-object p1
 
-    iget-object v0, p0, Lq/Z3;->a:[F
-
-    aget p1, v0, p1
-
-    float-to-double v0, p1
-
-    return-wide v0
+    return-object p1
 .end method

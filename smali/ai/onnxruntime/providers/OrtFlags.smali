@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static aggregateToInt(Ljava/util/EnumSet;)I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -24,12 +24,12 @@
 
     const/4 v0, 0x0
 
-    :goto_5
+    :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -43,9 +43,9 @@
 
     or-int/2addr v0, v1
 
-    goto :goto_5
+    goto :goto_0
 
-    :cond_17
+    :cond_0
     return v0
 .end method
 

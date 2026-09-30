@@ -1,25 +1,23 @@
-.class public abstract Lq/O4;
+.class public final Lq/O4;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
 
-# static fields
-.field public static final a:Lq/P4;
+# instance fields
+.field public final a:Ljava/util/ArrayList;
+
+.field public final b:Ljava/util/ArrayList;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .registers 2
+.method public constructor <init>(Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+    .locals 0
 
-    new-instance v0, Lq/P4;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+    iput-object p1, p0, Lq/O4;->a:Ljava/util/ArrayList;
 
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lq/P4;-><init>(Ljava/util/Map;)V
-
-    sput-object v0, Lq/O4;->a:Lq/P4;
+    iput-object p2, p0, Lq/O4;->b:Ljava/util/ArrayList;
 
     return-void
 .end method

@@ -3,40 +3,62 @@
 .source "SourceFile"
 
 # interfaces
-.implements Landroid/os/MessageQueue$IdleHandler;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic a:Lcom/qiuhui/mahjong/MainActivity;
+.field public final synthetic a:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/MainActivity;)V
-    .registers 2
+.method public synthetic constructor <init>(I)V
+    .locals 0
+
+    iput p1, p0, Lq/H3;->a:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lq/H3;->a:Lcom/qiuhui/mahjong/MainActivity;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final queueIdle()Z
-    .registers 2
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
 
-    sget-boolean v0, Lcom/qiuhui/mahjong/MainActivity;->r:Z
+    iget v0, p0, Lq/H3;->a:I
 
-    iget-object v0, p0, Lq/H3;->a:Lcom/qiuhui/mahjong/MainActivity;
+    packed-switch v0, :pswitch_data_0
 
-    invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    check-cast p1, Lq/W4;
 
-    move-result-object v0
+    invoke-virtual {p1}, Lq/W4;->i()Z
 
-    invoke-static {v0}, Lq/U5;->a(Landroid/content/Context;)V
+    move-result p1
 
-    const/4 v0, 0x0
+    return p1
 
-    return v0
+    :pswitch_0
+    check-cast p1, Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    return p1
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public static close(Ljava/lang/Iterable;)V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -32,12 +32,12 @@
 
     move-result-object p0
 
-    :goto_4
+    :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -48,14 +48,14 @@
     .line 2
     invoke-interface {v0}, Lai/onnxruntime/OnnxValue;->close()V
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method public static close(Ljava/util/Map;)V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,12 +76,12 @@
 
     move-result-object p0
 
-    :goto_8
+    :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -92,9 +92,9 @@
     .line 4
     invoke-interface {v0}, Lai/onnxruntime/OnnxValue;->close()V
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_18
+    :cond_0
     return-void
 .end method
 

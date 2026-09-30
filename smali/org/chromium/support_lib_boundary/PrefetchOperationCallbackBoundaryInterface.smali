@@ -23,7 +23,7 @@
 .end method
 
 .method public onSuccess()V
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

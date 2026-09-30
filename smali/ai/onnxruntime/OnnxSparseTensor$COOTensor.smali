@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/LongBuffer;[JLjava/nio/Buffer;[JLai/onnxruntime/OnnxJavaType;J)V
-    .registers 21
+    .locals 13
 
     move-object v9, p2
 
@@ -58,17 +58,17 @@
 
     const/4 v1, 0x2
 
-    if-gt v0, v1, :cond_7b
+    if-gt v0, v1, :cond_2
 
     array-length v0, v9
 
-    if-eqz v0, :cond_7b
+    if-eqz v0, :cond_2
 
     aget-wide v0, v9, v12
 
     cmp-long v0, v0, v10
 
-    if-nez v0, :cond_7b
+    if-nez v0, :cond_2
 
     invoke-static {p2}, Lai/onnxruntime/OrtUtil;->elementCount([J)J
 
@@ -82,7 +82,7 @@
 
     cmp-long v2, v0, v2
 
-    if-nez v2, :cond_5b
+    if-nez v2, :cond_1
 
     invoke-virtual/range {p3 .. p3}, Ljava/nio/Buffer;->remaining()I
 
@@ -92,11 +92,11 @@
 
     cmp-long v0, v0, v10
 
-    if-nez v0, :cond_3b
+    if-nez v0, :cond_0
 
     return-void
 
-    :cond_3b
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -125,7 +125,7 @@
 
     throw v0
 
-    :cond_5b
+    :cond_1
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -154,7 +154,7 @@
 
     throw v2
 
-    :cond_7b
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -181,7 +181,7 @@
 
 # virtual methods
 .method public getIndicesType()Lai/onnxruntime/OnnxJavaType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxJavaType;->INT64:Lai/onnxruntime/OnnxJavaType;
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public getSparsityType()Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
-    .registers 2
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;->COO:Lai/onnxruntime/OnnxSparseTensor$SparseTensorType;
 

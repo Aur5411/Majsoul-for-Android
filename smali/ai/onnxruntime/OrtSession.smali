@@ -52,16 +52,16 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     :try_start_0
     invoke-static {}, Lai/onnxruntime/OnnxRuntime;->init()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_4
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_4
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/RuntimeException;
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>(JLai/onnxruntime/OrtAllocator;)V
-    .registers 12
+    .locals 8
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -159,7 +159,7 @@
 .end method
 
 .method public constructor <init>(Lai/onnxruntime/OrtEnvironment;Ljava/lang/String;Lai/onnxruntime/OrtAllocator;Lai/onnxruntime/OrtSession$SessionOptions;)V
-    .registers 12
+    .locals 7
 
     .line 1
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -187,7 +187,7 @@
 .end method
 
 .method public constructor <init>(Lai/onnxruntime/OrtEnvironment;[BLai/onnxruntime/OrtAllocator;Lai/onnxruntime/OrtSession$SessionOptions;)V
-    .registers 12
+    .locals 7
 
     .line 5
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -230,11 +230,11 @@
 .end method
 
 .method public static getHandle(Lai/onnxruntime/OnnxValue;)J
-    .registers 4
+    .locals 3
 
     instance-of v0, p0, Lai/onnxruntime/OnnxTensorLike;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     check-cast p0, Lai/onnxruntime/OnnxTensorLike;
 
@@ -242,10 +242,10 @@
 
     return-wide v0
 
-    :cond_9
+    :cond_0
     instance-of v0, p0, Lai/onnxruntime/OnnxSequence;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     check-cast p0, Lai/onnxruntime/OnnxSequence;
 
@@ -253,10 +253,10 @@
 
     return-wide v0
 
-    :cond_12
+    :cond_1
     instance-of v0, p0, Lai/onnxruntime/OnnxMap;
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_2
 
     check-cast p0, Lai/onnxruntime/OnnxMap;
 
@@ -264,7 +264,7 @@
 
     return-wide v0
 
-    :cond_1b
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -313,7 +313,7 @@
 .end method
 
 .method private static wrapInMap([Lai/onnxruntime/NodeInfo;)Ljava/util/Map;
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -340,8 +340,8 @@
 
     const/4 v2, 0x0
 
-    :goto_c
-    if-ge v2, v1, :cond_1a
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     aget-object v3, p0, v2
 
@@ -353,20 +353,20 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
-    :cond_1a
+    :cond_0
     return-object v0
 .end method
 
 
 # virtual methods
 .method public close()V
-    .registers 5
+    .locals 4
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession;->closed:Z
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
@@ -380,7 +380,7 @@
 
     return-void
 
-    :cond_f
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to close an already closed OrtSession."
@@ -391,7 +391,7 @@
 .end method
 
 .method public endProfiling()Ljava/lang/String;
-    .registers 8
+    .locals 7
 
     .line 1
     sget-wide v1, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -412,7 +412,7 @@
 .end method
 
 .method public getInputInfo()Ljava/util/Map;
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -426,7 +426,7 @@
     .line 1
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession;->closed:Z
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 2
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -450,7 +450,7 @@
     return-object v0
 
     .line 3
-    :cond_16
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Asking for inputs from a closed OrtSession."
@@ -461,7 +461,7 @@
 .end method
 
 .method public getInputNames()Ljava/util/Set;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -474,7 +474,7 @@
     .line 1
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession;->closed:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 2
     iget-object v0, p0, Lai/onnxruntime/OrtSession;->inputNames:Ljava/util/Set;
@@ -482,7 +482,7 @@
     return-object v0
 
     .line 3
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Asking for inputs from a closed OrtSession."
@@ -493,11 +493,11 @@
 .end method
 
 .method public getMetadata()Lai/onnxruntime/OnnxModelMetadata;
-    .registers 9
+    .locals 8
 
     iget-object v0, p0, Lai/onnxruntime/OrtSession;->metadata:Lai/onnxruntime/OnnxModelMetadata;
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
@@ -515,19 +515,19 @@
 
     iput-object v0, p0, Lai/onnxruntime/OrtSession;->metadata:Lai/onnxruntime/OnnxModelMetadata;
 
-    :cond_13
+    :cond_0
     iget-object v0, p0, Lai/onnxruntime/OrtSession;->metadata:Lai/onnxruntime/OnnxModelMetadata;
 
     return-object v0
 .end method
 
 .method public getNumInputs()J
-    .registers 3
+    .locals 2
 
     .line 1
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession;->closed:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 2
     iget-wide v0, p0, Lai/onnxruntime/OrtSession;->numInputs:J
@@ -535,7 +535,7 @@
     return-wide v0
 
     .line 3
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Asking for inputs from a closed OrtSession."
@@ -546,12 +546,12 @@
 .end method
 
 .method public getNumOutputs()J
-    .registers 3
+    .locals 2
 
     .line 1
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession;->closed:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 2
     iget-wide v0, p0, Lai/onnxruntime/OrtSession;->numOutputs:J
@@ -559,7 +559,7 @@
     return-wide v0
 
     .line 3
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Asking for outputs from a closed OrtSession."
@@ -570,7 +570,7 @@
 .end method
 
 .method public getOutputInfo()Ljava/util/Map;
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -584,7 +584,7 @@
     .line 1
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession;->closed:Z
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 2
     sget-wide v2, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -608,7 +608,7 @@
     return-object v0
 
     .line 3
-    :cond_16
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Asking for outputs from a closed OrtSession."
@@ -619,7 +619,7 @@
 .end method
 
 .method public getOutputNames()Ljava/util/Set;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -632,7 +632,7 @@
     .line 1
     iget-boolean v0, p0, Lai/onnxruntime/OrtSession;->closed:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 2
     iget-object v0, p0, Lai/onnxruntime/OrtSession;->outputNames:Ljava/util/Set;
@@ -640,7 +640,7 @@
     return-object v0
 
     .line 3
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Asking for outputs from a closed OrtSession."
@@ -651,7 +651,7 @@
 .end method
 
 .method public getProfilingStartTimeInNs()J
-    .registers 5
+    .locals 4
 
     .line 1
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
@@ -666,7 +666,7 @@
 .end method
 
 .method public run(Ljava/util/Map;)Lai/onnxruntime/OrtSession$Result;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -690,7 +690,7 @@
 .end method
 
 .method public run(Ljava/util/Map;Lai/onnxruntime/OrtSession$RunOptions;)Lai/onnxruntime/OrtSession$Result;
-    .registers 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -716,7 +716,7 @@
 .end method
 
 .method public run(Ljava/util/Map;Ljava/util/Map;)Lai/onnxruntime/OrtSession$Result;
-    .registers 5
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -749,7 +749,7 @@
 .end method
 
 .method public run(Ljava/util/Map;Ljava/util/Set;)Lai/onnxruntime/OrtSession$Result;
-    .registers 5
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -780,7 +780,7 @@
 .end method
 
 .method public run(Ljava/util/Map;Ljava/util/Set;Lai/onnxruntime/OrtSession$RunOptions;)Lai/onnxruntime/OrtSession$Result;
-    .registers 5
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -811,7 +811,7 @@
 .end method
 
 .method public run(Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;)Lai/onnxruntime/OrtSession$Result;
-    .registers 5
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -843,7 +843,7 @@
 .end method
 
 .method public run(Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;Lai/onnxruntime/OrtSession$RunOptions;)Lai/onnxruntime/OrtSession$Result;
-    .registers 25
+    .locals 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -871,7 +871,7 @@
     .line 7
     iget-boolean v0, v15, Lai/onnxruntime/OrtSession;->closed:Z
 
-    if-nez v0, :cond_1dd
+    if-nez v0, :cond_b
 
     .line 8
     invoke-interface/range {p1 .. p1}, Ljava/util/Map;->isEmpty()Z
@@ -882,23 +882,23 @@
 
     const-wide/16 v2, 0x0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1
 
     iget-wide v4, v15, Lai/onnxruntime/OrtSession;->numInputs:J
 
     cmp-long v0, v4, v2
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
-    goto :goto_1a
+    goto :goto_0
 
-    :cond_17
+    :cond_0
     move-object v3, v15
 
-    goto/16 :goto_1bd
+    goto/16 :goto_5
 
-    :cond_1a
-    :goto_1a
+    :cond_1
+    :goto_0
     invoke-interface/range {p1 .. p1}, Ljava/util/Map;->size()I
 
     move-result v0
@@ -909,7 +909,7 @@
 
     cmp-long v0, v4, v6
 
-    if-gtz v0, :cond_17
+    if-gtz v0, :cond_0
 
     .line 9
     invoke-interface/range {p2 .. p2}, Ljava/util/Set;->size()I
@@ -922,7 +922,7 @@
 
     add-int/2addr v4, v0
 
-    if-eqz v4, :cond_19f
+    if-eqz v4, :cond_a
 
     int-to-long v5, v4
 
@@ -931,7 +931,7 @@
 
     cmp-long v0, v5, v7
 
-    if-gtz v0, :cond_19f
+    if-gtz v0, :cond_a
 
     .line 11
     invoke-interface/range {p1 .. p1}, Ljava/util/Map;->size()I
@@ -960,14 +960,14 @@
 
     move v5, v4
 
-    :goto_4d
+    :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
     const-string v9, ", expected one of "
 
-    if-eqz v6, :cond_a4
+    if-eqz v6, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -986,7 +986,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_7e
+    if-eqz v10, :cond_2
 
     .line 15
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -1012,10 +1012,10 @@
 
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_4d
+    goto :goto_1
 
     .line 17
-    :cond_7e
+    :cond_2
     new-instance v0, Lai/onnxruntime/OrtException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1052,7 +1052,7 @@
     throw v0
 
     .line 19
-    :cond_a4
+    :cond_3
     invoke-interface/range {p2 .. p2}, Ljava/util/Set;->size()I
 
     move-result v1
@@ -1080,14 +1080,14 @@
 
     move-result-object v1
 
-    :goto_bc
+    :goto_2
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
     const-string v6, "Unknown output name "
 
-    if-eqz v5, :cond_11b
+    if-eqz v5, :cond_5
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1106,7 +1106,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_f7
+    if-eqz v2, :cond_4
 
     .line 24
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -1143,10 +1143,10 @@
 
     const-wide/16 v2, 0x0
 
-    goto :goto_bc
+    goto :goto_2
 
     .line 27
-    :cond_f7
+    :cond_4
     new-instance v0, Lai/onnxruntime/OrtException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1181,17 +1181,17 @@
     throw v0
 
     .line 29
-    :cond_11b
+    :cond_5
     invoke-interface/range {p2 .. p2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_11f
+    :goto_3
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_16c
+    if-eqz v2, :cond_8
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1206,7 +1206,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_14e
+    if-eqz v3, :cond_7
 
     move-object/from16 v3, p3
 
@@ -1215,17 +1215,17 @@
 
     move-result v5
 
-    if-nez v5, :cond_140
+    if-nez v5, :cond_6
 
     .line 32
     aput-object v2, v14, v4
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_11f
+    goto :goto_3
 
     .line 33
-    :cond_140
+    :cond_6
     new-instance v0, Lai/onnxruntime/OrtException;
 
     const-string v1, "Output \'"
@@ -1233,7 +1233,7 @@
     const-string v3, "\' was found in both the requested outputs and the pinned outputs"
 
     .line 34
-    invoke-static {v1, v2, v3}, Lq/I1;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lq/i2;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1243,7 +1243,7 @@
     throw v0
 
     .line 36
-    :cond_14e
+    :cond_7
     new-instance v0, Lai/onnxruntime/OrtException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1271,15 +1271,15 @@
 
     throw v0
 
-    :cond_16c
-    if-nez p4, :cond_171
+    :cond_8
+    if-nez p4, :cond_9
 
     const-wide/16 v16, 0x0
 
-    goto :goto_177
+    goto :goto_4
 
     .line 38
-    :cond_171
+    :cond_9
     invoke-virtual/range {p4 .. p4}, Lai/onnxruntime/OrtSession$RunOptions;->getNativeHandle()J
 
     move-result-wide v1
@@ -1287,7 +1287,7 @@
     move-wide/from16 v16, v1
 
     .line 39
-    :goto_177
+    :goto_4
     sget-wide v1, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
     iget-wide v3, v15, Lai/onnxruntime/OrtSession;->nativeHandle:J
@@ -1337,7 +1337,7 @@
     return-object v1
 
     .line 42
-    :cond_19f
+    :cond_a
     new-instance v0, Lai/onnxruntime/OrtException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1365,7 +1365,7 @@
     throw v0
 
     .line 43
-    :goto_1bd
+    :goto_5
     new-instance v0, Lai/onnxruntime/OrtException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1395,7 +1395,7 @@
 
     throw v0
 
-    :cond_1dd
+    :cond_b
     move-object v3, v15
 
     .line 45
@@ -1409,7 +1409,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 

@@ -1,293 +1,486 @@
-.class public final enum Lq/S;
-.super Ljava/lang/Enum;
+.class public final Lq/S;
+.super Lq/i2;
 .source "SourceFile"
-
-# interfaces
-.implements Lq/P2;
-
-
-# static fields
-.field public static final enum b:Lq/S;
-
-.field public static final enum c:Lq/S;
-
-.field public static final enum d:Lq/S;
-
-.field public static final enum e:Lq/S;
-
-.field public static final enum f:Lq/S;
-
-.field public static final enum g:Lq/S;
-
-.field public static final enum h:Lq/S;
-
-.field public static final enum i:Lq/S;
-
-.field public static final enum j:Lq/S;
-
-.field public static final synthetic k:[Lq/S;
 
 
 # instance fields
-.field public final a:I
+.field public final a:Ljava/util/List;
+
+.field public final b:[I
+
+.field public final c:I
+
+.field public final d:Z
+
+.field public final e:I
+
+.field public final f:I
+
+.field public final g:I
+
+.field public final h:I
+
+.field public final i:Ljava/util/List;
+
+.field public final j:Lq/T;
+
+.field public final k:Z
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .registers 12
+.method public constructor <init>(Ljava/util/List;[IIZIIIILjava/util/List;Lq/T;Z)V
+    .locals 12
 
-    new-instance v0, Lq/S;
+    move-object v0, p0
 
-    const-string v1, "EDITION_UNKNOWN"
+    move/from16 v1, p6
 
-    const/4 v2, 0x0
+    move/from16 v2, p7
 
-    invoke-direct {v0, v1, v2, v2}, Lq/S;-><init>(Ljava/lang/String;II)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    sput-object v0, Lq/S;->b:Lq/S;
+    if-nez p1, :cond_0
 
-    new-instance v1, Lq/S;
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    const-string v2, "EDITION_PROTO2"
+    move-result-object v3
 
-    const/4 v3, 0x1
+    goto :goto_1
 
-    const/16 v4, 0x3e6
+    :cond_0
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v1, v2, v3, v4}, Lq/S;-><init>(Ljava/lang/String;II)V
+    invoke-interface {p1}, Ljava/util/Collection;->size()I
 
-    sput-object v1, Lq/S;->c:Lq/S;
+    move-result v4
 
-    new-instance v2, Lq/S;
+    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(I)V
 
-    const-string v4, "EDITION_PROTO3"
+    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    const/4 v5, 0x2
+    move-result-object v4
 
-    const/16 v6, 0x3e7
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-direct {v2, v4, v5, v6}, Lq/S;-><init>(Ljava/lang/String;II)V
+    move-result v5
 
-    sput-object v2, Lq/S;->d:Lq/S;
+    if-eqz v5, :cond_1
 
-    new-instance v4, Lq/S;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    const/16 v6, 0x3e8
+    move-result-object v5
 
-    const-string v7, "EDITION_2023"
+    invoke-static {v5}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v8, 0x3
+    invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-direct {v4, v7, v8, v6}, Lq/S;-><init>(Ljava/lang/String;II)V
+    goto :goto_0
 
-    sput-object v4, Lq/S;->e:Lq/S;
+    :cond_1
+    invoke-static {v3}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    new-instance v6, Lq/S;
+    move-result-object v3
 
-    const-string v7, "EDITION_1_TEST_ONLY"
+    :goto_1
+    if-nez p2, :cond_2
 
-    const/4 v8, 0x4
+    const/16 v4, 0x22
 
-    invoke-direct {v6, v7, v8, v3}, Lq/S;-><init>(Ljava/lang/String;II)V
+    new-array v4, v4, [I
 
-    sput-object v6, Lq/S;->f:Lq/S;
+    goto :goto_2
 
-    new-instance v7, Lq/S;
+    :cond_2
+    invoke-virtual {p2}, [I->clone()Ljava/lang/Object;
 
-    const-string v3, "EDITION_2_TEST_ONLY"
+    move-result-object v4
 
-    const/4 v8, 0x5
+    check-cast v4, [I
 
-    invoke-direct {v7, v3, v8, v5}, Lq/S;-><init>(Ljava/lang/String;II)V
+    :goto_2
+    const/4 v5, 0x4
 
-    sput-object v7, Lq/S;->g:Lq/S;
+    move v6, p3
 
-    new-instance v8, Lq/S;
+    invoke-static {v5, p3}, Ljava/lang/Math;->min(II)I
 
-    const v3, 0x1869d
+    move-result v5
 
-    const-string v5, "EDITION_99997_TEST_ONLY"
+    const/4 v6, 0x0
 
-    const/4 v9, 0x6
+    invoke-static {v6, v5}, Ljava/lang/Math;->max(II)I
 
-    invoke-direct {v8, v5, v9, v3}, Lq/S;-><init>(Ljava/lang/String;II)V
+    move-result v5
 
-    sput-object v8, Lq/S;->h:Lq/S;
+    move/from16 v7, p5
 
-    new-instance v9, Lq/S;
+    invoke-static {v6, v7}, Ljava/lang/Math;->max(II)I
 
-    const v3, 0x1869e
+    move-result v7
 
-    const-string v5, "EDITION_99998_TEST_ONLY"
+    const/16 v8, 0x1e
 
-    const/4 v10, 0x7
+    const/16 v9, 0x1b
 
-    invoke-direct {v9, v5, v10, v3}, Lq/S;-><init>(Ljava/lang/String;II)V
+    if-lt v1, v9, :cond_3
 
-    sput-object v9, Lq/S;->i:Lq/S;
+    if-gt v1, v8, :cond_3
 
-    new-instance v10, Lq/S;
+    const/4 v10, 0x1
 
-    const v3, 0x1869f
+    goto :goto_3
 
-    const-string v5, "EDITION_99999_TEST_ONLY"
+    :cond_3
+    move v10, v6
 
-    const/16 v11, 0x8
+    :goto_3
+    const/4 v11, -0x1
 
-    invoke-direct {v10, v5, v11, v3}, Lq/S;-><init>(Ljava/lang/String;II)V
+    if-eqz v10, :cond_4
 
-    sput-object v10, Lq/S;->j:Lq/S;
+    goto :goto_4
 
-    move-object v3, v4
+    :cond_4
+    move v1, v11
 
-    move-object v4, v6
+    :goto_4
+    if-lt v2, v9, :cond_5
 
-    move-object v5, v7
+    if-gt v2, v8, :cond_5
 
-    move-object v6, v8
+    move v11, v2
 
-    move-object v7, v9
+    :cond_5
+    move/from16 v2, p8
 
-    move-object v8, v10
+    invoke-static {v6, v2}, Ljava/lang/Math;->max(II)I
 
-    filled-new-array/range {v0 .. v8}, [Lq/S;
+    move-result v2
 
-    move-result-object v0
+    if-nez p9, :cond_6
 
-    sput-object v0, Lq/S;->k:[Lq/S;
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    invoke-static {}, Lq/S;->values()[Lq/S;
+    move-result-object v6
+
+    goto :goto_6
+
+    :cond_6
+    new-instance v6, Ljava/util/ArrayList;
+
+    invoke-interface/range {p9 .. p9}, Ljava/util/Collection;->size()I
+
+    move-result v8
+
+    invoke-direct {v6, v8}, Ljava/util/ArrayList;-><init>(I)V
+
+    invoke-interface/range {p9 .. p9}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v8
+
+    :goto_5
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_7
+
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v9
+
+    invoke-static {v9}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {v6, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_5
+
+    :cond_7
+    invoke-static {v6}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v6
+
+    :goto_6
+    iput-object v3, v0, Lq/S;->a:Ljava/util/List;
+
+    iput-object v4, v0, Lq/S;->b:[I
+
+    iput v5, v0, Lq/S;->c:I
+
+    move/from16 v3, p4
+
+    iput-boolean v3, v0, Lq/S;->d:Z
+
+    iput v7, v0, Lq/S;->e:I
+
+    iput v1, v0, Lq/S;->f:I
+
+    iput v11, v0, Lq/S;->g:I
+
+    iput v2, v0, Lq/S;->h:I
+
+    iput-object v6, v0, Lq/S;->i:Ljava/util/List;
+
+    move-object/from16 v1, p10
+
+    iput-object v1, v0, Lq/S;->j:Lq/T;
+
+    move/from16 v1, p11
+
+    iput-boolean v1, v0, Lq/S;->k:Z
 
     return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;II)V
-    .registers 4
-
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
-
-    iput p3, p0, Lq/S;->a:I
-
-    return-void
-.end method
-
-.method public static b(I)Lq/S;
-    .registers 2
-
-    if-eqz p0, :cond_28
-
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_25
-
-    const/4 v0, 0x2
-
-    if-eq p0, v0, :cond_22
-
-    packed-switch p0, :pswitch_data_2c
-
-    packed-switch p0, :pswitch_data_36
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :pswitch_10  #0x1869f
-    sget-object p0, Lq/S;->j:Lq/S;
-
-    return-object p0
-
-    :pswitch_13  #0x1869e
-    sget-object p0, Lq/S;->i:Lq/S;
-
-    return-object p0
-
-    :pswitch_16  #0x1869d
-    sget-object p0, Lq/S;->h:Lq/S;
-
-    return-object p0
-
-    :pswitch_19  #0x3e8
-    sget-object p0, Lq/S;->e:Lq/S;
-
-    return-object p0
-
-    :pswitch_1c  #0x3e7
-    sget-object p0, Lq/S;->d:Lq/S;
-
-    return-object p0
-
-    :pswitch_1f  #0x3e6
-    sget-object p0, Lq/S;->c:Lq/S;
-
-    return-object p0
-
-    :cond_22
-    sget-object p0, Lq/S;->g:Lq/S;
-
-    return-object p0
-
-    :cond_25
-    sget-object p0, Lq/S;->f:Lq/S;
-
-    return-object p0
-
-    :cond_28
-    sget-object p0, Lq/S;->b:Lq/S;
-
-    return-object p0
-
-    nop
-
-    :pswitch_data_2c
-    .packed-switch 0x3e6
-        :pswitch_1f  #000003e6
-        :pswitch_1c  #000003e7
-        :pswitch_19  #000003e8
-    .end packed-switch
-
-    :pswitch_data_36
-    .packed-switch 0x1869d
-        :pswitch_16  #0001869d
-        :pswitch_13  #0001869e
-        :pswitch_10  #0001869f
-    .end packed-switch
-.end method
-
-.method public static valueOf(Ljava/lang/String;)Lq/S;
-    .registers 2
-
-    const-class v0, Lq/S;
-
-    invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
-
-    move-result-object p0
-
-    check-cast p0, Lq/S;
-
-    return-object p0
-.end method
-
-.method public static values()[Lq/S;
-    .registers 1
-
-    sget-object v0, Lq/S;->k:[Lq/S;
-
-    invoke-virtual {v0}, [Lq/S;->clone()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, [Lq/S;
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public final a()I
-    .registers 2
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 3
 
-    iget v0, p0, Lq/S;->a:I
+    const/4 v0, 0x0
 
+    if-nez p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    const-class v2, Lq/S;
+
+    if-eq v2, v1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0}, Lq/S;->h()[Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast p1, Lq/S;
+
+    invoke-virtual {p1}, Lq/S;->h()[Ljava/lang/Object;
+
+    move-result-object p1
+
+    invoke-static {v0, p1}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
+
+    move-result v0
+
+    :goto_0
     return v0
+.end method
+
+.method public final synthetic h()[Ljava/lang/Object;
+    .locals 13
+
+    iget v0, p0, Lq/S;->c:I
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lq/S;->d:Z
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    iget v2, p0, Lq/S;->e:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    iget v3, p0, Lq/S;->f:I
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    iget v4, p0, Lq/S;->g:I
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    iget v5, p0, Lq/S;->h:I
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    iget-boolean v6, p0, Lq/S;->k:Z
+
+    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    iget-object v7, p0, Lq/S;->i:Ljava/util/List;
+
+    iget-object v8, p0, Lq/S;->j:Lq/T;
+
+    iget-object v9, p0, Lq/S;->a:Ljava/util/List;
+
+    iget-object v10, p0, Lq/S;->b:[I
+
+    const/16 v11, 0xb
+
+    new-array v11, v11, [Ljava/lang/Object;
+
+    const/4 v12, 0x0
+
+    aput-object v9, v11, v12
+
+    const/4 v9, 0x1
+
+    aput-object v10, v11, v9
+
+    const/4 v9, 0x2
+
+    aput-object v0, v11, v9
+
+    const/4 v0, 0x3
+
+    aput-object v1, v11, v0
+
+    const/4 v0, 0x4
+
+    aput-object v2, v11, v0
+
+    const/4 v0, 0x5
+
+    aput-object v3, v11, v0
+
+    const/4 v0, 0x6
+
+    aput-object v4, v11, v0
+
+    const/4 v0, 0x7
+
+    aput-object v5, v11, v0
+
+    const/16 v0, 0x8
+
+    aput-object v7, v11, v0
+
+    const/16 v0, 0x9
+
+    aput-object v8, v11, v0
+
+    const/16 v0, 0xa
+
+    aput-object v6, v11, v0
+
+    return-object v11
+.end method
+
+.method public final hashCode()I
+    .locals 2
+
+    invoke-virtual {p0}, Lq/S;->h()[Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
+
+    move-result v0
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    const-class v1, Lq/S;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    return v1
+.end method
+
+.method public final toString()Ljava/lang/String;
+    .locals 6
+
+    invoke-virtual {p0}, Lq/S;->h()[Ljava/lang/Object;
+
+    move-result-object v0
+
+    const-string v1, "a;b;c;d;e;f;g;h;i;j;k"
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    if-nez v2, :cond_0
+
+    new-array v1, v3, [Ljava/lang/String;
+
+    goto :goto_0
+
+    :cond_0
+    const-string v2, ";"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    :goto_0
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-class v4, Lq/S;
+
+    const-string v5, "["
+
+    invoke-static {v4, v2, v5}, Lq/i2;->f(Ljava/lang/Class;Ljava/lang/StringBuilder;Ljava/lang/String;)V
+
+    :goto_1
+    array-length v4, v1
+
+    if-ge v3, v4, :cond_2
+
+    aget-object v4, v1, v3
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "="
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    aget-object v4, v0, v3
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    array-length v4, v1
+
+    add-int/lit8 v4, v4, -0x1
+
+    if-eq v3, v4, :cond_1
+
+    const-string v4, ", "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    const-string v0, "]"
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

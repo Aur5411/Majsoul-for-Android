@@ -1,228 +1,123 @@
-.class public abstract Lq/w2;
-.super Lq/K2;
+.class public final Lq/w2;
+.super Lq/t2;
 .source "SourceFile"
 
 
 # instance fields
-.field public final d:Lq/g2;
+.field public final a:Lq/P1;
+
+.field public final b:Ljava/lang/String;
+
+.field public final c:Lq/s2;
+
+.field public final d:[Lq/u2;
 
 
 # direct methods
-.method public constructor <init>()V
-    .registers 2
+.method public constructor <init>(Lq/P1;Lq/s2;)V
+    .locals 4
 
-    .line 1
-    invoke-direct {p0}, Lq/K2;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2
-    new-instance v0, Lq/g2;
+    iput-object p1, p0, Lq/w2;->a:Lq/P1;
 
-    invoke-direct {v0}, Lq/g2;-><init>()V
+    invoke-virtual {p1}, Lq/P1;->C()Ljava/lang/String;
 
-    .line 3
-    iput-object v0, p0, Lq/w2;->d:Lq/g2;
+    move-result-object v0
 
-    return-void
-.end method
+    const/4 v1, 0x0
 
-.method public constructor <init>(Lq/u2;)V
-    .registers 3
+    invoke-static {p2, v1, v0}, Lq/x2;->a(Lq/s2;Lq/g2;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 4
-    invoke-direct {p0, p1}, Lq/K2;-><init>(Lq/t2;)V
+    move-result-object v0
 
-    .line 5
-    iget-object p1, p1, Lq/u2;->e:Lq/e2;
+    iput-object v0, p0, Lq/w2;->b:Ljava/lang/String;
 
-    if-nez p1, :cond_a
+    iput-object p2, p0, Lq/w2;->c:Lq/s2;
 
-    .line 6
-    sget-object p1, Lq/g2;->d:Lq/g2;
+    iget-object v0, p1, Lq/P1;->f:Ljava/util/List;
 
-    goto :goto_f
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    :cond_a
-    const/4 v0, 0x1
+    move-result v0
 
-    .line 7
-    invoke-virtual {p1, v0}, Lq/e2;->b(Z)Lq/g2;
+    new-array v0, v0, [Lq/u2;
 
-    move-result-object p1
+    iput-object v0, p0, Lq/w2;->d:[Lq/u2;
 
-    .line 8
-    :goto_f
-    iput-object p1, p0, Lq/w2;->d:Lq/g2;
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p1, Lq/P1;->f:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_0
+
+    iget-object v1, p0, Lq/w2;->d:[Lq/u2;
+
+    new-instance v2, Lq/u2;
+
+    iget-object v3, p1, Lq/P1;->f:Ljava/util/List;
+
+    invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lq/C1;
+
+    invoke-direct {v2, v3, p2, p0}, Lq/u2;-><init>(Lq/C1;Lq/s2;Lq/w2;)V
+
+    aput-object v2, v1, v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p2, Lq/s2;->g:Lq/j2;
+
+    invoke-virtual {p1, p0}, Lq/j2;->b(Lq/t2;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final C()I
-    .registers 2
+.method public final b()Lq/s2;
+    .locals 1
 
-    iget-object v0, p0, Lq/w2;->d:Lq/g2;
+    iget-object v0, p0, Lq/w2;->c:Lq/s2;
 
-    invoke-virtual {v0}, Lq/g2;->h()I
-
-    move-result v0
-
-    return v0
+    return-object v0
 .end method
 
-.method public final g(Lq/R1;)Z
-    .registers 4
+.method public final c()Ljava/lang/String;
+    .locals 1
 
-    iget-object v0, p1, Lq/R1;->b:Lq/C0;
+    iget-object v0, p0, Lq/w2;->b:Ljava/lang/String;
 
-    invoke-virtual {v0}, Lq/C0;->J()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_21
-
-    iget-object v0, p1, Lq/R1;->h:Lq/G1;
-
-    invoke-virtual {p0}, Lq/K2;->y()Lq/J2;
-
-    move-result-object v1
-
-    iget-object v1, v1, Lq/J2;->a:Lq/G1;
-
-    if-ne v0, v1, :cond_19
-
-    iget-object v0, p0, Lq/w2;->d:Lq/g2;
-
-    invoke-virtual {v0, p1}, Lq/g2;->i(Lq/R1;)Z
-
-    move-result p1
-
-    return p1
-
-    :cond_19
-    new-instance p1, Ljava/lang/IllegalArgumentException;
-
-    const-string v0, "FieldDescriptor does not match message type."
-
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :cond_21
-    invoke-super {p0, p1}, Lq/K2;->g(Lq/R1;)Z
-
-    move-result p1
-
-    return p1
+    return-object v0
 .end method
 
-.method public final l()Ljava/util/Map;
-    .registers 3
+.method public final d()Ljava/lang/String;
+    .locals 1
 
-    invoke-virtual {p0}, Lq/K2;->x()Ljava/util/TreeMap;
+    iget-object v0, p0, Lq/w2;->a:Lq/P1;
 
-    move-result-object v0
-
-    iget-object v1, p0, Lq/w2;->d:Lq/g2;
-
-    invoke-virtual {v1}, Lq/g2;->f()Ljava/util/Map;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
-
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+    invoke-virtual {v0}, Lq/P1;->C()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public final m(Lq/R1;)Ljava/lang/Object;
-    .registers 4
+.method public final e()Lq/c;
+    .locals 1
 
-    iget-object v0, p1, Lq/R1;->b:Lq/C0;
+    iget-object v0, p0, Lq/w2;->a:Lq/P1;
 
-    invoke-virtual {v0}, Lq/C0;->J()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_46
-
-    iget-object v0, p1, Lq/R1;->h:Lq/G1;
-
-    invoke-virtual {p0}, Lq/K2;->y()Lq/J2;
-
-    move-result-object v1
-
-    iget-object v1, v1, Lq/J2;->a:Lq/G1;
-
-    if-ne v0, v1, :cond_3e
-
-    iget-object v0, p0, Lq/w2;->d:Lq/g2;
-
-    iget-object v0, v0, Lq/g2;->a:Lq/D4;
-
-    invoke-virtual {v0, p1}, Lq/D4;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    if-nez v0, :cond_3d
-
-    invoke-virtual {p1}, Lq/R1;->p()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_27
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object p1
-
-    return-object p1
-
-    :cond_27
-    iget-object v0, p1, Lq/R1;->g:Lq/Q1;
-
-    iget-object v0, v0, Lq/Q1;->a:Lq/P1;
-
-    sget-object v1, Lq/P1;->j:Lq/P1;
-
-    if-ne v0, v1, :cond_38
-
-    invoke-virtual {p1}, Lq/R1;->j()Lq/G1;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lq/Z1;->t(Lq/G1;)Lq/Z1;
-
-    move-result-object p1
-
-    return-object p1
-
-    :cond_38
-    invoke-virtual {p1}, Lq/R1;->g()Ljava/lang/Object;
-
-    move-result-object p1
-
-    return-object p1
-
-    :cond_3d
     return-object v0
-
-    :cond_3e
-    new-instance p1, Ljava/lang/IllegalArgumentException;
-
-    const-string v0, "FieldDescriptor does not match message type."
-
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :cond_46
-    invoke-super {p0, p1}, Lq/K2;->m(Lq/R1;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    return-object p1
 .end method

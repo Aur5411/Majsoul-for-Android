@@ -1,143 +1,76 @@
-.class public final Lq/d6;
+.class public final synthetic Lq/D6;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
 # interfaces
-.implements Lq/a6;
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public a:Ljava/util/ArrayList;
+.field public final synthetic a:Lcom/qiuhui/mahjong/WebGameActivity;
 
-.field public b:Ljava/util/ArrayList;
+.field public final synthetic b:J
+
+.field public final synthetic c:F
+
+.field public final synthetic d:F
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/qiuhui/mahjong/WebGameActivity;JFF)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lq/D6;->a:Lcom/qiuhui/mahjong/WebGameActivity;
+
+    iput-wide p2, p0, Lq/D6;->b:J
+
+    iput p4, p0, Lq/D6;->c:F
+
+    iput p5, p0, Lq/D6;->d:F
+
+    return-void
+.end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .registers 5
+.method public final run()V
+    .locals 10
 
-    check-cast p1, Ljava/lang/Integer;
+    iget-object v0, p0, Lq/D6;->a:Lcom/qiuhui/mahjong/WebGameActivity;
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    iget-object v1, v0, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
 
-    move-result v0
+    if-nez v1, :cond_0
 
-    if-eqz v0, :cond_6a
+    goto :goto_0
 
-    const/4 v1, 0x1
+    :cond_0
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    if-eq v0, v1, :cond_65
+    move-result-wide v4
 
-    const/4 v1, 0x2
+    const/4 v6, 0x1
 
-    if-eq v0, v1, :cond_57
+    const/4 v9, 0x0
 
-    const/4 v1, 0x3
+    iget-wide v2, p0, Lq/D6;->b:J
 
-    if-eq v0, v1, :cond_2c
+    iget v7, p0, Lq/D6;->c:F
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    iget v8, p0, Lq/D6;->d:F
 
-    move-result p2
+    invoke-static/range {v2 .. v9}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
 
-    if-ltz p2, :cond_18
+    move-result-object v1
 
-    goto :goto_6e
+    iget-object v0, v0, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
 
-    :cond_18
-    new-instance p2, Ljava/lang/UnsupportedOperationException;
+    invoke-virtual {v0, v1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Landroid/view/MotionEvent;->recycle()V
 
-    const-string v1, "The current AndroidX version doesn\'t support this callback value: "
-
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {p2, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw p2
-
-    :cond_2c
-    instance-of p1, p2, Ljava/util/List;
-
-    iget-object v0, p0, Lq/d6;->b:Ljava/util/ArrayList;
-
-    if-eqz p1, :cond_4b
-
-    check-cast p2, Ljava/util/List;
-
-    invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
-
-    move-result p1
-
-    if-nez p1, :cond_6e
-
-    new-instance p1, Lq/L2;
-
-    const/4 v1, 0x0
-
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Ljava/lang/Throwable;
-
-    const/4 p2, 0x7
-
-    invoke-direct {p1, p2}, Lq/L2;-><init>(I)V
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_6e
-
-    :cond_4b
-    new-instance p1, Lq/L2;
-
-    check-cast p2, Ljava/lang/Throwable;
-
-    const/4 p2, 0x7
-
-    invoke-direct {p1, p2}, Lq/L2;-><init>(I)V
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_6e
-
-    :cond_57
-    iget-object p1, p0, Lq/d6;->a:Ljava/util/ArrayList;
-
-    new-instance v0, Lq/L2;
-
-    check-cast p2, Ljava/lang/Throwable;
-
-    const/4 p2, 0x7
-
-    invoke-direct {v0, p2}, Lq/L2;-><init>(I)V
-
-    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_6e
-
-    :cond_65
-    if-eqz p2, :cond_6e
-
-    check-cast p2, Ljava/lang/Long;
-
-    goto :goto_6e
-
-    :cond_6a
-    if-eqz p2, :cond_6e
-
-    check-cast p2, Ljava/lang/Long;
-
-    :cond_6e
-    :goto_6e
+    :goto_0
     return-void
 .end method

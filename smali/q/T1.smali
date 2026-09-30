@@ -1,17 +1,61 @@
-.class public abstract Lq/T1;
-.super Ljava/lang/Object;
+.class public final Lq/T1;
+.super Lq/d;
 .source "SourceFile"
 
 
 # virtual methods
-.method public abstract b()Lq/S1;
-.end method
+.method public final a(Lq/f0;Lq/F2;)Ljava/lang/Object;
+    .locals 2
 
-.method public abstract c()Ljava/lang/String;
-.end method
+    sget-object v0, Lq/Y1;->f:Lq/Y1;
 
-.method public abstract d()Ljava/lang/String;
-.end method
+    invoke-virtual {v0}, Lq/Y1;->C()Lq/U1;
 
-.method public abstract e()Lq/c;
+    move-result-object v0
+
+    :try_start_0
+    invoke-virtual {v0, p1, p2}, Lq/U1;->R(Lq/f0;Lq/F2;)V
+    :try_end_0
+    .catch Lq/q3; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Lq/R5; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    invoke-virtual {v0}, Lq/U1;->P()Lq/Y1;
+
+    move-result-object p1
+
+    return-object p1
+
+    :catch_0
+    move-exception p1
+
+    new-instance p2, Lq/q3;
+
+    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p2, v1, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    invoke-virtual {v0}, Lq/U1;->P()Lq/Y1;
+
+    throw p2
+
+    :catch_1
+    move-exception p1
+
+    invoke-virtual {p1}, Lq/R5;->a()Lq/q3;
+
+    move-result-object p1
+
+    invoke-virtual {v0}, Lq/U1;->P()Lq/Y1;
+
+    throw p1
+
+    :catch_2
+    move-exception p1
+
+    invoke-virtual {v0}, Lq/U1;->P()Lq/Y1;
+
+    throw p1
 .end method

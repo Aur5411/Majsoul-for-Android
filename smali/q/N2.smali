@@ -1,31 +1,56 @@
-.class public abstract Lq/N2;
+.class public final synthetic Lq/N2;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
+# interfaces
+.implements Ljava/util/function/BooleanSupplier;
 
-# static fields
-.field public static final a:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-.field public static volatile b:I
+# instance fields
+.field public final synthetic a:Lq/Q2;
+
+.field public final synthetic b:J
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .registers 1
+.method public synthetic constructor <init>(Lq/Q2;J)V
+    .locals 0
 
-    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+    iput-object p1, p0, Lq/N2;->a:Lq/Q2;
 
-    sput-object v0, Lq/N2;->a:Ljava/util/concurrent/CopyOnWriteArrayList;
+    iput-wide p2, p0, Lq/N2;->b:J
 
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    return-void
+.end method
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+
+# virtual methods
+.method public final getAsBoolean()Z
+    .locals 4
+
+    iget-object v0, p0, Lq/N2;->a:Lq/Q2;
+
+    iget-object v0, v0, Lq/Q2;->d:Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lq/N2;->b:J
+
+    cmp-long v0, v0, v2
+
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    sput v0, Lq/N2;->b:I
+    goto :goto_0
 
-    return-void
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method

@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 16
+    .locals 16
 
     new-instance v0, Lai/onnxruntime/OrtException$OrtErrorCode;
 
@@ -212,14 +212,14 @@
 
     const/4 v13, 0x0
 
-    :goto_98
-    if-ge v13, v1, :cond_a9
+    :goto_0
+    if-ge v13, v1, :cond_1
 
     aget-object v2, v0, v13
 
     sget-object v3, Lai/onnxruntime/OrtException$OrtErrorCode;->ORT_JAVA_UNKNOWN:Lai/onnxruntime/OrtException$OrtErrorCode;
 
-    if-eq v2, v3, :cond_a6
+    if-eq v2, v3, :cond_0
 
     sget-object v3, Lai/onnxruntime/OrtException$OrtErrorCode;->values:[Lai/onnxruntime/OrtException$OrtErrorCode;
 
@@ -227,17 +227,17 @@
 
     aput-object v2, v3, v4
 
-    :cond_a6
+    :cond_0
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_98
+    goto :goto_0
 
-    :cond_a9
+    :cond_1
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -252,28 +252,28 @@
 .end method
 
 .method public static mapFromInt(I)Lai/onnxruntime/OrtException$OrtErrorCode;
-    .registers 3
+    .locals 2
 
-    if-ltz p0, :cond_a
+    if-ltz p0, :cond_0
 
     sget-object v0, Lai/onnxruntime/OrtException$OrtErrorCode;->values:[Lai/onnxruntime/OrtException$OrtErrorCode;
 
     array-length v1, v0
 
-    if-ge p0, v1, :cond_a
+    if-ge p0, v1, :cond_0
 
     aget-object p0, v0, p0
 
     return-object p0
 
-    :cond_a
+    :cond_0
     sget-object p0, Lai/onnxruntime/OrtException$OrtErrorCode;->ORT_JAVA_UNKNOWN:Lai/onnxruntime/OrtException$OrtErrorCode;
 
     return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lai/onnxruntime/OrtException$OrtErrorCode;
-    .registers 2
+    .locals 1
 
     const-class v0, Lai/onnxruntime/OrtException$OrtErrorCode;
 
@@ -287,7 +287,7 @@
 .end method
 
 .method public static values()[Lai/onnxruntime/OrtException$OrtErrorCode;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lai/onnxruntime/OrtException$OrtErrorCode;->$VALUES:[Lai/onnxruntime/OrtException$OrtErrorCode;
 

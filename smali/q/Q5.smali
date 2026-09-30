@@ -1,161 +1,248 @@
-.class public final Lq/Q5;
-.super Lq/h;
+.class public abstract Lq/Q5;
+.super Ljava/lang/Object;
 .source "SourceFile"
 
 
-# instance fields
-.field public final synthetic e:I
+# static fields
+.field public static final a:I
+
+.field public static final b:I
+
+.field public static final c:I
+
+.field public static final d:I
+
+.field public static final e:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .registers 4
+.method static constructor <clinit>()V
+    .locals 3
 
-    iput p2, p0, Lq/Q5;->e:I
+    const/16 v0, 0x28
 
-    const/4 p2, 0x2
+    const/16 v1, 0x24
 
-    invoke-direct {p0, p1, p2, p3}, Lq/h;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    const/16 v2, 0x22
+
+    invoke-static {v2, v0, v1}, Landroid/graphics/Color;->rgb(III)I
+
+    move-result v0
+
+    sput v0, Lq/Q5;->a:I
+
+    const/16 v0, 0x3c
+
+    const/16 v1, 0x34
+
+    const/16 v2, 0x18
+
+    invoke-static {v2, v0, v1}, Landroid/graphics/Color;->rgb(III)I
+
+    move-result v0
+
+    sput v0, Lq/Q5;->b:I
+
+    const/16 v0, 0xeb
+
+    const/16 v1, 0xe5
+
+    const/16 v2, 0xe0
+
+    invoke-static {v2, v0, v1}, Landroid/graphics/Color;->rgb(III)I
+
+    const/16 v0, 0x9a
+
+    const/16 v1, 0x3d
+
+    const/16 v2, 0xd7
+
+    invoke-static {v2, v0, v1}, Landroid/graphics/Color;->rgb(III)I
+
+    move-result v0
+
+    sput v0, Lq/Q5;->c:I
+
+    const/16 v0, 0xf7
+
+    const/16 v1, 0xf1
+
+    const/16 v2, 0xfa
+
+    invoke-static {v2, v0, v1}, Landroid/graphics/Color;->rgb(III)I
+
+    const/16 v0, 0x66
+
+    const/16 v1, 0x6c
+
+    invoke-static {v0, v1, v0}, Landroid/graphics/Color;->rgb(III)I
+
+    move-result v0
+
+    sput v0, Lq/Q5;->d:I
+
+    const/16 v0, 0x41
+
+    const/16 v1, 0x3a
+
+    const/16 v2, 0xb5
+
+    invoke-static {v2, v0, v1}, Landroid/graphics/Color;->rgb(III)I
+
+    move-result v0
+
+    sput v0, Lq/Q5;->e:I
 
     return-void
 .end method
 
+.method public static a(IFLandroid/content/Context;)Landroid/graphics/drawable/GradientDrawable;
+    .locals 1
 
-# virtual methods
-.method public final b()Z
-    .registers 6
+    new-instance v0, Landroid/graphics/drawable/GradientDrawable;
 
-    const/4 v0, 0x0
+    invoke-direct {v0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    iget v1, p0, Lq/Q5;->e:I
+    invoke-virtual {v0, p0}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    packed-switch v1, :pswitch_data_66
+    invoke-static {p2, p1}, Lq/Q5;->b(Landroid/content/Context;F)I
 
-    const-string v1, "MULTI_PROFILE"
+    move-result p0
 
-    invoke-static {v1}, Lq/k;->h(Ljava/lang/String;)Z
+    int-to-float p0, p0
 
-    move-result v1
+    invoke-virtual {v0, p0}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    if-nez v1, :cond_f
+    return-object v0
+.end method
 
-    goto :goto_13
+.method public static b(Landroid/content/Context;F)I
+    .locals 0
 
-    :cond_f
-    invoke-super {p0}, Lq/i;->b()Z
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object p0
+
+    iget p0, p0, Landroid/util/DisplayMetrics;->density:F
+
+    mul-float/2addr p1, p0
+
+    invoke-static {p1}, Ljava/lang/Math;->round(F)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static c(Landroid/content/Context;IIF)Landroid/graphics/drawable/GradientDrawable;
+    .locals 0
+
+    invoke-static {p1, p3, p0}, Lq/Q5;->a(IFLandroid/content/Context;)Landroid/graphics/drawable/GradientDrawable;
+
+    move-result-object p1
+
+    const/high16 p3, 0x3f800000    # 1.0f
+
+    invoke-static {p0, p3}, Lq/Q5;->b(Landroid/content/Context;F)I
+
+    move-result p0
+
+    invoke-virtual {p1, p0, p2}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+
+    return-object p1
+.end method
+
+.method public static d(Landroid/content/Context;Ljava/lang/String;II)Landroid/widget/TextView;
+    .locals 5
+
+    const/high16 v0, 0x41500000    # 13.0f
+
+    const/4 v1, 0x1
+
+    invoke-static {p0, p1, v0, p3, v1}, Lq/Q5;->e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+
+    move-result-object p1
+
+    const/16 p3, 0x11
+
+    invoke-virtual {p1, p3}, Landroid/widget/TextView;->setGravity(I)V
+
+    const/high16 p3, 0x41600000    # 14.0f
+
+    invoke-static {p0, p3}, Lq/Q5;->b(Landroid/content/Context;F)I
 
     move-result v0
 
-    :goto_13
-    return v0
+    const/high16 v2, 0x41200000    # 10.0f
 
-    :pswitch_14  #0x1
-    invoke-super {p0}, Lq/i;->b()Z
+    invoke-static {p0, v2}, Lq/Q5;->b(Landroid/content/Context;F)I
 
-    move-result v1
+    move-result v3
 
-    if-nez v1, :cond_1b
+    invoke-static {p0, p3}, Lq/Q5;->b(Landroid/content/Context;F)I
 
-    goto :goto_3d
+    move-result v4
 
-    :cond_1b
-    const-string v1, "MULTI_PROCESS"
+    invoke-static {p0, v2}, Lq/Q5;->b(Landroid/content/Context;F)I
 
-    invoke-static {v1}, Lq/k;->h(Ljava/lang/String;)Z
+    move-result v2
 
-    move-result v1
+    invoke-virtual {p1, v0, v3, v4, v2}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    if-eqz v1, :cond_3d
+    invoke-static {p2, p3, p0}, Lq/Q5;->a(IFLandroid/content/Context;)Landroid/graphics/drawable/GradientDrawable;
 
-    sget-object v0, Lq/O5;->a:Ljava/util/WeakHashMap;
+    move-result-object p0
 
-    sget-object v0, Lq/R5;->b:Lq/h;
+    invoke-virtual {p1, p0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {v0}, Lq/i;->b()Z
+    invoke-virtual {p1, v1}, Landroid/view/View;->setClickable(Z)V
 
-    move-result v0
+    invoke-virtual {p1, v1}, Landroid/view/View;->setFocusable(Z)V
 
-    if-eqz v0, :cond_38
+    const/4 p0, 0x0
 
-    sget-object v0, Lq/S5;->a:Lq/W5;
+    invoke-virtual {p1, p0}, Landroid/view/View;->setElevation(F)V
 
-    invoke-interface {v0}, Lq/W5;->getStatics()Lorg/chromium/support_lib_boundary/StaticsBoundaryInterface;
+    return-object p1
+.end method
 
-    move-result-object v0
+.method public static e(Landroid/content/Context;Ljava/lang/String;FIZ)Landroid/widget/TextView;
+    .locals 1
 
-    invoke-interface {v0}, Lorg/chromium/support_lib_boundary/StaticsBoundaryInterface;->isMultiProcessEnabled()Z
+    new-instance v0, Landroid/widget/TextView;
 
-    move-result v0
+    invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    goto :goto_3d
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_38
-    invoke-static {}, Lq/R5;->a()Ljava/lang/UnsupportedOperationException;
+    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setTextSize(F)V
 
-    move-result-object v0
+    invoke-virtual {v0, p3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    throw v0
+    const/16 p0, 0x10
 
-    :cond_3d
-    :goto_3d
-    return v0
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setGravity(I)V
 
-    :pswitch_3e  #0x0
-    invoke-super {p0}, Lq/i;->b()Z
+    const-string p0, "kern"
 
-    move-result v1
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setFontFeatureSettings(Ljava/lang/String;)V
 
-    if-nez v1, :cond_45
+    if-eqz p4, :cond_0
 
-    goto :goto_64
+    const-string p0, "sans"
 
-    :cond_45
-    sget-object v1, Lq/O5;->a:Ljava/util/WeakHashMap;
+    const/4 p1, 0x1
 
-    invoke-static {}, Landroid/webkit/WebView;->getCurrentWebViewPackage()Landroid/content/pm/PackageInfo;
+    invoke-static {p0, p1}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
 
-    move-result-object v1
+    move-result-object p0
 
-    if-nez v1, :cond_4e
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    goto :goto_64
-
-    :cond_4e
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x1c
-
-    if-lt v2, v3, :cond_59
-
-    invoke-static {v1}, Lq/j;->b(Landroid/content/pm/PackageInfo;)J
-
-    move-result-wide v1
-
-    goto :goto_5c
-
-    :cond_59
-    iget v1, v1, Landroid/content/pm/PackageInfo;->versionCode:I
-
-    int-to-long v1, v1
-
-    :goto_5c
-    const-wide/32 v3, 0x25f34560
-
-    cmp-long v1, v1, v3
-
-    if-ltz v1, :cond_64
-
-    const/4 v0, 0x1
-
-    :cond_64
-    :goto_64
-    return v0
-
-    nop
-
-    :pswitch_data_66
-    .packed-switch 0x0
-        :pswitch_3e  #00000000
-        :pswitch_14  #00000001
-    .end packed-switch
+    :cond_0
+    return-object v0
 .end method

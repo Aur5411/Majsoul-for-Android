@@ -4,190 +4,74 @@
 
 
 # instance fields
-.field public final a:Ljava/lang/reflect/Method;
+.field public final a:Lq/g2;
 
-.field public final b:Ljava/lang/reflect/Method;
-
-.field public final c:Ljava/lang/reflect/Method;
-
-.field public final d:Ljava/lang/reflect/Method;
-
-.field public final e:Ljava/lang/reflect/Method;
-
-.field public final f:Ljava/lang/reflect/Method;
-
-.field public final g:Ljava/lang/reflect/Method;
-
-.field public final h:Ljava/lang/reflect/Method;
+.field public final b:I
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)V
-    .registers 10
+.method public constructor <init>(ILq/g2;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-string v0, "get"
+    iput-object p2, p0, Lq/C2;->a:Lq/g2;
 
-    const-string v1, "List"
-
-    invoke-static {v0, p1, v1}, Lq/I1;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    new-array v4, v3, [Ljava/lang/Class;
-
-    invoke-static {p2, v2, v4}, Lq/K2;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lq/C2;->a:Ljava/lang/reflect/Method;
-
-    invoke-static {v0, p1, v1}, Lq/I1;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    new-array v2, v3, [Ljava/lang/Class;
-
-    invoke-static {p3, v1, v2}, Lq/K2;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lq/C2;->b:Ljava/lang/reflect/Method;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    filled-new-array {v2}, [Ljava/lang/Class;
-
-    move-result-object v4
-
-    invoke-static {p2, v1, v4}, Lq/K2;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lq/C2;->c:Ljava/lang/reflect/Method;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    filled-new-array {v2}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-static {p3, v4, v5}, Lq/K2;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lq/C2;->d:Ljava/lang/reflect/Method;
-
-    invoke-virtual {v1}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
-
-    move-result-object v1
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    const-string v5, "set"
-
-    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    filled-new-array {v2, v1}, [Ljava/lang/Class;
-
-    move-result-object v2
-
-    invoke-static {p3, v4, v2}, Lq/K2;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    const-string v4, "add"
-
-    invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    filled-new-array {v1}, [Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-static {p3, v2, v1}, Lq/K2;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lq/C2;->e:Ljava/lang/reflect/Method;
-
-    const-string v1, "Count"
-
-    invoke-static {v0, p1, v1}, Lq/I1;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    new-array v4, v3, [Ljava/lang/Class;
-
-    invoke-static {p2, v2, v4}, Lq/K2;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object p2
-
-    iput-object p2, p0, Lq/C2;->f:Ljava/lang/reflect/Method;
-
-    invoke-static {v0, p1, v1}, Lq/I1;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p2
-
-    new-array v0, v3, [Ljava/lang/Class;
-
-    invoke-static {p3, p2, v0}, Lq/K2;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object p2
-
-    iput-object p2, p0, Lq/C2;->g:Ljava/lang/reflect/Method;
-
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    const-string v0, "clear"
-
-    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    new-array p2, v3, [Ljava/lang/Class;
-
-    invoke-static {p3, p1, p2}, Lq/K2;->t(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lq/C2;->h:Ljava/lang/reflect/Method;
+    iput p1, p0, Lq/C2;->b:I
 
     return-void
+.end method
+
+
+# virtual methods
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    instance-of v0, p1, Lq/C2;
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    check-cast p1, Lq/C2;
+
+    iget-object v0, p1, Lq/C2;->a:Lq/g2;
+
+    iget-object v2, p0, Lq/C2;->a:Lq/g2;
+
+    if-ne v2, v0, :cond_1
+
+    iget v0, p0, Lq/C2;->b:I
+
+    iget p1, p1, Lq/C2;->b:I
+
+    if-ne v0, p1, :cond_1
+
+    const/4 v1, 0x1
+
+    :cond_1
+    return v1
+.end method
+
+.method public final hashCode()I
+    .locals 2
+
+    iget-object v0, p0, Lq/C2;->a:Lq/g2;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
+
+    move-result v0
+
+    const v1, 0xffff
+
+    mul-int/2addr v0, v1
+
+    iget v1, p0, Lq/C2;->b:I
+
+    add-int/2addr v0, v1
+
+    return v0
 .end method

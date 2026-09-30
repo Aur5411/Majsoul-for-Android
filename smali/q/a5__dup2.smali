@@ -1,213 +1,119 @@
-.class public abstract Lq/a5;
+.class public final Lq/a5;
 .super Ljava/lang/Object;
 .source "SourceFile"
 
+# interfaces
+.implements Landroid/content/ServiceConnection;
+
 
 # instance fields
-.field public final a:Lsun/misc/Unsafe;
+.field public final synthetic a:Lq/e5;
 
 
 # direct methods
-.method public constructor <init>(Lsun/misc/Unsafe;)V
-    .registers 2
+.method public constructor <init>(Lq/e5;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lq/a5;->a:Lsun/misc/Unsafe;
+    iput-object p1, p0, Lq/a5;->a:Lq/e5;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final a(Ljava/lang/Class;)I
-    .registers 3
+.method public final onBindingDied(Landroid/content/ComponentName;)V
+    .locals 4
 
-    iget-object v0, p0, Lq/a5;->a:Lsun/misc/Unsafe;
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, p1}, Lsun/misc/Unsafe;->arrayBaseOffset(Ljava/lang/Class;)I
+    iget-object v0, p0, Lq/a5;->a:Lq/e5;
 
-    move-result p1
+    iput-object p1, v0, Lq/e5;->h:Landroid/os/Messenger;
 
-    return p1
-.end method
+    const-string p1, "QiuHuiDiag"
 
-.method public final b(Ljava/lang/Class;)I
-    .registers 3
+    const-string v1, "bridge binding died"
 
-    iget-object v0, p0, Lq/a5;->a:Lsun/misc/Unsafe;
+    invoke-static {p1, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0, p1}, Lsun/misc/Unsafe;->arrayIndexScale(Ljava/lang/Class;)I
+    iget-boolean p1, v0, Lq/e5;->m:Z
 
-    move-result p1
+    if-eqz p1, :cond_0
 
-    return p1
-.end method
+    :try_start_0
+    iget-object p1, v0, Lq/e5;->a:Landroid/content/Context;
 
-.method public abstract c(Ljava/lang/Object;J)B
-.end method
+    invoke-virtual {p1, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-.method public final d(Ljava/lang/Object;J)I
-    .registers 5
+    :catch_0
+    const/4 p1, 0x0
 
-    iget-object v0, p0, Lq/a5;->a:Lsun/misc/Unsafe;
+    iput-boolean p1, v0, Lq/e5;->m:Z
 
-    invoke-virtual {v0, p1, p2, p3}, Lsun/misc/Unsafe;->getInt(Ljava/lang/Object;J)I
+    :cond_0
+    invoke-virtual {v0}, Lq/e5;->e()V
 
-    move-result p1
+    iget-object p1, v0, Lq/e5;->d:Landroid/os/Handler;
 
-    return p1
-.end method
+    new-instance v1, Lq/Y4;
 
-.method public final e(Ljava/lang/Object;J)J
-    .registers 5
+    const/4 v2, 0x2
 
-    iget-object v0, p0, Lq/a5;->a:Lsun/misc/Unsafe;
+    invoke-direct {v1, v0, v2}, Lq/Y4;-><init>(Lq/e5;I)V
 
-    invoke-virtual {v0, p1, p2, p3}, Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J
+    const-wide/16 v2, 0x2ee
 
-    move-result-wide p1
-
-    return-wide p1
-.end method
-
-.method public final f(Ljava/lang/reflect/Field;)J
-    .registers 4
-
-    iget-object v0, p0, Lq/a5;->a:Lsun/misc/Unsafe;
-
-    invoke-virtual {v0, p1}, Lsun/misc/Unsafe;->objectFieldOffset(Ljava/lang/reflect/Field;)J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
-.method public abstract g(Ljava/lang/Object;JB)V
-.end method
-
-.method public final h(Ljava/lang/Object;JI)V
-    .registers 6
-
-    iget-object v0, p0, Lq/a5;->a:Lsun/misc/Unsafe;
-
-    invoke-virtual {v0, p1, p2, p3, p4}, Lsun/misc/Unsafe;->putInt(Ljava/lang/Object;JI)V
+    invoke-virtual {p1, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method
 
-.method public i()Z
-    .registers 7
+.method public final onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+    .locals 1
 
-    const-class v0, Ljava/lang/Class;
+    new-instance p1, Landroid/os/Messenger;
 
-    const-class v1, Ljava/lang/Object;
+    invoke-direct {p1, p2}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V
 
-    iget-object v2, p0, Lq/a5;->a:Lsun/misc/Unsafe;
+    iget-object p2, p0, Lq/a5;->a:Lq/e5;
 
-    const/4 v3, 0x0
+    iput-object p1, p2, Lq/e5;->h:Landroid/os/Messenger;
 
-    if-nez v2, :cond_a
+    const-string p1, "QiuHuiDiag"
 
-    return v3
+    const-string v0, "bridge service connected"
 
-    :cond_a
-    :try_start_a
-    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-static {p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v2
+    iget-object p1, p2, Lq/e5;->d:Landroid/os/Handler;
 
-    const-string v4, "objectFieldOffset"
+    iget-object p2, p2, Lq/e5;->o:Lq/Y4;
 
-    const-class v5, Ljava/lang/reflect/Field;
+    invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    filled-new-array {v5}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v4, "arrayBaseOffset"
-
-    filled-new-array {v0}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v4, "arrayIndexScale"
-
-    filled-new-array {v0}, [Ljava/lang/Class;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v4, v0}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v0, "getInt"
-
-    sget-object v4, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
-
-    filled-new-array {v1, v4}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v0, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v0, "putInt"
-
-    sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    filled-new-array {v1, v4, v5}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v0, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v0, "getLong"
-
-    filled-new-array {v1, v4}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v0, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v0, "putLong"
-
-    filled-new-array {v1, v4, v4}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v0, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v0, "getObject"
-
-    filled-new-array {v1, v4}, [Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v0, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    const-string v0, "putObject"
-
-    filled-new-array {v1, v4, v1}, [Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v0, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    :try_end_65
-    .catchall {:try_start_a .. :try_end_65} :catchall_67
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :catchall_67
-    move-exception v0
-
-    invoke-static {v0}, Lq/b5;->a(Ljava/lang/Throwable;)V
-
-    return v3
+    return-void
 .end method
 
-.method public abstract j()Z
+.method public final onServiceDisconnected(Landroid/content/ComponentName;)V
+    .locals 2
+
+    iget-object p1, p0, Lq/a5;->a:Lq/e5;
+
+    const/4 v0, 0x0
+
+    iput-object v0, p1, Lq/e5;->h:Landroid/os/Messenger;
+
+    const-string v0, "QiuHuiDiag"
+
+    const-string v1, "bridge service disconnected"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p1}, Lq/e5;->e()V
+
+    return-void
 .end method

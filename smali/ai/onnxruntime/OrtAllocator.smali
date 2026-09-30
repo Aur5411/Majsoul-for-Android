@@ -16,16 +16,16 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     :try_start_0
     invoke-static {}, Lai/onnxruntime/OnnxRuntime;->init()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_4
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_4
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/RuntimeException;
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(JZ)V
-    .registers 5
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -59,15 +59,15 @@
 
 # virtual methods
 .method public close()V
-    .registers 5
+    .locals 4
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtAllocator;->closed:Z
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_1
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtAllocator;->isDefault:Z
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     sget-wide v0, Lai/onnxruntime/OnnxRuntime;->ortApiHandle:J
 
@@ -79,10 +79,10 @@
 
     iput-boolean v0, p0, Lai/onnxruntime/OrtAllocator;->closed:Z
 
-    :cond_12
+    :cond_0
     return-void
 
-    :cond_13
+    :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Trying to close an already closed OrtAllocator."
@@ -93,7 +93,7 @@
 .end method
 
 .method public isClosed()Z
-    .registers 2
+    .locals 1
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtAllocator;->closed:Z
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public isDefault()Z
-    .registers 2
+    .locals 1
 
     iget-boolean v0, p0, Lai/onnxruntime/OrtAllocator;->isDefault:Z
 
