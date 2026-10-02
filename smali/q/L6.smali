@@ -899,76 +899,12 @@
 
     move-result p1
 
-    if-eqz p1, :cond_6
-
-    const-string p1, "\n\u5f53\u524d\u7ec4\u4ef6\uff1a"
-
-    const-string p2, "com.google.android.webview"
-
-    const-string v1, ""
-
-    :try_start_0
-    invoke-static {v0}, Lq/P6;->a(Landroid/content/Context;)Landroid/content/pm/PackageInfo;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_4
-
-    iget-object p2, v3, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    iget-object p1, v3, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p1, " "
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p1, v3, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :catchall_0
-    :cond_4
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    const-string v3, "\u7cfb\u7edf\u7f51\u9875\u7ec4\u4ef6\u7248\u672c\u8fc7\u65e7\uff0cAI \u65e0\u6cd5\u5b89\u5168\u542f\u52a8\n\n1. \u70b9\u51fb\u6b64\u5904\u8fdb\u5165\u624b\u673a\u5e94\u7528\u5546\u5e97\n2. \u66f4\u65b0\u5f53\u524d\u7f51\u9875\u7ec4\u4ef6\uff1b\u82e5\u641c\u4e0d\u5230\uff0c\u8bf7\u66f4\u65b0 Chrome\n3. \u66f4\u65b0\u540e\u5f7b\u5e95\u5173\u95ed\u672c\u8f6f\u4ef6\uff0c\u518d\u91cd\u65b0\u6253\u5f00"
-
-    invoke-direct {p1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1, v2}, Lcom/qiuhui/mahjong/WebGameActivity;->Q(Ljava/lang/String;Z)V
-
-    iget-object p1, v0, Lcom/qiuhui/mahjong/WebGameActivity;->c:Landroid/widget/TextView;
-
-    if-eqz p1, :cond_5
-
-    new-instance v1, Lq/c6;
-
-    const/4 v3, 0x1
-
-    invoke-direct {v1, v0, p2, v3}, Lq/c6;-><init>(Ljava/lang/Object;Ljava/lang/Object;I)V
-
-    invoke-virtual {p1, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    :cond_5
-    return v2
-
+    # >>> 渲染进程崩溃(didCrash==true)统一走自愈：goto 到下方「网页恢复中 + 重启 Activity」路径。
+    #     原崩溃块里的「系统网页组件版本过旧」是崩溃的误导性归因（代码并未比较 WebView 版本，
+    #     只是一崩就贴该标签）且没有任何恢复，导致渲染进程一崩 AI 就永久断掉、只能手动重启。
+    #     改为与「进程被回收」分支一致：延迟重启 WebGameActivity，由 onCreate 重建
+    #     WebView+桥接并 loadUrl，AI 自动恢复。
+    goto :cond_6
     :cond_6
     const-string p1, "\u7f51\u9875\u6062\u590d\u4e2d"
 

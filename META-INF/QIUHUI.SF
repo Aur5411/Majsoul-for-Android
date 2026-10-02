@@ -1,6 +1,6 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android)
-SHA-256-Digest-Manifest: RGosrKxRq+ctwtjDuCkOKjX31OtXkztjTQLakocSd9o=
+SHA-256-Digest-Manifest: aF28aPQoKPShF/xLfsO5drgPzXArqAmM9puLe2c6qVM=
 X-Android-APK-Signed: 2, 3
 
 Name: AndroidManifest.xml
@@ -28,13 +28,13 @@ Name: assets/web/auto-battle.js
 SHA-256-Digest: i0Qh5h+UCds/9Km83bzEAU8ysCkqpTi7exle+j4ah+0=
 
 Name: assets/web/bridge.js
-SHA-256-Digest: Fx7aqHfMZfHNIGh5JsIs6h8vQKAbkgZAVWYcDgaX6oc=
+SHA-256-Digest: Cjc1xAmvRy/SyZzsT6igXfvz1+r6BsV/hzsD8tyG7jI=
 
 Name: assets/web/cat-hud.js
-SHA-256-Digest: 6vDp97EGeCNFroWuYJEJSXElAL9R97r0P+y9XqNbp5o=
+SHA-256-Digest: Q3c8ZL/U8AkAxWKXAkTKa0xscwOmKmm8XIAgVckbkmg=
 
 Name: classes.dex
-SHA-256-Digest: K16qH020FmaI1wMcLiWobuWu1CtIAp8HDIIQzFBttkE=
+SHA-256-Digest: ImFiXWzrSNZ95fsAtCH4+1Nu0QRQhyGSea/+rxk8/sQ=
 
 Name: kotlin/annotation/annotation.kotlin_builtins
 SHA-256-Digest: ZGvoYrg+5vY8equl957iU5yOHLkUYGpE+qi5Nul8wxo=

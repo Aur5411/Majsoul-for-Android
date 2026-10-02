@@ -5084,6 +5084,13 @@
 
     invoke-virtual {v4, v6}, Landroid/webkit/WebSettings;->setSupportMultipleWindows(Z)V
 
+    # >>> WebView 版本过低修复：抬高 UA 里的 Chrome 版本号到远高于阈值
+    #     游戏远端 JS 基于 navigator.userAgent 解析 Chrome/WebView 版本做软性检测，
+    #     系统 WebView 过旧时会弹「版本过低」。这里直接用现代 Android Chrome Mobile UA 覆盖。
+    const-string v8, "Mozilla/5.0 (Linux; Android 13; Pixel 7 Build/TQ3A.230805.001) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"
+
+    invoke-virtual {v4, v8}, Landroid/webkit/WebSettings;->setUserAgentString(Ljava/lang/String;)V
+
     iget-object v4, p0, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
 
     invoke-virtual {v4, v0, v6}, Landroid/webkit/WebView;->setRendererPriorityPolicy(IZ)V
@@ -6390,6 +6397,16 @@
 .method public final onPause()V
     .locals 2
 
+    # >>> 小窗补丁：多窗口/自由窗口下 Activity 仍在可见，onPause 不代表进入后台。
+    # 若此时把 B0 置 false 并摘掉心跳 Y，OverlayService.i() 会返回 false，
+    # 悬浮窗停止刷新 q/x;->c(状态) 与 q/x;->i(推荐列表)，决策抽取 Lq/W;->g 便
+    # 一直消费陈旧推荐，表现为"能打牌但准确率下降"。这里检测到多窗口时跳过暂停。
+    invoke-virtual {p0}, Landroid/app/Activity;->isInMultiWindowMode()Z
+
+    move-result v1
+
+    if-nez v1, :cond_qh_mw_pause
+
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/qiuhui/mahjong/WebGameActivity;->B0:Z
@@ -6400,6 +6417,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    :cond_qh_mw_pause
     invoke-virtual {p0}, Lcom/qiuhui/mahjong/WebGameActivity;->C()V
 
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
@@ -6518,6 +6536,21 @@
 .method public final onStop()V
     .locals 1
 
+    # >>> 小窗补丁：部分 OEM(Vivo/OriginOS 等)在多窗口下仍会走 onStop。
+    # 多窗口时 Activity 依旧可见，若在此暂停 WebView 会冻结 JS 定时器，
+    # 造成自动打牌停摆/状态滞后。多窗口下跳过暂停，保持页面继续运行。
+    invoke-virtual {p0}, Landroid/app/Activity;->isInMultiWindowMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_qh_mw_stop
+
+    # 多窗口下仅跳过 WebView 暂停，框架生命周期仍要正常推进。
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
+
+    return-void
+
+    :cond_qh_mw_stop
     iget-object v0, p0, Lcom/qiuhui/mahjong/WebGameActivity;->a:Landroid/webkit/WebView;
 
     if-eqz v0, :cond_0

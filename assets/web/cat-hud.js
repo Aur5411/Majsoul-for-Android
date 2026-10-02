@@ -315,6 +315,22 @@
     }
 
     function activeGameRect() {
+        // Native taps always resolve against the rect published by bridge.js
+        // (left + width * x / 16). Reuse that exact projection so the marker
+        // cannot drift away from the point Android actually taps. The local
+        // crop below stays as a fallback for the frame before the first
+        // report arrives.
+        const published = global.__qiuhuiGameViewportRect;
+        if (published
+                && Number(published.width) > 0
+                && Number(published.height) > 0) {
+            return {
+                left: Number(published.left) || 0,
+                top: Number(published.top) || 0,
+                width: Number(published.width),
+                height: Number(published.height)
+            };
+        }
         const canvas = findGameCanvas();
         if (!canvas) return null;
         const source = canvas.getBoundingClientRect();
@@ -386,6 +402,11 @@
             ? new laya.Point(localX, localY)
             : { x: localX, y: localY };
         const globalPoint = tile.localToGlobal(point, true) || point;
+        // localToGlobal returns logical stage coordinates, so the divisor must
+        // be the logical stage size. The WebGL drawing buffer is a different
+        // quantity (the quality profile rewrites it) and must not be used
+        // here. When Laya exposes a scaled stage, divide by the stage size and
+        // let the published game rect provide the pixel mapping.
         const stageWidth = Number(stage.width)
             || Number(stage.designWidth)
             || 1920;
@@ -459,10 +480,19 @@
 
     function positionMarker(marker, markerData) {
         const actionOnly = markerData.kind === 'action';
-        // Resolve by the live tile identity on every discard decision. During
-        // the dealer's opening animation followDealerOpening keeps sampling
-        // this point until the layout settles, so a fixed pre-deal anchor can
-        // no longer leave every concealed recommendation one tile to the left.
+        const logicalX = Number(markerData.x);
+        const logicalY = Number(markerData.y) - (actionOnly ? .32 : .68);
+        const rect = activeGameRect();
+        // Native shares this exact 16-unit grid with the tap injector: the
+        // same x16/y9 pair that Android converts into a touch point. Placing
+        // the marker through it keeps the cat on the tile that actually gets
+        // tapped. Resolving the tile node by identity is only a fallback for
+        // the frames where the protocol has not published a grid position yet.
+        if (rect && Number.isFinite(logicalX) && Number.isFinite(logicalY)) {
+            marker.style.left = `${rect.left + rect.width * logicalX / 16}px`;
+            marker.style.top = `${rect.top + rect.height * logicalY / 9}px`;
+            return;
+        }
         if (!actionOnly) {
             const handPoint = liveHandAnchor(
                 Number(markerData.handIndex),
@@ -474,14 +504,6 @@
                 marker.style.top = `${handPoint.y}px`;
                 return;
             }
-        }
-        const logicalX = Number(markerData.x);
-        const logicalY = Number(markerData.y) - (actionOnly ? .32 : .68);
-        const rect = activeGameRect();
-        if (rect && Number.isFinite(logicalX) && Number.isFinite(logicalY)) {
-            marker.style.left = `${rect.left + rect.width * logicalX / 16}px`;
-            marker.style.top = `${rect.top + rect.height * logicalY / 9}px`;
-            return;
         }
         marker.style.left = `${logicalX / 16 * 100}%`;
         marker.style.top = `${logicalY / 9 * 100}%`;

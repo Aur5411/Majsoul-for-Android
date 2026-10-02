@@ -25,13 +25,13 @@ Name: assets/web/auto-battle.js
 SHA-256-Digest: ds/fmt9g5fp1LIbTV/85wX+6dREAjhhP5mjnUfTRkF8=
 
 Name: assets/web/bridge.js
-SHA-256-Digest: 84+qvpY5dirX+dVRKPE3zi/2U+UYtFPyngTmvoyaU9A=
+SHA-256-Digest: mzG4LY9DdwFTyWLPLFDNTJA7329WkBjo9iJD9X1MVek=
 
 Name: assets/web/cat-hud.js
-SHA-256-Digest: sqYiVPPtdaGc8KeBB9uKxRZVUPAz8NcJxLG2rTJvkko=
+SHA-256-Digest: OfiJgO7Ibzwqwe/KGXdlyOGzrrT8FyNyjbXn3ATVihM=
 
 Name: classes.dex
-SHA-256-Digest: FileV+I0bJ6+QR2iDzrd8nWSYoqjxp/gRtsb2CBHI98=
+SHA-256-Digest: edh7sdDHwYUg7KqneZpiYr+C6pMWj8reas1lQU3plz8=
 
 Name: kotlin/annotation/annotation.kotlin_builtins
 SHA-256-Digest: 9r9o1HmOzlBxkAdypKhxUDFK7TeI4ELZ4wq2CghXshE=

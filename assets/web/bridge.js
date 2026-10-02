@@ -3,6 +3,35 @@
   if (window.__qiuhuiBridgeInstalled) return;
   Object.defineProperty(window, "__qiuhuiBridgeInstalled", { value: true });
 
+  // >>> WebView 版本过低修复（JS 兜底）：native 端已在 WebSettings.setUserAgentString
+  //     把 UA 抬到现代 Android Chrome，但远端游戏 JS 也可能在文档起始极早期或经由
+  //     navigator.userAgentData（client hints）读取版本。这里再覆盖一层：
+  //     - navigator.userAgent 以实例自有属性遮蔽原型访问器；
+  //     - 补一个 userAgentData，防止基于 client hints 的版本检测误判。
+  try {
+    var __qiuhuiUA = "Mozilla/5.0 (Linux; Android 13; Pixel 7 Build/TQ3A.230805.001) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36";
+    Object.defineProperty(navigator, "userAgent", {
+      get: function () { return __qiuhuiUA; },
+      configurable: true
+    });
+  } catch (e) {}
+  try {
+    if (!navigator.userAgentData) {
+      Object.defineProperty(navigator, "userAgentData", {
+        value: {
+          mobile: true,
+          brands: [
+            { brand: "Chromium", version: "120" },
+            { brand: "Google Chrome", version: "120" },
+            { brand: "Not?A_Brand", version: "24" }
+          ],
+          platform: "Android"
+        },
+        configurable: true
+      });
+    }
+  } catch (e) {}
+
   var NativeWebSocket = window.WebSocket;
   var nextSocketId = 0;
   var maxFrameBytes = 4 * 1024 * 1024;
@@ -18,8 +47,17 @@
   var frameWorkerReady = false;
   var frameWorkerUnavailable = false;
   var pendingWorkerFrames = 0;
-  var configuredRenderWidth = Number(window.__qiuhuiRenderWidth) || 2304;
-  var configuredRenderHeight = Number(window.__qiuhuiRenderHeight) || 1296;
+  // >>> 渲染缓冲安全上限（防「玩一会儿渲染进程崩溃」）
+  //     原逻辑把 WebGL 绘制缓冲按屏幕比例放大：native 对宽高都注入 render_width
+  //     （f6.u 默认 1920），refreshAdaptiveResolution 再 width=height*aspect 拉宽，
+  //     20:9 屏可达 4262x1920(~8M px)，4K 档甚至 ~12M px。持续渲染会耗尽渲染进程
+  //     显存/堆内存，触发 didCrash 崩溃并弹出误导性的「组件版本过旧」提示。
+  //     这里把缓冲钳制在 <=1920x1080（约 2.07M px），大幅降低崩溃率。
+  //     注意：小猫 HUD/点击用的是 Laya 逻辑坐标(16 宫格)，不依赖缓冲像素，降分辨率不影响精度。
+  var MAX_RENDER_WIDTH = 1920;
+  var MAX_RENDER_HEIGHT = 1080;
+  var configuredRenderWidth = Math.min(MAX_RENDER_WIDTH, Number(window.__qiuhuiRenderWidth) || 2304);
+  var configuredRenderHeight = Math.min(MAX_RENDER_HEIGHT, Number(window.__qiuhuiRenderHeight) || 1296);
   var highQualityWidth = configuredRenderWidth;
   var highQualityHeight = configuredRenderHeight;
   var remoteInferenceActive = window.__qiuhuiRemoteInferenceActive === true;
@@ -604,24 +642,27 @@
   function refreshAdaptiveResolution() {
     if (!fullscreenAdaptEnabled) return false;
     var aspect = viewportAspect();
-    // 720P/1080P/2K/4K describe the vertical resolution. The previous wide-
-    // screen adaptation kept the 16:9 width instead, turning 1080P into only
-    // 864 vertical pixels on a 20:9 phone. Preserve the selected vertical tier
-    // and derive the horizontal buffer from the device aspect so the setting
-    // and the actual WebGL drawing buffer agree without changing layout scale.
+    // >>> 渲染缓冲安全上限：无论 aspect/档位怎么组合，钳制在 <=1920x1080。
+    //     先按档位高度算宽度，再双向收敛到安全上限，避免长屏把缓冲撑到 8M+ 像素。
     var height = configuredRenderHeight;
     var width = Math.round(height * aspect);
-    // 5120 covers 2160p on the common 20:9/21:9 range. The explicit high-
-    // quality confirmation remains the guard for memory and thermal cost.
-    if (width > 5120) {
-      width = 5120;
+    if (width > MAX_RENDER_WIDTH) {
+      width = MAX_RENDER_WIDTH;
       height = Math.round(width / aspect);
     }
     if (width < 1280) {
       width = 1280;
       height = Math.round(width / aspect);
     }
-    height = Math.max(720, Math.min(2304, height));
+    if (height > MAX_RENDER_HEIGHT) {
+      height = MAX_RENDER_HEIGHT;
+      width = Math.round(height * aspect);
+      if (width > MAX_RENDER_WIDTH) {
+        width = MAX_RENDER_WIDTH;
+        height = Math.round(width / aspect);
+      }
+    }
+    height = Math.max(720, Math.min(MAX_RENDER_HEIGHT, height));
     if ((width & 1) !== 0) width += 1;
     if ((height & 1) !== 0) height += 1;
     if (highQualityWidth === width && highQualityHeight === height) {
@@ -1129,6 +1170,20 @@
       viewportWidth: window.innerWidth,
       viewportHeight: window.innerHeight
     });
+    // Publish the identical projection to the HUD. Native taps resolve to
+    // (left + width * x / 16); if the HUD recomputes its own rect from a
+    // separately cached canvas, a small-window relayout can leave the two
+    // bases apart and the rightmost tile drifts off the tapped point.
+    try {
+      window.__qiuhuiGameViewportRect = {
+        left: rect.left,
+        top: rect.top,
+        width: rect.width,
+        height: rect.height,
+        viewportWidth: window.innerWidth,
+        viewportHeight: window.innerHeight
+      };
+    } catch (_) {}
     if (observedCanvas !== canvas && window.ResizeObserver) {
       if (canvasResizeObserver) canvasResizeObserver.disconnect();
       observedCanvas = canvas;
@@ -1846,14 +1901,13 @@
       requestIdleCallback(startDrain, { timeout: 48 });
     } else if (pacing) {
       setTimeout(startDrain, 12);
-    } else if (!binaryBridgeEnabled
-        && typeof requestIdleCallback === "function"
-        && document.visibilityState !== "hidden") {
-      requestIdleCallback(startDrain, { timeout: 48 });
     } else {
-      // Run after the game's own message listeners. Binary mode no longer
-      // starts in the same task as WebGL message handling.
-      setTimeout(startDrain, binaryBridgeEnabled ? 4 : 24);
+      // Protocol state must stay close to the game's WebSocket order. In a
+      // small window the renderer can keep the page busy enough that
+      // requestIdleCallback is delayed until its timeout, so a later state
+      // packet can overtake the decision window. A short timer still lets the
+      // game's message listeners finish while avoiding idle starvation.
+      setTimeout(startDrain, binaryBridgeEnabled ? 2 : 8);
     }
   }
 
