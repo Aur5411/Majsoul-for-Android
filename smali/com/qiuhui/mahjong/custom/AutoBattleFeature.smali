@@ -4589,24 +4589,37 @@
 .end method
 
 .method public static onRankReadbackTick()V
-    .locals 2
+    .locals 3
 
-    # Asks the page to read the rank badge it already renders and report it
-    # back through onRankReadback(int, String).
+    # Asks the page to read the rank badge it renders and report it back
+    # through onRankReadback(int, String).
     #
-    # This goes straight to Lq/O;->l instead of posting an obfuscated Runnable,
-    # because the switch table inside Lq/B cannot be read reliably from the
-    # decompiled branch indices.
-    const/4 v0, 0x0
+    # It must go through evaluateJavascript, NOT Lq/O;->l: the reflection
+    # helper resolves the method against AutoBattleFeature itself, so reusing
+    # this method's own name made it call itself forever and crash the app
+    # with a StackOverflowError. Same mechanism as configurePublicNavigation.
+    sget-object v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->webViewRef:Ljava/lang/ref/WeakReference;
 
-    new-array v1, v0, [Ljava/lang/Class;
+    if-nez v0, :cond_ref
 
-    new-array v0, v0, [Ljava/lang/Object;
+    return-void
 
-    const-string p0, "onRankReadbackTick"
+    :cond_ref
+    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
-    invoke-static {p0, v1, v0}, Lq/O;->l(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)V
+    move-result-object v0
 
+    check-cast v0, Landroid/webkit/WebView;
+
+    if-eqz v0, :cond_0
+
+    const-string v1, "window.__qiuhuiRankReadback&&window.__qiuhuiRankReadback.tick&&window.__qiuhuiRankReadback.tick()"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/webkit/WebView;->evaluateJavascript(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
+
+    :cond_0
     return-void
 .end method
 

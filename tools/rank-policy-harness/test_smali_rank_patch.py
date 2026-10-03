@@ -169,5 +169,46 @@ for fn in ("currentModeLabel(Landroid/content/SharedPreferences;)Ljava/lang/Stri
     check("%s: p0 is never overwritten by const-string" % short,
           not re.search(r"const-string p0,", code))
 
+# ---- 8. no self-recursive reflection (crash guard) ----------------------
+# Lq/O;->l resolves the method name against AutoBattleFeature itself, so a
+# method that invokes Lq/O;->l with its OWN name calls itself forever and
+# crashes the app with a StackOverflowError. Native-to-page calls must go
+# through evaluateJavascript instead.
+print("\n[8] reflection does not target the calling method itself")
+
+fb_start = src.index(".method public static onRankReadbackTick()V")
+fb_end = src.index(".end method", fb_start)
+fb = src[fb_start:fb_end]
+fb_code = "\n".join(l for l in fb.splitlines() if not l.strip().startswith("#"))
+
+check("onRankReadbackTick does not call Lq/O;->l",
+      "Lq/O;->l" not in fb_code)
+check("onRankReadbackTick uses evaluateJavascript",
+      "evaluateJavascript" in fb_code)
+check("onRankReadbackTick goes through webViewRef",
+      "webViewRef" in fb_code)
+check("onRankReadbackTick takes no parameters",
+      "onRankReadbackTick()V" in src)
+
+# Generic sweep: no method may pass its own name to the reflection helper.
+print("\n[8b] no method passes its own name to Lq/O;->l")
+import collections
+decl = collections.OrderedDict()
+for m in re.finditer(r"\.method [^\n]*?\s(\w+)\(([^)]*)\)[^\n]*\n", src):
+    decl[m.start()] = (m.group(1), m.group(2))
+offsets = list(decl.keys())
+violations = []
+for idx, off in enumerate(offsets):
+    name, _ = decl[off]
+    end = offsets[idx + 1] if idx + 1 < len(offsets) else len(src)
+    body = "\n".join(l for l in src[off:end].splitlines()
+                     if not l.strip().startswith("#"))
+    for m2 in re.finditer(r'const-string [vp]\d+, "(\w+)"', body):
+        if m2.group(1) == name and "Lq/O;->l" in body:
+            violations.append(name)
+            break
+check("no self-recursive reflection anywhere",
+      not violations, ", ".join(sorted(set(violations))))
+
 print("\n" + str(PASSED) + " passed, " + str(FAILED) + " failed")
 sys.exit(1 if FAILED else 0)
