@@ -16,10 +16,36 @@
   var lastWatchdogMatchAt = 0;
   var lastResultSeenAt = 0;
   var matchRequestPending = false;
-  var exactLabels = ["确认", "确定", "继续", "领取", "下一步", "返回大厅"];
+  // Order matters. Collecting labels must win over plain dismiss labels so a
+  // gift page is settled through "领取" before its "关闭" is used, and leaving
+  // the lobby must win over everything else. Indexed by findCandidate().
+  var exactLabels = ["返回大厅", "领取", "确认", "确定", "继续", "下一步",
+    "好的", "知道了", "关闭", "返回", "跳过", "稍后", "以后再说", "暂不", "取消"];
+  // Settlement screens plus every post-game overlay that can appear between
+  // the last tile and the lobby. The gift and affinity popups are the reason
+  // navigation stalled: they own the screen but matched none of these names,
+  // so the navigator believed it was already back in the lobby and clicked
+  // controls that the modal had swallowed.
   var resultRootNames = [
     "UI_GameEnd", "UI_Win", "UI_ScoreChange", "UI_Reward",
-    "UI_GameFinishReward", "UI_GameFinishRewardV2", "UI_ActivityReward"
+    "UI_GameFinishReward", "UI_GameFinishRewardV2", "UI_ActivityReward",
+    "UI_Gift", "UI_GiftDialog", "UI_GiftReceive", "UI_GiftSend",
+    "UI_Present", "UI_PresentDialog", "UI_ActivityGift", "UI_Exchange",
+    "UI_Favor", "UI_FavorDialog", "UI_Affinity", "UI_FriendFavor",
+    "UI_Relation", "UI_RelationDialog", "UI_FriendDialog"
+  ];
+  // Name patterns that mark a full-screen popup. This is the primary
+  // detector: a popup class whose name is not in resultRootNames still matches
+  // one of these tokens and becomes a valid dismissal target.
+  var overlayNamePattern = /(GameEnd|Win|Score|Reward|Finish|Result|Settlement|Gift|Present|Favor|Affinity|Relation|Exchange|Activity|Event|Popup|Dialog|Modal|Notice|Announce|Message|Confirm|Countdown)/i;
+  // Roots that legitimately own the whole screen while the lobby is already
+  // usable or a hand is being played. Never treat these as a blocking
+  // overlay, otherwise result dismissal would fight the running table.
+  var overlayExcludedNames = [
+    "UI_Lobby", "UI_LobbyV2", "UI_LobbyMain", "UI_Main", "UI_MainUI",
+    "UI_Home", "UI_Game", "UI_GameUI", "UI_Table", "UI_DesktopMgr",
+    "UI_Desktop", "UI_Hud", "UI_HUD", "UI_Loading", "UI_LoadingUI",
+    "UI_Login", "UI_Bg", "UI_Background", "UI_Back", "UI_Root"
   ];
 
   function report(event, extra) {
@@ -286,18 +312,98 @@
     return all.length ? all[0] : null;
   }
 
-  function resultRoots(ui) {
-    var roots = [], seen = [];
-    if (!ui) return roots;
+  function uiInstances(ui) {
+    var output = [];
+    if (!ui) return output;
     Object.keys(ui).forEach(function (name) {
-      if (resultRootNames.indexOf(name) < 0
-          && !/(GameEnd|Win|Score|Reward|Finish|Result|Settlement)/i.test(name)) return;
+      if (name.indexOf("UI_") !== 0) return;
       var root = ui[name] && ui[name].Inst;
-      if (!root || root.enable === false || root.visible === false || seen.indexOf(root) >= 0) return;
+      if (root) output.push({ name: name, root: root });
+    });
+    return output;
+  }
+
+  function overlayExcluded(name) {
+    if (overlayExcludedNames.indexOf(name) >= 0) return true;
+    // Any lobby/table/loading variant stays navigable.
+    return /(Lobby|Loading|Login|Desktop|Table|Background)/i.test(name);
+  }
+
+  /**
+   * Full-screen modal heuristic used only to decide "something is covering the
+   * lobby", never to compute a tap position. It compares a root's own box
+   * against the viewport, so it holds for any window size or aspect ratio.
+   */
+  function coversViewport(root) {
+    var width = Number(root && root.width), height = Number(root && root.height);
+    if (!Number.isFinite(width) || !Number.isFinite(height)) return false;
+    var viewportWidth = Number(window.innerWidth) || 0;
+    var viewportHeight = Number(window.innerHeight) || 0;
+    if (viewportWidth <= 0 || viewportHeight <= 0) return false;
+    return width >= viewportWidth * 0.6 && height >= viewportHeight * 0.6;
+  }
+
+  function isActiveRoot(root) {
+    if (!root || root.destroyed) return false;
+    if (root.enable === false || root.visible === false) return false;
+    return effectiveAlpha(root) > 0.05;
+  }
+
+  /**
+   * Every screen that can stand between the last tile and the lobby. Detection
+   * is name-driven first (known settlement/gift/affinity classes plus popup
+   * tokens) and falls back to "any active full-screen UI_ root that is not a
+   * lobby/table/loading root", so an unforeseen popup class is still dismissed
+   * instead of freezing the navigator.
+   */
+  function resultRoots() {
+    var roots = [], seen = [];
+    var ui = typeof uiscript !== "undefined" ? uiscript : window.uiscript;
+    if (!ui) return roots;
+    uiInstances(ui).forEach(function (entry) {
+      var name = entry.name, root = entry.root;
+      if (overlayExcluded(name) || seen.indexOf(root) >= 0) return;
+      if (!isActiveRoot(root)) return;
+      var known = resultRootNames.indexOf(name) >= 0;
+      var pattern = overlayNamePattern.test(name);
+      if (!known && !pattern && !coversViewport(root)) return;
       seen.push(root);
       roots.push(root);
     });
     return roots;
+  }
+
+  /**
+   * True when any modal is still on screen. Used to keep result navigation
+   * owning the page until the screen is genuinely clear.
+   */
+  function blockingOverlayVisible() {
+    return resultRoots().length > 0;
+  }
+
+  /**
+   * Last-resort activation for controls that only listen to pointer events.
+   * Some gift and affinity popups render their confirm button as a plain
+   * sprite with a mouse event binding, so invoking an "onClick" method does
+   * nothing and the page would stall forever. Dispatching the standard
+   * Laya/EventDispatcher click on the node's own centre reaches those.
+   */
+  function dispatchPointerClick(node) {
+    try {
+      var point = null;
+      if (node.localToGlobal) point = node.localToGlobal({ x: 0, y: 0 });
+      var x = point ? Number(point.x) : Number(node.x);
+      var y = point ? Number(point.y) : Number(node.y);
+      if (typeof Laya !== "undefined" && Laya && typeof Laya.Event === "function") {
+        var event = new Laya.Event();
+        event.type = "click";
+        event.x = Number.isFinite(x) ? x : 0;
+        event.y = Number.isFinite(y) ? y : 0;
+        if (typeof node.event === "function") { node.event(event); return true; }
+      }
+      if (typeof node.event === "function") { node.event("click", null); return true; }
+    } catch (_) {}
+    return false;
   }
 
   function clickCandidate(candidate) {
@@ -319,23 +425,16 @@
       if (typeof node.onConfirm === "function") { node.onConfirm(); return true; }
       if (typeof node.event === "function") { node.event("click"); return true; }
     } catch (_) {}
-    return false;
+    return dispatchPointerClick(node);
   }
 
   function lobbyReady() {
     var ui = typeof uiscript !== "undefined" ? uiscript : window.uiscript;
     var lobby = ui && ui.UI_Lobby && ui.UI_Lobby.Inst;
     if (!(lobby && lobby.enable !== false && lobby.visible !== false)) return false;
-    // Lobby can remain allocated underneath result popups. It is considered
-    // ready only when no result/reward root is still active.
-    var blockingRoots = resultRoots(ui);
-    for (var i = 0; i < blockingRoots.length; i += 1) {
-      var root = blockingRoots[i];
-      if (root && root.enable !== false && root.visible !== false && effectiveAlpha(root) > 0.05) {
-        return false;
-      }
-    }
-    return true;
+    // Lobby can remain allocated underneath result, gift and affinity popups.
+    // It is considered ready only when no blocking overlay is still active.
+    return !blockingOverlayVisible();
   }
 
   function activeGameInProgress() {
@@ -356,13 +455,7 @@
   }
 
   function settlementVisible() {
-    var ui = typeof uiscript !== "undefined" ? uiscript : window.uiscript;
-    var roots = resultRoots(ui);
-    for (var i = 0; i < roots.length; i += 1) {
-      if (roots[i] && roots[i].enable !== false && roots[i].visible !== false
-          && effectiveAlpha(roots[i]) > 0.05) return true;
-    }
-    return false;
+    return blockingOverlayVisible();
   }
 
   function armLobbyStart(command) {
@@ -468,8 +561,18 @@
         return;
       }
       if (watchdogBusy || settlementVisible()) {
+        // A blocking overlay is up. Result dismissal may not have been armed
+        // for this page (it can appear without a fresh navigation command), so
+        // keep ownership here and hand the screen back to the dismissal loop
+        // instead of silently spinning until the attempt budget runs out.
         resetStability();
-        if (++attempts < 480) setTimeout(probe, 500);
+        if (++attempts < 480) { setTimeout(probe, 500); return; }
+        watchdogBusy = false;
+        matchRequestPending = false;
+        configuredCommand = command;
+        report("navigation_wait", { reason: "overlay_stall", stage: stage });
+        var token = ++generation;
+        navigate(command, token);
         return;
       }
 
@@ -552,6 +655,13 @@
     var steps = 0, stableKey = "", stableCount = 0, discoveredAt = 0;
     var previousScene = "";
     var confirmClicks = 0;
+    // Dismissal used to stop after three confirm clicks and then idle for 90
+    // seconds. Gift and affinity popups routinely appear as the fourth or fifth
+    // screen after a hand ends, so the navigator sat there unable to click and
+    // the user saw a frozen page. The click budget is now only a runaway
+    // guard: clicks continue while the scene keeps changing, and a click that
+    // produces no change is retried on the same target before moving on.
+    var stalledClicks = 0, lastClickedKey = "";
     function tick() {
       if (token !== generation) return;
       var semanticHome = homeSemanticScene();
@@ -564,15 +674,11 @@
         armAuthenticatedStart(command);
         return;
       }
-      if (confirmClicks >= 3) {
-        if (steps < 360) { steps += 1; setTimeout(tick, 250); }
-        else recoverThroughLobby(command, token);
-        return;
-      }
       var candidate = findCandidate();
       if (!candidate) {
         stableKey = ""; stableCount = 0; discoveredAt = 0;
-        if (steps < 360) { steps += 1; setTimeout(tick, 250); }
+        stalledClicks = 0; lastClickedKey = "";
+        if (steps < 720) { steps += 1; setTimeout(tick, 250); }
         else recoverThroughLobby(command, token);
         return;
       }
@@ -588,11 +694,33 @@
       if (stableCount < 4 || performance.now() - discoveredAt < 900) {
         setTimeout(tick, 250); return;
       }
+      // A click that leaves the scene byte-identical is not being consumed.
+      // Re-click the same control a few times (different activation path may
+      // be required) before counting it as a genuinely stuck screen.
+      var repeatedTarget = key === lastClickedKey;
+      if (!repeatedTarget) { stalledClicks = 0; lastClickedKey = key; }
+      if (repeatedTarget && stalledClicks >= 3) {
+        // The overlay ignores every activation route. Escalate instead of
+        // waiting out the full timeout on a page that will never advance.
+        report("navigation_wait", { reason: "overlay_unresponsive", label: candidate.label });
+        stalledClicks = 0; lastClickedKey = "";
+        if (steps < 720) { steps += 1; setTimeout(tick, 250); }
+        else recoverThroughLobby(command, token);
+        return;
+      }
+      if (confirmClicks >= 24) {
+        // Runaway guard only. Reached solely when screens keep changing but
+        // the lobby never appears.
+        if (steps < 720) { steps += 1; setTimeout(tick, 250); }
+        else recoverThroughLobby(command, token);
+        return;
+      }
       previousScene = activeRoots().map(function (root) {
         return identityOf(root) + ":" + String(root.enable);
       }).join("|") + "#" + key;
       if (!clickCandidate(candidate)) { setTimeout(tick, 250); return; }
       confirmClicks += 1;
+      if (repeatedTarget) stalledClicks += 1;
       report("confirm_clicked", { stage: confirmClicks, label: candidate.label });
       steps += 1;
       var changeChecks = 0;
@@ -604,6 +732,7 @@
         }).join("|") + "#" + nextKey;
         if (scene !== previousScene) {
           stableKey = ""; stableCount = 0; discoveredAt = 0;
+          stalledClicks = 0; lastClickedKey = "";
           setTimeout(tick, 350); return;
         }
         if (++changeChecks < 24) setTimeout(waitForChange, 250);
@@ -620,7 +749,18 @@
     try { recoveries = Number(sessionStorage.getItem("qiuhui_auto_battle_recoveries")) || 0; }
     catch (_) {}
     if (recoveries >= 2) {
+      // Previously this only logged an error and stopped, leaving auto battle
+      // permanently dead for the rest of the session. Reset the budget and run
+      // one more full dismissal pass so a transient unrecognised overlay
+      // cannot strand the loop.
+      try { sessionStorage.removeItem("qiuhui_auto_battle_recoveries"); } catch (_) {}
       watchdogBusy = false;
+      matchRequestPending = false;
+      if (blockingOverlayVisible()) {
+        report("navigation_wait", { reason: "recover_retry" });
+        navigate(command, ++generation);
+        return;
+      }
       report("navigation_error", { reason: "result_timeout" });
       return;
     }
@@ -656,12 +796,15 @@
       // state. Only reject active settlement/reward layers here; current game
       // clients do not consistently expose the room-selection homepage as
       // UI_Lobby even though Lobby.matchGame is ready there.
-      var ui = typeof uiscript !== "undefined" ? uiscript : window.uiscript;
-      var roots = resultRoots(ui);
-      for (var index = 0; index < roots.length; index += 1) {
-        if (roots[index] && roots[index].enable !== false
-            && roots[index].visible !== false
-            && effectiveAlpha(roots[index]) > 0.05) return false;
+      //
+      // A rejected start must not be dropped silently: a gift or affinity
+      // popup at that moment left the loop with nothing to do and the page
+      // frozen. Dismiss the overlay first, then start as soon as it is gone.
+      if (blockingOverlayVisible()) {
+        configuredCommand = command;
+        var pendingToken = ++generation;
+        navigate(command, pendingToken);
+        return true;
       }
       configuredCommand = command;
       lobbyArmGeneration += 1;
