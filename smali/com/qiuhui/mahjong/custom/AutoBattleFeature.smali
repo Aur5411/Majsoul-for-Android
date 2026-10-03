@@ -5221,71 +5221,71 @@
 .end method
 
 .method private static currentModeLabel(Landroid/content/SharedPreferences;)Ljava/lang/String;
-    .locals 1
+    .locals 2
 
+    # Keep p0 (SharedPreferences) untouched and work on v0 only.
     invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->configuredGameMode(Landroid/content/SharedPreferences;)Lq/t;
 
-    move-result-object p0
+    move-result-object v0
 
-    sget-object v0, Lq/t;->d:Lq/t;
+    sget-object v1, Lq/t;->d:Lq/t;
 
-    if-ne p0, v0, :cond_0
+    if-ne v0, v1, :cond_0
 
-    const-string p0, "三麻"
+    const-string v0, "\u4e09\u9ebb"
 
-    return-object p0
+    return-object v0
 
     :cond_0
-    const-string p0, "四麻"
+    const-string v0, "\u56db\u9ebb"
 
-    return-object p0
+    return-object v0
 .end method
 
 .method private static reachedRankMessage(Landroid/content/SharedPreferences;)Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    # "四麻已达到目标段位，不会开始下一场"
+    # p0 is the SharedPreferences and must not be reused for anything else:
+    # overwriting it with a String and then passing it back to a method that
+    # expects SharedPreferences throws VerifyError at class-load time.
+    # Registers: v0 = mode label, v1 = Lq/t mode, v2 = builder, v3 = suffix.
     invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->currentModeLabel(Landroid/content/SharedPreferences;)Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, "已达到目标段位，不会开始下一场"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->currentModeLabel(Landroid/content/SharedPreferences;)Ljava/lang/String;
-
-    move-result-object v0
-
     invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->configuredGameMode(Landroid/content/SharedPreferences;)Lq/t;
 
-    move-result-object p0
+    move-result-object v1
 
-    sget-object v2, Lq/t;->d:Lq/t;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-ne p0, v2, :cond_0
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p0, "（切到四麻可继续冲段）"
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "\u5df2\u8fbe\u5230\u76ee\u6807\u6bb5\u4f4d\uff0c\u4e0d\u4f1a\u5f00\u59cb\u4e0b\u4e00\u573a"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v3, Lq/t;->d:Lq/t;
+
+    if-ne v1, v3, :cond_0
+
+    const-string v3, "\uff08\u5207\u5230\u56db\u9ebb\u53ef\u7ee7\u7eed\u51b2\u6bb5\uff09"
 
     goto :goto_0
 
     :cond_0
-    const-string p0, "（切到三麻可继续冲段）"
+    const-string v3, "\uff08\u5207\u5230\u4e09\u9ebb\u53ef\u7ee7\u7eed\u51b2\u6bb5\uff09"
 
     :goto_0
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static synthetic s(Landroid/content/SharedPreferences;I)V

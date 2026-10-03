@@ -140,5 +140,35 @@ check("old '当前已达到目标段位' toast removed",
       "\\u5f53\\u524d\\u5df2\\u8fbe\\u5230\\u76ee\\u6807\\u6bb5\\u4f4d\\uff0c"
       "\\u4e0d\\u4f1a\\u5f00\\u59cb\\u4e0b\\u4e00\\u573a" not in src)
 
+# ---- 7. no parameter-register type confusion (crash guard) --------------
+# A SharedPreferences parameter that gets overwritten with a String and is then
+# passed back into a method expecting SharedPreferences throws VerifyError when
+# the class is loaded, which shows up as an instant crash on launch.
+print("\n[7] parameter registers are not reused across types")
+
+
+def method_body(name, prefix=".method private static "):
+    start = src.index(prefix + name + "(")
+    end = src.index(".end method", start)
+    return src[start:end]
+
+
+for fn in ("currentModeLabel(Landroid/content/SharedPreferences;)Ljava/lang/String;",
+           "reachedRankMessage(Landroid/content/SharedPreferences;)Ljava/lang/String;"):
+    body = method_body(fn.split("(")[0])
+    code = "\n".join(l for l in body.splitlines() if not l.strip().startswith("#"))
+    short = fn.split("(")[0]
+    # any invoke that passes {p0} must go to a method taking SharedPreferences
+    bad = []
+    for m in re.finditer(r"invoke-\w+ \{p0\}, [^;]*?->(\w+)\(([^)]*)\)", code):
+        callee, params = m.group(1), m.group(2)
+        if "SharedPreferences" not in params:
+            bad.append(callee)
+    check("%s: every {p0} call targets a SharedPreferences parameter" % short,
+          not bad, "mismatched: %s" % bad)
+    # p0 must never be the target of a const-string
+    check("%s: p0 is never overwritten by const-string" % short,
+          not re.search(r"const-string p0,", code))
+
 print("\n" + str(PASSED) + " passed, " + str(FAILED) + " failed")
 sys.exit(1 if FAILED else 0)
