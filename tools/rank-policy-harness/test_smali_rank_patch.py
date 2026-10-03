@@ -62,9 +62,8 @@ expected = [
     "雀杰一", "雀杰二", "雀杰三",
     "雀豪一", "雀豪二", "雀豪三",
     "雀圣一", "雀圣二", "雀圣三",
-    "魂天",
 ]
-check("label count is 16", len(decoded) == 16, "got %d" % len(decoded))
+check("label count is 15", len(decoded) == 15, "got %d" % len(decoded))
 check("labels match the expected ladder", decoded == expected, str(decoded))
 
 # ---- 2. target rank codes -------------------------------------------------
@@ -75,21 +74,21 @@ arr = src[arr_start:arr_end]
 codes = [int(x, 16) for x in re.findall(r"0x([0-9a-f]+)", arr)]
 
 print("\n[2] target rank code list")
-check("code count is 16", len(codes) == 16, "got %d" % len(codes))
+check("code count is 15", len(codes) == 15, "got %d" % len(codes))
 check("codes ascend monotonically", codes == sorted(codes), str(codes))
 check("labels and codes have the same length", len(codes) == len(decoded))
 
 expected_codes = [101, 102, 103, 201, 202, 203, 301, 302, 303,
-                  401, 402, 403, 501, 502, 503, 601]
+                  401, 402, 403, 501, 502, 503]
 check("codes match the expected ladder", codes == expected_codes, str(codes))
 check("雀杰一 (301) is selectable", 301 in codes)
 check("雀圣一 (501) is selectable", 501 in codes)
-check("魂天 (601) is selectable", 601 in codes)
+check("魂天 (601) is intentionally not a target", 601 not in codes)
 
 # ---- 3. array allocation size -------------------------------------------
 alloc = re.search(r"const/16 v1, (0x[0-9a-f]+)\s*\n\s*new-array v0, v1, \[I", src)
 print("\n[3] code array allocation")
-check("new-array size is 0x10 (16)", bool(alloc) and alloc.group(1) == "0x10",
+check("new-array size is 0xf (15)", bool(alloc) and alloc.group(1) == "0xf",
       alloc.group(1) if alloc else "not found")
 
 # ---- 4. the stop condition must be mode-scoped --------------------------

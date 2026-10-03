@@ -5363,6 +5363,14 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    const-string v0, "web/rank-readback.js"
+
+    invoke-virtual {p0, v0}, Lcom/qiuhui/mahjong/WebGameActivity;->F(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -6475,6 +6483,13 @@
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v2, "onPageReady"
+
+    invoke-static {v2, v1, v0}, Lq/O;->l(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)V
+
+    # Nudge the page to read the rank badge it already renders. The protocol
+    # push (ResAccountInfo -> onLoginRank) is the primary source, but it does
+    # not always arrive, which leaves the home screen showing "待同步".
+    const-string v2, "onRankReadbackTick"
 
     invoke-static {v2, v1, v0}, Lq/O;->l(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)V
 
