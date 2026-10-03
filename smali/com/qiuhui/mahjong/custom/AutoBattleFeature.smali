@@ -279,13 +279,15 @@
 
     const-string v16, "\u96c0\u5723\u4e09"
 
-    filled-new-array/range {v2 .. v16}, [Ljava/lang/String;
+    const-string v17, "\u9b42\u5929"
+
+    filled-new-array/range {v2 .. v17}, [Ljava/lang/String;
 
     move-result-object v0
 
     sput-object v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->TARGET_RANK_LABELS:[Ljava/lang/String;
 
-    const/16 v1, 0xf
+    const/16 v1, 0x10
 
     new-array v0, v1, [I
 
@@ -334,6 +336,7 @@
         0x1f5
         0x1f6
         0x1f7
+        0x259
     .end array-data
 .end method
 
@@ -4584,115 +4587,6 @@
     const-string v0, "page_ready"
 
     invoke-static {v0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->schedulePublicAuthenticatedLobbyStart(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static onRankReadbackTick()V
-    .locals 3
-
-    # Asks the page to read the rank badge it renders and report it back
-    # through onRankReadback(int, String).
-    #
-    # It must go through evaluateJavascript, NOT Lq/O;->l: the reflection
-    # helper resolves the method against AutoBattleFeature itself, so reusing
-    # this method's own name made it call itself forever and crash the app
-    # with a StackOverflowError. Same mechanism as configurePublicNavigation.
-    sget-object v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->webViewRef:Ljava/lang/ref/WeakReference;
-
-    if-nez v0, :cond_ref
-
-    return-void
-
-    :cond_ref
-    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/webkit/WebView;
-
-    if-eqz v0, :cond_0
-
-    const-string v1, "window.__qiuhuiRankReadback&&window.__qiuhuiRankReadback.tick&&window.__qiuhuiRankReadback.tick()"
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/webkit/WebView;->evaluateJavascript(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public static onRankReadback(ILjava/lang/String;)V
-    .locals 3
-
-    # Fallback rank source: the page reads the rank badge it already renders in
-    # the top-left corner and reports it here. The protocol path
-    # (onLoginRank / onRankChanged) only fires when the server pushes
-    # ResAccountInfo, and when it does not the home screen stays stuck on
-    # "待同步" forever. This keeps the target-rank gate evaluable.
-    #
-    # Registers: p0 = code, p1 = mode hint, v0 = level holder, v1 = prefs,
-    # v2 = whether the value changed.
-    if-lez p0, :cond_bad
-
-    # Only accept a plausible rank code: major 1..5, minor 1..3 (101..503).
-    const/16 v0, 0x64
-
-    rem-int v0, p0, v0
-
-    if-lez v0, :cond_bad
-
-    const/16 v0, 0x400
-
-    if-gt v0, p0, :cond_bad
-
-    sget-object v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->application:Landroid/content/Context;
-
-    if-nez v0, :cond_app
-
-    :cond_bad
-    return-void
-
-    :cond_app
-    invoke-static {v0}, Lcom/qiuhui/mahjong/custom/AutoBattleSettings;->prefs(Landroid/content/Context;)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    # "three_player" means the badge belonged to the 3-player ladder.
-    const-string v2, "three_player"
-
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_four
-
-    sget v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->threePlayerLevelId:I
-
-    if-ne v0, p0, :cond_write3
-
-    return-void
-
-    :cond_write3
-    sput p0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->threePlayerLevelId:I
-
-    goto :cond_after
-
-    :cond_four
-    sget v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->fourPlayerLevelId:I
-
-    if-ne v0, p0, :cond_write4
-
-    return-void
-
-    :cond_write4
-    sput p0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->fourPlayerLevelId:I
-
-    :cond_after
-    invoke-static {v1}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->reconcileTargetRankAfterUserChange()V
-
-    invoke-static {}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->updateHomeStatus()V
 
     return-void
 .end method
