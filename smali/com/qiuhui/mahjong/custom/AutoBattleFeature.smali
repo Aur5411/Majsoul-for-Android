@@ -249,10 +249,6 @@
 
     sput-object v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->ROOM_MODE_IDS:[I
 
-    const-string v12, "\u96c0\u8c6a\u4e8c"
-
-    const-string v13, "\u96c0\u8c6a\u4e09"
-
     const-string v2, "\u521d\u5fc3\u4e00"
 
     const-string v3, "\u521d\u5fc3\u4e8c"
@@ -273,11 +269,25 @@
 
     const-string v11, "\u96c0\u8c6a\u4e00"
 
-    filled-new-array/range {v2 .. v13}, [Ljava/lang/String;
+    const-string v12, "\u96c0\u8c6a\u4e8c"
+
+    const-string v13, "\u96c0\u8c6a\u4e09"
+
+    const-string v14, "\u96c0\u5723\u4e00"
+
+    const-string v15, "\u96c0\u5723\u4e8c"
+
+    const-string v16, "\u96c0\u5723\u4e09"
+
+    const-string v17, "\u9b42\u5929"
+
+    filled-new-array/range {v2 .. v17}, [Ljava/lang/String;
 
     move-result-object v0
 
     sput-object v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->TARGET_RANK_LABELS:[Ljava/lang/String;
+
+    const/16 v1, 0x10
 
     new-array v0, v1, [I
 
@@ -323,6 +333,10 @@
         0x191
         0x192
         0x193
+        0x1f5
+        0x1f6
+        0x1f7
+        0x259
     .end array-data
 .end method
 
@@ -3109,7 +3123,13 @@
 
     invoke-static {p2}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->stopForReachedRank(Landroid/content/SharedPreferences;)V
 
-    const-string p2, "\u5f53\u524d\u5df2\u8fbe\u5230\u76ee\u6807\u6bb5\u4f4d\uff0c\u4e0d\u4f1a\u5f00\u59cb\u4e0b\u4e00\u573a"
+    invoke-static {p1}, Lcom/qiuhui/mahjong/custom/AutoBattleSettings;->prefs(Landroid/content/Context;)Landroid/content/SharedPreferences;
+
+    move-result-object p2
+
+    invoke-static {p2}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->reachedRankMessage(Landroid/content/SharedPreferences;)Ljava/lang/String;
+
+    move-result-object p2
 
     invoke-static {p1, p2, p0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
@@ -5041,15 +5061,23 @@
 .method private static reachedEitherTarget(Landroid/content/SharedPreferences;)Z
     .locals 2
 
-    sget v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->fourPlayerLevelId:I
+    # Scoped to the mode actually being played.
+    #
+    # This used to be an OR over fourPlayerLevelId and threePlayerLevelId, so a
+    # player who had already reached the target in one mode could never start
+    # the other one: the 3-player rank (already 雀豪一) satisfied the target and
+    # every attempt to enable auto battle was rejected with "当前已达到目标段位",
+    # while the 4-player rank (初心二) could never climb. Only the mode being
+    # played may stop the loop, and only that mode may block enabling it.
+    invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->configuredLevel(Landroid/content/SharedPreferences;)I
 
-    sget v1, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->threePlayerLevelId:I
+    move-result v0
 
     invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->targetRankCode(Landroid/content/SharedPreferences;)I
 
     move-result p0
 
-    invoke-static {v0, v1, p0}, Lcom/qiuhui/mahjong/custom/RankPolicy;->reachedEitherTarget(III)Z
+    invoke-static {v0, p0}, Lcom/qiuhui/mahjong/custom/RankPolicy;->reachedTarget(II)Z
 
     move-result p0
 
@@ -5188,6 +5216,74 @@
     sget-object v0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->ROOM_LABELS:[Ljava/lang/String;
 
     aget-object p0, v0, p0
+
+    return-object p0
+.end method
+
+.method private static currentModeLabel(Landroid/content/SharedPreferences;)Ljava/lang/String;
+    .locals 1
+
+    invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->configuredGameMode(Landroid/content/SharedPreferences;)Lq/t;
+
+    move-result-object p0
+
+    sget-object v0, Lq/t;->d:Lq/t;
+
+    if-ne p0, v0, :cond_0
+
+    const-string p0, "三麻"
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "四麻"
+
+    return-object p0
+.end method
+
+.method private static reachedRankMessage(Landroid/content/SharedPreferences;)Ljava/lang/String;
+    .locals 3
+
+    # "四麻已达到目标段位，不会开始下一场"
+    invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->currentModeLabel(Landroid/content/SharedPreferences;)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "已达到目标段位，不会开始下一场"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->currentModeLabel(Landroid/content/SharedPreferences;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->configuredGameMode(Landroid/content/SharedPreferences;)Lq/t;
+
+    move-result-object p0
+
+    sget-object v2, Lq/t;->d:Lq/t;
+
+    if-ne p0, v2, :cond_0
+
+    const-string p0, "（切到四麻可继续冲段）"
+
+    goto :goto_0
+
+    :cond_0
+    const-string p0, "（切到三麻可继续冲段）"
+
+    :goto_0
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -5411,38 +5507,12 @@
 .end method
 
 .method private static sharedTargetLevelOrConfigured(Landroid/content/SharedPreferences;)I
-    .locals 2
+    .locals 1
 
-    invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->targetRankCode(Landroid/content/SharedPreferences;)I
-
-    move-result v0
-
-    sget v1, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->fourPlayerLevelId:I
-
-    invoke-static {v1, v0}, Lcom/qiuhui/mahjong/custom/RankPolicy;->reachedTarget(II)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    sget p0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->fourPlayerLevelId:I
-
-    return p0
-
-    :cond_0
-    sget v1, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->threePlayerLevelId:I
-
-    invoke-static {v1, v0}, Lcom/qiuhui/mahjong/custom/RankPolicy;->reachedTarget(II)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    sget p0, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->threePlayerLevelId:I
-
-    return p0
-
-    :cond_1
+    # Mode-scoped, for the same reason as reachedEitherTarget(): returning the
+    # rank of whichever mode happened to reach the target made the per-match
+    # stop check fire while the other mode was still climbing. Only the mode
+    # being played may decide whether the loop ends.
     invoke-static {p0}, Lcom/qiuhui/mahjong/custom/AutoBattleFeature;->configuredLevel(Landroid/content/SharedPreferences;)I
 
     move-result p0
